@@ -1,0 +1,2 @@
+StewBoo.Core shall contain all domain logic, including IO (input-output and file managing),
+fundamental logic of our features, data structures, and interfaces that our UI package should communicate with.
