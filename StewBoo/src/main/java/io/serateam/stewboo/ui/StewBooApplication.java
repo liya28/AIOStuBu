@@ -21,7 +21,7 @@ public class StewBooApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws NullPointerException {
         try {
-            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(FxmlVariables.url_path_dashboardFxml));
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(SharedVariables.url_path_dashboardFxml));
             Parent root = loader.load();
 
             primaryStage.initStyle(StageStyle.UNDECORATED);

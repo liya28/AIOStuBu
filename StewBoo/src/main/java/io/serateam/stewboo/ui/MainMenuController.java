@@ -33,72 +33,72 @@ public class MainMenuController implements Initializable {
     @FXML
     private JFXButton btn_workbench;
     @FXML
-    private Pane main_area;
+    private Pane pane_mainArea;
     @FXML
-    private ImageView menu_close;
+    private ImageView imageView_menuClose;
     @FXML
-    private ImageView menu_open;
+    private ImageView imageView_menuOpen;
     @FXML
-    private Pane permanent_area;
+    private Pane pane_permanentArea;
     @FXML
     private Pane home_view;
     @FXML
-    private AnchorPane side_ankerpane;
+    private AnchorPane anchorPane_nav;
     @FXML
-    private TextField txt_search;
+    private TextField textField_search;
     @FXML
-    private ImageView user_profile;
+    private ImageView imageView_userProfile;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        side_ankerpane.setTranslateX(-119);
-        menu_open.setVisible(true);
-        menu_close.setVisible(false);
-        main_area.getChildren().setAll(home_view); // Ensure home_view is the only child initially
+        anchorPane_nav.setTranslateX(-119);
+        imageView_menuOpen.setVisible(true);
+        imageView_menuClose.setVisible(false);
+        pane_mainArea.getChildren().setAll(home_view); // Ensure home_view is the only child initially
 
         setupMenuAnimation();
 
-        btn_calendar.setOnMouseClicked(event -> loadView(FxmlVariables.path_calendarFxml));
-        btn_flashcard.setOnMouseClicked(event -> loadView(FxmlVariables.path_flashcardsFxml));
-        btn_notes.setOnMouseClicked(event -> loadView(FxmlVariables.path_notesFxml));
-        btn_pomodoro.setOnMouseClicked(event -> loadView(FxmlVariables.path_pomodoroFxml));
-        btn_todo.setOnMouseClicked(event -> loadView(FxmlVariables.path_todolistFxml));
+        btn_calendar.setOnMouseClicked(event -> loadView(SharedVariables.path_calendarFxml));
+        btn_flashcard.setOnMouseClicked(event -> loadView(SharedVariables.path_flashcardsFxml));
+        btn_notes.setOnMouseClicked(event -> loadView(SharedVariables.path_notesFxml));
+        btn_pomodoro.setOnMouseClicked(event -> loadView(SharedVariables.path_pomodoroFxml));
+        btn_todo.setOnMouseClicked(event -> loadView(SharedVariables.path_todolistFxml));
         btn_workbench.setOnMouseClicked(event -> showHomeView());
     }
 
     @FXML
     private void showHomeView() {
-        main_area.getChildren().setAll(home_view); // Clear others and show home_view
+        pane_mainArea.getChildren().setAll(home_view); // Clear others and show home_view
     }
 
     private void loadView(String fxml) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent view = loader.load();
-            main_area.getChildren().setAll(view); // Clear and add new view OMG THANK YOU ANI
+            pane_mainArea.getChildren().setAll(view); // Clear and add new view OMG THANK YOU ANI
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private void setupMenuAnimation() {
-        menu_open.setOnMouseClicked(event -> {
-            TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2), side_ankerpane);
+        imageView_menuOpen.setOnMouseClicked(event -> {
+            TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2), anchorPane_nav);
             slide.setToX(0);
             slide.play();
             slide.setOnFinished(e -> {
-                menu_open.setVisible(false);
-                menu_close.setVisible(true);
+                imageView_menuOpen.setVisible(false);
+                imageView_menuClose.setVisible(true);
             });
         });
 
-        menu_close.setOnMouseClicked(event -> {
-            TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2), side_ankerpane);
+        imageView_menuClose.setOnMouseClicked(event -> {
+            TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2), anchorPane_nav);
             slide.setToX(-119); // Slide out of view
             slide.play();
             slide.setOnFinished(e -> {
-                menu_open.setVisible(true);
-                menu_close.setVisible(false);
+                imageView_menuOpen.setVisible(true);
+                imageView_menuClose.setVisible(false);
             });
         });
     }

@@ -15,7 +15,7 @@
    <children>
       <VBox prefHeight="462.0" prefWidth="150.0">
          <children>
-            <AnchorPane fx:id="side_ankerpane" prefHeight="512.0" prefWidth="158.0" styleClass="side_ankerpane" stylesheets="@../css/style.css">
+            <AnchorPane fx:id="anchorPane_nav" prefHeight="512.0" prefWidth="158.0" styleClass="side_ankerpane" stylesheets="@../css/style.css">
                <children>
                   <JFXButton fx:id="btn_workbench" alignment="BASELINE_LEFT" layoutX="19.0" layoutY="163.0" prefHeight="30.0" prefWidth="89.0" styleClass="default_btn" stylesheets="@../css/style.css" text="Home" textFill="WHITE">
                      <graphic>
@@ -86,12 +86,12 @@
                         </Label>
                      </children>
                   </Pane>
-                  <ImageView fx:id="menu_open" fitHeight="13.0" fitWidth="13.0" layoutX="129.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageView_menuOpen" fitHeight="13.0" fitWidth="13.0" layoutX="129.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/burger.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="menu_close" fitHeight="13.0" fitWidth="13.0" layoutX="129.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageView_menuClose" fitHeight="13.0" fitWidth="13.0" layoutX="129.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/burger.png" />
                      </image>
@@ -119,9 +119,9 @@
       </VBox>
       <Pane prefHeight="499.0" prefWidth="644.0">
          <children>
-            <Pane fx:id="permanent_area">
+            <Pane fx:id="pane_permanentArea">
                <children>
-                  <TextField fx:id="txt_search" alignment="TOP_LEFT" layoutX="339.0" layoutY="11.0" prefHeight="29.0" prefWidth="169.0" promptText="Search:" stylesheets="@../css/style.css">
+                  <TextField fx:id="textField_search" alignment="TOP_LEFT" layoutX="339.0" layoutY="11.0" prefHeight="29.0" prefWidth="169.0" promptText="Search:" stylesheets="@../css/style.css">
                      <font>
                         <Font name="Century Gothic" size="13.0" />
                      </font>
@@ -136,7 +136,7 @@
                         <Image url="@../images/setting.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="user_profile" fitHeight="23.0" fitWidth="40.0" layoutX="533.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageView_userProfile" fitHeight="23.0" fitWidth="40.0" layoutX="533.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/user.png" />
                      </image>
@@ -148,7 +148,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="main_area" layoutY="50.0" prefHeight="450.0" prefWidth="642.0">
+            <Pane fx:id="pane_mainArea" layoutY="50.0" prefHeight="450.0" prefWidth="642.0">
                <children>
                   <Pane fx:id="home_view" prefHeight="440.0" prefWidth="642.0">
                      <children>
