@@ -18,8 +18,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class NewController implements Initializable {
-    private static final String FXML_PATH = "/design/";
-
     @FXML
     private ImageView Exit;
     @FXML
@@ -60,11 +58,11 @@ public class NewController implements Initializable {
 
         setupMenuAnimation();
 
-        btn_calendar.setOnMouseClicked(event -> loadView("cale_view.fxml"));
-        btn_flashcard.setOnMouseClicked(event -> loadView("flash_view.fxml"));
-        btn_notes.setOnMouseClicked(event -> loadView("notes_view.fxml"));
-        btn_pomodoro.setOnMouseClicked(event -> loadView("pomo_view.fxml"));
-        btn_todo.setOnMouseClicked(event -> loadView("todo_view.fxml"));
+        btn_calendar.setOnMouseClicked(event -> loadView(FxmlVariables.path_calendarFxml));
+        btn_flashcard.setOnMouseClicked(event -> loadView(FxmlVariables.path_flashcardsFxml));
+        btn_notes.setOnMouseClicked(event -> loadView(FxmlVariables.path_notesFxml));
+        btn_pomodoro.setOnMouseClicked(event -> loadView(FxmlVariables.path_pomodoroFxml));
+        btn_todo.setOnMouseClicked(event -> loadView(FxmlVariables.path_todolistFxml));
         btn_workbench.setOnMouseClicked(event -> showHomeView());
     }
 
@@ -75,7 +73,7 @@ public class NewController implements Initializable {
 
     private void loadView(String fxml) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_PATH + fxml));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent view = loader.load();
             main_area.getChildren().setAll(view); // Clear and add new view OMG THANK YOU ANI
         } catch (IOException e) {
