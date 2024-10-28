@@ -1,4 +1,4 @@
-package dash;
+package io.serateam.stewboo.ui;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.TranslateTransition;
@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NewController implements Initializable {
+public class MainMenuController implements Initializable {
     @FXML
     private ImageView Exit;
     @FXML
