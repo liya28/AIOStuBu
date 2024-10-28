@@ -1,4 +1,4 @@
-package dash;
+package io.serateam.stewboo.ui;
 
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;

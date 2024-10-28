@@ -11,17 +11,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dash.NewController">
+<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.MainMenuController">
    <children>
       <VBox prefHeight="462.0" prefWidth="150.0">
          <children>
-            <AnchorPane fx:id="side_ankerpane" prefHeight="512.0" prefWidth="158.0" styleClass="side_ankerpane" stylesheets="@../style/style.css">
+            <AnchorPane fx:id="anchorPane_nav" prefHeight="512.0" prefWidth="158.0" styleClass="side_ankerpane" stylesheets="@../css/style.css">
                <children>
-                  <JFXButton fx:id="btn_workbench" alignment="BASELINE_LEFT" layoutX="19.0" layoutY="163.0" prefHeight="30.0" prefWidth="89.0" styleClass="default_btn" stylesheets="@../style/style.css" text="Home" textFill="WHITE">
+                  <JFXButton fx:id="btn_workbench" alignment="BASELINE_LEFT" layoutX="19.0" layoutY="163.0" prefHeight="30.0" prefWidth="89.0" styleClass="default_btn" stylesheets="@../css/style.css" text="Home" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/home.png" />
+                              <Image url="@../images/home.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -29,11 +29,11 @@
                         <Font name="Century Gothic Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btn_pomodoro" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="213.0" prefHeight="26.0" prefWidth="134.0" styleClass="default_btn" stylesheets="@../style/style.css" text="Pomodoro" textFill="WHITE">
+                  <JFXButton fx:id="btn_pomodoro" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="213.0" prefHeight="26.0" prefWidth="134.0" styleClass="default_btn" stylesheets="@../css/style.css" text="Pomodoro" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/pomo.png" />
+                              <Image url="@../images/pomo.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -41,11 +41,11 @@
                         <Font name="Century Gothic Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btn_flashcard" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="260.0" prefHeight="26.0" prefWidth="134.0" styleClass="default_btn" stylesheets="@../style/style.css" text="Flashcard" textFill="WHITE">
+                  <JFXButton fx:id="btn_flashcard" alignment="BASELINE_LEFT" layoutX="15.0" layoutY="260.0" prefHeight="26.0" prefWidth="134.0" styleClass="default_btn" stylesheets="@../css/style.css" text="Flashcard" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="27.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/flash.png" />
+                              <Image url="@../images/flash.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -53,11 +53,11 @@
                         <Font name="Century Gothic Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btn_todo" alignment="BASELINE_LEFT" layoutX="19.0" layoutY="363.0" prefHeight="26.0" prefWidth="134.0" styleClass="default_btn" stylesheets="@../style/style.css" text="To-Do" textFill="WHITE">
+                  <JFXButton fx:id="btn_todo" alignment="BASELINE_LEFT" layoutX="19.0" layoutY="363.0" prefHeight="26.0" prefWidth="134.0" styleClass="default_btn" stylesheets="@../css/style.css" text="To-Do" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/todo.png" />
+                              <Image url="@../images/todo.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -65,11 +65,11 @@
                         <Font name="Century Gothic Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btn_notes" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="416.0" prefHeight="26.0" prefWidth="134.0" styleClass="default_btn" stylesheets="@../style/style.css" text="Notes" textFill="WHITE">
+                  <JFXButton fx:id="btn_notes" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="416.0" prefHeight="26.0" prefWidth="134.0" styleClass="default_btn" stylesheets="@../css/style.css" text="Notes" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/notes.png" />
+                              <Image url="@../images/notes.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -77,7 +77,7 @@
                         <Font name="Century Gothic Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <Pane fx:id="inner_pane" layoutX="22.0" layoutY="76.0" prefHeight="42.0" prefWidth="96.0" styleClass="inner_pane" stylesheets="@../style/style.css">
+                  <Pane fx:id="inner_pane" layoutX="22.0" layoutY="76.0" prefHeight="42.0" prefWidth="96.0" styleClass="inner_pane" stylesheets="@../css/style.css">
                      <children>
                         <Label alignment="CENTER" layoutX="4.0" layoutY="12.0" prefHeight="18.0" prefWidth="89.0" text="Study Buddy" textFill="WHITE">
                            <font>
@@ -86,21 +86,21 @@
                         </Label>
                      </children>
                   </Pane>
-                  <ImageView fx:id="menu_open" fitHeight="13.0" fitWidth="13.0" layoutX="129.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageView_menuOpen" fitHeight="13.0" fitWidth="13.0" layoutX="129.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/burger.png" />
+                        <Image url="@../images/burger.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="menu_close" fitHeight="13.0" fitWidth="13.0" layoutX="129.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageView_menuClose" fitHeight="13.0" fitWidth="13.0" layoutX="129.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/burger.png" />
+                        <Image url="@../images/burger.png" />
                      </image>
                   </ImageView>
-                  <JFXButton fx:id="btn_calendar" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="311.0" prefHeight="26.0" prefWidth="134.0" styleClass="default_btn" stylesheets="@../style/style.css" text="Calendar" textFill="WHITE">
+                  <JFXButton fx:id="btn_calendar" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="311.0" prefHeight="26.0" prefWidth="134.0" styleClass="default_btn" stylesheets="@../css/style.css" text="Calendar" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/cale.png" />
+                              <Image url="@../images/cale.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -110,7 +110,7 @@
                   </JFXButton>
                   <ImageView fitHeight="40.0" fitWidth="42.0" layoutX="52.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/logo.png" />
+                        <Image url="@../images/logo.png" />
                      </image>
                   </ImageView>
                </children>
@@ -119,40 +119,40 @@
       </VBox>
       <Pane prefHeight="499.0" prefWidth="644.0">
          <children>
-            <Pane fx:id="permanent_area">
+            <Pane fx:id="pane_permanentArea">
                <children>
-                  <TextField fx:id="txt_search" alignment="TOP_LEFT" layoutX="339.0" layoutY="11.0" prefHeight="29.0" prefWidth="169.0" promptText="Search:" stylesheets="@../style/style.css">
+                  <TextField fx:id="textField_search" alignment="TOP_LEFT" layoutX="339.0" layoutY="11.0" prefHeight="29.0" prefWidth="169.0" promptText="Search:" stylesheets="@../css/style.css">
                      <font>
                         <Font name="Century Gothic" size="13.0" />
                      </font>
                   </TextField>
                   <ImageView fitHeight="23.0" fitWidth="40.0" layoutX="314.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/search.png" />
+                        <Image url="@../images/search.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="settings" fitHeight="23.0" fitWidth="40.0" layoutX="562.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/setting.png" />
+                        <Image url="@../images/setting.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="user_profile" fitHeight="23.0" fitWidth="40.0" layoutX="533.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageView_userProfile" fitHeight="23.0" fitWidth="40.0" layoutX="533.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/user.png" />
+                        <Image url="@../images/user.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="Exit" fitHeight="23.0" fitWidth="40.0" layoutX="590.0" layoutY="12.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/exit.png" />
+                        <Image url="@../images/exit.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="main_area" layoutY="50.0" prefHeight="450.0" prefWidth="642.0">
+            <Pane fx:id="pane_mainArea" layoutY="50.0" prefHeight="450.0" prefWidth="642.0">
                <children>
                   <Pane fx:id="home_view" prefHeight="440.0" prefWidth="642.0">
                      <children>
-                        <Pane layoutX="58.0" layoutY="114.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../style/style.css" />
+                        <Pane layoutX="58.0" layoutY="114.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../css/style.css" />
                         <Label layoutX="58.0" layoutY="43.0" prefHeight="29.0" prefWidth="406.0" text="Never procrastinate 'til tomorrow what can be done today!" wrapText="true">
                            <font>
                               <Font name="Century Gothic Bold" size="14.0" />
@@ -173,13 +173,13 @@
                               <Font name="Century Gothic Bold Italic" size="12.0" />
                            </font>
                         </Label>
-                        <Pane layoutX="233.0" layoutY="114.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../style/style.css" />
+                        <Pane layoutX="233.0" layoutY="114.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../css/style.css" />
                         <Label layoutX="410.0" layoutY="85.0" prefHeight="29.0" prefWidth="134.0" text="You last studied to:" wrapText="true">
                            <font>
                               <Font name="Century Gothic Bold Italic" size="12.0" />
                            </font>
                         </Label>
-                        <Pane layoutX="409.0" layoutY="114.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../style/style.css" />
+                        <Pane layoutX="409.0" layoutY="114.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../css/style.css" />
                         <Label layoutX="61.0" layoutY="253.0" prefHeight="29.0" prefWidth="144.0" text="Event upcoming:" wrapText="true">
                            <font>
                               <Font name="Century Gothic Bold Italic" size="12.0" />
@@ -195,9 +195,9 @@
                               <Font name="Century Gothic Bold Italic" size="12.0" />
                            </font>
                         </Label>
-                        <Pane layoutX="57.0" layoutY="282.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../style/style.css" />
-                        <Pane layoutX="232.0" layoutY="282.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../style/style.css" />
-                        <Pane layoutX="408.0" layoutY="282.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../style/style.css" />
+                        <Pane layoutX="57.0" layoutY="282.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../css/style.css" />
+                        <Pane layoutX="232.0" layoutY="282.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../css/style.css" />
+                        <Pane layoutX="408.0" layoutY="282.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../css/style.css" />
                      </children>
                   </Pane>
                </children>
