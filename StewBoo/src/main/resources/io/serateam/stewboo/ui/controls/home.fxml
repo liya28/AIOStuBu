@@ -12,17 +12,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dash.NewController">
+<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dash.NewController">
    <children>
       <VBox prefHeight="462.0" prefWidth="150.0">
          <children>
-            <AnchorPane fx:id="side_ankerpane" prefHeight="512.0" prefWidth="158.0" styleClass="side_ankerpane" stylesheets="@../style/style.css">
+            <AnchorPane fx:id="side_ankerpane" prefHeight="512.0" prefWidth="158.0" styleClass="side_ankerpane" stylesheets="@../css/style.css">
                <children>
-                  <JFXButton fx:id="btn_workbench" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="150.0" prefHeight="30.0" prefWidth="89.0" styleClass="btn_workbench" stylesheets="@../style/style.css" text="Home" textFill="WHITE">
+                  <JFXButton fx:id="btn_workbench" alignment="BASELINE_LEFT" layoutX="20.0" layoutY="150.0" prefHeight="30.0" prefWidth="89.0" styleClass="btn_workbench" stylesheets="@../css/style.css" text="Home" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/home.png" />
+                              <Image url="@../images/home.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -30,11 +30,11 @@
                         <Font name="Century Gothic Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btn_pomodoro" alignment="BASELINE_LEFT" layoutX="19.0" layoutY="196.0" prefHeight="26.0" prefWidth="134.0" styleClass="btn_workbench" stylesheets="@../style/style.css" text="Pomodoro" textFill="WHITE">
+                  <JFXButton fx:id="btn_pomodoro" alignment="BASELINE_LEFT" layoutX="19.0" layoutY="196.0" prefHeight="26.0" prefWidth="134.0" styleClass="btn_workbench" stylesheets="@../css/style.css" text="Pomodoro" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/user.png" />
+                              <Image url="@../images/user.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -42,11 +42,11 @@
                         <Font name="Century Gothic Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btn_flashcard" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="244.0" prefHeight="26.0" prefWidth="134.0" styleClass="btn_workbench" stylesheets="@../style/style.css" text="Flashcard" textFill="WHITE">
+                  <JFXButton fx:id="btn_flashcard" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="244.0" prefHeight="26.0" prefWidth="134.0" styleClass="btn_workbench" stylesheets="@../css/style.css" text="Flashcard" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/backup.png" />
+                              <Image url="@../images/backup.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -54,11 +54,11 @@
                         <Font name="Century Gothic Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btn_todo" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="341.0" prefHeight="26.0" prefWidth="134.0" styleClass="btn_workbench" stylesheets="@../style/style.css" text="To-Do" textFill="WHITE">
+                  <JFXButton fx:id="btn_todo" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="341.0" prefHeight="26.0" prefWidth="134.0" styleClass="btn_workbench" stylesheets="@../css/style.css" text="To-Do" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/add.png" />
+                              <Image url="@../images/add.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -66,11 +66,11 @@
                         <Font name="Century Gothic Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btn_notes" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="387.0" prefHeight="26.0" prefWidth="134.0" styleClass="btn_workbench" stylesheets="@../style/style.css" text="Notes" textFill="WHITE">
+                  <JFXButton fx:id="btn_notes" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="387.0" prefHeight="26.0" prefWidth="134.0" styleClass="btn_workbench" stylesheets="@../css/style.css" text="Notes" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/setting.png" />
+                              <Image url="@../images/setting.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -78,7 +78,7 @@
                         <Font name="Century Gothic Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <Pane fx:id="inner_pane" layoutX="16.0" layoutY="52.0" prefHeight="42.0" prefWidth="96.0" styleClass="inner_pane" stylesheets="@../style/style.css">
+                  <Pane fx:id="inner_pane" layoutX="16.0" layoutY="52.0" prefHeight="42.0" prefWidth="96.0" styleClass="inner_pane" stylesheets="@../css/style.css">
                      <children>
                         <Label alignment="CENTER" layoutX="4.0" layoutY="12.0" prefHeight="18.0" prefWidth="89.0" text="Study Buddy" textFill="WHITE">
                            <font>
@@ -89,19 +89,19 @@
                   </Pane>
                   <ImageView fx:id="menu_open" fitHeight="13.0" fitWidth="13.0" layoutX="129.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/burger.png" />
+                        <Image url="@../images/burger.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="menu_close" fitHeight="13.0" fitWidth="13.0" layoutX="129.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/burger.png" />
+                        <Image url="@../images/burger.png" />
                      </image>
                   </ImageView>
-                  <JFXButton fx:id="btn_calendar" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="294.0" prefHeight="26.0" prefWidth="134.0" styleClass="btn_workbench" stylesheets="@../style/style.css" text="Calendar" textFill="WHITE">
+                  <JFXButton fx:id="btn_calendar" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="294.0" prefHeight="26.0" prefWidth="134.0" styleClass="btn_workbench" stylesheets="@../css/style.css" text="Calendar" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/backup.png" />
+                              <Image url="@../images/backup.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -117,29 +117,29 @@
          <children>
             <Pane fx:id="permanent_area">
                <children>
-                  <TextField fx:id="txt_search" alignment="TOP_LEFT" layoutX="339.0" layoutY="11.0" prefHeight="29.0" prefWidth="169.0" promptText="Search:" stylesheets="@../style/style.css">
+                  <TextField fx:id="txt_search" alignment="TOP_LEFT" layoutX="339.0" layoutY="11.0" prefHeight="29.0" prefWidth="169.0" promptText="Search:" stylesheets="@../css/style.css">
                      <font>
                         <Font name="Century Gothic" size="13.0" />
                      </font>
                   </TextField>
                   <ImageView fitHeight="23.0" fitWidth="40.0" layoutX="314.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/search.png" />
+                        <Image url="@../images/search.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="settings" fitHeight="23.0" fitWidth="40.0" layoutX="562.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/setting.png" />
+                        <Image url="@../images/setting.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="user_profile" fitHeight="23.0" fitWidth="40.0" layoutX="533.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/user.png" />
+                        <Image url="@../images/user.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="Exit" fitHeight="23.0" fitWidth="40.0" layoutX="590.0" layoutY="12.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../img/exit.png" />
+                        <Image url="@../images/exit.png" />
                      </image>
                   </ImageView>
                </children>
@@ -156,7 +156,7 @@
                         <Font name="Century Gothic Bold" size="23.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="82.0" layoutY="181.0" prefHeight="87.0" prefWidth="67.0" styleClass="pane_1" stylesheets="@../style/style.css">
+                  <Pane layoutX="82.0" layoutY="181.0" prefHeight="87.0" prefWidth="67.0" styleClass="pane_1" stylesheets="@../css/style.css">
                      <children>
                         <ProgressBar layoutX="9.0" layoutY="28.0" prefHeight="14.0" prefWidth="50.0" progress="0.0" />
                      </children>
