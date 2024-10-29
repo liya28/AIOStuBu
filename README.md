@@ -36,9 +36,9 @@ _Note: all the coding syntax practices we learned in class shall be applicable e
 ````java
 // I. Variables
 public static final int UNIVERSAL_VARIABLE = 10;    // constant/final variables
-public static int universalCounter = 0;             // static variables
+public static int UniversalCounter = 0;             // static variables
 private String _fieldText = "My text";              // private instance variables
-String fieldText = "My text";                      // instance variables
+String fieldText = "My text";                       // instance variables
 
 /*
  * I.a. FXML Variables
