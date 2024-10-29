@@ -7,58 +7,55 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.input.MouseEvent;
-import javafx.event.ActionEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable
+public class NavController implements Initializable
 {
     @FXML
-    private ImageView Exit;
+    private ImageView imageView_exit;
 
     @FXML
-    private Label Menu;
+    private Label label_menu;
 
     @FXML
-    private Label MenuClose;
+    private Label label_menuClose;
 
     @FXML
-    private AnchorPane slider;
+    private AnchorPane anchorPane_navPaneSlider;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        Exit.setOnMouseClicked(event -> {
+        imageView_exit.setOnMouseClicked(event -> {
             System.exit(0);
         });
 
         // Set initial position of slider off-screen
-        slider.setTranslateX(-176);
+        anchorPane_navPaneSlider.setTranslateX(-176);
 
         // Show the slider
-        Menu.setOnMouseClicked(event -> {
-            TranslateTransition slide = new TranslateTransition(Duration.seconds(0.4), slider);
+        label_menu.setOnMouseClicked(event -> {
+            TranslateTransition slide = new TranslateTransition(Duration.seconds(0.4), anchorPane_navPaneSlider);
             slide.setToX(0); // Slide into view
             slide.play();
 
             slide.setOnFinished(e -> {
-                Menu.setVisible(false);
-                MenuClose.setVisible(true);
+                label_menu.setVisible(false);
+                label_menuClose.setVisible(true);
             });
         });
 
         // Hide the slider
-        MenuClose.setOnMouseClicked(event -> {
-            TranslateTransition slide = new TranslateTransition(Duration.seconds(0.4), slider);
+        label_menuClose.setOnMouseClicked(event -> {
+            TranslateTransition slide = new TranslateTransition(Duration.seconds(0.4), anchorPane_navPaneSlider);
             slide.setToX(-176); // Slide out of view
             slide.play();
 
             slide.setOnFinished(e -> {
-                Menu.setVisible(true);
-                MenuClose.setVisible(false);
+                label_menu.setVisible(true);
+                label_menuClose.setVisible(false);
             });
         });
 
