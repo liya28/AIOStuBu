@@ -7,4 +7,8 @@ import java.time.format.DateTimeFormatter;
 public class PomodoroService implements IService
 {
 
+    @Override
+    public void initializeService() {
+
+    }
 }

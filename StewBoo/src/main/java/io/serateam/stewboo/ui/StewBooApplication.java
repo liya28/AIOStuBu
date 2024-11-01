@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class StewBooApplication extends Application {
-    private double window_x = 0;
-    private double window_y = 0;
+    private double windowX = 0;
+    private double windowY = 0;
 
     public static void StewBooLaunch() {
         launch();
@@ -28,13 +28,13 @@ public class StewBooApplication extends Application {
 
             // Enable window dragging
             root.setOnMousePressed(event -> {
-                window_x = event.getSceneX();
-                window_y = event.getSceneY();
+                windowX = event.getSceneX();
+                windowY = event.getSceneY();
             });
 
             root.setOnMouseDragged(event -> {
-                primaryStage.setX(event.getScreenX() - window_x);
-                primaryStage.setY(event.getScreenY() - window_y);
+                primaryStage.setX(event.getScreenX() - windowX);
+                primaryStage.setY(event.getScreenY() - windowY);
             });
 
             Scene scene = new Scene(root, 800, 500);
