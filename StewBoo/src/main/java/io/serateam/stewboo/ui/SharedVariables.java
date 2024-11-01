@@ -5,7 +5,7 @@ import java.net.URL;
 public class SharedVariables {
     public static final String path_dashboardFxml = "controls/dashboard.fxml";
     public static final String path_calendarFxml = "controls/calendar_view.fxml";
-    public static final String path_flashcardsFxml = "controls/flashcards_view.fxml";
+    public static final String path_flashcardsFxml = "controls/flashcards/flashcards_view.fxml";
     public static final String path_pomodoroFxml = "controls/pomodoro_view.fxml";
     public static final String path_todolistFxml = "controls/todolist_view.fxml";
     public static final String path_notesFxml = "controls/notes_view.fxml";
