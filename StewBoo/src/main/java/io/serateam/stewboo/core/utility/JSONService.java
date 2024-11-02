@@ -48,7 +48,6 @@ public class JSONService
      * @param classType e.g. MyClass.class
      * @param <T> Class that implements ISerializable
      * @return class instance with data; null if file not found
-     * @throws IOException
      */
     public static <T extends ISerializable> T deserialize(String pathToJsonFile, Class<T> classType)
     {
