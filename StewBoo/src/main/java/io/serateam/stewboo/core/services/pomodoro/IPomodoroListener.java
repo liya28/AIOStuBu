@@ -23,4 +23,11 @@ public interface IPomodoroListener
      * Updates the listener to the completed break session.
      */
     void onBreakComplete();
+
+    /**
+     * Updates the listener to the new session state.
+     * @param newState contains the state of the session.
+     * Refer to {@link PomodoroSessionState}.
+     */
+    void onStateChanged(PomodoroSessionState newState);
 }
