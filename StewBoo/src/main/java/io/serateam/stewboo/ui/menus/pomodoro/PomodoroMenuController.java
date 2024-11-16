@@ -64,8 +64,10 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     }
 
     @Override
-    public void onPomodoroCounterUpdate(int newPomodoroCounter) {
-        System.out.println("new poms: " + newPomodoroCounter + " yway");
+    public void onPomodoroCounterUpdate(int newPomodoroCounter)
+    {
+        System.out.println("+1 Pomodoro! Current number of Pomodoro collected: " + newPomodoroCounter);
+        txt_pomodoroCollected.setText("Pomodoro Collected: " + newPomodoroCounter);
     }
 
     @Override
