@@ -18,4 +18,9 @@ public interface IPomodoroListener
      * Updates the listener to the completed session.
      */
     void onSessionComplete();
+
+    /**
+     * Updates the listener to the completed break session.
+     */
+    void onBreakComplete();
 }
