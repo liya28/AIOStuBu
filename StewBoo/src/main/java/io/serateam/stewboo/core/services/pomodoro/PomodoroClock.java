@@ -80,6 +80,28 @@ class PomodoroClock
         }
         isRunning = false;
     }
+
+    /**
+     * Starts the Pomodoro clock.
+     * <p>
+     * Timer duration depends on the count of Pomodoros completed
+     * (every 4 Pomodoros translate to a break time duration).
+     * One Pomodoro is added every completed work session.
+     * <p>
+     * Duration:
+     * <ul>
+     * <li><b>Work Session</b>: 25 minutes</li>
+     * <li><b>Quick Break Session</b>: 5 minutes</li>
+     * <li><b>Long Break Session</b>: 15 minutes</li>
+     * </ul>
+     * <p>
+     * Decrements {@code remainingSeconds} every 1 second.
+     * Every decrement of {@code remainingSeconds} notifies all listeners
+     * of its current status.
+     * <p>
+     * Once {@code remainingSeconds} is exhausted to 0, the clock is stopped and 1 Pomodoro is added.
+     * It also notifies listeners of the current time and status of Pomodoro counter.
+     */
     void startClock()
     {
         stopClock();
