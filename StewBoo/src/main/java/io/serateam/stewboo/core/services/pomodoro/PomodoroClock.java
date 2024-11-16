@@ -42,6 +42,9 @@ class PomodoroClock
         }
         return instance;
     }
+
+    // region Clock Methods
+
     /**
      * @return {@code true} if clock is running, {@code false} otherwise.
      */
@@ -154,4 +157,6 @@ class PomodoroClock
             }
         }, 0, 1000);
     }
+
+    // endregion
 }
