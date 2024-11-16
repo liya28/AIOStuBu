@@ -35,6 +35,16 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         PomodoroService.addListener(this);
 
         btn_startTimer.setOnMouseClicked(e -> onStartPomodoroClick());
+        btn_stopTimer.setOnMouseClicked(e -> onStopPomodoroClick());
+    }
+    protected void onStartPomodoroClick()
+    {
+        startPomodoro();
+    }
+    protected void onStopPomodoroClick()
+    {
+        stopTimer();
+    }
     }
 
     // region IPomodoroListener Methods
