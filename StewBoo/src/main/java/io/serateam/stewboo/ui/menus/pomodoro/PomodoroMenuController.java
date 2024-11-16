@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
@@ -33,7 +34,16 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     @Override
     public void onTimerUpdate(long remainingSeconds) {
         System.out.println("Time left: " + remainingSeconds + " seconds");
-        timerText.setText(String.valueOf(remainingSeconds));
+        timerText.setText(formatSecondsToTime(remainingSeconds));
+    }
+    static String formatSecondsToTime(long timeInSeconds)
+    {
+        long hours = timeInSeconds / 3600;
+        long minutes = (timeInSeconds % 3600) / 60;
+        long seconds = timeInSeconds % 60;
+
+        LocalTime time = LocalTime.of((int) hours, (int) minutes, (int) seconds);
+        return TIME_FORMATTER.format(time);
     }
 
     @Override
