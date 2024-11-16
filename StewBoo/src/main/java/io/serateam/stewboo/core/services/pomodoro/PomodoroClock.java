@@ -67,4 +67,17 @@ class PomodoroClock
     {
         return getBreakTimeState() && (pomodoroCounter % 4 == 0);
     }
+
+    /**
+     * Stops the Pomodoro clock and resets the current Pomodoro timer.
+     */
+    void stopClock()
+    {
+        if(timer != null)
+        {
+            timer.cancel();
+            timer = null;
+        }
+        isRunning = false;
+    }
 }
