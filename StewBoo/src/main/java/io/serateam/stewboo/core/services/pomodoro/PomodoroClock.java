@@ -30,4 +30,16 @@ class PomodoroClock
         isRunning = false;
         currentState = PomodoroSessionState.WORK_SESSION;
     }
+
+    /**
+     * @return PomodoroClock singleton instance
+     */
+    static PomodoroClock getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new PomodoroClock();
+        }
+        return instance;
+    }
 }
