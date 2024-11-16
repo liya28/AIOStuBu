@@ -6,16 +6,15 @@ import io.serateam.stewboo.core.services.pomodoro.IPomodoroListener;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroSessionState;
 import io.serateam.stewboo.ui.SharedVariables;
 import io.serateam.stewboo.ui.menus.IMenu;
+import io.serateam.stewboo.ui.utility.MusicPlayer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import javafx.scene.media.Media;
 
 
 public class PomodoroMenuController implements Initializable, IMenu, IPomodoroListener
@@ -27,8 +26,6 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     @FXML private JFXButton btn_stopTimer;
 
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
-    private final Media sessionCompleteAlarm = new Media(SharedVariables.url_path_alarmMp3.toExternalForm());
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -80,14 +77,14 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     @Override
     public void onSessionComplete()
     {
-        playAlarm();
+        MusicPlayer.playMusic(SharedVariables.url_path_alarmMp3);
         System.out.println("Session complete! Time for a break.");
     }
 
     @Override
     public void onBreakComplete()
     {
-        playAlarm();
+        MusicPlayer.playMusic(SharedVariables.url_path_alarmMp3);
         System.out.println("Break complete! Time to focus.");
     }
 
