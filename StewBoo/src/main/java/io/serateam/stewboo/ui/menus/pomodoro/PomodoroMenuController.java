@@ -21,7 +21,13 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
 
     @FXML private Text text;
     @FXML private JFXTextArea timerText;
+    @FXML private Text txt_timer;
+    @FXML private Text txt_currentSession;
+    @FXML private Text txt_pomodoroCollected;
     @FXML private JFXButton btn_startTimer;
+    @FXML private JFXButton btn_stopTimer;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
