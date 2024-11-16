@@ -20,19 +20,19 @@ import javafx.scene.media.Media;
 
 public class PomodoroMenuController implements Initializable, IMenu, IPomodoroListener
 {
-    private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
-
     @FXML private Text txt_timer;
     @FXML private Text txt_currentSession;
     @FXML private Text txt_pomodoroCollected;
     @FXML private JFXButton btn_startTimer;
     @FXML private JFXButton btn_stopTimer;
 
+    private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
     private final Media sessionCompleteAlarm = new Media(SharedVariables.url_path_alarmMp3.toExternalForm());
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
         PomodoroService.addListener(this);
 
         btn_startTimer.setOnMouseClicked(e -> onStartPomodoroClick());
@@ -111,10 +111,12 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
 
     // region PomodoroService Methods
 
-    private void startPomodoro() {
+    private void startPomodoro()
+    {
         PomodoroService.startPomodoroSession();
     }
-    private void stopTimer() {
+    private void stopTimer()
+    {
         PomodoroService.stopPomodoroSession();
     }
 

@@ -21,14 +21,19 @@ public class PomodoroService implements IService
     /**
      * Waits for the Pomodoro clock to end running.
      */
-    private static void waitUntilComplete() {
+    private static void waitUntilComplete()
+    {
         // Busy-wait until the current timer finishes
         // Learn more: https://www.baeldung.com/cs/os-busy-waiting
-        while (clock.getRunningState()) {
-            try {
+        while (clock.getRunningState())
+        {
+            try
+            {
                 // Busy-waiting is expensive, do this to prevent high CPU usage :)
                 Thread.sleep(100);
-            } catch (InterruptedException e) {
+            }
+            catch (InterruptedException e)
+            {
                 Thread.currentThread().interrupt();
             }
         }
@@ -37,7 +42,8 @@ public class PomodoroService implements IService
     /**
      * Continuously runs in a separate thread until user sets {@code isRunning} to {@code false}.
      */
-    public static void startPomodoroSession() {
+    public static void startPomodoroSession()
+    {
         if(isRunning) return;
 
         isRunning = true;
@@ -52,16 +58,19 @@ public class PomodoroService implements IService
         }).start();
     }
 
-    public static void stopPomodoroSession() {
+    public static void stopPomodoroSession()
+    {
         isRunning = false;
         clock.stopClock();
     }
 
-    public static void addListener(IPomodoroListener listener) {
+    public static void addListener(IPomodoroListener listener)
+    {
         clock.addListener(listener);
     }
 
-    public static void removeListener(IPomodoroListener listener) {
+    public static void removeListener(IPomodoroListener listener)
+    {
         clock.removeListener(listener);
     }
 }
