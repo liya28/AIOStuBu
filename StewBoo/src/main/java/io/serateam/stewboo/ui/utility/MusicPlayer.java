@@ -1,6 +1,7 @@
 package io.serateam.stewboo.ui.utility;
 
 import javafx.scene.media.Media;
+import javafx.scene.media.MediaException;
 import javafx.scene.media.MediaPlayer;
 
 import java.net.URL;
@@ -15,7 +16,19 @@ public class MusicPlayer
      */
     public static void playMusic(URL path)
     {
-        MediaPlayer mp = new MediaPlayer(new Media(path.toExternalForm()));
-        mp.play();
+        if(path == null)
+        {
+            System.err.println("Error: Audio path is null");
+            return;
+        }
+        try
+        {
+            MediaPlayer mp = new MediaPlayer(new Media(path.toExternalForm()));
+            mp.play();
+        }
+        catch(MediaException ex)
+        {
+            System.err.println("Error playing audio: " + ex.getMessage());
+        }
     }
 }
