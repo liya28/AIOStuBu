@@ -13,4 +13,9 @@ public interface IPomodoroListener
      * @param newPomodoroCounter contains the state of the Pomodoro counter.
      */
     void onPomodoroCounterUpdate(int newPomodoroCounter);
+
+    /**
+     * Updates the listener to the completed session.
+     */
+    void onSessionComplete();
 }
