@@ -28,6 +28,7 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     @FXML private JFXButton btn_startTimer;
     @FXML private JFXButton btn_stopTimer;
 
+    private final Media sessionCompleteAlarm = new Media(SharedVariables.url_path_alarmMp3.toExternalForm());
 
 
     @Override
@@ -45,6 +46,10 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     {
         stopTimer();
     }
+    private void playAlarm()
+    {
+        MediaPlayer mp = new MediaPlayer(sessionCompleteAlarm);
+        mp.play();
     }
 
     // region IPomodoroListener Methods
@@ -73,12 +78,16 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     }
 
     @Override
-    public void onSessionComplete() {
+    public void onSessionComplete()
+    {
+        playAlarm();
         System.out.println("Session complete! Time for a break.");
     }
 
     @Override
-    public void onBreakComplete() {
+    public void onBreakComplete()
+    {
+        playAlarm();
         System.out.println("Break complete! Time to focus.");
     }
 
