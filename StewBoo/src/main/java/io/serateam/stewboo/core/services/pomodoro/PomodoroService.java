@@ -57,4 +57,11 @@ public class PomodoroService implements IService
         clock.stopClock();
     }
 
+    public static void addListener(IPomodoroListener listener) {
+        clock.addListener(listener);
+    }
+
+    public static void removeListener(IPomodoroListener listener) {
+        clock.removeListener(listener);
+    }
 }
