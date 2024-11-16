@@ -1,17 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="450.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.pomodoro.PomodoroMenuController">
    <children>
-      <Text fx:id="text" layoutX="247.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME TO POMODORO" AnchorPane.leftAnchor="247.0" AnchorPane.topAnchor="45.05078125" />
-      <JFXTextArea fx:id="timerText" editable="false" layoutX="254.0" layoutY="335.0" prefHeight="9.0" prefWidth="138.0" promptText="sample" text="sample" AnchorPane.leftAnchor="254.0" AnchorPane.topAnchor="335.0" />
-      <JFXButton fx:id="btn_startTimer" layoutX="249.0" layoutY="395.0" text="Start" AnchorPane.leftAnchor="249.0" AnchorPane.topAnchor="395.0" />
-      <JFXButton layoutX="351.0" layoutY="395.0" text="Stop" AnchorPane.leftAnchor="351.0" AnchorPane.topAnchor="395.0" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="221.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="221.0" AnchorPane.topAnchor="150.0" />
+      <VBox prefHeight="450.0" prefWidth="642.0">
+         <children>
+            <AnchorPane prefHeight="69.0" prefWidth="642.0">
+               <children>
+                  <Text fx:id="text" layoutX="14.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THE POMODORO TIMER" wrappingWidth="555.1162109375" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0">
+                     <font>
+                        <Font name="Verdana Bold" size="36.0" />
+                     </font></Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="317.0" prefWidth="642.0">
+               <children>
+                  <Text fx:id="txt_currentSession" layoutX="193.0" layoutY="18.064453125" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Session: Work" AnchorPane.leftAnchor="193.0" AnchorPane.topAnchor="6.0">
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font></Text>
+                  <ImageView fitHeight="226.0" fitWidth="227.0" layoutX="207.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="207.0" AnchorPane.topAnchor="55.0">
+                     <image>
+                        <Image url="@../images/pomodoroTomatoImage.png" />
+                     </image>
+                  </ImageView>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="56.0" layoutX="233.0" layoutY="152.0" stroke="BLACK" strokeType="INSIDE" width="186.0" AnchorPane.leftAnchor="233.0" AnchorPane.topAnchor="152.0" />
+                  <Text fx:id="txt_timer" layoutX="243.0" layoutY="192.17724609375" strokeType="OUTSIDE" strokeWidth="10.0" text="00:00:00" textAlignment="CENTER" AnchorPane.leftAnchor="243.0" AnchorPane.topAnchor="159.0">
+                     <font>
+                        <Font name="Verdana Bold" size="33.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txt_pomodoroCollected" layoutX="14.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pomodoro Collected: 0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="5.935546875">
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font></Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="48.0" prefWidth="642.0">
+               <children>
+                  <JFXButton fx:id="btn_stopTimer" buttonType="RAISED" layoutX="420.0" layoutY="9.0" prefHeight="31.0" prefWidth="59.0" style="-fx-background-color: red;" text="Stop" textFill="WHITE" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="9.0">
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="btn_startTimer" buttonType="RAISED" layoutX="186.0" layoutY="9.0" prefHeight="31.0" prefWidth="59.0" ripplerFill="#a82a2a" style="-fx-background-color: green;" text="Start" textFill="WHITE" AnchorPane.leftAnchor="186.0" AnchorPane.topAnchor="9.0">
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font></JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
