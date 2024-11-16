@@ -48,12 +48,14 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     }
 
     // region IPomodoroListener Methods
+
     @Override
-    public void onTimerUpdate(long remainingSeconds) {
+    public void onTimerUpdate(long remainingSeconds)
+    {
         System.out.println("Time left: " + remainingSeconds + " seconds");
-        timerText.setText(formatSecondsToTime(remainingSeconds));
+        txt_timer.setText(formatSecondsToTime(remainingSeconds));
     }
-    static String formatSecondsToTime(long timeInSeconds)
+    private String formatSecondsToTime(long timeInSeconds)
     {
         long hours = timeInSeconds / 3600;
         long minutes = (timeInSeconds % 3600) / 60;
