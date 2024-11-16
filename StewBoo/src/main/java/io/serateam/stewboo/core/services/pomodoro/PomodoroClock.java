@@ -21,4 +21,13 @@ class PomodoroClock
     private boolean isBreak;
     private boolean isRunning;
     private PomodoroSessionState currentState;
+
+    private PomodoroClock()
+    {
+        pomodoroCounter = 0;
+        remainingSeconds = 0;
+        isBreak = false;
+        isRunning = false;
+        currentState = PomodoroSessionState.WORK_SESSION;
+    }
 }
