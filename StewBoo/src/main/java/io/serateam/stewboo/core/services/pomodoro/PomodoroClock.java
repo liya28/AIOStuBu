@@ -146,13 +146,16 @@ class PomodoroClock
                     isBreak = !isBreak;
                     stopClock();
 
-                    notifyListenersOnSessionComplete();
-                    notifyListenersOnTimerUpdate(remainingSeconds);
-                    notifyListenersOnPomodoroCounter(pomodoroCounter);
-
                     if(currentState == PomodoroSessionState.QUICK_BREAK
-                    || currentState == PomodoroSessionState.LONG_BREAK)
+                            || currentState == PomodoroSessionState.LONG_BREAK)
+                    {
                         notifyListenersOnBreakComplete();
+                    }
+                    else
+                    {
+                        notifyListenersOnSessionComplete();
+                        notifyListenersOnPomodoroCounter(pomodoroCounter);
+                    }
                 }
             }
         }, 0, 1000);
