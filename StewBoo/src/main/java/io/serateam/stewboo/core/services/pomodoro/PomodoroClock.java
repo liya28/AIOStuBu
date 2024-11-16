@@ -42,4 +42,11 @@ class PomodoroClock
         }
         return instance;
     }
+    /**
+     * @return {@code true} if clock is running, {@code false} otherwise.
+     */
+    boolean getRunningState()
+    {
+        return isRunning;
+    }
 }
