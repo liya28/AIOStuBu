@@ -9,5 +9,10 @@ import io.serateam.stewboo.core.services.IService;
  */
 public class PomodoroService implements IService
 {
+    @Override
+    public void initializeService()
+    {
+        // TODO: remove this method and IService initializeService() since Service classes are utility classes; make all necessary adjustments for other classes implementing IService
+    }
 
 }
