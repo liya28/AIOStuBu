@@ -79,8 +79,19 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     }
 
     @Override
-    public void onStateChanged(PomodoroSessionState newState) {
+    public void onStateChanged(PomodoroSessionState newState)
+    {
         System.out.println("Timer state changed to: " + newState);
+        txt_currentSession.setText("Current Session: " + identifySessionState(newState));
+    }
+    private String identifySessionState(PomodoroSessionState state)
+    {
+        return switch (state)
+        {
+            case WORK_SESSION -> "Work Session (25 minutes)";
+            case QUICK_BREAK -> "Quick Break (5 minutes)";
+            case LONG_BREAK -> "Long Break (15 minutes)";
+        };
     }
 
     // endregion
