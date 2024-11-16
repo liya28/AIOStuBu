@@ -18,6 +18,9 @@ public class PomodoroService implements IService
     private static final PomodoroClock clock = PomodoroClock.getInstance();
     private static boolean isRunning = false;
 
+    /**
+     * Waits for the Pomodoro clock to end running.
+     */
     private static void waitUntilComplete() {
         // Busy-wait until the current timer finishes
         // Learn more: https://www.baeldung.com/cs/os-busy-waiting
