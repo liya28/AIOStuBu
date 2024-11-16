@@ -57,4 +57,24 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     }
 
     // endregion
+
+    protected void onStartPomodoroClick()
+    {
+        startPomodoro();
+    }
+    protected void onStopPomodoroClick()
+    {
+        stopTimer();
+    }
+
+    // region PomodoroService Methods
+
+    public void startPomodoro() {
+        PomodoroService.startPomodoroSession();
+    }
+    public void stopTimer() {
+        PomodoroService.stopPomodoroSession();
+    }
+
+    // endregion
 }
