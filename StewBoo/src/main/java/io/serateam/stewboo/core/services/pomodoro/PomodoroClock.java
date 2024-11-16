@@ -80,4 +80,56 @@ class PomodoroClock
         }
         isRunning = false;
     }
+    void startClock()
+    {
+        stopClock();
+        this.isRunning = true;
+
+        if(checkForLongBreak())
+        {
+            this.remainingSeconds = DEFAULT_POMODORO_LONG_BREAK_TIME;
+            currentState = PomodoroSessionState.LONG_BREAK;
+        }
+        else if(getBreakTimeState())
+        {
+            this.remainingSeconds = DEFAULT_POMODORO_BREAK_TIME;
+            currentState = PomodoroSessionState.QUICK_BREAK;
+        }
+        else
+        {
+            this.remainingSeconds = DEFAULT_POMODORO_MINUTES;
+            currentState = PomodoroSessionState.WORK_SESSION;
+        }
+        notifyListenersOnStateChanged(currentState);
+
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run()
+            {
+                if(remainingSeconds > 0)
+                {
+                    remainingSeconds--;
+                    notifyListenersOnTimerUpdate(remainingSeconds);
+                }
+                else
+                {
+                    if(currentState == PomodoroSessionState.WORK_SESSION)
+                    {
+                        pomodoroCounter++;
+                    }
+                    isBreak = !isBreak;
+                    stopClock();
+
+                    notifyListenersOnSessionComplete();
+                    notifyListenersOnTimerUpdate(remainingSeconds);
+                    notifyListenersOnPomodoroCounter(pomodoroCounter);
+
+                    if(currentState == PomodoroSessionState.QUICK_BREAK
+                    || currentState == PomodoroSessionState.LONG_BREAK)
+                        notifyListenersOnBreakComplete();
+                }
+            }
+        }, 0, 1000);
+    }
 }
