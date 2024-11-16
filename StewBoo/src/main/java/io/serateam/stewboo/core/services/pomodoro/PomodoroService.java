@@ -48,9 +48,6 @@ public class PomodoroService implements IService
                 waitUntilComplete();
 
                 if(!isRunning) break; // might be unnecessary since stopPomodoroSession() calls stopClock();
-
-                clock.startClock();
-                waitUntilComplete();
             }
         }).start();
     }
