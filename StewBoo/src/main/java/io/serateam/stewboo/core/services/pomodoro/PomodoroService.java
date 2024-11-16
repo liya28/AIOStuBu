@@ -51,3 +51,10 @@ public class PomodoroService implements IService
             }
         }).start();
     }
+
+    public static void stopPomodoroSession() {
+        isRunning = false;
+        clock.stopClock();
+    }
+
+}
