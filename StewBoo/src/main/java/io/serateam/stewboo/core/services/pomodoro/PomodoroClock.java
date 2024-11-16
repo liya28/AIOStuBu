@@ -159,4 +159,18 @@ class PomodoroClock
     }
 
     // endregion
+
+    // region Update Listeners Methods
+
+    void addListener(IPomodoroListener newListener)
+    {
+        pomodoroListeners.add(newListener);
+    }
+
+    void removeListener(IPomodoroListener listener)
+    {
+        pomodoroListeners.remove(listener);
+    }
+
+    // endregion
 }
