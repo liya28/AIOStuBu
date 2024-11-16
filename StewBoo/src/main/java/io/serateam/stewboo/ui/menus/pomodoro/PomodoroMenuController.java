@@ -28,4 +28,33 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
 
         btn_startTimer.setOnMouseClicked(e -> onStartPomodoroClick());
     }
+
+    // region IPomodoroListener Methods
+    @Override
+    public void onTimerUpdate(long remainingSeconds) {
+        System.out.println("Time left: " + remainingSeconds + " seconds");
+        timerText.setText(String.valueOf(remainingSeconds));
+    }
+
+    @Override
+    public void onPomodoroCounterUpdate(int newPomodoroCounter) {
+        System.out.println("new poms: " + newPomodoroCounter + " yway");
+    }
+
+    @Override
+    public void onSessionComplete() {
+        System.out.println("Session complete! Time for a break.");
+    }
+
+    @Override
+    public void onBreakComplete() {
+        System.out.println("Break complete! Time to focus.");
+    }
+
+    @Override
+    public void onStateChanged(PomodoroSessionState newState) {
+        System.out.println("Timer state changed to: " + newState);
+    }
+
+    // endregion
 }
