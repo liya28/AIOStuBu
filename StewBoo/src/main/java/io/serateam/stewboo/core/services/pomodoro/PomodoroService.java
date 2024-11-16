@@ -30,3 +30,24 @@ public class PomodoroService implements IService
             }
         }
     }
+
+    /**
+     * Continuously runs in a separate thread until user sets {@code isRunning} to {@code false}.
+     */
+    public static void startPomodoroSession() {
+        if(isRunning) return;
+
+        isRunning = true;
+        new Thread(() -> {
+            while(isRunning)
+            {
+                clock.startClock();
+                waitUntilComplete();
+
+                if(!isRunning) break; // might be unnecessary since stopPomodoroSession() calls stopClock();
+
+                clock.startClock();
+                waitUntilComplete();
+            }
+        }).start();
+    }
