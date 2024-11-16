@@ -16,4 +16,16 @@ import java.util.ResourceBundle;
 
 public class PomodoroMenuController implements Initializable, IMenu, IPomodoroListener
 {
+    private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+    @FXML private Text text;
+    @FXML private JFXTextArea timerText;
+    @FXML private JFXButton btn_startTimer;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        PomodoroService.addListener(this);
+
+        btn_startTimer.setOnMouseClicked(e -> onStartPomodoroClick());
+    }
 }
