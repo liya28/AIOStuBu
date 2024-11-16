@@ -173,4 +173,48 @@ class PomodoroClock
     }
 
     // endregion
+
+    // region Notify Listeners Methods
+
+    private void notifyListenersOnTimerUpdate(long newRemainingSeconds)
+    {
+        for(IPomodoroListener listener : pomodoroListeners)
+        {
+            listener.onTimerUpdate(newRemainingSeconds);
+        }
+    }
+
+    private void notifyListenersOnPomodoroCounter(int newPomodoroCounter)
+    {
+        for(IPomodoroListener listener : pomodoroListeners)
+        {
+            listener.onPomodoroCounterUpdate(newPomodoroCounter);
+        }
+    }
+
+    private void notifyListenersOnSessionComplete()
+    {
+        for(IPomodoroListener listener : pomodoroListeners)
+        {
+            listener.onSessionComplete();
+        }
+    }
+
+    private void notifyListenersOnBreakComplete()
+    {
+        for(IPomodoroListener listener : pomodoroListeners)
+        {
+            listener.onBreakComplete();
+        }
+    }
+
+    private void notifyListenersOnStateChanged(PomodoroSessionState newState)
+    {
+        for(IPomodoroListener listener : pomodoroListeners)
+        {
+            listener.onStateChanged(newState);
+        }
+    }
+
+    // endregion
 }
