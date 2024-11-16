@@ -15,7 +15,9 @@ public class PomodoroService implements IService
         // TODO: remove this method and IService initializeService() since Service classes are utility classes; make all necessary adjustments for other classes implementing IService
     }
 
-}
+    private static final PomodoroClock clock = PomodoroClock.getInstance();
+    private static boolean isRunning = false;
+
     private static void waitUntilComplete() {
         // Busy-wait until the current timer finishes
         // Learn more: https://www.baeldung.com/cs/os-busy-waiting
