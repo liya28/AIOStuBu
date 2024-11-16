@@ -16,3 +16,15 @@ public class PomodoroService implements IService
     }
 
 }
+    private static void waitUntilComplete() {
+        // Busy-wait until the current timer finishes
+        // Learn more: https://www.baeldung.com/cs/os-busy-waiting
+        while (clock.getRunningState()) {
+            try {
+                // Busy-waiting is expensive, do this to prevent high CPU usage :)
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
