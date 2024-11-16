@@ -7,4 +7,10 @@ public interface IPomodoroListener
      * @param newRemainingSeconds contains the state of the Pomodoro clock timer (in seconds).
      */
     void onTimerUpdate(long newRemainingSeconds);
+
+    /**
+     * Updates the listener to the new state of the Pomodoro counter.
+     * @param newPomodoroCounter contains the state of the Pomodoro counter.
+     */
+    void onPomodoroCounterUpdate(int newPomodoroCounter);
 }
