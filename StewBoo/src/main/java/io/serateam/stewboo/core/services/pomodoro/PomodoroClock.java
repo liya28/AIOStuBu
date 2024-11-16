@@ -25,9 +25,9 @@ class PomodoroClock
     private PomodoroClock()
     {
         pomodoroCounter = 0;
-        remainingSeconds = 0;
         isBreak = false;
         isRunning = false;
+        remainingSeconds = DEFAULT_POMODORO_MINUTES;
         currentState = PomodoroSessionState.WORK_SESSION;
     }
 
