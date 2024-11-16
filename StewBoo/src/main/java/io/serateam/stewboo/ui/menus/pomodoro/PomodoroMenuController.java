@@ -35,36 +35,22 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         btn_startTimer.setOnMouseClicked(e -> onStartPomodoroClick());
         btn_stopTimer.setOnMouseClicked(e -> onStopPomodoroClick());
     }
-    protected void onStartPomodoroClick()
+    private void onStartPomodoroClick()
     {
         startPomodoro();
     }
-    protected void onStopPomodoroClick()
+    private void onStopPomodoroClick()
     {
         stopTimer();
     }
-    private void playAlarm()
-    {
-        MediaPlayer mp = new MediaPlayer(sessionCompleteAlarm);
-        mp.play();
-    }
 
-    // region IPomodoroListener Methods
+    // region IPomodoroListener Implementation Methods
 
     @Override
     public void onTimerUpdate(long remainingSeconds)
     {
         System.out.println("Time left: " + remainingSeconds + " seconds");
         txt_timer.setText(formatSecondsToTime(remainingSeconds));
-    }
-    private String formatSecondsToTime(long timeInSeconds)
-    {
-        long hours = timeInSeconds / 3600;
-        long minutes = (timeInSeconds % 3600) / 60;
-        long seconds = timeInSeconds % 60;
-
-        LocalTime time = LocalTime.of((int) hours, (int) minutes, (int) seconds);
-        return TIME_FORMATTER.format(time);
     }
 
     @Override
@@ -94,15 +80,6 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         System.out.println("Timer state changed to: " + newState);
         txt_currentSession.setText("Current Session: " + identifySessionState(newState));
     }
-    private String identifySessionState(PomodoroSessionState state)
-    {
-        return switch (state)
-        {
-            case WORK_SESSION -> "Work Session (25 minutes)";
-            case QUICK_BREAK -> "Quick Break (5 minutes)";
-            case LONG_BREAK -> "Long Break (15 minutes)";
-        };
-    }
 
     // endregion
 
@@ -115,6 +92,30 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     private void stopTimer()
     {
         PomodoroService.stopPomodoroSession();
+    }
+
+    // endregion
+
+    // region Utility Methods
+
+    private String formatSecondsToTime(long timeInSeconds)
+    {
+        long hours = timeInSeconds / 3600;
+        long minutes = (timeInSeconds % 3600) / 60;
+        long seconds = timeInSeconds % 60;
+
+        LocalTime time = LocalTime.of((int) hours, (int) minutes, (int) seconds);
+        return TIME_FORMATTER.format(time);
+    }
+
+    private String identifySessionState(PomodoroSessionState state)
+    {
+        return switch (state)
+        {
+            case WORK_SESSION -> "Work Session (25 minutes)";
+            case QUICK_BREAK -> "Quick Break (5 minutes)";
+            case LONG_BREAK -> "Long Break (15 minutes)";
+        };
     }
 
     // endregion
