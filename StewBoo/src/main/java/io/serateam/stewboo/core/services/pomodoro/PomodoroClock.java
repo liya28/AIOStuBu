@@ -49,4 +49,12 @@ class PomodoroClock
     {
         return isRunning;
     }
+
+    /**
+     * @return {@code true} if it is break time, {@code false} otherwise.
+     */
+    boolean getBreakTimeState()
+    {
+        return isBreak;
+    }
 }
