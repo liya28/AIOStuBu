@@ -57,4 +57,14 @@ class PomodoroClock
     {
         return isBreak;
     }
+
+    /**
+     * @return {@code true} if it is break time and
+     * pomodoro counter is divisible by 4,
+     * {@code false} otherwise.
+     */
+    boolean checkForLongBreak()
+    {
+        return getBreakTimeState() && (pomodoroCounter % 4 == 0);
+    }
 }
