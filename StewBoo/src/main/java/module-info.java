@@ -1,9 +1,11 @@
 module io.serateam.stewboo {
     requires com.jfoenix;
     requires javafx.fxml;
+    requires javafx.media;
     requires org.controlsfx.controls;
     requires atlantafx.base;
     requires com.google.gson;
+    requires java.desktop;
 
     opens io.serateam.stewboo.ui to javafx.fxml;
     opens io.serateam.stewboo.ui.menus to javafx.fxml;
