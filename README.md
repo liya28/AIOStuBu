@@ -1,7 +1,7 @@
 # AIOStuBu
 The All-In-One (AIO) Studdy Buddy (Stubu) is an offline-first productivity application designed to equip students with all the essential tools they need to excel in their studies. 
 
-Crafted in Java and powered by JavaFX.
+Written in Java with JavaFX.
 
 ## Features
 - Notes
