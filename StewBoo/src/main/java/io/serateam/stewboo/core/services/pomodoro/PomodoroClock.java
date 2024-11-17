@@ -12,36 +12,14 @@ class PomodoroClock
     private static final int DEFAULT_POMODORO_MINUTES = 25*60;
     private static final int DEFAULT_POMODORO_BREAK_TIME = 5*60;
     private static final int DEFAULT_POMODORO_LONG_BREAK_TIME = 15*60;
-    private static PomodoroClock instance;
 
-    private final List<IPomodoroListener> pomodoroListeners = new ArrayList<>();
+    private PomodoroSessionState currentSessionState = PomodoroSessionState.WORK_SESSION;
+    private long remainingSeconds = DEFAULT_POMODORO_MINUTES;
+    private int pomodoroCounter = 0;
+    private boolean isBreak = false;
+    private boolean isRunning = false;
     private Timer timer;
-    private int pomodoroCounter;
-    private long remainingSeconds;
-    private boolean isBreak;
-    private boolean isRunning;
-    private PomodoroSessionState currentState;
-
-    private PomodoroClock()
-    {
-        pomodoroCounter = 0;
-        isBreak = false;
-        isRunning = false;
-        remainingSeconds = DEFAULT_POMODORO_MINUTES;
-        currentState = PomodoroSessionState.WORK_SESSION;
-    }
-
-    /**
-     * @return PomodoroClock singleton instance
-     */
-    static PomodoroClock getInstance()
-    {
-        if(instance == null)
-        {
-            instance = new PomodoroClock();
-        }
-        return instance;
-    }
+    private final List<IPomodoroListener> pomodoroListeners = new ArrayList<>();
 
     // region Clock Methods
 
@@ -71,6 +49,7 @@ class PomodoroClock
         return getBreakTimeState() && (pomodoroCounter % 4 == 0);
     }
 
+
     /**
      * Stops the Pomodoro clock and resets the current Pomodoro timer.
      */
@@ -81,14 +60,14 @@ class PomodoroClock
             timer.cancel();
             timer = null;
         }
-        isRunning = false;
+        this.isRunning = false;
     }
 
     /**
      * Starts the Pomodoro clock.
      * <p>
-     * Timer duration depends on the count of Pomodoros completed
-     * (every 4 Pomodoros translate to a break time duration).
+     * Break time duration depends on the count of Pomodoros completed
+     * (every 4 Pomodoros translate to a long break time duration).
      * One Pomodoro is added every completed work session.
      * <p>
      * Duration:
@@ -113,19 +92,19 @@ class PomodoroClock
         if(checkForLongBreak())
         {
             this.remainingSeconds = DEFAULT_POMODORO_LONG_BREAK_TIME;
-            currentState = PomodoroSessionState.LONG_BREAK;
+            currentSessionState = PomodoroSessionState.LONG_BREAK;
         }
         else if(getBreakTimeState())
         {
             this.remainingSeconds = DEFAULT_POMODORO_BREAK_TIME;
-            currentState = PomodoroSessionState.QUICK_BREAK;
+            currentSessionState = PomodoroSessionState.QUICK_BREAK;
         }
         else
         {
             this.remainingSeconds = DEFAULT_POMODORO_MINUTES;
-            currentState = PomodoroSessionState.WORK_SESSION;
+            currentSessionState = PomodoroSessionState.WORK_SESSION;
         }
-        notifyListenersOnStateChanged(currentState);
+        notifyListenersOnStateChanged(currentSessionState);
 
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -139,15 +118,15 @@ class PomodoroClock
                 }
                 else
                 {
-                    if(currentState == PomodoroSessionState.WORK_SESSION)
+                    if(currentSessionState == PomodoroSessionState.WORK_SESSION)
                     {
                         pomodoroCounter++;
                     }
                     isBreak = !isBreak;
                     stopClock();
 
-                    if(currentState == PomodoroSessionState.QUICK_BREAK
-                            || currentState == PomodoroSessionState.LONG_BREAK)
+                    if(currentSessionState == PomodoroSessionState.QUICK_BREAK
+                            || currentSessionState == PomodoroSessionState.LONG_BREAK)
                     {
                         notifyListenersOnBreakComplete();
                     }

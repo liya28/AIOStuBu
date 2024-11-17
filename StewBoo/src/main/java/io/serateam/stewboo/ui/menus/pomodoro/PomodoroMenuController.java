@@ -26,11 +26,13 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     @FXML private JFXButton btn_stopTimer;
 
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
+    private static PomodoroService service;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        PomodoroService.addListener(this);
+        service = PomodoroService.getInstance();
+        service.addListener(this);
 
         btn_startTimer.setOnMouseClicked(e -> onStartPomodoroClick());
         btn_stopTimer.setOnMouseClicked(e -> onStopPomodoroClick());
@@ -87,17 +89,22 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
 
     private void startPomodoro()
     {
-        PomodoroService.startPomodoroSession();
+        System.out.println("Session started...");
+        service.startPomodoroSession();
     }
     private void stopTimer()
     {
-        PomodoroService.stopPomodoroSession();
+        System.out.println("Stopping session...");
+        service.stopPomodoroSession();
     }
 
     // endregion
 
     // region Utility Methods
 
+    /**
+     * @return Time-formatted string using the format {@code HH:MM:ss}.
+     */
     private String formatSecondsToTime(long timeInSeconds)
     {
         long hours = timeInSeconds / 3600;
@@ -108,6 +115,9 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         return TIME_FORMATTER.format(time);
     }
 
+    /**
+     * @return Session state including its duration.
+     */
     private String identifySessionState(PomodoroSessionState state)
     {
         return switch (state)

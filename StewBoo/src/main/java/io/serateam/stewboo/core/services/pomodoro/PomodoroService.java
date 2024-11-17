@@ -2,26 +2,68 @@ package io.serateam.stewboo.core.services.pomodoro;
 
 import io.serateam.stewboo.core.services.IService;
 
-// NOTE: PomodoroService is a utility class, hence, it shall be static
-
 /**
- * Utility class. Controls the entire Pomodoro session of the application.
+ * Controls the entire Pomodoro session of the application.
  */
 public class PomodoroService implements IService
 {
+    private static PomodoroService instance;
+    private final PomodoroClock clock;
+    private boolean onSession;
+
+    // region Initializers
+
+    private PomodoroService()
+    {
+        clock = new PomodoroClock();
+        this.onSession = false;
+    }
+
+    public static PomodoroService getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new PomodoroService();
+        }
+        return instance;
+    }
+
     @Override
     public void initializeService()
     {
-        // TODO: remove this method and IService initializeService() since Service classes are utility classes; make all necessary adjustments for other classes implementing IService
+        /*
+        * We can keep this for future purposes when we want to extend our app to take in user preferences
+        * Ex. user prefers longer break time or work time
+        * */
     }
 
-    private static final PomodoroClock clock = PomodoroClock.getInstance();
-    private static boolean isRunning = false;
+    // endregion
+
+    // region Pomodoro Session Methods
 
     /**
-     * Waits for the Pomodoro clock to end running.
+     * Continuously runs in a separate thread until {@link PomodoroService#stopPomodoroSession()} is called by the user.
      */
-    private static void waitUntilComplete()
+    public void startPomodoroSession()
+    {
+        if(clock.getRunningState()) return;
+
+        this.onSession = true;
+        new Thread(() -> {
+            while(this.onSession)
+            {
+                clock.startClock();
+                waitUntilComplete();
+
+                if(!this.onSession) break;
+            }
+        }).start();
+    }
+
+    /**
+     * Utility method. Waits for the Pomodoro clock to end running.
+     */
+    private void waitUntilComplete()
     {
         // Busy-wait until the current timer finishes
         // Learn more: https://www.baeldung.com/cs/os-busy-waiting
@@ -40,37 +82,27 @@ public class PomodoroService implements IService
     }
 
     /**
-     * Continuously runs in a separate thread until user sets {@code isRunning} to {@code false}.
+     * Stops the session as well as the current running clock.
      */
-    public static void startPomodoroSession()
+    public void stopPomodoroSession()
     {
-        if(isRunning) return;
-
-        isRunning = true;
-        new Thread(() -> {
-            while(isRunning)
-            {
-                clock.startClock();
-                waitUntilComplete();
-
-                if(!isRunning) break; // might be unnecessary since stopPomodoroSession() calls stopClock();
-            }
-        }).start();
-    }
-
-    public static void stopPomodoroSession()
-    {
-        isRunning = false;
         clock.stopClock();
+        onSession = false;
     }
 
-    public static void addListener(IPomodoroListener listener)
+    // endregion
+
+    // region Listener Methods
+
+    public void addListener(IPomodoroListener listener)
     {
         clock.addListener(listener);
     }
 
-    public static void removeListener(IPomodoroListener listener)
+    public void removeListener(IPomodoroListener listener)
     {
         clock.removeListener(listener);
     }
+
+    // endregion
 }
