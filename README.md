@@ -53,7 +53,7 @@ String fieldText = "My text";                       // instance variables
 @FXML private AnchorPane anchorPane_navPaneSlider;
 
 /* II. Scoping
- *    -- Both opening and closing curly braces must be on their own line (ANSI style). 
+ *    -- Both opening and closing curly braces must be on their own line (BSD/Allman style). 
  *       We need visual breaks when reading code. 
  * */
 class MyClass
