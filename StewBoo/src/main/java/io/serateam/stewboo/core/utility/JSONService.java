@@ -38,8 +38,7 @@ public class JSONService
         }
         catch (IOException e)
         {
-            // TODO: Unhandled Exception
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 
@@ -57,8 +56,8 @@ public class JSONService
         }
         catch (IOException e)
         {
-            // TODO: Unhandled Exception
-            e.printStackTrace();
+            System.err.printf("File %s is unavailable for deserializing. This method shall be returning null.%n", pathToJsonFile);
+            System.err.println(e.getMessage());
             return null;
         }
     }
