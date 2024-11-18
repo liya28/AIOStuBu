@@ -53,6 +53,8 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     {
         System.out.println("Time left: " + remainingSeconds + " seconds");
         txt_timer.setText(formatSecondsToTime(remainingSeconds));
+        // progress bar.  reminaing seconds to zero
+
     }
 
     @Override
@@ -81,6 +83,12 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     {
         System.out.println("Timer state changed to: " + newState);
         txt_currentSession.setText("Current Session: " + identifySessionState(newState));
+    }
+
+    @Override
+    public void onNewPomodoroTimeConfig(int workMinutes, int quickBreakMinutes, int longBreakMinutes)
+    {
+        System.out.printf("Work: %d, Quick Break: %d, Long Break %d%n", workMinutes, quickBreakMinutes, longBreakMinutes);
     }
 
     // endregion
