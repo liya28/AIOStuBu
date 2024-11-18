@@ -34,8 +34,6 @@ public class Task extends Pane {
         tasks = new HBox(10); // 10 pixels of spacing between elements
 
 
-
-
         taskField = new TextField();
         taskField.setPrefSize(300, 40);
         taskField.setPromptText("Enter Task Here");
