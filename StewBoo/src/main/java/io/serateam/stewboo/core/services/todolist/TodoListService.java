@@ -14,6 +14,24 @@ import javafx.scene.layout.VBox;
 
 public class TodoListService implements IService
 {
+    private final Task task;
+
+    public TodoListService(Task task) {
+        this.task = task;
+    }
+
+    public void toggleCheck() {
+        task.setCompleted(!task.isCompleted());
+    }
+
+    public void saveTask(BufferedWriter writer) throws IOException {
+        writer.write(task.getTaskContent() + ";" + task.isCompleted());
+        writer.newLine();
+    }
+
+    public Task getTask() {
+        return task;
+    }
     @Override
     public void initializeService()
     {
