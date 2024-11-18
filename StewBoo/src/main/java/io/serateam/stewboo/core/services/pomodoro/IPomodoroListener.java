@@ -30,4 +30,10 @@ public interface IPomodoroListener
      * Refer to {@link PomodoroSessionState}.
      */
     void onStateChanged(PomodoroSessionState newState);
+
+    /**
+     * Updates the listener on the new Pomodoro configuration
+     * for its work, quick break, and long break session durations
+     */
+    void onNewPomodoroTimeConfig(int workMinutes, int quickBreakMinutes, int longBreakMinutes);
 }
