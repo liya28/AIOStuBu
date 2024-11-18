@@ -21,7 +21,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Button layoutX="22.0" layoutY="127.0" mnemonicParsing="false" onAction="#onAddItem" text="Add Task" />
+      <Button layoutX="22.0" layoutY="127.0" mnemonicParsing="false" text="Add Task" />
       <ScrollPane fx:id="scrollPane" fitToWidth="true" layoutX="41.0" layoutY="164.0" prefHeight="211.0" prefWidth="534.0">
          <content>
             <VBox fx:id="taskContainer" prefHeight="206.0" prefWidth="533.0" />

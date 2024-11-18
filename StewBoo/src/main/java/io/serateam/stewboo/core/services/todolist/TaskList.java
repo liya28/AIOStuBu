@@ -10,7 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 
-public class addItemController {
+public class TaskList {
     @FXML
     private ResourceBundle resources;
 

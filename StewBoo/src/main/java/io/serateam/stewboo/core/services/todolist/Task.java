@@ -43,8 +43,8 @@ public class Task extends Pane {
             taskField.textProperty().addListener(e -> {// Remove from UI
                 if (parentContainer.getScene() != null) {
                     Object userData = parentContainer.getScene().getUserData();
-                    if (userData instanceof addItemController) {
-                        addItemController controller = (addItemController) userData;
+                    if (userData instanceof TaskList) {
+                        TaskList controller = (TaskList) userData;
                         controller.saveItems();
                     }
                 }
@@ -71,8 +71,8 @@ public class Task extends Pane {
         try {
             taskDelete.setOnAction( e -> {
                 parentContainer.getChildren().remove(this); // Remove from UI
-                if (parentContainer.getScene().getUserData() instanceof addItemController) {
-                    addItemController controller = (addItemController) parentContainer.getScene().getUserData();
+                if (parentContainer.getScene().getUserData() instanceof TaskList) {
+                    TaskList controller = (TaskList) parentContainer.getScene().getUserData();
                     controller.onRemoveItem(this);
                 }
             });
