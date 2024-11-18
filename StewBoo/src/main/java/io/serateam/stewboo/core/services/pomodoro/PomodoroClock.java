@@ -21,7 +21,23 @@ class PomodoroClock
     private Timer timer;
     private final List<IPomodoroListener> pomodoroListeners = new ArrayList<>();
 
+    private PomodoroSettings userConfig;
+
     // region Clock Methods
+
+    void setDefaultTime()
+    {
+        userConfig = new PomodoroSettings(DEFAULT_POMODORO_MINUTES, DEFAULT_POMODORO_BREAK_TIME, DEFAULT_POMODORO_LONG_BREAK_TIME);
+        userConfig.saveToFile();
+        notifyListenersOnNewTimeConfig(userConfig);
+    }
+
+    void setTime(int workMinutes, int quickBreakMinutes, int longBreakMinutes)
+    {
+        userConfig = new PomodoroSettings(workMinutes, quickBreakMinutes, longBreakMinutes);
+        userConfig.saveToFile();
+        notifyListenersOnNewTimeConfig(userConfig);
+    }
 
     /**
      * @return {@code true} if clock is running, {@code false} otherwise.
@@ -91,17 +107,17 @@ class PomodoroClock
 
         if(checkForLongBreak())
         {
-            this.remainingSeconds = DEFAULT_POMODORO_LONG_BREAK_TIME;
+            this.remainingSeconds = userConfig.getLongBreakMinutes();
             currentSessionState = PomodoroSessionState.LONG_BREAK;
         }
         else if(getBreakTimeState())
         {
-            this.remainingSeconds = DEFAULT_POMODORO_BREAK_TIME;
+            this.remainingSeconds = userConfig.getQuickBreakMinutes();
             currentSessionState = PomodoroSessionState.QUICK_BREAK;
         }
         else
         {
-            this.remainingSeconds = DEFAULT_POMODORO_MINUTES;
+            this.remainingSeconds = userConfig.getWorkMinutes();
             currentSessionState = PomodoroSessionState.WORK_SESSION;
         }
         notifyListenersOnStateChanged(currentSessionState);
@@ -195,6 +211,14 @@ class PomodoroClock
         for(IPomodoroListener listener : pomodoroListeners)
         {
             listener.onStateChanged(newState);
+        }
+    }
+
+    private void notifyListenersOnNewTimeConfig(PomodoroSettings entity)
+    {
+        for(IPomodoroListener listener : pomodoroListeners)
+        {
+            listener.onNewPomodoroTimeConfig(entity.getWorkMinutes(), entity.getQuickBreakMinutes(), entity.getLongBreakMinutes());
         }
     }
 

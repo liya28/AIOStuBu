@@ -31,10 +31,23 @@ public class PomodoroService implements IService
     @Override
     public void initializeService()
     {
-        /*
-        * We can keep this for future purposes when we want to extend our app to take in user preferences
-        * Ex. user prefers longer break time or work time
-        * */
+        PomodoroSettings userConfig = PomodoroSettings.loadEntityFromFile();
+        if(userConfig == null) saveDefaultConfigTime();
+        else saveNewConfigTime(userConfig.getWorkMinutes(), userConfig.getQuickBreakMinutes(), userConfig.getLongBreakMinutes());
+    }
+
+    // endregion
+
+    // region User Configuration Methods
+
+    public void saveDefaultConfigTime()
+    {
+        clock.setDefaultTime();
+    }
+
+    public void saveNewConfigTime(int workMinutes, int quickBreakMinutes, int longBreakMinutes)
+    {
+        clock.setTime(workMinutes, quickBreakMinutes, longBreakMinutes);
     }
 
     // endregion
