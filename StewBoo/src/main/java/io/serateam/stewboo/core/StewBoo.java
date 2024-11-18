@@ -6,13 +6,32 @@ import io.serateam.stewboo.core.utility.JSONService;
 import io.serateam.stewboo.core.utility.Sample;
 import io.serateam.stewboo.core.utility.SharedVariables;
 
-// set up processes go here (config setup, authentication, file integrity checks, etc)
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
+// set up processes go here (config setup, authentication, file integrity checks, etc.)
 public class StewBoo
 {
     public static void initializeCore()
     {
+        if(!new File(SharedVariables.Path.mainUserDirectory).exists())
+        {
+            try
+            {
+                Files.createDirectories(Paths.get(SharedVariables.Path.mainUserDirectory));
+                System.out.println("Successfully created " + SharedVariables.Path.mainUserDirectory);
+            }
+            catch (IOException e)
+            {
+                System.err.println("Failed to create directory: " + SharedVariables.Path.mainUserDirectory);
+            }
+        }
+
+        // Test only!
         Sample s = new Sample();
         JSONService.serializeAndWriteToFile(SharedVariables.Path.test, s);
         Sample newS = JSONService.deserialize(SharedVariables.Path.test, Sample.class);
