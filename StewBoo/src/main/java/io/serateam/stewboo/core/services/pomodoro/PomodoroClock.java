@@ -128,6 +128,8 @@ class PomodoroClock
             currentSessionState = PomodoroSessionState.WORK_SESSION;
         }
         notifyListenersOnStateChanged(currentSessionState);
+        notifyListenersOnPomodoroCounter(pomodoroCounter);
+        long initialSeconds = this.remainingSeconds;
 
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -137,7 +139,7 @@ class PomodoroClock
                 if(remainingSeconds > 0)
                 {
                     remainingSeconds--;
-                    notifyListenersOnTimerUpdate(remainingSeconds);
+                    notifyListenersOnTimerUpdate(remainingSeconds, initialSeconds);
                 }
                 else
                 {
@@ -181,11 +183,11 @@ class PomodoroClock
 
     // region Notify Listeners Methods
 
-    private void notifyListenersOnTimerUpdate(long newRemainingSeconds)
+    private void notifyListenersOnTimerUpdate(long newRemainingSeconds, long initialSeconds)
     {
         for(IPomodoroListener listener : pomodoroListeners)
         {
-            listener.onTimerUpdate(newRemainingSeconds);
+            listener.onTimerUpdate(newRemainingSeconds, initialSeconds);
         }
     }
 
@@ -225,7 +227,10 @@ class PomodoroClock
     {
         for(IPomodoroListener listener : pomodoroListeners)
         {
-            listener.onNewPomodoroTimeConfig(entity.getWorkMinutes(), entity.getQuickBreakMinutes(), entity.getLongBreakMinutes());
+            listener.onNewPomodoroTimeConfig(
+                    entity.getWorkMinutes(),
+                    entity.getQuickBreakMinutes(),
+                    entity.getLongBreakMinutes());
         }
     }
 
