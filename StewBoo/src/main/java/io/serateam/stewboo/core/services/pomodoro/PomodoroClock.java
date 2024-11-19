@@ -22,6 +22,13 @@ class PomodoroClock
 
     // region Clock Methods
 
+    void resetClock()
+    {
+        isRunning = false;
+        isBreak = false;
+        pomodoroCounter = 0;
+    }
+
     void setDefaultTime()
     {
         userConfig = new PomodoroSettings(

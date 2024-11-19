@@ -63,6 +63,7 @@ public class PomodoroService implements IService
      */
     public void startPomodoroSession()
     {
+        resetSession();
         if(clock.getRunningState()) return;
 
         this.onSession = true;
@@ -75,6 +76,11 @@ public class PomodoroService implements IService
                 if(!this.onSession) break;
             }
         }).start();
+    }
+
+    private void resetSession()
+    {
+        clock.resetClock();
     }
 
     /**
