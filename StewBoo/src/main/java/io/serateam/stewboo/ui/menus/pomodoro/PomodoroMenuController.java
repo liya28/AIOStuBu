@@ -128,9 +128,14 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     {
         try
         {
-            validateNumericalTextField(textField_pomodoroMinutes);
-            validateNumericalTextField(textField_shortBreakMinutes);
-            validateNumericalTextField(textField_longBreakMinutes);
+            // ensure our text fields are colored red before we throw some exceptions
+            boolean isPomodoroOk = validateNumericalTextField(textField_pomodoroMinutes);
+            boolean isQuickBreakOk = validateNumericalTextField(textField_shortBreakMinutes);
+            boolean isLongBreakOk = validateNumericalTextField(textField_longBreakMinutes);
+            if(!(isPomodoroOk && isQuickBreakOk && isLongBreakOk))
+            {
+                throw new IOException();
+            }
 
             int pomMinutes;
             int shortMinutes;
@@ -180,7 +185,7 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         service.saveNewConfigTime(pomodoroMinutes, shortMinutes, longMinutes);
     }
 
-    private void validateNumericalTextField(TextField tf) throws IOException
+    private boolean validateNumericalTextField(TextField tf)
     {
         String invalidInput_CSS = "-fx-border-color: red; -fx-border-width: 2;";
 
@@ -189,11 +194,12 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         {
             txt_errorIncorrectInput.setOpacity(1);
             tf.setStyle(invalidInput_CSS);
-            throw new IOException();
+            return false;
         }
         // reset the styles in case the elements had the error styling
         txt_errorIncorrectInput.setOpacity(0);
         tf.setStyle("");
+        return true;
     }
 
     /**
