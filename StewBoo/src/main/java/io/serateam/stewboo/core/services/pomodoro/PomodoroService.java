@@ -7,6 +7,10 @@ import io.serateam.stewboo.core.services.IService;
  */
 public class PomodoroService implements IService
 {
+    public static final int DEFAULT_POMODORO_MINUTES = 25*60;
+    public static final int DEFAULT_POMODORO_BREAK_TIME = 5*60;
+    public static final int DEFAULT_POMODORO_LONG_BREAK_TIME = 15*60;
+
     private static PomodoroService instance;
     private final PomodoroClock clock;
     private boolean onSession;

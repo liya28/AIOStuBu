@@ -9,12 +9,9 @@ import java.util.TimerTask;
 
 class PomodoroClock
 {
-    private static final int DEFAULT_POMODORO_MINUTES = 25*60;
-    private static final int DEFAULT_POMODORO_BREAK_TIME = 5*60;
-    private static final int DEFAULT_POMODORO_LONG_BREAK_TIME = 15*60;
 
     private PomodoroSessionState currentSessionState = PomodoroSessionState.WORK_SESSION;
-    private long remainingSeconds = DEFAULT_POMODORO_MINUTES;
+    private long remainingSeconds = PomodoroService.DEFAULT_POMODORO_MINUTES;
     private int pomodoroCounter = 0;
     private boolean isBreak = false;
     private boolean isRunning = false;
