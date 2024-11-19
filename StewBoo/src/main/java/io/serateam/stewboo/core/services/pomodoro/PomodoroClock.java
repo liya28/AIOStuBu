@@ -24,7 +24,10 @@ class PomodoroClock
 
     void setDefaultTime()
     {
-        userConfig = new PomodoroSettings(DEFAULT_POMODORO_MINUTES, DEFAULT_POMODORO_BREAK_TIME, DEFAULT_POMODORO_LONG_BREAK_TIME);
+        userConfig = new PomodoroSettings(
+                PomodoroService.DEFAULT_POMODORO_MINUTES,
+                PomodoroService.DEFAULT_POMODORO_BREAK_TIME,
+                PomodoroService.DEFAULT_POMODORO_LONG_BREAK_TIME);
         userConfig.saveToFile();
         notifyListenersOnNewTimeConfig(userConfig);
     }
