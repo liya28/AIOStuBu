@@ -15,6 +15,8 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class MainMenuController implements Initializable {
@@ -49,6 +51,9 @@ public class MainMenuController implements Initializable {
     @FXML
     private ImageView imageView_userProfile;
 
+    // Store loaded views in this hashmap; O(1) lookup so long as we are careful!
+    private final Map<String, Parent> loadedViewCache = new HashMap<>();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         anchorPane_nav.setTranslateX(-119);
@@ -73,9 +78,15 @@ public class MainMenuController implements Initializable {
 
     private void loadView(String fxml) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
-            Parent view = loader.load();
-            pane_mainArea.getChildren().setAll(view); // Clear and add new view OMG THANK YOU ANI
+            if (!loadedViewCache.containsKey(fxml)) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+                Parent view = loader.load();
+
+                // Store the loaded view in the cache
+                loadedViewCache.put(fxml, view);
+            }
+            // Use the cached view
+            pane_mainArea.getChildren().setAll(loadedViewCache.get(fxml));
         } catch (IOException e) {
             e.printStackTrace();
         }
