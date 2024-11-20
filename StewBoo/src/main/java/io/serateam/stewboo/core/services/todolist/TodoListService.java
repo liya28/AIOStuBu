@@ -1,43 +1,60 @@
 package io.serateam.stewboo.core.services.todolist;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-
 import io.serateam.stewboo.core.services.IService;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.VBox;
+import javafx.concurrent.Task;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 
-public class TodoListService implements IService
+
+public class TodoListService extends HBox implements IService
 {
-    private final Task task;
+    private TextField taskField;
+    private CheckBox taskCheckBox;
+    private Button deleteButton;
 
-    public TodoListService(Task task) {
-        this.task = task;
+    public TodoListService(TaskModel taskModel) {
+        super(10); // 10 pixels spacing
+        setPadding(new Insets(5));
+        setStyle("-fx-background-color: lightblue; -fx-border-color: gray;");
+
+        taskField = new TextField(taskModel.getTaskContent());
+        taskField.setPrefWidth(300);
+        taskField.setDisable(taskModel.isCompleted());
+
+        taskCheckBox = new CheckBox();
+        taskCheckBox.setSelected(taskModel.isCompleted());
+        taskCheckBox.setOnAction(e -> taskField.setDisable(taskCheckBox.isSelected()));
+
+        deleteButton = new Button("Delete");
+
+        getChildren().addAll(taskCheckBox, taskField, deleteButton);
     }
 
-    public void toggleCheck() {
-        task.setCompleted(!task.isCompleted());
-    }
 
-    public void saveTask(BufferedWriter writer) throws IOException {
-        writer.write(task.getTaskContent() + ";" + task.isCompleted());
-        writer.newLine();
-    }
-
-    public Task getTask() {
-        return task;
-    }
     @Override
     public void initializeService()
     {
 
     }
+    public String getTaskText() {
+        return taskField.getText();
+    }
 
+    public boolean isTaskChecked() {
+        return taskCheckBox.isSelected();
+    }
+
+    public static Button getDeleteButton() {
+        return deleteButton;
+    }
+
+    public void updateTask(TaskModel taskModel) {
+        taskModel.setTaskContent(getTaskText());
+        taskModel.setCompleted(isTaskChecked());
+    }
 
 }
 

@@ -3,39 +3,37 @@ package io.serateam.stewboo.core.services.todolist;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.VBox;
-
-class TaskList
+public class TaskList
 {
-    private static TaskList instance;
-    private List<Task> tasks;
+    private static final String FILE_PATH = "todoItems.txt";
 
-    static TaskList getInstance()
-    {
-        if(instance == null)
-        {
-            instance = new TaskList();
+    public static List<TaskModel> loadTasks() throws IOException {
+        File file = new File(FILE_PATH);
+        List<TaskModel> taskModels = new ArrayList<>();
+
+        if(file.exists()) {
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                String line;
+                while((line = br.readLine()) != null) {
+                    TaskModel taskModel = TaskModel.fromFileString(line);
+                    if(taskModel != null) {
+                        taskModels.add(taskModel);
+                    }
+                }
+            }
         }
-        return instance;
+        return taskModels;
     }
 
+    public static void saveTasks(List<TaskModel> taskModels) throws IOException {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_PATH))) {
 
-    void addTask(Task task)
-    {
-        tasks.add(task);
-    }
-    void removeTask(Task task)
-    {
-        tasks.remove(task);
-    }
-    TaskList getList()
-    {
-        return this;
+            for(TaskModel taskModel : taskModels) {
+                bw.write(taskModel.toFileString());
+                bw.newLine();
+            }
+        }
     }
 }
 

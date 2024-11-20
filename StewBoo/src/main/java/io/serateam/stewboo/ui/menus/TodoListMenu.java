@@ -1,43 +1,66 @@
 package io.serateam.stewboo.ui.menus;
 
+import io.serateam.stewboo.core.services.todolist.TaskList;
+import io.serateam.stewboo.core.services.todolist.TaskModel;
 import io.serateam.stewboo.core.services.todolist.TodoListService;
-import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
+
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import java.util.ArrayList;
+import java.util.List;
 
-class TodoListMenu implements IMenu {
-    private final TextField taskField;
-    private final CheckBox taskCheckBox;
-    private final Button taskDelete;
+public class TodoListMenu implements IMenu {
 
-    public TodoListMenu(TodoListService controller, VBox parentContainer) {
-        super(); // Spacing between elements
+    @FXML
+    private Button addTask;
 
-        taskField = new TextField(controller.getTask().getTaskContent());
-        taskField.setPrefSize(300, 40);
-        taskField.textProperty().addListener((observable, oldValue, newValue) -> {
-            controller.getTask().setTaskContent(newValue);
-        });
+    @FXML
+    private VBox TaskContainer;
+    private final List<TaskModel> tasks = new ArrayList<>();
 
-        taskCheckBox = new CheckBox();
-        taskCheckBox.setSelected(controller.getTask().isCompleted());
-        taskCheckBox.setOnAction(e -> controller.toggleCheck());
-
-        taskDelete = new Button("Delete");
-        taskDelete.setOnAction(e -> {
-            parentContainer.getChildren().remove(this); // Remove UI component
-            // Notify parent container or controller if needed
-        });
-
-        // Add components to the HBox
-        this.getChildren().addAll(taskCheckBox, taskField, taskDelete);
-
-        // Optional: Style the HBox
-        this.setStyle("-fx-padding: 5; -fx-background-color: lightblue;");
+    @FXML
+    void initialize() {
+        try {
+            tasks.addAll(TaskList.loadTasks());
+            tasks.forEach(this::addTaskToView);
+        } catch (Exception e) {
+            System.err.println("Error loading tasks: "+ e.getMessage());
+        }
     }
 
-    public void updateView(TodoListService controller) {
-        taskField.setText(controller.getTask().getTaskContent());
-        taskCheckBox.setSelected(controller.getTask().isCompleted());
+    @FXML
+    protected void onAddTask(ActionEvent event) {
+        TaskModel newTask = new TaskModel("", false);
+        tasks.add(newTask);
+        addTaskToView(newTask);
     }
+
+    private void addTaskToView(TaskModel newTask) {
+        TodoListService taskComponent = new TodoListService(newTask);
+
+        TodoListService.getDeleteButton().setOnAction(e-> {
+            TodoListService.getChildren().remove(taskComponent);
+            tasks.remove(newTask);
+            saveTasks();
+        });
+
+        TodoListService.getChildren().add(0, taskComponent);
+    }
+
+    private void saveTasks() {
+        try {
+            TaskList.saveTasks(tasks);
+        } catch (Exception e) {
+            System.err.println("Error saving tasks: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    public void onExit() {
+        saveTasks();
+    }
+
 }
