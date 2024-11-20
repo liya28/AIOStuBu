@@ -1,44 +1,48 @@
 package io.serateam.stewboo.core.services.todolist;
 
 import io.serateam.stewboo.core.services.IService;
-import javafx.concurrent.Task;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
+public class TodoListService extends HBox implements IService {
 
-public class TodoListService extends HBox implements IService
-{
-    private TextField taskField;
-    private CheckBox taskCheckBox;
-    private Button deleteButton;
+    private final TextField taskField;
+    private final CheckBox taskCheckBox;
+    private final Button deleteButton;
 
     public TodoListService(TaskModel taskModel) {
         super(10); // 10 pixels spacing
         setPadding(new Insets(5));
         setStyle("-fx-background-color: lightblue; -fx-border-color: gray;");
 
+        // Task text field
         taskField = new TextField(taskModel.getTaskContent());
         taskField.setPrefWidth(300);
         taskField.setDisable(taskModel.isCompleted());
 
+        // Checkbox
         taskCheckBox = new CheckBox();
         taskCheckBox.setSelected(taskModel.isCompleted());
         taskCheckBox.setOnAction(e -> taskField.setDisable(taskCheckBox.isSelected()));
 
+        // Delete button
         deleteButton = new Button("Delete");
 
         getChildren().addAll(taskCheckBox, taskField, deleteButton);
     }
 
-
     @Override
-    public void initializeService()
-    {
-
+    public void initializeService() {
+        // Add meaningful initialization if needed
     }
+
+    public Button getDeleteButton() {
+        return deleteButton;
+    }
+
     public String getTaskText() {
         return taskField.getText();
     }
@@ -47,16 +51,12 @@ public class TodoListService extends HBox implements IService
         return taskCheckBox.isSelected();
     }
 
-    public static Button getDeleteButton() {
-        return deleteButton;
-    }
-
     public void updateTask(TaskModel taskModel) {
         taskModel.setTaskContent(getTaskText());
         taskModel.setCompleted(isTaskChecked());
     }
-
 }
+
 
 
 //public class TodoListService {
