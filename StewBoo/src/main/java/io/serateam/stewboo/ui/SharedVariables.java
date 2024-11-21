@@ -14,6 +14,9 @@ public class SharedVariables {
     public static final String path_pomodoroFxml = path_directoryControls + "pomodoro_view.fxml";
     public static final String path_todolistFxml = path_directoryControls + "todolist_view.fxml";
     public static final String path_notesFxml = path_directoryControls + "notes_view.fxml";
+    public static final String path_flashcardsCardFxml = path_directoryControls + "flashcards/flashcards_cardview.fxml";
+    public static final String path_flashcardsDeckFxml = path_directoryControls + "flashcards/flashcards_deckName.fxml";
+    public static final String path_flashcardsCardCreationFxml = path_directoryControls + "flashcards/flashcards_cardCreation.fxml";
 
     public static final URL url_path_dashboardFxml = SharedVariables.class.getResource(path_dashboardFxml);
     public static final URL url_path_calendarFxml = SharedVariables.class.getResource(path_calendarFxml);
@@ -21,6 +24,9 @@ public class SharedVariables {
     public static final URL url_path_pomodoroFxml = SharedVariables.class.getResource(path_pomodoroFxml);
     public static final URL url_path_todolistFxml = SharedVariables.class.getResource(path_todolistFxml);
     public static final URL url_path_notesFxml = SharedVariables.class.getResource(path_notesFxml);
+    public static final URL url_path_flashcardsCardFxml = SharedVariables.class.getResource(path_flashcardsCardFxml);
+    public static final URL url_path_flashcardsDeckFxml = SharedVariables.class.getResource(path_flashcardsDeckFxml);
+    public static final URL url_path_flashcardsCardCreationFxml = SharedVariables.class.getResource(path_flashcardsCardCreationFxml);
 
     public static final URL url_path_alarmMp3 = SharedVariables.class.getResource(path_directoryAudio + "pomodoro_alarm.mp3");
 }
