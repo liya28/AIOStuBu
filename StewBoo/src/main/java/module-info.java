@@ -6,6 +6,7 @@ module io.serateam.stewboo {
     requires atlantafx.base;
     requires com.google.gson;
     requires java.desktop;
+    requires org.fxmisc.richtext;
 
     opens io.serateam.stewboo.core.services.pomodoro to com.google.gson;
     opens io.serateam.stewboo.ui to javafx.fxml;
