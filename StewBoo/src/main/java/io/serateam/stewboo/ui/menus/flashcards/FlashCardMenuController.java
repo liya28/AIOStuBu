@@ -1,31 +1,54 @@
 package io.serateam.stewboo.ui.menus.flashcards;
 
 import io.serateam.stewboo.core.services.flashcard.Deck;
+import io.serateam.stewboo.core.services.flashcard.FlashCardService;
 import io.serateam.stewboo.ui.menus.IMenu;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.scene.Node;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
-class FlashCardMenuController implements IMenu {
+public class FlashCardMenuController implements IMenu {
     @FXML private ListView<Deck> deckListView;
     @FXML private ObservableList<Deck> observableDeckList;
-    @FXML private Button deleteDeckButoon;
+    @FXML private Button deleteDeckButton;
+    ActionEvent event;
+    @FXML private TextField textField;
+    String deckName;
+
+    private final FlashCardService service = new FlashCardService();
+
+    private void loadView(String fxml) {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent view = loader.load();
+            Scene scene = new Scene(view);
+            Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void initialize()
     {
-        if(deckListView != null)
-        {
-            List<Deck> decks = new ArrayList<>();
-            observableDeckList = FXCollections.observableList(decks);
-            deckListView.setItems(observableDeckList);
+        service.initializeService(); //FOR JSON Loading decks
+        observableDeckList = FXCollections.observableList(service.getDecks());
+        deckListView.setItems(observableDeckList);
 
             deckListView.setCellFactory(listView -> new ListCell<Deck>()
             {
@@ -43,16 +66,14 @@ class FlashCardMenuController implements IMenu {
                     }
                 }
             });
-        }
 
-        assert deckListView != null;
         deckListView.setOnMouseClicked(event -> {
             if(event.getClickCount() == 2) {
                 Deck selectedDeck = deckListView.getSelectionModel().getSelectedItem();
 
                 if (selectedDeck != null) {
                     try {
-
+                        openCardView(selectedDeck);
                     } catch (Exception e) {
 
                     }
@@ -60,7 +81,23 @@ class FlashCardMenuController implements IMenu {
             }
         });
 
-        deleteDeckButoon.disabledProperty().and(deckListView.getSelectionModel().selectedItemProperty().isNull());
+        deleteDeckButton.disabledProperty().and(deckListView.getSelectionModel().selectedItemProperty().isNull());
+    }
+
+    private void openCardView(Deck deck) {
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("flashcards/flashcards_cardview.fxml"));
+            Parent root = loader.load();
+
+            CardViewController controller = loader.getController();
+            controller.setFlashcards(deck.getflashCards());
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e) {
+
+        }
     }
 
     public void updateFlashCardCount()
@@ -69,10 +106,33 @@ class FlashCardMenuController implements IMenu {
     }
 
     @FXML
+    String getDeckName()
+    {
+        return deckName;
+    }
+
+    @FXML
+    void closeDeck()
+    {
+        deckName = textField.getText();
+        Stage currentStage = (Stage) textField.getScene().getWindow();
+        currentStage.close();
+    }
+
+    @FXML
     private void addDeck()
     {
-
+        loadView("flashcards/flashcards_deckName.fxml");
+        String deck = getDeckName();
+        if(!deck.isEmpty())
+        {
+            service.addDeck(deck);
+            Deck newDeck = service.getDeckByName(deck);
+            observableDeckList.add(newDeck);
+            openCardView(newDeck);
+        }
     }
+
 
     @FXML
     private void backButton(ActionEvent event)
