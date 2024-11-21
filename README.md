@@ -1,5 +1,7 @@
 # AIOStuBu
-The All-In-One Studdy Buddy.
+The All-In-One (AIO) Studdy Buddy (Stubu) is an offline-first productivity application designed to equip students with all the essential tools they need to excel in their studies. 
+
+Written in Java with JavaFX.
 
 ## Features
 - Notes
@@ -53,7 +55,7 @@ String fieldText = "My text";                       // instance variables
 @FXML private AnchorPane anchorPane_navPaneSlider;
 
 /* II. Scoping
- *    -- Both opening and closing curly braces must be on their own line (ANSI style). 
+ *    -- Both opening and closing curly braces must be on their own line (BSD/Allman style). 
  *       We need visual breaks when reading code. 
  * */
 class MyClass
