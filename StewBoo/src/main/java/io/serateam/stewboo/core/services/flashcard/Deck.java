@@ -1,45 +1,34 @@
 package io.serateam.stewboo.core.services.flashcard;
 
-import java.util.ArrayList;
-import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Deck {
     private String name;
-    private List<Card> flashCards;
+    private ObservableList<Card> flashCards;
 
-    public Deck()
-    {
-        this.flashCards = new ArrayList<>();
-    }
-
-    public Deck(String name)
-    {
+    public Deck(String name) {
         this.name = name;
-        this.flashCards = new ArrayList<>();
+        this.flashCards = FXCollections.observableArrayList();
     }
 
-    public void addflashCard(Card flashCard)
-    {
-        flashCards.add(flashCard);
-    }
-
-    public int getflashCardsCount()
-    {
-        return flashCards.size();
-    }
-
-    public List<Card> getflashCards()
-    {
-        return flashCards;
-    }
-
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void clearflashcards()
-    {
-        flashCards.clear();
+    public ObservableList<Card> getFlashCards() {
+        return flashCards;
+    }
+
+    public int getflashCardsCount() {
+        return flashCards.size();
+    }
+
+    public void addflashCard(Card card) {
+        flashCards.add(card);
+    }
+
+    public void removeflashCard(Card card) {
+        flashCards.remove(card);
     }
 }
