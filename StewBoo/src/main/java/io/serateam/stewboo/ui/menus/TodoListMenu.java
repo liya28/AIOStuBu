@@ -23,16 +23,21 @@ public class TodoListMenu implements IMenu {
 
     @FXML
     void initialize() {
-        try {
-            List<TaskModel> loadedTasks = TaskList.loadTasks();
-            if (loadedTasks != null) {
-                tasks.addAll(loadedTasks);
-                tasks.forEach(this::addTaskToView);
-            }
-        } catch (Exception e) {
-            System.err.println("Error loading tasks: ");
-            e.printStackTrace();
-        }
+//        try {
+//            List<TaskModel> loadedTasks = TaskList.loadTasks();
+//            if (loadedTasks != null) {
+//                tasks.addAll(loadedTasks);
+//                System.out.println("Loaded tasks: " + loadedTasks.size());  // Debugging statement
+//                for (TaskModel task : tasks) {
+//                    addTaskToView(task);
+//                }
+//            } else {
+//                System.out.println("No tasks loaded.");
+//            }
+//        } catch (Exception e) {
+//            System.err.println("Error loading tasks: ");
+//            e.printStackTrace();
+//        }
     }
 
     @FXML
@@ -40,13 +45,14 @@ public class TodoListMenu implements IMenu {
         TaskModel newTask = new TaskModel("", false);
         tasks.add(newTask);
         addTaskToView(newTask);
+        saveTasks();
     }
 
     private void addTaskToView(TaskModel newTask) {
         TodoListService taskComponent = new TodoListService(newTask);
 
         taskComponent.getDeleteButton().setOnAction(e -> {
-            taskContainer.getChildren().remove(taskComponent); // Fix: Modify taskContainer
+            taskContainer.getChildren().remove(taskComponent);
             tasks.remove(newTask);
             saveTasks();
         });
@@ -55,12 +61,13 @@ public class TodoListMenu implements IMenu {
     }
 
     private void saveTasks() {
-        try {
-            TaskList.saveTasks(tasks);
-        } catch (Exception e) {
-            System.err.println("Error saving tasks: ");
-            e.printStackTrace();
-        }
+//        System.out.println("Saved");
+//        try {
+//            TaskList.saveTasks(tasks);
+//        } catch (Exception e) {
+//            System.err.println("Error saving tasks: ");
+//            e.printStackTrace();
+//        }
     }
 
     @FXML

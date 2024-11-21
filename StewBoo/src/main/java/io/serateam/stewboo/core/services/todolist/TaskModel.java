@@ -1,7 +1,9 @@
 package io.serateam.stewboo.core.services.todolist;
 
 
-public class TaskModel {
+import io.serateam.stewboo.core.utility.ISerializable;
+
+public class TaskModel implements ISerializable {
     private String taskContent;
     private boolean isCompleted;
 

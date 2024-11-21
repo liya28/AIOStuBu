@@ -1,40 +1,57 @@
 package io.serateam.stewboo.core.services.todolist;
 
-import java.io.*;
+import io.serateam.stewboo.core.utility.ISerializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskList
+public class TaskList implements ISerializable
 {
-    private static final String FILE_PATH = "todoItems.txt";
+//    private static final String FILE_PATH = "todoItems.txt";
+    private List<TaskModel> tasks = new ArrayList<>();
 
-    public static List<TaskModel> loadTasks() throws IOException {
-        File file = new File(FILE_PATH);
-        List<TaskModel> taskModels = new ArrayList<>();
-
-        if(file.exists()) {
-            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-                String line;
-                while((line = br.readLine()) != null) {
-                    TaskModel taskModel = TaskModel.fromFileString(line);
-                    if(taskModel != null) {
-                        taskModels.add(taskModel);
-                    }
-                }
-            }
-        }
-        return taskModels;
+    void addTask(TaskModel task)
+    {
+        tasks.add(task);
     }
-
-    public static void saveTasks(List<TaskModel> taskModels) throws IOException {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_PATH))) {
-
-            for(TaskModel taskModel : taskModels) {
-                bw.write(taskModel.toFileString());
-                bw.newLine();
-            }
-        }
+    void removeTask(TaskModel task)
+    {
+        tasks.remove(task);
     }
+//    TaskList()
+//    {
+//
+//    }
+
+//    public static List<TaskModel> loadTasks() throws IOException {
+//        File file = new File(FILE_PATH);
+//        List<TaskModel> taskModels = new ArrayList<>();
+//
+//        if(file.exists()) {
+//            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+//                String line;
+//                while((line = br.readLine()) != null) {
+//                    TaskModel taskModel = TaskModel.fromFileString(line);
+//                    if(taskModel != null) {
+//                        taskModels.add(taskModel);
+//                    }
+//                }
+//            }
+//        }
+//        return taskModels;
+//    }
+
+//    public void saveTasks() throws IOException {
+//        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_PATH))) {
+//
+//            for(TaskModel taskModel : taskModels) {
+//                bw.write(taskModel.toFileString());
+//                bw.newLine();
+//            }
+//        }
+//        System.out.println("Task Saved");
+//        JSONService.serializeAndWriteToFile(SharedVariables.path_todoList, this);
+//    }
 }
 
 //public class TaskList {

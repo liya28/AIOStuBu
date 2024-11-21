@@ -1,17 +1,35 @@
 package io.serateam.stewboo.core.services.todolist;
 
 import io.serateam.stewboo.core.services.IService;
+import io.serateam.stewboo.core.utility.JSONService;
+import io.serateam.stewboo.core.utility.SharedVariables;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
+
+import java.io.IOException;
 
 public class TodoListService extends HBox implements IService {
 
-    private final TextField taskField;
-    private final CheckBox taskCheckBox;
-    private final Button deleteButton;
+    private static TaskList list;
+    private static TodoListService instance;
+    private TextField taskField = null;
+    private CheckBox taskCheckBox = null;
+    private Button deleteButton = null;
+
+    private TodoListService() {
+        list = new TaskList();
+    }
+    public static TodoListService getInstance() {
+        if(instance == null) {
+            instance = new TodoListService();
+        }
+        return instance;
+    }
 
     public TodoListService(TaskModel taskModel) {
         super(10); // 10 pixels spacing
@@ -22,6 +40,21 @@ public class TodoListService extends HBox implements IService {
         taskField = new TextField(taskModel.getTaskContent());
         taskField.setPrefWidth(300);
         taskField.setDisable(taskModel.isCompleted());
+
+        PauseTransition pause = new PauseTransition(Duration.millis(500)); // Delay to batch keystrokes
+        taskField.textProperty().addListener((observable, oldValue, newValue) -> {
+            taskModel.setTaskContent(newValue); // Update model
+            pause.setOnFinished(e -> {
+                try {
+
+                    System.out.println("Task saved: " + newValue);
+                } catch (Exception ex) {
+                    System.err.println("Error saving task: ");
+                    ex.printStackTrace();
+                }
+            });
+            pause.playFromStart(); // Restart delay on each keystroke
+        });
 
         // Checkbox
         taskCheckBox = new CheckBox();
@@ -55,6 +88,33 @@ public class TodoListService extends HBox implements IService {
         taskModel.setTaskContent(getTaskText());
         taskModel.setCompleted(isTaskChecked());
     }
+
+    private void saveList(TaskModel taskModel) throws IOException {
+        // Update the task model with the text field content and checkbox status
+        taskModel.setTaskContent(taskField.getText());
+        taskModel.setCompleted(taskCheckBox.isSelected());
+
+        // Call the save method to persist the task
+//        saveTasks(Collections.singletonList(taskModel));  // Saving the single updated task
+    }
+    /////////////////////////
+
+
+    public void createTaskItem(String content, boolean completed) {
+        TaskModel model = new TaskModel(content, completed);
+        addTask(model);
+    }
+
+    private void addTask(TaskModel taskModel)
+    {
+        list.addTask(taskModel);
+    }
+
+    public void saveList() {
+        JSONService.serializeAndWriteToFile(SharedVariables.path_todoList, list);
+    }
+    // TODO: delete list
+    // TODO: read list
 }
 
 
