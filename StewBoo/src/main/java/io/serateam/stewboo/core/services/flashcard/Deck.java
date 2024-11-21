@@ -7,6 +7,11 @@ public class Deck {
     private String name;
     private List<Card> flashCards;
 
+    public Deck()
+    {
+        this.flashCards = new ArrayList<>();
+    }
+
     public Deck(String name)
     {
         this.name = name;
