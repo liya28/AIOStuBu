@@ -10,7 +10,7 @@ public class SharedVariables {
 
     public static final String path_dashboardFxml = path_directoryControls + "dashboard.fxml";
     public static final String path_calendarFxml = path_directoryControls + "calendar_view.fxml";
-    public static final String path_flashcardsFxml = path_directoryControls + "flashcards_view.fxml";
+    public static final String path_flashcardsFxml = path_directoryControls + "flashcards/flashcards_view.fxml";
     public static final String path_pomodoroFxml = path_directoryControls + "pomodoro_view.fxml";
     public static final String path_todolistFxml = path_directoryControls + "todolist_view.fxml";
     public static final String path_notesFxml = path_directoryControls + "notes_view.fxml";
