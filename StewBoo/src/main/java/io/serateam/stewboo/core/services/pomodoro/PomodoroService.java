@@ -36,13 +36,9 @@ public class PomodoroService implements IService
     public void initializeService()
     {
         PomodoroSettings userConfig = PomodoroSettings.loadEntityFromFile();
-        System.out.println(userConfig.getWorkMinutes());
-        System.out.println(userConfig.getLongBreakMinutes());
-        System.out.println(userConfig.getQuickBreakMinutes());
         if(userConfig == null) {
             System.out.println("Pomodoro: No config file found");
             saveDefaultConfigTime();
-
         }
         else saveNewConfigTime(userConfig.getWorkMinutes(), userConfig.getQuickBreakMinutes(), userConfig.getLongBreakMinutes());
     }
