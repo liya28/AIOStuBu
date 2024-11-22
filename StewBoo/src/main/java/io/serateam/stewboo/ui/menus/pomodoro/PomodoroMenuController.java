@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroService;
 import io.serateam.stewboo.core.services.pomodoro.IPomodoroListener;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroSessionState;
+import io.serateam.stewboo.core.services.pomodoro.PomodoroSettings;
 import io.serateam.stewboo.ui.SharedVariables;
 import io.serateam.stewboo.ui.menus.IMenu;
 import io.serateam.stewboo.ui.utility.MusicPlayer;
@@ -44,6 +45,11 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         service = PomodoroService.getInstance();
+        PomodoroSettings settings = service.getConfig();
+        textField_pomodoroMinutes.setText(String.valueOf(settings.getWorkMinutes()/60));
+        textField_shortBreakMinutes.setText(String.valueOf(settings.getQuickBreakMinutes()/60));
+        textField_longBreakMinutes.setText(String.valueOf(settings.getLongBreakMinutes()/60));
+
         service.addListener(this);
         btn_stopTimer.setDisable(true);
 
@@ -114,7 +120,7 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     @Override
     public void onNewPomodoroTimeConfig(int workMinutes, int quickBreakMinutes, int longBreakMinutes)
     {
-        System.out.printf("Work: %d, Quick Break: %d, Long Break %d%n", workMinutes, quickBreakMinutes, longBreakMinutes);
+        System.out.printf("Pomodoro Config:\nWork: %d, Quick Break: %d, Long Break %d%n", workMinutes, quickBreakMinutes, longBreakMinutes);
         textField_pomodoroMinutes.setText(String.valueOf(workMinutes/60));
         textField_shortBreakMinutes.setText(String.valueOf(quickBreakMinutes/60));
         textField_longBreakMinutes.setText(String.valueOf(longBreakMinutes/60));
