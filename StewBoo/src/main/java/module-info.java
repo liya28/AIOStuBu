@@ -16,4 +16,6 @@ module io.serateam.stewboo {
     exports io.serateam.stewboo.ui;
     exports io.serateam.stewboo.ui.menus;
     exports io.serateam.stewboo.ui.menus.pomodoro;
+    exports io.serateam.stewboo.ui.menus.todolist;
+    opens io.serateam.stewboo.ui.menus.todolist to javafx.fxml;
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="450.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml" fx:controller="io.serateam.stewboo.ui.menus.TodoListMenu">
+<AnchorPane prefHeight="450.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml" fx:controller="io.serateam.stewboo.ui.menus.todolist.TodoListMenu">
    <children>
       <AnchorPane prefHeight="115.0" prefWidth="642.0" style="-fx-background-color: #4F7942;">
          <children>

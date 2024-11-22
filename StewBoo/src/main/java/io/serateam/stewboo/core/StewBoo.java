@@ -1,6 +1,5 @@
 package io.serateam.stewboo.core;
 
-import io.serateam.stewboo.core.services.todolist.TaskList;
 import io.serateam.stewboo.core.services.todolist.TodoListService;
 import io.serateam.stewboo.core.services.IService;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroService;
@@ -51,11 +50,10 @@ public class StewBoo
             service.initializeService();
         }
 
-
-        TodoListService listService = TodoListService.getInstance();
-//        TaskList list = listService.createList();
-        listService.createTaskItem("Hello", false);
-        listService.createTaskItem("ANother", true);
-        listService.saveList();
+        // Sample on how to use TodoListService
+//        TodoListService listService = TodoListService.getInstance();
+//        listService.createTaskItem("Hello", false);
+//        listService.createTaskItem("ANother", true);
+//        listService.saveList();
     }
 }
