@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.flashcards.CardViewController">
+    <children>
+      <ProgressBar fx:id="progressBar" layoutX="-3.0" layoutY="1.0" prefHeight="18.0" prefWidth="802.0" progress="0.0" />
+      <VBox alignment="CENTER" layoutX="-1.0" layoutY="19.0" prefHeight="234.0" prefWidth="802.0">
+         <children>
+            <Label fx:id="counterLabel" text="Label" />
+              <Label fx:id="QuestionLabel" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" prefHeight="130.0" prefWidth="779.0" text="Label" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" VBox.vgrow="ALWAYS">
+                  <font>
+                      <Font size="36.0" />
+                  </font>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+              </Label>
+              <Line endX="240.0" startX="-474.5">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Line>
+              <Label fx:id="AnswerLabel" alignment="CENTER" prefHeight="27.0" prefWidth="601.0" text="Label">
+                  <font>
+                      <Font size="24.0" />
+                  </font>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+              </Label>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" layoutX="-7.0" layoutY="399.0" prefHeight="113.0" prefWidth="815.0" spacing="150.0" AnchorPane.bottomAnchor="-0.0">
+         <children>
+            <Button fx:id="previousButton" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" mnemonicParsing="false" onAction="#previousCard" prefHeight="38.0" prefWidth="87.0" text="Previous" textAlignment="RIGHT" textOverrun="CLIP" wrapText="true" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="shuffleButton" ellipsisString="" mnemonicParsing="false" onAction="#shuffleDeck" prefHeight="38.0" prefWidth="79.0" text="Shuffle" textOverrun="CLIP" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+              <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextCard" prefHeight="38.0" prefWidth="79.0" text="Next" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+      </HBox>
+        <Button fx:id="showAnswerButton" alignment="CENTER" contentDisplay="CENTER" layoutX="355.0" layoutY="369.0" mnemonicParsing="false" onAction="#showAnswer" text="Show Answer">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
