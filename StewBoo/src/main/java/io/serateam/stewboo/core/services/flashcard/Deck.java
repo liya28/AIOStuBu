@@ -1,22 +1,24 @@
 package io.serateam.stewboo.core.services.flashcard;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import io.serateam.stewboo.core.utility.ISerializable;
 
-public class Deck {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Deck implements ISerializable {
     private String name;
-    private ObservableList<Card> flashCards;
+    private List<Card> flashCards;
 
     public Deck(String name) {
         this.name = name;
-        this.flashCards = FXCollections.observableArrayList();
+        this.flashCards = new ArrayList<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public ObservableList<Card> getFlashCards() {
+    public List<Card> getFlashCards() {
         return flashCards;
     }
 
