@@ -28,7 +28,6 @@ public class FlashCardMenuController implements IMenu {
 
     @FXML
     public void initialize() {
-        service.initializeService();
         observableDeckList = FXCollections.observableArrayList(service.getDecks());
         deckListView.setItems(observableDeckList);
 
