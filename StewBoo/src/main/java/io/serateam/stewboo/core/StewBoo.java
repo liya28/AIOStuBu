@@ -1,6 +1,7 @@
 package io.serateam.stewboo.core;
 
 import io.serateam.stewboo.core.services.IService;
+import io.serateam.stewboo.core.services.flashcard.FlashCardService;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroService;
 import io.serateam.stewboo.core.utility.JSONService;
 import io.serateam.stewboo.core.utility.Sample;
@@ -41,6 +42,7 @@ public class StewBoo
         List<IService> services = new ArrayList<>();
         // TODO: Add more services if need be.
         services.add(PomodoroService.getInstance());
+        services.add(FlashCardService.getInstance());
 
         for(IService service : services)
         {
