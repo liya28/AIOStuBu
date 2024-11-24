@@ -2,6 +2,7 @@ package io.serateam.stewboo.ui.menus.flashcards;
 
 import io.serateam.stewboo.core.services.flashcard.Card;
 import io.serateam.stewboo.core.services.flashcard.Deck;
+import io.serateam.stewboo.core.services.flashcard.FlashCardService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -11,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class CardCreationController {
+    private FlashCardService service = FlashCardService.getInstance();
     private FlashCardMenuController menuController;
     private Deck deck;
 
@@ -71,7 +73,7 @@ public class CardCreationController {
             Card card = new Card(question, answer);
             if (deck != null)
             {
-                deck.addflashCard(card);
+                service.addflashCard(deck, card);
                 menuController.updateflashcardCount(); // Notify FlashCardMenuController
             }
 
