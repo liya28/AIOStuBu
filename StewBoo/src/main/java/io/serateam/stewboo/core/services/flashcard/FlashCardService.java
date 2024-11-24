@@ -1,18 +1,19 @@
 package io.serateam.stewboo.core.services.flashcard;
 
 import io.serateam.stewboo.core.services.IService;
+import io.serateam.stewboo.core.utility.ISerializable;
 import io.serateam.stewboo.core.utility.JSONService;
 import io.serateam.stewboo.core.utility.SharedVariables;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlashCardService implements IService {
+public class FlashCardService implements IService, ISerializable {
     private static FlashCardService instance;
-    private List<Deck> decks;
+    private static DeckList decks;
 
     private FlashCardService() {
-        decks = new ArrayList<>();
+        decks = DeckList.getInstance();
     }
 
     public static FlashCardService getInstance() {
@@ -24,36 +25,43 @@ public class FlashCardService implements IService {
 
     @Override
     public void initializeService() {
-//        decks = JSONService.deserialize(SharedVariables.Path.flashcardJSON, this);
-        //if (decks == null) {
+        decks = JSONService.deserialize(SharedVariables.Path.flashcardJSON, DeckList.class);
+        if (decks == null) {
+            decks = DeckList.getInstance();
             Deck sampleDeck = new Deck("Sample Deck");
             sampleDeck.addflashCard(new Card("What is 2 + 2?", "4"));
             sampleDeck.addflashCard(new Card("What is the capital of France?", "Paris"));
-            decks.add(sampleDeck);
-            //saveDecksToFile();
-        //}
+            decks.addDeck(sampleDeck);
+            saveDecksToFile();
+        }
+    }
+
+    public void addflashCard(Deck deck, Card card) {
+        deck.addflashCard(card);
+        decks.addDeck(deck);
+        saveDecksToFile();
     }
 
     public List<Deck> getDecks() {
-        return decks;
+        return decks.getDecks();
     }
 
     public void addDeck(String deckName) {
         Deck newDeck = new Deck(deckName);
-        decks.add(newDeck);
-        //saveDecksToFile();
+        decks.addDeck(newDeck);
+        saveDecksToFile();
     }
 
     public Deck getDeckByName(String deckName) {
-        return decks.stream().filter(deck -> deck.getName().equals(deckName)).findFirst().orElse(null);
+        return decks.getDecks().stream().filter(deck -> deck.getName().equals(deckName)).findFirst().orElse(null);
     }
 
     public void deleteDeck(Deck deck) {
-        decks.remove(deck);
-        //saveDecksToFile();
+        decks.deleteDeck(deck);
+        saveDecksToFile();
     }
 
-//    private void saveDecksToFile() {
-//        JSONService.serializeAndWriteToFile(SharedVariables.Path.flashcardJSON, decks);
-//    }
+    private void saveDecksToFile() {
+        JSONService.serializeAndWriteToFile(SharedVariables.Path.flashcardJSON, decks);
+    }
 }
