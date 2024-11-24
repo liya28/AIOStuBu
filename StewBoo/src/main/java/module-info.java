@@ -8,6 +8,7 @@ module io.serateam.stewboo {
     requires java.desktop;
 
     opens io.serateam.stewboo.core.services.pomodoro to com.google.gson;
+    opens io.serateam.stewboo.core.services.flashcard to com.google.gson;
     opens io.serateam.stewboo.ui to javafx.fxml;
     opens io.serateam.stewboo.ui.menus to javafx.fxml;
     opens io.serateam.stewboo.ui.menus.flashcards to javafx.fxml;
