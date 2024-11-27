@@ -17,7 +17,6 @@ public class ToDoItemInstance extends HBox
     private TextField taskField;
     private CheckBox taskCheckBox;
     private Button deleteButton;
-//    private Button saveButton;
     private final TodoListService todoListService = TodoListService.getInstance();
 
     /**
@@ -59,10 +58,6 @@ public class ToDoItemInstance extends HBox
     {
         return deleteButton;
     }
-//    public Button getSaveButton()
-//    {
-//        return saveButton;
-//    }
 
     public String getTaskText()
     {

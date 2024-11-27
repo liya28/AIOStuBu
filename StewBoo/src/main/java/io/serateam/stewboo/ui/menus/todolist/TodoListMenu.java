@@ -17,7 +17,6 @@ import java.util.ResourceBundle;
 public class TodoListMenu implements Initializable, IMenu
 {
     @FXML private Button btn_addTask;
-//    @FXML private Button btn_saveList;
     @FXML private VBox vBox_taskContainer;
 
     private final TodoListService service = TodoListService.getInstance();
