@@ -172,7 +172,7 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         }
         catch(IOException e)
         {
-            ControllerAlerter.showError("Error", "Invalid input!", "Input must be an integer greater than 0 and less than 1441.");
+            ControllerAlerter.showError("Error", "Invalid input!", "Input must be an integer greater than 0 and less than 1441 minutes (24 hours).");
             System.err.println("POMODORO: Invalid text fields");
         }
 
