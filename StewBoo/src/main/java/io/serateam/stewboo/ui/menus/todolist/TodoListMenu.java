@@ -1,5 +1,6 @@
 package io.serateam.stewboo.ui.menus.todolist;
 
+import io.serateam.stewboo.core.services.todolist.TaskList;
 import io.serateam.stewboo.core.services.todolist.TaskModel;
 import io.serateam.stewboo.core.services.todolist.TodoListService;
 
@@ -20,7 +21,7 @@ public class TodoListMenu implements Initializable, IMenu
     @FXML private VBox vBox_taskContainer;
 
     private final TodoListService service = TodoListService.getInstance();
-    private final List<TaskModel> taskList = service.getTaskList();
+    private final TaskList taskList = service.getTaskList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
