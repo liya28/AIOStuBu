@@ -63,13 +63,14 @@ public class TodoListService implements IService {
 
     public void saveList()
     {
-        JSONService.serializeAndWriteToFile(SharedVariables.path_todoList, list);
+        JSONService.serializeAndWriteToFile(SharedVariables.Path.path_todoList, list);
     }
 
     public List<TaskModel> getTaskList()
     {
         if(list == null) {
             list = JSONService.deserialize(SharedVariables.path_todoList, TaskList.class);
+            list = JSONService.deserialize(SharedVariables.Path.path_todoList, TaskList.class);
         }
         return list.getTaskList();
     }
