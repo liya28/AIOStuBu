@@ -23,7 +23,7 @@ public class TodoListMenu implements Initializable, IMenu {
 
     private final TodoListService service = TodoListService.getInstance();
     private final List<TaskModel> taskList = service.getTaskList();
-//    private final
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -33,7 +33,6 @@ public class TodoListMenu implements Initializable, IMenu {
 
     @FXML
     protected void onAddTask(ActionEvent event) {
-        service.createTaskItem("",false);
         addTaskToView();
     }
 
@@ -48,34 +47,24 @@ public class TodoListMenu implements Initializable, IMenu {
             saveTasks();
         });
 
-        taskComponent.getSaveButton().setOnAction(e-> {
-            saveTasks();
-        });
-
         saveTasks();
         taskContainer.getChildren().add(0, taskComponent); // Fix: Modify taskContainer
     }
 
 
-        void saveTasks() {
+    void saveTasks()
+    {
         System.out.println("Saving in Menu");
         service.saveList();
     }
 
-    void loadTask() {
-        List<TaskModel> listOfTasks = service.getTaskList();
-        for (TaskModel task : listOfTasks) {
-            ToDoItemInstance instance = new ToDoItemInstance(task.getTaskContent(), task.isCompleted());
-
+    void loadTask()
+    {
+        for (TaskModel task : taskList) {
+            ToDoItemInstance instance = new ToDoItemInstance(task);
             taskContainer.getChildren().add(0, instance);
         }
 
-    }
-
-
-    @FXML
-    public void onExit() {
-        saveTasks();
     }
 
 }

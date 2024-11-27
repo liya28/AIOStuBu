@@ -6,7 +6,7 @@ public class TaskModel implements ISerializable {
     private String taskContent;
     private boolean isCompleted;
 
-    TaskModel(String text, boolean isCompleted)
+    public TaskModel(String text, boolean isCompleted)
     {
         this.taskContent = text;
         this.isCompleted = isCompleted;
@@ -32,23 +32,5 @@ public class TaskModel implements ISerializable {
     public String toString() {
         return taskContent + " (Checked: " + isCompleted + ")";
     }
-
-//    // TODO: delete
-//    public String toFileString() {
-//        return taskContent + ";" + isCompleted;
-//    }
-//
-//    // TODO: delete
-//    public static TaskModel fromFileString(String line) {
-//        String[] parts = line.split(";");
-//        if(parts.length == 2) {
-//            String taskText = parts[0];
-//            boolean isChecked = Boolean.parseBoolean(parts[1]);
-//            return new TaskModel(taskText, isChecked);
-//        }
-//        return null;
-//    }
 }
 
-
-// TODO: delete everyhting here once done

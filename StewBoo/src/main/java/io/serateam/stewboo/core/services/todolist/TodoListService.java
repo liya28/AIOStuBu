@@ -3,7 +3,6 @@ package io.serateam.stewboo.core.services.todolist;
 import io.serateam.stewboo.core.services.IService;
 import io.serateam.stewboo.core.utility.JSONService;
 import io.serateam.stewboo.core.utility.SharedVariables;
-import javafx.concurrent.Task;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class TodoListService implements IService {
 
 
     public TodoListService() {
-        list = new TaskList();
+        getTaskList();
     }
     public static TodoListService getInstance() {
         if(instance == null) {
@@ -28,29 +27,34 @@ public class TodoListService implements IService {
         // Add meaningful initialization if needed
     }
 
-    public void createTaskItem(String content, boolean completed) {
+    public TaskModel createTaskItem(String content, boolean completed) {
         model = new TaskModel(content, completed);
         addTask(model);
+        return model;
     }
 
     public void deleteTaskItem(String content, boolean completed) {
         removeTask(list.findTask(content,completed));
     }
 
-    public String getTaskContent() {
-        return model.getTaskContent();
+//    public String getTaskContent() {
+//        return model.getTaskContent();
+//    }
+
+//    public boolean isCompleted() {
+//        return model.isCompleted();
+//    }
+
+    public void setTaskContent(String content, TaskModel taskModel) {
+        taskModel.setTaskContent(content);
     }
 
-    public boolean isCompleted() {
-        return model.isCompleted();
-    }
+//    public void setTaskContent(String content) {
+//        model.setTaskContent(content);
+//    }
 
-    public void setTaskContent(String content) {
-        model.setTaskContent(content);
-    }
-
-    public void setCompleted(boolean completed) {
-        model.setCompleted(completed);
+    public void setCompleted(boolean completed, TaskModel taskModel) {
+        taskModel.setCompleted(completed);
     }
 
     private void addTask(TaskModel taskModel)
@@ -70,12 +74,10 @@ public class TodoListService implements IService {
 
     public List<TaskModel> getTaskList()
     {
-        list = JSONService.deserialize(SharedVariables.path_todoList, TaskList.class);
-
+        if(list == null) {
+            list = JSONService.deserialize(SharedVariables.path_todoList, TaskList.class);
+        }
         return list.getTaskList();
     }
 
-    // TODO: delete list
-    // TODO: read list -- upon opening app, search for file json of todolist. Folder is already define in StewBoo.java
-    // search for todolist.json in SharedVariables.Path.mainUserDirectory
 }

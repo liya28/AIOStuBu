@@ -1,15 +1,15 @@
 package io.serateam.stewboo.core.services.todolist;
 
 import io.serateam.stewboo.core.utility.ISerializable;
+import javafx.concurrent.Task;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class TaskList implements ISerializable
+public class TaskList implements ISerializable, Iterable<TaskModel>
 {
-    private List<TaskModel> tasks = new ArrayList<>();
-
-    TaskList() {}
+    private final List<TaskModel> tasks = new ArrayList<>();
 
     void addTask(TaskModel task)
     {
@@ -39,6 +39,9 @@ public class TaskList implements ISerializable
     List<TaskModel> getTaskList() {
         return tasks;
     }
-}
 
-// TODO: delete everything below here once done
+    @Override
+    public Iterator<TaskModel> iterator() {
+        return tasks.iterator();
+    }
+}
