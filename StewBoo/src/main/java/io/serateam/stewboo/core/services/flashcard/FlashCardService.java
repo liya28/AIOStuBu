@@ -5,18 +5,20 @@ import io.serateam.stewboo.core.utility.ISerializable;
 import io.serateam.stewboo.core.utility.JSONService;
 import io.serateam.stewboo.core.utility.SharedVariables;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class FlashCardService implements IService, ISerializable {
+public class FlashCardService implements IService, ISerializable
+{
     private static FlashCardService instance;
     private static DeckList decks;
 
-    private FlashCardService() {
+    private FlashCardService()
+    {
         decks = DeckList.getInstance();
     }
 
-    public static FlashCardService getInstance() {
+    public static FlashCardService getInstance()
+    {
         if (instance == null) {
             instance = new FlashCardService();
         }
@@ -24,9 +26,11 @@ public class FlashCardService implements IService, ISerializable {
     }
 
     @Override
-    public void initializeService() {
+    public void initializeService()
+    {
         decks = JSONService.deserialize(SharedVariables.Path.flashcardJSON, DeckList.class);
-        if (decks == null) {
+        if (decks == null)
+        {
             decks = DeckList.getInstance();
             Deck sampleDeck = new Deck("Sample Deck");
             sampleDeck.addflashCard(new Card("What is 2 + 2?", "4"));
@@ -36,19 +40,20 @@ public class FlashCardService implements IService, ISerializable {
         }
     }
 
-    public void addflashCard(Deck deck, Card card) {
+    public void addflashCard(Deck deck, Card card)
+    {
         deck.addflashCard(card);
-        decks.addDeck(deck);
         saveDecksToFile();
     }
 
-    public List<Deck> getDecks() {
+    public List<Deck> getDecks()
+    {
         return decks.getDecks();
     }
 
-    public void addDeck(String deckName) {
-        Deck newDeck = new Deck(deckName);
-        decks.addDeck(newDeck);
+    public void addDeck(Deck deckName)
+    {
+        decks.addDeck(deckName);
         saveDecksToFile();
     }
 
@@ -58,7 +63,8 @@ public class FlashCardService implements IService, ISerializable {
         saveDecksToFile();
     }
 
-    private void saveDecksToFile() {
+    private void saveDecksToFile()
+    {
         JSONService.serializeAndWriteToFile(SharedVariables.Path.flashcardJSON, decks);
     }
 }
