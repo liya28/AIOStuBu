@@ -197,14 +197,12 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         String invalidInput_CSS = "-fx-border-color: red; -fx-border-width: 2;";
 
         if(!tf.getText().isEmpty()
-        && (!tf.getText().matches("^[1-9]\\d*$") || Integer.parseInt(tf.getText()) > 1440))
+        && (!tf.getText().matches("^(0*[1-9]\\d*)$") || Integer.parseInt(tf.getText()) > 1440))
         {
-            txt_errorIncorrectInput.setOpacity(1);
             tf.setStyle(invalidInput_CSS);
             return false;
         }
         // reset the styles in case the elements had the error styling
-        txt_errorIncorrectInput.setOpacity(0);
         tf.setStyle("");
         return true;
     }
