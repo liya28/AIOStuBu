@@ -52,11 +52,8 @@ public class FlashCardService implements IService, ISerializable {
         saveDecksToFile();
     }
 
-    public Deck getDeckByName(String deckName) {
-        return decks.getDecks().stream().filter(deck -> deck.getName().equals(deckName)).findFirst().orElse(null);
-    }
-
-    public void deleteDeck(Deck deck) {
+    public void deleteDeck(Deck deck)
+    {
         decks.deleteDeck(deck);
         saveDecksToFile();
     }
