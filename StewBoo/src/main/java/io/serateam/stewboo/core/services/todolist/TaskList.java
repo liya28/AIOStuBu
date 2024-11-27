@@ -1,7 +1,6 @@
 package io.serateam.stewboo.core.services.todolist;
 
 import io.serateam.stewboo.core.utility.ISerializable;
-import javafx.concurrent.Task;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,16 +15,13 @@ public class TaskList implements ISerializable, Iterable<TaskModel>
         tasks.add(task);
     }
 
-
     void removeTask(TaskModel task)
     {
-        if(task == null) {
-            System.out.println("This task Does not Exist");
-        }
         tasks.remove(task);
     }
 
-    TaskModel findTask(String str, boolean flag) {
+    TaskModel findTask(String str, boolean flag)
+    {
         for(TaskModel task : tasks) {
             if(task.getTaskContent().equalsIgnoreCase(str)) {
                 if(task.isCompleted() == flag) {
@@ -36,12 +32,14 @@ public class TaskList implements ISerializable, Iterable<TaskModel>
         return null;
     }
 
-    List<TaskModel> getTaskList() {
-        return tasks;
+    TaskList getTaskList()
+    {
+        return this;
     }
 
     @Override
-    public Iterator<TaskModel> iterator() {
+    public Iterator<TaskModel> iterator()
+    {
         return tasks.iterator();
     }
 }

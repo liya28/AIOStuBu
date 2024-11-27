@@ -1,6 +1,5 @@
 package io.serateam.stewboo.ui.menus.todolist;
 
-
 import io.serateam.stewboo.core.services.todolist.TaskModel;
 import io.serateam.stewboo.core.services.todolist.TodoListService;
 
@@ -102,7 +101,6 @@ public class ToDoItemInstance extends HBox
             todoListService.setCompleted(taskCheckBox.isSelected(), taskModel); // Update TaskModel
             todoListService.saveList(); // Persist changes
         });
-
         return taskCheckBox;
     }
 }

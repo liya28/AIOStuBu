@@ -49,11 +49,5 @@ public class StewBoo
             System.out.println("Initializing service: " + service.getClass().getSimpleName());
             service.initializeService();
         }
-
-        // Sample on how to use TodoListService
-//        TodoListService listService = TodoListService.getInstance();
-//        listService.createTaskItem("Hello", false);
-//        listService.createTaskItem("ANother", true);
-//        listService.saveList();
     }
 }
