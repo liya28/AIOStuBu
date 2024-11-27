@@ -1,6 +1,5 @@
 package io.serateam.stewboo.ui.menus.todolist;
 
-import io.serateam.stewboo.core.services.todolist.TaskList;
 import io.serateam.stewboo.core.services.todolist.TaskModel;
 import io.serateam.stewboo.core.services.todolist.TodoListService;
 
@@ -15,15 +14,14 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class TodoListMenu implements Initializable, IMenu {
-
-    @FXML private Button addTask;
-    @FXML private Button SaveList;
-    @FXML private VBox taskContainer; // Renamed to follow naming conventions
+public class TodoListMenu implements Initializable, IMenu
+{
+    @FXML private Button btn_addTask;
+//    @FXML private Button btn_saveList;
+    @FXML private VBox vBox_taskContainer;
 
     private final TodoListService service = TodoListService.getInstance();
     private final List<TaskModel> taskList = service.getTaskList();
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -32,15 +30,18 @@ public class TodoListMenu implements Initializable, IMenu {
     }
 
     @FXML
-    protected void onAddTask(ActionEvent event) {
+    protected void onAddTask(ActionEvent event)
+    {
         addTaskToView();
     }
 
-    private void addTaskToView() {
+    private void addTaskToView()
+    {
         ToDoItemInstance taskComponent = new ToDoItemInstance();
 
         taskComponent.getDeleteButton().setOnAction(e -> {
-            taskContainer.getChildren().remove(taskComponent);
+            vBox_taskContainer.getChildren().remove(taskComponent);
+            System.out.println("TodoList: Task item was removed");
             String str = taskComponent.getTaskText();
             boolean fl = taskComponent.isTaskChecked();
             service.deleteTaskItem(str, fl);
@@ -48,13 +49,12 @@ public class TodoListMenu implements Initializable, IMenu {
         });
 
         saveTasks();
-        taskContainer.getChildren().add(0, taskComponent);
+        vBox_taskContainer.getChildren().add(0, taskComponent);
     }
-
 
     void saveTasks()
     {
-        System.out.println("Saving in Menu");
+        System.out.println("TodoList: The list was saved to file");
         service.saveList();
     }
 
@@ -62,7 +62,7 @@ public class TodoListMenu implements Initializable, IMenu {
     {
         for (TaskModel task : taskList) {
             ToDoItemInstance instance = new ToDoItemInstance(task);
-            taskContainer.getChildren().add(0, instance);
+            vBox_taskContainer.getChildren().add(0, instance);
         }
 
     }

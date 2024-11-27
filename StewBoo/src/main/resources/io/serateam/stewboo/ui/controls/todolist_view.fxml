@@ -18,10 +18,10 @@
             </Label>
          </children>
       </AnchorPane>
-      <Button fx:id="addTask" layoutX="22.0" layoutY="127.0" mnemonicParsing="false" onAction="#onAddTask" text="Add Task" />
+      <Button fx:id="btn_addTask" layoutX="22.0" layoutY="127.0" mnemonicParsing="false" onAction="#onAddTask" text="Add Task" />
       <ScrollPane fitToWidth="true" layoutX="41.0" layoutY="164.0" prefHeight="256.0" prefWidth="570.0">
          <content>
-            <VBox fx:id="taskContainer" prefHeight="253.0" prefWidth="569.0" />
+            <VBox fx:id="vBox_taskContainer" prefHeight="253.0" prefWidth="569.0" />
          </content>
       </ScrollPane>
    </children>
