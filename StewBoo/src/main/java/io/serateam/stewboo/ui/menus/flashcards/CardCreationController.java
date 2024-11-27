@@ -6,23 +6,27 @@ import io.serateam.stewboo.core.services.flashcard.FlashCardService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class CardCreationController {
+public class CardCreationController
+{
     private FlashCardService service = FlashCardService.getInstance();
     private FlashCardMenuController menuController;
     private Deck deck;
 
+    @FXML private Button btn_doneDeck;
     @FXML private TextField questionTextField;
-    @FXML private TextArea answerTextArea;
+    @FXML private TextField answerTextField;
     @FXML private TextField deckNameField;
     @FXML private Label WarningLabel;
 
     @FXML
-    public void initialize() {
+    public void initialize()
+    {
         if (WarningLabel != null)
         {
             WarningLabel.setVisible(false);
@@ -33,9 +37,9 @@ public class CardCreationController {
             questionTextField.setOnAction(event -> addCard());
         }
 
-        if (answerTextArea != null)
+        if (answerTextField != null)
         {
-            answerTextArea.setOnKeyPressed(event ->
+            answerTextField.setOnKeyPressed(event ->
             {
                 if (event.getCode().getName().equals("Enter"))
                 {
@@ -66,7 +70,7 @@ public class CardCreationController {
     private void addCard()
     {
         String question = questionTextField.getText();
-        String answer = answerTextArea.getText();
+        String answer = answerTextField.getText();
 
         if (!question.isEmpty() && !answer.isEmpty())
         {
@@ -78,7 +82,7 @@ public class CardCreationController {
             }
 
             questionTextField.clear();
-            answerTextArea.clear();
+            answerTextField.clear();
         }
         else
         {
