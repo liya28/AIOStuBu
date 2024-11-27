@@ -19,14 +19,23 @@ public class ToDoItemInstance extends HBox {
     private Button saveButton;
     private final TodoListService todoListService = TodoListService.getInstance();
 
-
-    public ToDoItemInstance(TaskModel taskModel) {
+    /**
+     *  Used when initializing a to-do item where we already know the contents of the model.
+     *  For example, when loading an item from a list.
+     * @param taskModel
+     */
+    public ToDoItemInstance(TaskModel taskModel)
+    {
         super(10);
         this.taskModel = taskModel;
         createItemInList();
     }
 
-    public ToDoItemInstance() {
+    /**
+     * Used when initializing a to-do item with a new model. For example, when creating a new item.
+     */
+    public ToDoItemInstance()
+    {
         super(10);
         taskModel = todoListService.createTaskItem("", false);
         createItemInList();
