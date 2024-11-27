@@ -74,7 +74,11 @@ public class ToDoItemInstance extends HBox {
     public ToDoItemInstance() {
         super(10);
         taskModel = todoListService.createTaskItem("", false);
+        createItemInList();
+    }
 
+    private void createItemInList()
+    {
         setPadding(new Insets(5));
         setStyle("-fx-background-color: lightblue; -fx-border-color: gray;");
 
