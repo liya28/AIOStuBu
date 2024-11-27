@@ -7,6 +7,7 @@ import io.serateam.stewboo.core.services.pomodoro.PomodoroSessionState;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroSettings;
 import io.serateam.stewboo.ui.SharedVariables;
 import io.serateam.stewboo.ui.menus.IMenu;
+import io.serateam.stewboo.ui.utility.ControllerAlerter;
 import io.serateam.stewboo.ui.utility.MusicPlayer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -171,6 +172,7 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         }
         catch(IOException e)
         {
+            ControllerAlerter.showError("Error", "Invalid input!", "Input must be an integer greater than 0 and less than 1441.");
             System.err.println("POMODORO: Invalid text fields");
         }
 
