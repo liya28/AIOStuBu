@@ -11,12 +11,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class ToDoItemInstance extends HBox {
+public class ToDoItemInstance extends HBox
+{
     private TaskModel taskModel;
     private TextField taskField;
     private CheckBox taskCheckBox;
     private Button deleteButton;
-    private Button saveButton;
+//    private Button saveButton;
     private final TodoListService todoListService = TodoListService.getInstance();
 
     /**
@@ -54,22 +55,27 @@ public class ToDoItemInstance extends HBox {
         getChildren().addAll(taskCheckBox, taskField, deleteButton);
     }
 
-    public Button getDeleteButton() {
+    public Button getDeleteButton()
+    {
         return deleteButton;
     }
-    public Button getSaveButton() {
-        return saveButton;
-    }
+//    public Button getSaveButton()
+//    {
+//        return saveButton;
+//    }
 
-    public String getTaskText() {
+    public String getTaskText()
+    {
         return taskField.getText();
     }
 
-    public boolean isTaskChecked() {
+    public boolean isTaskChecked()
+    {
         return taskCheckBox.isSelected();
     }
 
-    private TextField createTaskField(TaskModel taskModel) {
+    private TextField createTaskField(TaskModel taskModel)
+    {
         taskField = new TextField(taskModel.getTaskContent());
         taskField.setPrefWidth(300);
         taskField.setDisable(taskModel.isCompleted());
@@ -81,7 +87,8 @@ public class ToDoItemInstance extends HBox {
         return taskField;
     }
 
-    private Button createDeleteButton(TaskModel taskModel) {
+    private Button createDeleteButton(TaskModel taskModel)
+    {
         deleteButton = new Button("Delete");
         deleteButton.setOnAction(e-> {
             ((VBox)getParent()).getChildren().remove(this);
@@ -91,7 +98,8 @@ public class ToDoItemInstance extends HBox {
         return deleteButton;
     }
 
-    private CheckBox createCheckBox(TaskModel taskModel) {
+    private CheckBox createCheckBox(TaskModel taskModel)
+    {
         taskCheckBox = new CheckBox();
         taskCheckBox.setSelected(taskModel.isCompleted());
         taskCheckBox.setOnAction(e -> {
