@@ -19,51 +19,6 @@ public class ToDoItemInstance extends HBox {
     private Button saveButton;
     private final TodoListService todoListService = TodoListService.getInstance();
 
-    public ToDoItemInstance(String taskContent, boolean completed) {
-
-        super(10); // 10 pixels spacing
-        setPadding(new Insets(5));
-        setStyle("-fx-background-color: lightblue; -fx-border-color: gray;");
-
-        // Task text field
-        taskField = new TextField(taskContent);
-        taskField.setPrefWidth(300);
-        taskField.setDisable(completed);
-
-        taskField.textProperty().addListener((observable, oldValue, newValue) -> {
-            todoListService.setTaskContent(newValue, taskModel);
-            try {
-                todoListService.setTaskContent(taskField.getText(), taskModel);
-                System.out.println("Task saved: " + newValue);
-                todoListService.saveList();
-            } catch (Exception ex) {
-                System.err.println("Error saving task: ");
-                ex.printStackTrace();
-            }
-            // Restart delay on each keystroke
-        });
-
-        // Checkbox
-        taskCheckBox = new CheckBox();
-        taskCheckBox.setSelected(completed);
-        taskCheckBox.setOnAction(e -> {
-            taskField.setDisable(taskCheckBox.isSelected());
-        });
-
-        // Delete button
-        deleteButton = new Button("Delete");
-        deleteButton.setOnAction(e->{
-            todoListService.deleteTaskItem(taskField.getText(),taskCheckBox.isSelected());
-            todoListService.saveList();
-            ((VBox) this.getParent()).getChildren().remove(this);
-        });
-        saveButton = new Button("Save");
-        saveButton.setOnAction(e->{
-            todoListService.saveList();
-        });
-
-        getChildren().addAll(taskCheckBox, taskField, deleteButton, saveButton);
-    }
 
     public ToDoItemInstance(TaskModel taskModel) {
         super(10);
