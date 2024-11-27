@@ -4,8 +4,10 @@ import com.jfoenix.controls.JFXButton;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroService;
 import io.serateam.stewboo.core.services.pomodoro.IPomodoroListener;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroSessionState;
+import io.serateam.stewboo.core.services.pomodoro.PomodoroSettings;
 import io.serateam.stewboo.ui.SharedVariables;
 import io.serateam.stewboo.ui.menus.IMenu;
+import io.serateam.stewboo.ui.utility.ControllerAlerter;
 import io.serateam.stewboo.ui.utility.MusicPlayer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -22,7 +24,6 @@ import java.net.URL;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-
 
 public class PomodoroMenuController implements Initializable, IMenu, IPomodoroListener
 {
@@ -44,6 +45,11 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         service = PomodoroService.getInstance();
+        PomodoroSettings settings = service.getConfig();
+        textField_pomodoroMinutes.setText(String.valueOf(settings.getWorkMinutes()/60));
+        textField_shortBreakMinutes.setText(String.valueOf(settings.getQuickBreakMinutes()/60));
+        textField_longBreakMinutes.setText(String.valueOf(settings.getLongBreakMinutes()/60));
+
         service.addListener(this);
         btn_stopTimer.setDisable(true);
 
@@ -114,7 +120,7 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     @Override
     public void onNewPomodoroTimeConfig(int workMinutes, int quickBreakMinutes, int longBreakMinutes)
     {
-        System.out.printf("Work: %d, Quick Break: %d, Long Break %d%n", workMinutes, quickBreakMinutes, longBreakMinutes);
+        System.out.printf("Pomodoro Config:\nWork: %d, Quick Break: %d, Long Break %d%n", workMinutes, quickBreakMinutes, longBreakMinutes);
         textField_pomodoroMinutes.setText(String.valueOf(workMinutes/60));
         textField_shortBreakMinutes.setText(String.valueOf(quickBreakMinutes/60));
         textField_longBreakMinutes.setText(String.valueOf(longBreakMinutes/60));
@@ -166,6 +172,7 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         }
         catch(IOException e)
         {
+            ControllerAlerter.showError("Error", "Invalid input!", "Input must be an integer greater than 0 and less than 1441.");
             System.err.println("POMODORO: Invalid text fields");
         }
 
@@ -190,14 +197,12 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         String invalidInput_CSS = "-fx-border-color: red; -fx-border-width: 2;";
 
         if(!tf.getText().isEmpty()
-        && (!tf.getText().matches("^[1-9]\\d*$") || Integer.parseInt(tf.getText()) > 1440))
+        && (!tf.getText().matches("^(0*[1-9]\\d*)$") || Integer.parseInt(tf.getText()) > 1440))
         {
-            txt_errorIncorrectInput.setOpacity(1);
             tf.setStyle(invalidInput_CSS);
             return false;
         }
         // reset the styles in case the elements had the error styling
-        txt_errorIncorrectInput.setOpacity(0);
         tf.setStyle("");
         return true;
     }
@@ -223,7 +228,7 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         return switch (state)
         {
             case WORK_SESSION -> "Pomodoro";
-            case QUICK_BREAK -> "Quick Break";
+            case QUICK_BREAK -> "Short Break";
             case LONG_BREAK -> "Long Break";
         };
     }
