@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
@@ -19,19 +21,23 @@ import javafx.scene.control.ListView;
 
 import java.io.IOException;
 
-public class FlashCardMenuController implements IMenu {
+public class FlashCardMenuController implements IMenu
+{
     @FXML private ListView<Deck> deckListView;
     @FXML private ObservableList<Deck> observableDeckList;
     @FXML private JFXButton deleteDeckButton;
+    @FXML private AnchorPane anchor_bg;
 
     private final FlashCardService service = FlashCardService.getInstance();
 
     @FXML
-    public void initialize() {
+    public void initialize()
+    {
         observableDeckList = FXCollections.observableArrayList(service.getDecks());
         deckListView.setItems(observableDeckList);
 
-        deckListView.setCellFactory(listView -> new ListCell<Deck>() {
+        deckListView.setCellFactory(listView -> new ListCell<Deck>()
+        {
             @Override
             protected void updateItem(Deck deck, boolean empty) {
                 super.updateItem(deck, empty);
@@ -75,8 +81,8 @@ public class FlashCardMenuController implements IMenu {
             String deckName = controller.getDeckName();
             if (deckName != null && !deckName.trim().isEmpty())
             {
-                service.addDeck(deckName);
-                Deck newDeck = service.getDeckByName(deckName);
+                Deck newDeck = new Deck(deckName);
+                service.addDeck(newDeck);
                 observableDeckList.add(newDeck);
                 openCardCreationView(newDeck);
             }
@@ -101,7 +107,6 @@ public class FlashCardMenuController implements IMenu {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
-            //deckListView.getScene().setRoot(root);
         } catch (Exception e) {
             e.printStackTrace();
         }
