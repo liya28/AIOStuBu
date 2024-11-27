@@ -89,7 +89,7 @@ public class NotesController implements Initializable
 
     private String handleFileContent(String content)
     {
-        if (content.isEmpty())
+        if (content.isEmpty() || content.trim().isEmpty() || content.equals("<html dir=\"ltr\"><head></head><body contenteditable=\"true\"></body></html>"))
         {
             ControllerAlerter.showError("Input Error", "Missing Required Field", "Content is required.");
             return null;
