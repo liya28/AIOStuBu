@@ -29,4 +29,7 @@ public class SharedVariables {
     public static final URL url_path_flashcardsCardCreationFxml = SharedVariables.class.getResource(path_flashcardsCardCreationFxml);
 
     public static final URL url_path_alarmMp3 = SharedVariables.class.getResource(path_directoryAudio + "pomodoro_alarm.mp3");
+
+    public static final String path_loadingLogo = path_directoryImages + "loading_logo.png";
+    public static final String path_appIcon = path_directoryImages + "logo.png";
 }
