@@ -2,6 +2,7 @@ package io.serateam.stewboo.core;
 
 import io.serateam.stewboo.core.services.IService;
 import io.serateam.stewboo.core.services.notes.NotesService;
+import io.serateam.stewboo.core.services.todolist.TodoListService;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroService;
 import io.serateam.stewboo.core.utility.JSONService;
 import io.serateam.stewboo.core.utility.Sample;
@@ -41,14 +42,14 @@ public class StewBoo
         // For simplicity, we will be opting to grouping our services into a list
         List<IService> services = new ArrayList<>();
         // TODO: Add more services if need be.
-        services.add(PomodoroService.getInstance());
         services.add(NotesService.getInstance());
+        services.add(PomodoroService.getInstance());
+        services.add(TodoListService.getInstance());
 
         for(IService service : services)
         {
             System.out.println("Initializing service: " + service.getClass().getSimpleName());
             service.initializeService();
         }
-
     }
 }

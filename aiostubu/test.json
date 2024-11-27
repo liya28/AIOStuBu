@@ -1,0 +1,12 @@
+{
+  "testString": "ss",
+  "testInt": 5,
+  "test": true,
+  "myList": [
+    "Test0",
+    "Test1",
+    "Test2",
+    "Test3",
+    "Test4"
+  ]
+}
