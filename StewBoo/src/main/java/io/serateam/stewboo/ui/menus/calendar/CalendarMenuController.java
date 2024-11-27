@@ -1,8 +1,11 @@
 package io.serateam.stewboo.ui.menus.calendar;
 
+import com.calendarfx.model.CalendarEvent;
 import com.calendarfx.view.CalendarView;
 import io.serateam.stewboo.ui.menus.IMenu;
 import javafx.application.Platform;
+import javafx.collections.ListChangeListener;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -59,6 +62,20 @@ public class CalendarMenuController implements Initializable, IMenu
         calendarView.setRequestedTime(LocalTime.now());
 
         rootChildren.getChildren().addAll(calendarView);
+
+        for (Calendar calendar : familyCalendarSource.getCalendars()) {
+            calendar.addEventHandler(evt -> {
+                if (evt.getEventType() == CalendarEvent.ENTRY_INTERVAL_CHANGED) {
+                    System.out.println("Entry interval changed: " + evt.getEntry().getTitle());
+                } else if (evt.getEventType() == CalendarEvent.ENTRY_TITLE_CHANGED) {
+                    System.out.println("Entry title changed: " + evt.getEntry().getTitle());
+                } else if (evt.getEventType() == CalendarEvent.ENTRY_CHANGED) {
+                    System.out.println("An entry was modified: " + evt.getEntry().getTitle());
+                } else if (evt.getEventType() == CalendarEvent.ENTRY_CALENDAR_CHANGED) {
+                    System.out.println("Entry moved to another calendar: " + evt.getEntry().getTitle());
+                }
+            });
+        }
 
         Thread updateTimeThread = getThread();
         updateTimeThread.start();
