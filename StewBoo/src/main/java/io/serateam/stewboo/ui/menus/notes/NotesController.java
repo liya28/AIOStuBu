@@ -23,7 +23,10 @@ public class NotesController implements Initializable
     @Override
     public void initialize(URL url , ResourceBundle rb)
     {
-        notesService.getInstance();
+        if (notesService == null)
+        {
+            notesService = NotesService.getInstance();
+        }
 
         List<String> titles = notesService.getAllTitles();
         if (titles != null)
