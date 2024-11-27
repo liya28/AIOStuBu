@@ -5,6 +5,8 @@ import io.serateam.stewboo.core.utility.JSONService;
 import io.serateam.stewboo.core.utility.SharedVariables;
 import javafx.concurrent.Task;
 
+import java.util.List;
+
 public class TodoListService implements IService {
 
     private static TaskList list;
@@ -31,6 +33,9 @@ public class TodoListService implements IService {
         addTask(model);
     }
 
+    public void deleteTaskItem(String content, boolean completed) {
+        removeTask(list.findTask(content,completed));
+    }
 
     public String getTaskContent() {
         return model.getTaskContent();
@@ -52,14 +57,22 @@ public class TodoListService implements IService {
     {
         list.addTask(taskModel);
     }
-    private void removeTask(TaskModel taskModel) {list.removeTask(taskModel);}
+    private void removeTask(TaskModel taskModel)
+    {
+        list.removeTask(taskModel);
+    }
 
-    public void saveList() {
+
+    public void saveList()
+    {
         JSONService.serializeAndWriteToFile(SharedVariables.path_todoList, list);
     }
 
-    public TaskList getTaskList() {
-        return JSONService.deserialize(SharedVariables.path_todoList, TaskList.class);
+    public List<TaskModel> getTaskList()
+    {
+        list = JSONService.deserialize(SharedVariables.path_todoList, TaskList.class);
+
+        return list.getTaskList();
     }
 
     // TODO: delete list

@@ -2,7 +2,7 @@ package io.serateam.stewboo.core.services.todolist;
 
 import io.serateam.stewboo.core.utility.ISerializable;
 
-class TaskModel implements ISerializable {
+public class TaskModel implements ISerializable {
     private String taskContent;
     private boolean isCompleted;
 
@@ -12,11 +12,11 @@ class TaskModel implements ISerializable {
         this.isCompleted = isCompleted;
     }
 
-    String getTaskContent() {
+    public String getTaskContent() {
         return taskContent;
     }
 
-    boolean isCompleted() {
+    public boolean isCompleted() {
         return isCompleted;
     }
 

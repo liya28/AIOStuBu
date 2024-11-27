@@ -1,48 +1,52 @@
 package io.serateam.stewboo.ui.menus.todolist;
 
+import io.serateam.stewboo.core.services.todolist.TaskList;
+import io.serateam.stewboo.core.services.todolist.TaskModel;
 import io.serateam.stewboo.core.services.todolist.TodoListService;
 
 import io.serateam.stewboo.ui.menus.IMenu;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import java.util.ArrayList;
-import java.util.List;
 
-public class TodoListMenu implements IMenu {
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class TodoListMenu implements Initializable, IMenu {
 
     @FXML private Button addTask;
     @FXML private Button SaveList;
-
     @FXML private VBox taskContainer; // Renamed to follow naming conventions
 
     private final TodoListService service = TodoListService.getInstance();
+    private final List<TaskModel> taskList = service.getTaskList();
+//    private final
 
-    @FXML
-    void initialize() {
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        loadTask();
     }
 
     @FXML
     protected void onAddTask(ActionEvent event) {
         service.createTaskItem("",false);
-        addTaskToView(service);
+        addTaskToView();
     }
 
-    private void deleteTask() {
-
-    }
-
-    private void addTaskToView(TodoListService newTask) {
-        ToDoListInstance taskComponent = new ToDoListInstance(newTask);
+    private void addTaskToView() {
+        ToDoItemInstance taskComponent = new ToDoItemInstance();
 
         taskComponent.getDeleteButton().setOnAction(e -> {
             taskContainer.getChildren().remove(taskComponent);
             String str = taskComponent.getTaskText();
+            boolean fl = taskComponent.isTaskChecked();
+            service.deleteTaskItem(str, fl);
             saveTasks();
         });
-
 
         taskComponent.getSaveButton().setOnAction(e-> {
             saveTasks();
@@ -52,13 +56,20 @@ public class TodoListMenu implements IMenu {
         taskContainer.getChildren().add(0, taskComponent); // Fix: Modify taskContainer
     }
 
-    void saveTasks() {
+
+        void saveTasks() {
         System.out.println("Saving in Menu");
         service.saveList();
     }
 
     void loadTask() {
-//        List<TaskList> = service.getTaskList();
+        List<TaskModel> listOfTasks = service.getTaskList();
+        for (TaskModel task : listOfTasks) {
+            ToDoItemInstance instance = new ToDoItemInstance(task.getTaskContent(), task.isCompleted());
+
+            taskContainer.getChildren().add(0, instance);
+        }
+
     }
 
 
@@ -66,5 +77,6 @@ public class TodoListMenu implements IMenu {
     public void onExit() {
         saveTasks();
     }
+
 }
 
