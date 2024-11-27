@@ -148,6 +148,7 @@ public class FlashCardMenuController implements IMenu {
         {
             observableDeckList.remove(selectedDeck);
             service.deleteDeck(selectedDeck);
+            deckListView.getSelectionModel().clearSelection();
         }
         else
         {
