@@ -52,6 +52,10 @@ public class FlashCardMenuController implements IMenu {
                 }
             }
         });
+
+        anchor_bg.setOnMouseClicked(mouseEvent -> {
+            deckListView.getSelectionModel().clearSelection();
+        });
     }
 
     @FXML
