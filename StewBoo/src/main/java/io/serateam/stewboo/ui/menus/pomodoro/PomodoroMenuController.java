@@ -24,7 +24,6 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-
 public class PomodoroMenuController implements Initializable, IMenu, IPomodoroListener
 {
     @FXML private Text txt_timer;
