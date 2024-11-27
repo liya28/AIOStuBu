@@ -48,7 +48,7 @@ public class TodoListMenu implements Initializable, IMenu {
         });
 
         saveTasks();
-        taskContainer.getChildren().add(0, taskComponent); // Fix: Modify taskContainer
+        taskContainer.getChildren().add(0, taskComponent);
     }
 
 
