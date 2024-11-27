@@ -67,16 +67,8 @@ public class ToDoItemInstance extends HBox {
 
     public ToDoItemInstance(TaskModel taskModel) {
         super(10);
-
-        setPadding(new Insets(5));
-        setStyle("-fx-background-color: lightblue; -fx-border-color: gray;");
-
-        taskField = createTaskField(taskModel);
-        taskCheckBox = createCheckBox(taskModel);
-        deleteButton = createDeleteButton(taskModel);
-
-
-        getChildren().addAll(taskCheckBox, taskField, deleteButton);
+        this.taskModel = taskModel;
+        createItemInList();
     }
 
     public ToDoItemInstance() {
