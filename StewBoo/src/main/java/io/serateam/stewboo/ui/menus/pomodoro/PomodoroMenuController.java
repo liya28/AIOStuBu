@@ -228,7 +228,7 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
         return switch (state)
         {
             case WORK_SESSION -> "Pomodoro";
-            case QUICK_BREAK -> "Quick Break";
+            case QUICK_BREAK -> "Short Break";
             case LONG_BREAK -> "Long Break";
         };
     }
