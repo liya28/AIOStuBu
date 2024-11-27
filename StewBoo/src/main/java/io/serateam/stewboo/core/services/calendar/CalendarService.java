@@ -5,7 +5,8 @@ import io.serateam.stewboo.core.services.IService;
 public class CalendarService implements IService
 {
     @Override
-    public void initializeService() {
+    public void initializeService()
+    {
 
     }
 }
