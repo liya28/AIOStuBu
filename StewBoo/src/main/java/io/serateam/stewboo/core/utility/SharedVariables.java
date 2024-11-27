@@ -9,5 +9,6 @@ public class SharedVariables
         public static final String test = mainUserDirectory + "test.json";
         public static final String pomodoroUserConfig = mainUserDirectory + "pomodoro_config.json";
         public static final String flashcardJSON = mainUserDirectory + "flashcards.json";
+        public static final String notesDirectory = mainUserDirectory + "notes/";
     }
 }

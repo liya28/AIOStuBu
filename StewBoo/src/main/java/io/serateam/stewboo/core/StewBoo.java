@@ -42,8 +42,8 @@ public class StewBoo
         List<IService> services = new ArrayList<>();
         // TODO: Add more services if need be.
         services.add(PomodoroService.getInstance());
+        services.add(NotesService.getInstance());
         services.add(FlashCardService.getInstance());
-
         for(IService service : services)
         {
             System.out.println("Initializing service: " + service.getClass().getSimpleName());
