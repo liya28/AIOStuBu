@@ -10,7 +10,8 @@ import javafx.scene.control.Button;
 import java.util.Collections;
 import java.util.List;
 
-public class CardViewController {
+public class CardViewController
+{
     @FXML private Label QuestionLabel;
     @FXML private Label AnswerLabel;
     @FXML private Label counterLabel;
@@ -40,7 +41,8 @@ public class CardViewController {
         }
     }
 
-    private void loadFlashcard(int index) {
+    private void loadFlashcard(int index)
+    {
         if (flashCards != null && index < flashCards.size())
         {
             Card flashCard = flashCards.get(index);
@@ -91,12 +93,6 @@ public class CardViewController {
     private void shuffleDeck()
     {
         Collections.shuffle(flashCards);
-        currentIndex = 0;
-        loadFlashcard(currentIndex);
-    }
-
-    @FXML
-    private void handleRestartButton() {
         currentIndex = 0;
         loadFlashcard(currentIndex);
     }
