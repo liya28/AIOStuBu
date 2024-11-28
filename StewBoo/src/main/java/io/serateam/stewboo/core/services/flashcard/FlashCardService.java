@@ -63,7 +63,7 @@ public class FlashCardService implements IService, ISerializable
         saveDecksToFile();
     }
 
-    private void saveDecksToFile()
+    public void saveDecksToFile()
     {
         JSONService.serializeAndWriteToFile(SharedVariables.Path.flashcardJSON, decks);
     }
