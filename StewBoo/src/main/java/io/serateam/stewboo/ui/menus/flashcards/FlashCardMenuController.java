@@ -95,6 +95,22 @@ public class FlashCardMenuController implements IMenu
         }
     }
 
+    private boolean DeckNameChecker(String deckName)
+    {
+        int count = 0;
+        for (int i = 0; i < deckName.length(); i++)
+        {
+            if(deckName.charAt(i) != ' ')
+            {
+                count++;
+            }
+        }
+        if(count >= 20) {
+            return false;
+        }
+        return true;
+    }
+
     private void openFlashCard(Deck deck)
     {
         try {
