@@ -128,27 +128,6 @@ public class CardCreationController
         }
     }
 
-    private void displayWarningMessage(String question, String answer)
-    {
-        if (WarningLabel != null)
-        {
-            WarningLabel.setVisible(true);
-
-            if (question.isEmpty() && answer.isEmpty())
-            {
-                WarningLabel.setText("Question and Answer must be filled");
-            }
-            else if (question.isEmpty())
-            {
-                WarningLabel.setText("Please enter a question.");
-            }
-            else if (answer.isEmpty())
-            {
-                WarningLabel.setText("Please enter an answer to your question.");
-            }
-        }
-    }
-
     @FXML
     private void closeWindow(ActionEvent event)
     {
