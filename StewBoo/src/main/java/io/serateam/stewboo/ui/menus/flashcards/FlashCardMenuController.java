@@ -3,6 +3,7 @@ package io.serateam.stewboo.ui.menus.flashcards;
 import com.jfoenix.controls.JFXButton;
 import io.serateam.stewboo.core.services.flashcard.Deck;
 import io.serateam.stewboo.core.services.flashcard.FlashCardService;
+import io.serateam.stewboo.ui.utility.ControllerAlerter;
 import io.serateam.stewboo.ui.SharedVariables;
 import io.serateam.stewboo.ui.menus.IMenu;
 import javafx.collections.FXCollections;
@@ -79,16 +80,20 @@ public class FlashCardMenuController implements IMenu
             stage.showAndWait();
 
             String deckName = controller.getDeckName();
-            if (deckName != null && !deckName.trim().isEmpty())
+            if (deckName != null && !deckName.trim().isEmpty() && DeckNameChecker(deckName))
             {
                 Deck newDeck = new Deck(deckName);
                 service.addDeck(newDeck);
                 observableDeckList.add(newDeck);
                 openCardCreationView(newDeck);
             }
+            else if(deckName != null && !deckName.trim().isEmpty() && !DeckNameChecker(deckName))
+            {
+                ControllerAlerter.showError("Error", "Deck name cannot exceed 20 characters", "Please enter a deck name within 20 characters");
+            }
             else
             {
-                showAlert("Error", "Deck name cannot be empty.");
+                ControllerAlerter.showError("Error", "Deck name cannot be empty.", "Please input a deckname");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -164,7 +169,7 @@ public class FlashCardMenuController implements IMenu
         }
         else
         {
-            showAlert("Error", "No deck selected to delete.");
+            ControllerAlerter.showError("Error", "No deck selected to delete.", "Please select a deck to be deleted");
         }
     }
 }
