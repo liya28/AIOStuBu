@@ -39,32 +39,43 @@
               </Label>
          </children>
       </VBox>
-      <HBox alignment="CENTER" layoutX="-7.0" layoutY="399.0" prefHeight="113.0" prefWidth="815.0" spacing="150.0" AnchorPane.bottomAnchor="-0.0">
+      <HBox alignment="CENTER" layoutX="-7.0" layoutY="399.0" prefHeight="113.0" prefWidth="815.0" spacing="75.0">
          <children>
-            <Button fx:id="previousButton" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" mnemonicParsing="false" onAction="#previousCard" prefHeight="38.0" prefWidth="87.0" text="Previous" textAlignment="RIGHT" textOverrun="CLIP" wrapText="true" HBox.hgrow="ALWAYS">
+            <Button fx:id="previousButton" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" mnemonicParsing="false" onAction="#previousCard" prefHeight="35.0" prefWidth="100.0" text="Previous" textAlignment="RIGHT" textOverrun="CLIP" wrapText="true" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="shuffleButton" ellipsisString="" mnemonicParsing="false" onAction="#shuffleDeck" prefHeight="35.0" prefWidth="79.0" text="Shuffle" textOverrun="CLIP" wrapText="true">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="shuffleButton" ellipsisString="" mnemonicParsing="false" onAction="#shuffleDeck" prefHeight="38.0" prefWidth="79.0" text="Shuffle" textOverrun="CLIP" wrapText="true">
+              <Button fx:id="showAnswerButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showAnswer" text="Show Answer">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-              <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextCard" prefHeight="38.0" prefWidth="79.0" text="Next" HBox.hgrow="ALWAYS">
+            <Button fx:id="btn_edit" onAction="#editFlashcard" mnemonicParsing="false" prefHeight="35.0" text="Edit">
                <font>
                   <Font size="16.0" />
                </font>
+            </Button>
+              <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextCard" prefHeight="35.0" prefWidth="79.0" text="Next" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </Button>
          </children>
          <padding>
             <Insets left="10.0" top="10.0" />
          </padding>
       </HBox>
-        <Button fx:id="showAnswerButton" alignment="CENTER" contentDisplay="CENTER" layoutX="355.0" layoutY="369.0" mnemonicParsing="false" onAction="#showAnswer" text="Show Answer">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
     </children>
 </AnchorPane>
