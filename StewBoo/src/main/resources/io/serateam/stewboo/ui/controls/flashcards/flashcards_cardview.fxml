@@ -29,7 +29,7 @@
                   <Insets />
                </VBox.margin>
             </Line>
-              <Label fx:id="AnswerLabel" alignment="CENTER" prefHeight="27.0" prefWidth="601.0" text="Label">
+              <Label fx:id="AnswerLabel" alignment="CENTER" ellipsisString="" prefHeight="27.0" prefWidth="601.0" text="Label" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
                   <font>
                       <Font size="24.0" />
                   </font>
