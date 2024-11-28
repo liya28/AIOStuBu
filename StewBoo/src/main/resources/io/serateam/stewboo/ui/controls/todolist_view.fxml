@@ -3,15 +3,17 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="450.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml" fx:controller="io.serateam.stewboo.ui.menus.todolist.TodoListMenu">
+<AnchorPane prefHeight="450.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.todolist.TodoListMenu">
    <children>
-      <AnchorPane prefHeight="115.0" prefWidth="642.0" style="-fx-background-color: #4F7942;">
+      <AnchorPane prefHeight="115.0" prefWidth="642.0" style="-fx-background-color: purple;">
          <children>
-            <Label layoutX="155.0" layoutY="21.0" text="TODOLIST" textAlignment="CENTER" textFill="WHITE">
+            <Label layoutX="197.0" layoutY="11.0" text="ToDoList" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="64.0" />
                </font>
@@ -23,6 +25,13 @@
          <content>
             <VBox fx:id="vBox_taskContainer" prefHeight="253.0" prefWidth="569.0" />
          </content>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.841575026512146" green="0.07890838384628296" blue="0.9263157844543457" />
+               </color>
+            </DropShadow>
+         </effect>
       </ScrollPane>
    </children>
 </AnchorPane>

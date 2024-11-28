@@ -43,7 +43,7 @@ public class ToDoItemInstance extends HBox
     private void createItemInList()
     {
         setPadding(new Insets(5));
-        setStyle("-fx-background-color: lightblue; -fx-border-color: gray;");
+        setStyle("-fx-background-color: lightblue; -fx-border-color: blue");
 
         // Task text field
         taskField = createTaskField(taskModel);
@@ -71,7 +71,8 @@ public class ToDoItemInstance extends HBox
     private TextField createTaskField(TaskModel taskModel)
     {
         taskField = new TextField(taskModel.getTaskContent());
-        taskField.setPrefWidth(300);
+        taskField.setPrefWidth(450);
+        taskField.setPadding(new Insets(5, 5, 5, 5));
         taskField.setDisable(taskModel.isCompleted());
 
         taskField.textProperty().addListener((observable, oldValue, newValue) -> {
