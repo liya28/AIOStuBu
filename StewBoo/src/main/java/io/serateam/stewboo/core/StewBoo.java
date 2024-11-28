@@ -2,6 +2,7 @@ package io.serateam.stewboo.core;
 
 import io.serateam.stewboo.core.services.IService;
 import io.serateam.stewboo.core.services.flashcard.FlashCardService;
+import io.serateam.stewboo.core.services.notes.NotesService;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroService;
 import io.serateam.stewboo.core.utility.JSONService;
 import io.serateam.stewboo.core.utility.Sample;
