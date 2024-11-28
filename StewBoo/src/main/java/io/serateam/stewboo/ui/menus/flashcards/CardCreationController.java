@@ -18,21 +18,18 @@ public class CardCreationController
     private FlashCardService service = FlashCardService.getInstance();
     private FlashCardMenuController menuController;
     private Deck deck;
+    private Card card;
 
     @FXML private Button btn_doneDeck;
     @FXML private TextField questionTextField;
     @FXML private TextField answerTextField;
     @FXML private TextField deckNameField;
-    @FXML private Label WarningLabel;
+    @FXML private TextField edit_questionTextField;
+    @FXML private TextField edit_answerTextField;
 
     @FXML
     public void initialize()
     {
-        if (WarningLabel != null)
-        {
-            WarningLabel.setVisible(false);
-        }
-
         if (questionTextField != null)
         {
             questionTextField.setOnAction(event -> addCard());
@@ -60,6 +57,33 @@ public class CardCreationController
             deckNameField.setText(deck.getName());
             deckNameField.setEditable(false);
         }
+    }
+
+    void setFlashcard(Card card)
+    {
+        this.card = card;
+        edit_questionTextField.setText(card.getQuestion());
+        edit_answerTextField.setText(card.getAnswer());
+    }
+
+    @FXML
+    private void save_edit()
+    {
+        card.setAnswer(edit_answerTextField.getText());
+        card.setQuestion(edit_questionTextField.getText());
+        closeWindow();
+    }
+
+    @FXML
+    private void cancel_edit()
+    {
+        closeWindow();
+    }
+
+    private void closeWindow()
+    {
+        Stage stage = (Stage) edit_questionTextField.getScene().getWindow();
+        stage.close();
     }
 
     public String getDeckName()
