@@ -66,6 +66,23 @@ public class CardCreationController
         return deckNameField.getText();
     }
 
+    private boolean CharacterLengthChecker(String string)
+    {
+        int count = 0;
+        for (int i = 0; i < string.length(); i++)
+        {
+            if(string.charAt(i) != ' ')
+            {
+                count++;
+            }
+        }
+        if(count >= 30)
+        {
+            return false;
+        }
+        return true;
+    }
+
     @FXML
     private void addCard()
     {
