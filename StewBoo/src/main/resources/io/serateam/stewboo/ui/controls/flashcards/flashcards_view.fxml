@@ -6,15 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.flashcards.FlashCardMenuController">
+<AnchorPane fx:id="anchor_bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.flashcards.FlashCardMenuController">
    <children>
-      <JFXListView fx:id="deckListView" layoutX="125.0" layoutY="96.0" prefHeight="261.0" prefWidth="334.0" />
-      <JFXButton fx:id="addButton" layoutX="475.0" layoutY="22.0" onAction="#addDeck" text="Add" />
-      <JFXButton layoutX="523.0" layoutY="22.0" text="Exit" />
-      <JFXButton fx:id="deleteDeckButton" layoutX="413.0" layoutY="22.0" onAction="#deleteDeck" text="Delete" />
-      <Label layoutX="34.0" layoutY="12.0" text="Flashcards">
+      <JFXListView fx:id="deckListView" layoutX="125.0" layoutY="96.0" prefHeight="261.0" prefWidth="334.0" style="-fx-border-color: PURPLE; -fx-border-width: 5;" />
+      <JFXButton fx:id="addButton" buttonType="RAISED" layoutX="517.0" layoutY="22.0" onAction="#addDeck" prefHeight="31.0" prefWidth="45.0" style="-fx-background-color: PURPLE;" text="Add" textFill="WHITE" />
+      <JFXButton fx:id="deleteDeckButton" buttonType="RAISED" layoutX="447.0" layoutY="22.0" onAction="#deleteDeck" style="-fx-border-color: RED; -fx-border-width: 3; -fx-border-radius: 2;" text="Delete" textFill="RED" />
+      <Label layoutX="34.0" layoutY="12.0" text="FLASHCARDS">
          <font>
-            <Font size="48.0" />
+            <Font name="Century Gothic" size="48.0" />
          </font>
       </Label>
    </children>
