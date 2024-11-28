@@ -3,6 +3,7 @@ package io.serateam.stewboo.ui.menus.flashcards;
 import io.serateam.stewboo.core.services.flashcard.Card;
 import io.serateam.stewboo.core.services.flashcard.Deck;
 import io.serateam.stewboo.core.services.flashcard.FlashCardService;
+import io.serateam.stewboo.ui.utility.ControllerAlerter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -89,7 +90,7 @@ public class CardCreationController
         String question = questionTextField.getText();
         String answer = answerTextField.getText();
 
-        if (!question.isEmpty() && !answer.isEmpty())
+        if (!question.isEmpty() && !answer.isEmpty() && CharacterLengthChecker(question) && CharacterLengthChecker(answer))
         {
             Card card = new Card(question, answer);
             if (deck != null)
@@ -101,9 +102,29 @@ public class CardCreationController
             questionTextField.clear();
             answerTextField.clear();
         }
-        else
+        else if(!question.isEmpty() && !answer.isEmpty() && !CharacterLengthChecker(question) && !CharacterLengthChecker(answer))
         {
-            displayWarningMessage(question, answer);
+            ControllerAlerter.showError("Error", "Question and Answer cannot exceed 30 characters", "Please enter a question and answer within 30 characters");
+        }
+        else if(!question.isEmpty() && !answer.isEmpty() && !CharacterLengthChecker(question) && CharacterLengthChecker(answer))
+        {
+            ControllerAlerter.showError("Error", "Answer cannot exceed 30 characters", "Please enter an answer within 30 characters.");
+        }
+        else if(!question.isEmpty() && !answer.isEmpty() && CharacterLengthChecker(question) && !CharacterLengthChecker(answer))
+        {
+            ControllerAlerter.showError("Error", "Question cannot exceed 30 characters", "Please enter a question within 30 characters");
+        }
+        else if(question.isEmpty() && answer.isEmpty())
+        {
+            ControllerAlerter.showError("Error", "Question and Answer cannot be empty", "Please enter a question and an answer.");
+        }
+        else if(question.isEmpty())
+        {
+            ControllerAlerter.showError("Error", "Question cannot be empty", "Please enter a question.");
+        }
+        else if(answer.isEmpty())
+        {
+            ControllerAlerter.showError("Error", "Answer cannot be empty", "Please enter an answer to your question.");
         }
     }
 
