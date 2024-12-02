@@ -54,8 +54,7 @@ public class CardViewController
 
         if (flashCards == null || flashCards.isEmpty())
         {
-            QuestionLabel.setText("No flashcards available.");
-            AnswerLabel.setVisible(false);
+            label.setText("No flashcards available.");
         }
         else
         {
