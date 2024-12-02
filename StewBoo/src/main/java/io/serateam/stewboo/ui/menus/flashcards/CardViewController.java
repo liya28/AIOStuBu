@@ -165,7 +165,7 @@ public class CardViewController
 
     private void updateCounterLabel()
     {
-        counterLabel.setText("Card " + (currentIndex + 1) + " of " + flashCards.size());
+        current_index.setText(String.valueOf(currentIndex + 1) + " / " + String.valueOf(flashCards.size()));
     }
 
     @FXML
