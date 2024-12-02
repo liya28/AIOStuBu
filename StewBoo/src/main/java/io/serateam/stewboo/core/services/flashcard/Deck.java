@@ -35,9 +35,4 @@ public class Deck implements ISerializable
     {
         flashCards.add(card);
     }
-
-    public void removeflashCard(Card card)
-    {
-        flashCards.remove(card);
-    }
 }
