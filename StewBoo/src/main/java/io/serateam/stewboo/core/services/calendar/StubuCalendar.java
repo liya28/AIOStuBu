@@ -34,8 +34,38 @@ public class StubuCalendar implements ISerializable
         calendarEntryList.add(calendarEntry);
     }
 
-    public void removeEntry(StubuCalendarEntry calendarEntry)
+    public void removeEntryById(String entryId)
     {
-        calendarEntryList.remove(calendarEntry);
+        if (entryId == null)
+        {
+            System.err.println("Calendar: Cannot remove entry. Entry ID is null");
+            return;
+        }
+
+        StubuCalendarEntry entryToRemove = null;
+
+        // Find the matching entry
+        for (StubuCalendarEntry calendarEntry : calendarEntryList)
+        {
+            if (entryId.equals(calendarEntry.getId()))
+            {
+                System.out.println("Calendar: Calendar entry found! " + calendarEntry.getId());
+                entryToRemove = calendarEntry;
+                break;
+            }
+        }
+
+        // Remove the entry if found
+        if (entryToRemove != null)
+        {
+            if(calendarEntryList.remove(entryToRemove))
+            {
+                System.out.println("Calendar: Entry removed successfully!");
+            }
+        }
+        else
+        {
+            System.err.println("Calendar: Cannot remove entry. Entry not found.");
+        }
     }
 }
