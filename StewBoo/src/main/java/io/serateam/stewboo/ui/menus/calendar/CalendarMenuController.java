@@ -148,6 +148,8 @@ public class CalendarMenuController implements Initializable, IMenu
         }
         if(event.getEventType() == CalendarEvent.ENTRY_CALENDAR_CHANGED)
         {
+            // CalendarEvent.ENTRY_CALENDAR_CHANGED may be raised
+            // when an entry is deleted.
             changeCalendar(event);
         }
 
