@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class StubuCalendarEntry
 {
     // FIELDS
-    private String id;
+    private final String id;
     private String title;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
@@ -62,4 +62,36 @@ public class StubuCalendarEntry
     {
         return recurrenceRule;
     }
+
+    public void setTitle(String title)
+    {
+        this.title = title;
+    }
+
+    public void setStartDate(LocalDateTime startDate)
+    {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(LocalDateTime endDate)
+    {
+        this.endDate = endDate;
+    }
+
+    public void setLocation(String location)
+    {
+
+        this.location = location;
+    }
+
+    public void setFullDay(boolean fullDay)
+    {
+        this.fullDay = fullDay;
+    }
+
+    public void setRecurrenceRule(String recurrenceRule)
+    {
+        this.recurrenceRule = recurrenceRule;
+    }
 }
+
