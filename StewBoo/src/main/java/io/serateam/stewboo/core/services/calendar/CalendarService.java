@@ -64,22 +64,33 @@ public class CalendarService implements IService
         calendarList.removeCalendar(calendar);
     }
 
-    public StubuCalendarList loadCalendarListFromDirectory()
+    public void loadCalendarListFromDirectory()
     {
         StubuCalendarList calendarList = StubuCalendarList.getInstance();
-        File folder = new File(SharedVariables.Path.stubuCalendarDirectory);
-        File[] files = folder.listFiles( (dir, name) -> name.endsWith(".json") );
-        if(files != null)
+        try
         {
-            for(File file : files)
+            File folder = new File(SharedVariables.Path.stubuCalendarDirectory);
+            File[] files = folder.listFiles( (dir, name) -> name.endsWith(".json") );
+            if(files != null)
             {
-                StubuCalendar calendar = JSONService.deserialize(file.getPath(), StubuCalendar.class);
-                if(calendar != null)
+                for(File file : files)
                 {
-                    calendarList.addCalendar(calendar);
+                    StubuCalendar calendar = JSONService.deserialize(file.getPath(), StubuCalendar.class);
+                    if(calendar != null)
+                    {
+                        calendarList.addCalendar(calendar);
+                    }
                 }
             }
+            else throw new IOException(SharedVariables.Path.stubuCalendarDirectory + " does not exist");
         }
-        return calendarList;
+        catch (NullPointerException e)
+        {
+            System.err.println("Failed to load calendar list from directory: " + SharedVariables.Path.stubuCalendarDirectory);
+        }
+        catch(IOException e)
+        {
+            System.err.println(e.getMessage());
+        }
     }
 }
