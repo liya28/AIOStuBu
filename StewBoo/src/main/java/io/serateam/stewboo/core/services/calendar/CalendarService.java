@@ -58,6 +58,8 @@ public class CalendarService implements IService
         JSONService.serializeAndWriteToFile(path, calendar);
     }
 
+    // Currently, CalendarFX does not support the deletion of calendars.
+    // However, we can opt to keep this should the feature be implemented in the future.
     public void deleteCalendar(StubuCalendar calendar)
     {
         StubuCalendarList calendarList = StubuCalendarList.getInstance();
