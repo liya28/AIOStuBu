@@ -33,7 +33,19 @@ public class CardViewController
 
     private List<Card> flashCards;
     private int currentIndex;
-    private String answer;
+    private boolean showed_question = false;
+    private boolean isEditing = false;
+
+    @FXML
+    void initialize()
+    {
+        card.setOnMouseClicked(event ->
+        {
+            if(event.getClickCount() == 1) {
+                flipCard();
+            }
+        });
+    }
 
     public void setflashcards(List<Card> flashCards)
     {
