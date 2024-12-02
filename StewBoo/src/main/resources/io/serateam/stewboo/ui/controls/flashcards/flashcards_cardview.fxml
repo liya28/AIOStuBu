@@ -16,7 +16,7 @@
       <Button fx:id="btn_previous" layoutX="262.0" layoutY="422.0" mnemonicParsing="false" onAction="#nextCard" onMouseClicked="#previousCard" prefHeight="46.0" prefWidth="65.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;" />
       <AnchorPane fx:id="card" layoutX="43.0" layoutY="33.0" prefHeight="368.0" prefWidth="711.0" style="-fx-border-color: PURPLE; -fx-border-width: 3; -fx-border-radius: 20;">
          <children>
-            <ImageView fx:id="img_edit" fitHeight="20.0" fitWidth="30.0" layoutX="684.0" layoutY="14.0" onMouseClicked="#editFlashcard" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="img_edit" fitHeight="20.0" fitWidth="30.0" layoutX="648.0" layoutY="14.0" onMouseClicked="#editFlashcard" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../images/edit.png" />
                </image>
@@ -30,9 +30,14 @@
                   </Label>
                </children>
             </VBox>
+            <ImageView fx:id="img_delete" fitHeight="20.0" fitWidth="30.0" layoutX="677.0" layoutY="14.0" onMouseClicked="#deleteCard" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/delete.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-      <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="483.0" prefHeight="18.0" prefWidth="801.0" progress="0.0" />
+      <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="483.0" prefHeight="18.0" prefWidth="801.0" progress="0.55" style="-fx-accent: PURPLE;" />
       <Label fx:id="current_index" layoutX="366.0" layoutY="430.0" text="Label">
          <font>
             <Font name="Century Gothic" size="24.0" />
@@ -60,7 +65,7 @@
             <Font name="Century Gothic" size="11.0" />
          </font>
       </TextField>
-      <Button onAction="#jumpToCard" layoutX="167.0" layoutY="433.0" mnemonicParsing="false" style="-fx-background-color: PURPLE;" text="GO" textFill="WHITE">
+      <Button layoutX="167.0" layoutY="433.0" mnemonicParsing="false" onAction="#jumpToCard" style="-fx-background-color: PURPLE;" text="GO" textFill="WHITE">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
