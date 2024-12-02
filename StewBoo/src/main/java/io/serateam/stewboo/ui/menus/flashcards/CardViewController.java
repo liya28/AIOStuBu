@@ -25,15 +25,11 @@ public class CardViewController
 {
     FlashCardService service = FlashCardService.getInstance();
 
-    @FXML private Label QuestionLabel;
-    @FXML private Label AnswerLabel;
-    @FXML private Label counterLabel;
     @FXML private ProgressBar progressBar;
-    @FXML private Button nextButton;
-    @FXML private Button previousButton;
-    @FXML private Button shuffleButton;
-    @FXML private Button showAnswerButton;
-    @FXML private Button btn_edit;
+    @FXML private Label label;
+    @FXML private Label current_index;
+    @FXML private AnchorPane card;
+    @FXML private TextField indexTextField;
 
     private List<Card> flashCards;
     private int currentIndex;
