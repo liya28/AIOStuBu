@@ -1,81 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.flashcards.CardViewController">
     <children>
-      <ProgressBar fx:id="progressBar" layoutX="-3.0" layoutY="1.0" prefHeight="18.0" prefWidth="802.0" progress="0.0" />
-      <VBox alignment="CENTER" layoutX="-1.0" layoutY="19.0" prefHeight="234.0" prefWidth="802.0">
+      <Button fx:id="btn_shuffle" layoutX="618.0" layoutY="430.0" mnemonicParsing="false" onAction="#shuffleDeck" prefHeight="30.0" prefWidth="50.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;" />
+      <Button fx:id="btn_previous" layoutX="262.0" layoutY="422.0" mnemonicParsing="false" onAction="#nextCard" onMouseClicked="#previousCard" prefHeight="46.0" prefWidth="65.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;" />
+      <AnchorPane fx:id="card" layoutX="43.0" layoutY="33.0" prefHeight="368.0" prefWidth="711.0" style="-fx-border-color: PURPLE; -fx-border-width: 3; -fx-border-radius: 20;">
          <children>
-            <Label fx:id="counterLabel" text="Label" />
-              <Label fx:id="QuestionLabel" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" prefHeight="130.0" prefWidth="779.0" text="Label" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" VBox.vgrow="ALWAYS">
-                  <font>
-                      <Font size="36.0" />
-                  </font>
-               <VBox.margin>
-                  <Insets top="50.0" />
-               </VBox.margin>
-              </Label>
-              <Line endX="240.0" startX="-474.5">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Line>
-              <Label fx:id="AnswerLabel" alignment="CENTER" ellipsisString="" prefHeight="27.0" prefWidth="601.0" text="Label" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
-                  <font>
-                      <Font size="24.0" />
-                  </font>
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
-              </Label>
+            <ImageView fx:id="img_edit" fitHeight="20.0" fitWidth="30.0" layoutX="684.0" layoutY="14.0" onMouseClicked="#editFlashcard" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/edit.png" />
+               </image>
+            </ImageView>
+            <VBox alignment="CENTER" layoutX="5.0" layoutY="79.0" prefHeight="200.0" prefWidth="700.0">
+               <children>
+                  <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" text="Label" textOverrun="CLIP">
+                     <font>
+                        <Font name="Century Gothic" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </children>
-      </VBox>
-      <HBox alignment="CENTER" layoutX="-7.0" layoutY="399.0" prefHeight="113.0" prefWidth="815.0" spacing="75.0">
-         <children>
-            <Button fx:id="previousButton" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" mnemonicParsing="false" onAction="#previousCard" prefHeight="35.0" prefWidth="100.0" text="Previous" textAlignment="RIGHT" textOverrun="CLIP" wrapText="true" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="shuffleButton" ellipsisString="" mnemonicParsing="false" onAction="#shuffleDeck" prefHeight="35.0" prefWidth="79.0" text="Shuffle" textOverrun="CLIP" wrapText="true">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-              <Button fx:id="showAnswerButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showAnswer" text="Show Answer">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn_edit" onAction="#editFlashcard" mnemonicParsing="false" prefHeight="35.0" text="Edit">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-              <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nextCard" prefHeight="35.0" prefWidth="79.0" text="Next" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Button>
-         </children>
-         <padding>
-            <Insets left="10.0" top="10.0" />
-         </padding>
-      </HBox>
+      </AnchorPane>
+      <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="483.0" prefHeight="18.0" prefWidth="801.0" progress="0.0" />
+      <Label fx:id="current_index" layoutX="366.0" layoutY="430.0" text="Label">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="48.0" fitWidth="37.0" layoutX="276.0" layoutY="426.0" onMouseClicked="#previousCard" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/back.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="472.0" layoutY="422.0" mnemonicParsing="false" onAction="#nextCard" prefHeight="46.0" prefWidth="65.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;" />
+      <ImageView fitHeight="48.0" fitWidth="37.0" layoutX="484.0" layoutY="426.0" onMouseClicked="#nextCard" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../../images/back.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img_shuffle" fitHeight="25.0" fitWidth="37.0" layoutX="631.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/shuffle.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="77.0" layoutY="419.0" />
+      <TextField fx:id="indexTextField" layoutX="109.0" layoutY="433.0" prefHeight="25.0" prefWidth="50.0" promptText="Card #">
+         <font>
+            <Font name="Century Gothic" size="11.0" />
+         </font>
+      </TextField>
+      <Button onAction="#jumpToCard" layoutX="167.0" layoutY="433.0" mnemonicParsing="false" style="-fx-background-color: PURPLE;" text="GO" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
