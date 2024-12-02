@@ -4,14 +4,22 @@ import java.time.LocalDateTime;
 
 public class StubuCalendarEntry
 {
+    /*
+    * The fields of the Stubu Calendar Entry class comply with RFC 2445 Section 4.8
+    * to ensure adherence to industry standards.
+    * Refer: https://www.rfc-editor.org/rfc/rfc2445
+    *
+    * - RAFAEL A. MENDOZA
+    * */
+
     // FIELDS
-    private final String id;
-    private String title;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    private String location;
+    private final String id;            // RFC 2445 4.8.4.7 UNIQUE IDENTIFIER
+    private String title;               // RFC 2445 4.8.1.12 SUMMARY
+    private LocalDateTime startDate;    // RFC 2445 4.8.2.4 DATE/TIME START
+    private LocalDateTime endDate;      // RFC 2445 4.8.2.2 DATE/TIME END
+    private String location;            // RFC 2445 4.8.1.7 LOCATION
     private boolean fullDay;
-    private String recurrenceRule;
+    private String recurrenceRule;      // RFC 2445 4.8.5.4 RECURRENCE RULE
 
     // CONSTRUCTOR
     public StubuCalendarEntry(String id, String title,
