@@ -7,9 +7,9 @@ public class StubuCalendarList
 {
     // FIELDS
     private static List<StubuCalendar> calendars;
+    private static StubuCalendarList instance;
 
     // CONSTRUCTORS & INITIALIZERS
-    private static StubuCalendarList instance;
     private StubuCalendarList() {}
 
     public static StubuCalendarList getInstance()
