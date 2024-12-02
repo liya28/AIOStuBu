@@ -141,9 +141,12 @@ public class CalendarMenuController implements Initializable, IMenu
         }
     }
 
+
+
+
+    // FIXME Bug when saving
     private void saveCalender(CalendarEvent event)
     {
-        // FIXME Bug when saving
         System.out.println("Calendar: Saving calendar...");
         Calendar eventCalendar = event.getCalendar();
         StubuCalendar stubuCalendar = null;
@@ -152,6 +155,22 @@ public class CalendarMenuController implements Initializable, IMenu
             if(Objects.equals(calendar.getName(), eventCalendar.getName()))
             {
                 stubuCalendar = calendar;
+
+                for(StubuCalendarEntry entry : stubuCalendar.getEntryList())
+                {
+                    // Reassign CalendarFX Entry properties to our domain Entry object with the same ID
+                    if(Objects.equals(entry.getId(), event.getEntry().getId()))
+                    {
+                        Entry<?> inputEntry = event.getEntry();
+                        entry.setTitle(inputEntry.getTitle());
+                        entry.setLocation(inputEntry.getLocation());
+                        entry.setStartDate(inputEntry.getStartAsLocalDateTime());
+                        entry.setEndDate(inputEntry.getEndAsLocalDateTime());
+                        entry.setFullDay(inputEntry.isFullDay());
+                        entry.setRecurrenceRule(inputEntry.getRecurrenceRule());
+                        break;
+                    }
+                }
                 break;
             }
         }
@@ -161,17 +180,42 @@ public class CalendarMenuController implements Initializable, IMenu
             stubuCalendar = new StubuCalendar(eventCalendar.getName());
             domain_stubuCalendarList.addCalendar(stubuCalendar);
         }
+                        /*
+                        FIXME handle if event raises
+                            ENTRY_CHANGED : the super type for changes made to an entry
+                            ENTRY_CALENDAR_CHANGED : the entry was assigned to a different calendar
+                            ENTRY_FULL_DAY_CHANGED : the full day flag was changed (from true to false or vice versa)
+                            ENTRY_INTERVAL_CHANGED : the time interval of the entry was changed (start date / time, end date / time)
+                            ENTRY_LOCATION_CHANGED : the location of the entry has changed
+                            ENTRY_RECURRENCE_RULE_CHANGED : the recurrence rule was modified
+                            ENTRY_TITLE_CHANGED : the entry title has changed
+                            ?
+                            .
+                            .
+                            ENTRY_USER_OBJECT_CHANGED : a new user object was set on the entry
+                         */
+
+        // for debugging
+//        for(StubuCalendar calendar : domain_stubuCalendarList.getCalendars())
+//        {
+//            for(StubuCalendarEntry e : calendar.getEntryList())
+//            {
+//                System.out.println(e.getTitle());
+//                System.out.println(e.getId());
+//            }
+//        }
 
         calendarService.saveCalendarToFile(stubuCalendar);
     }
+
+
+
+
 
     private void changeCalendar(CalendarEvent event)
     {
         // Note: CalendarFX handles deletion of entries by nullifying its Calendar property!
         System.out.println("Calendar: Changing calendar...");
-//        System.out.printf("Calendar: %s%n", event.getCalendar());
-//        System.out.printf("Calendar Event Type: %s%n", event.getEventType());
-//        System.out.printf("Calendar Entry: %s%n", event.getEntry());
 
         // Calendar is null means that an entry was deleted!
         // CalendarFX developer manual states that assigning null to the
@@ -183,13 +227,13 @@ public class CalendarMenuController implements Initializable, IMenu
 //            StubuCalendarMapper.toStubuCalendarObject(event.getOldCalendar());
         }
 
+        // Case: If the entry is a new entry
         if(event.getOldCalendar() == null)
         {
-            // Case: If the entry is a new entry
-
             // Get current calendar where the entry resides
             Calendar eventCalendar = event.getCalendar();
             StubuCalendar stubuCalendar = null;
+
             for(StubuCalendar calendar : domain_stubuCalendarList.getCalendars())
             {
                 if(Objects.equals(calendar.getName(), eventCalendar.getName()))
@@ -202,7 +246,7 @@ public class CalendarMenuController implements Initializable, IMenu
             if(stubuCalendar == null)
             {
                 System.err.println("Unimplemented case");
-                stubuCalendar = new StubuCalendar(eventCalendar.getName());
+                stubuCalendar = StubuCalendarMapper.toStubuCalendarObject(eventCalendar);
                 domain_stubuCalendarList.addCalendar(stubuCalendar);
             }
 
@@ -216,6 +260,35 @@ public class CalendarMenuController implements Initializable, IMenu
         {
             // Case: If we transfer the entry from one calendar to another
             System.out.printf("Changing calendar: from %s to %s %n", event.getOldCalendar().getName(), event.getCalendar().getName());
+
+            // region add entry to calendar (domain-level)
+
+            // Get current calendar where the entry resides
+            Calendar eventCalendar = event.getCalendar();
+            StubuCalendar stubuCalendar = null;
+
+            for(StubuCalendar calendar : domain_stubuCalendarList.getCalendars())
+            {
+                if(Objects.equals(calendar.getName(), eventCalendar.getName()))
+                {
+                    stubuCalendar = calendar;
+                    break;
+                }
+            }
+            if(stubuCalendar == null) throw new RuntimeException("Unimplemented case"); // TODO unhandled exception
+
+            Entry<?> entry = event.getEntry();
+            StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
+
+            stubuCalendar.addEntry(stubuEntry);
+
+            // endregion
+
+            // region remove entry from old calendar (domain-level)
+
+
+
+            // endregion
         }
     }
 
