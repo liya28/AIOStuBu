@@ -149,12 +149,9 @@ public class CardViewController
         if (flashCards != null && index < flashCards.size())
         {
             Card flashCard = flashCards.get(index);
-            QuestionLabel.setText(flashCard.getQuestion());
-            QuestionLabel.setMaxWidth(400);
-            QuestionLabel.setAlignment(Pos.TOP_CENTER);
-            this.answer = flashCard.getAnswer();
-            AnswerLabel.setVisible(false);
-
+            label.setText(flashCard.getQuestion());
+            showed_question = true;
+            isEditing = false;
             updateProgressBar();
             updateCounterLabel();
         }
