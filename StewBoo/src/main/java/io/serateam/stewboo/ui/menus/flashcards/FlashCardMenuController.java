@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -126,6 +127,7 @@ public class FlashCardMenuController implements IMenu
             CardViewController con = loader.getController();
             con.setflashcards(deck.getFlashCards());
             Scene scene = new Scene(root);
+            scene.setCamera(new PerspectiveCamera());
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
