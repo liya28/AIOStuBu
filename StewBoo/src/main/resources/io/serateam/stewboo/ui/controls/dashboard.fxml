@@ -2,20 +2,20 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.MainMenuController">
+
+<AnchorPane fx:id="pane_mainArea" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.MainMenuController">
    <children>
-      <VBox prefHeight="462.0" prefWidth="150.0">
+      <VBox layoutX="-1.0" prefHeight="720.0" prefWidth="159.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane fx:id="anchorPane_nav" prefHeight="512.0" prefWidth="158.0" styleClass="side_ankerpane" stylesheets="@../css/style.css">
+            <AnchorPane fx:id="anchorPane_nav" prefHeight="727.0" prefWidth="191.0" styleClass="side_ankerpane" stylesheets="@../css/style.css">
                <children>
                   <JFXButton fx:id="btn_workbench" alignment="BASELINE_LEFT" layoutX="19.0" layoutY="163.0" prefHeight="30.0" prefWidth="89.0" styleClass="default_btn" stylesheets="@../css/style.css" text="Home" textFill="WHITE">
                      <graphic>
@@ -113,96 +113,23 @@
                         <Image url="@../images/logo.png" />
                      </image>
                   </ImageView>
+                  <Text fill="WHITE" layoutX="12.0" layoutY="694.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright 2024 SeraTeam" />
                </children>
             </AnchorPane>
          </children>
       </VBox>
-      <Pane prefHeight="499.0" prefWidth="644.0">
+      <Pane fx:id="home_view" layoutX="158.1999969482422" prefHeight="720.0" prefWidth="924.0">
          <children>
-            <Pane fx:id="pane_permanentArea">
-               <children>
-                  <TextField fx:id="textField_search" alignment="TOP_LEFT" layoutX="339.0" layoutY="11.0" prefHeight="29.0" prefWidth="169.0" promptText="Search:" stylesheets="@../css/style.css">
-                     <font>
-                        <Font name="Century Gothic" size="13.0" />
-                     </font>
-                  </TextField>
-                  <ImageView fitHeight="23.0" fitWidth="40.0" layoutX="314.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/search.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="settings" fitHeight="23.0" fitWidth="40.0" layoutX="562.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/setting.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="imageView_userProfile" fitHeight="23.0" fitWidth="40.0" layoutX="533.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/user.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="Exit" fitHeight="23.0" fitWidth="40.0" layoutX="590.0" layoutY="12.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/exit.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Pane fx:id="pane_mainArea" layoutY="50.0" prefHeight="450.0" prefWidth="642.0">
-               <children>
-                  <Pane fx:id="home_view" prefHeight="440.0" prefWidth="642.0">
-                     <children>
-                        <Pane layoutX="58.0" layoutY="114.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../css/style.css" />
-                        <Label layoutX="58.0" layoutY="43.0" prefHeight="29.0" prefWidth="406.0" text="Never procrastinate 'til tomorrow what can be done today!" wrapText="true">
-                           <font>
-                              <Font name="Century Gothic Bold" size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="59.0" layoutY="85.0" prefHeight="29.0" prefWidth="144.0" text="Your deadline today:" wrapText="true">
-                           <font>
-                              <Font name="Century Gothic Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="58.0" layoutY="14.0" prefHeight="21.0" prefWidth="225.0" text="Hello, Aliyah!">
-                           <font>
-                              <Font name="Century Gothic Bold" size="23.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="234.0" layoutY="85.0" prefHeight="29.0" prefWidth="144.0" text="Your last pomo sesh:" wrapText="true">
-                           <font>
-                              <Font name="Century Gothic Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                        <Pane layoutX="233.0" layoutY="114.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../css/style.css" />
-                        <Label layoutX="410.0" layoutY="85.0" prefHeight="29.0" prefWidth="134.0" text="You last studied to:" wrapText="true">
-                           <font>
-                              <Font name="Century Gothic Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                        <Pane layoutX="409.0" layoutY="114.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../css/style.css" />
-                        <Label layoutX="61.0" layoutY="253.0" prefHeight="29.0" prefWidth="144.0" text="Event upcoming:" wrapText="true">
-                           <font>
-                              <Font name="Century Gothic Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="236.0" layoutY="253.0" prefHeight="29.0" prefWidth="144.0" text="Task progress: " wrapText="true">
-                           <font>
-                              <Font name="Century Gothic Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="407.0" layoutY="253.0" prefHeight="29.0" prefWidth="144.0" text="Your last note:" wrapText="true">
-                           <font>
-                              <Font name="Century Gothic Bold Italic" size="12.0" />
-                           </font>
-                        </Label>
-                        <Pane layoutX="57.0" layoutY="282.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../css/style.css" />
-                        <Pane layoutX="232.0" layoutY="282.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../css/style.css" />
-                        <Pane layoutX="408.0" layoutY="282.0" prefHeight="131.0" prefWidth="159.0" styleClass="pane_1" stylesheets="@../css/style.css" />
-                     </children>
-                  </Pane>
-               </children>
-            </Pane>
+            <AnchorPane layoutX="22.0" layoutY="79.0" prefHeight="354.0" prefWidth="878.0" style="-fx-background-color: lightgreen;" />
+            <AnchorPane layoutX="85.0" layoutY="313.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: skyblue;" />
+            <AnchorPane layoutX="361.0" layoutY="313.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: skyblue;" />
+            <AnchorPane layoutX="637.0" layoutY="313.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: skyblue;" />
          </children>
       </Pane>
+      <ImageView fx:id="Exit" fitHeight="23.0" fitWidth="40.0" layoutX="1039.0" layoutY="15.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/exit.png" />
+         </image>
+      </ImageView>
    </children>
-</HBox>
+</AnchorPane>

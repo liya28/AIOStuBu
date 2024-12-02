@@ -7,6 +7,7 @@ public class SharedVariables {
     public static final String path_directoryControls = "controls/";
     public static final String path_directoryCSS = "css/";
     public static final String path_directoryImages = "images/";
+    public static final String path_directoryCSS_TodoList = "/io/serateam/stewboo/ui/css/ToDoList.css";
 
     public static final String path_dashboardFxml = path_directoryControls + "dashboard.fxml";
     public static final String path_calendarFxml = path_directoryControls + "calendar_view.fxml";

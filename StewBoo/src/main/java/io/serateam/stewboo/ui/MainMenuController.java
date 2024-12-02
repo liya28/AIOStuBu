@@ -35,7 +35,7 @@ public class MainMenuController implements Initializable {
     @FXML
     private JFXButton btn_workbench;
     @FXML
-    private Pane pane_mainArea;
+    private AnchorPane pane_mainArea;
     @FXML
     private ImageView imageView_menuClose;
     @FXML
