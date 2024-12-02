@@ -198,12 +198,24 @@ public class CalendarMenuController implements Initializable, IMenu
         calendarService.saveCalendarToFile(stubuCalendar);
     }
 
+    /**
+     * Handles the following cases where an entry's calendar designation is changed:</p>
+     * <ul>
+     *     <li>A new entry is created by the user
+     *     (A new entry is assigned a calendar).</li>
+     *     <li>The user changed the entry's calendar designation to another calendar
+     *     (An entry's calendar designation is changed).</li>
+     *     <li>An entry is deleted
+     *     (An entry's calendar designation is made {@code null}).</li>
+     * </ul>
+     * @param event
+     */
     private void changeCalendar(CalendarEvent event)
     {
         // Note: CalendarFX handles deletion of entries by nullifying its Calendar property!
         System.out.println("Calendar: Changing calendar...");
 
-        // if getCalendar() is null means that an entry was deleted!
+        // If getCalendar() is null, it means that an entry was deleted!
         // CalendarFX developer manual states that assigning null to the
         // Calendar property of the Entry object can count as a deletion.
         // Refer: https://dlsc-software-consulting-gmbh.github.io/CalendarFX/#_calendar
