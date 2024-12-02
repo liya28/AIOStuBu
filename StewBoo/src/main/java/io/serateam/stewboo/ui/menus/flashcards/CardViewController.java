@@ -60,11 +60,14 @@ public class CardViewController
         {
             loadFlashcard(currentIndex);
         }
+
     }
+
 
     @FXML
     private void editFlashcard()
     {
+        isEditing = true;
         try{
             FXMLLoader loader = new FXMLLoader(SharedVariables.url_path_flashcardsEditFxml);
             Parent root = loader.load();
@@ -79,11 +82,67 @@ public class CardViewController
             stage.showAndWait();
 
             service.saveDecksToFile();
-            loadFlashcard(currentIndex);
+            Card c = flashCards.get(currentIndex);
+            label.setText(c.getQuestion());
+            showed_question = false;
         }catch (Exception e){
             e.printStackTrace();
         }
+        isEditing = false;
     }
+
+    @FXML
+    private void jumpToCard()
+    {
+        int index = Integer.parseInt(indexTextField.getText()) - 1; // Zero-based index
+        if (index >= 0 && index < flashCards.size()) {
+            currentIndex = index;
+            loadFlashcard(currentIndex);
+        }
+    }
+
+    @FXML
+    private void deleteCard()
+    {
+        if (flashCards == null || flashCards.isEmpty())
+        {
+            return;
+        }
+
+        int indexToRemove = currentIndex;
+        flashCards.remove(indexToRemove);
+
+        if (flashCards.isEmpty())
+        {
+            FlashCardMenuController menuController = SharedVariables.flashCardMenuController;
+            if (menuController != null)
+            {
+                menuController.updateflashcardCount();
+            }
+
+            service.saveDecksToFile();
+
+            Stage currentStage = (Stage) card.getScene().getWindow();
+            currentStage.close();
+
+            return;
+        }
+
+        if (indexToRemove >= flashCards.size())
+        {
+            currentIndex = 0;
+        }
+        loadFlashcard(currentIndex);
+
+        service.saveDecksToFile();
+
+        FlashCardMenuController menuController = SharedVariables.flashCardMenuController;
+        if (menuController != null)
+        {
+            menuController.updateflashcardCount();
+        }
+    }
+
 
     private void loadFlashcard(int index)
     {
