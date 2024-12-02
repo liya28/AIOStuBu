@@ -122,30 +122,24 @@ public class CalendarMenuController implements Initializable, IMenu
 
     private void eventHandler(CalendarEvent event)
     {
-        // Autosave? hahaha
         System.out.println("Event: " + event.getEventType());
         if(event.getEventType() == CalendarEvent.CALENDAR_CHANGED)
         {
-            saveCalender(event);
+            saveCalenderAndCalendarEntries(event);
         }
         if(event.getEventType() == CalendarEvent.ENTRY_CALENDAR_CHANGED)
         {
             changeCalendar(event);
         }
 
-
         // Save the calendar after everything is sorted
         if(event.getEventType().getSuperType() == CalendarEvent.ENTRY_CHANGED)
         {
-            saveCalender(event);
+            saveCalenderAndCalendarEntries(event);
         }
     }
 
-
-
-
-    // FIXME Bug when saving
-    private void saveCalender(CalendarEvent event)
+    private void saveCalenderAndCalendarEntries(CalendarEvent event)
     {
         System.out.println("Calendar: Saving calendar...");
         Calendar eventCalendar = event.getCalendar();
@@ -180,116 +174,107 @@ public class CalendarMenuController implements Initializable, IMenu
             stubuCalendar = new StubuCalendar(eventCalendar.getName());
             domain_stubuCalendarList.addCalendar(stubuCalendar);
         }
-                        /*
-                        FIXME handle if event raises
-                            ENTRY_CHANGED : the super type for changes made to an entry
-                            ENTRY_CALENDAR_CHANGED : the entry was assigned to a different calendar
-                            ENTRY_FULL_DAY_CHANGED : the full day flag was changed (from true to false or vice versa)
-                            ENTRY_INTERVAL_CHANGED : the time interval of the entry was changed (start date / time, end date / time)
-                            ENTRY_LOCATION_CHANGED : the location of the entry has changed
-                            ENTRY_RECURRENCE_RULE_CHANGED : the recurrence rule was modified
-                            ENTRY_TITLE_CHANGED : the entry title has changed
-                            ?
-                            .
-                            .
-                            ENTRY_USER_OBJECT_CHANGED : a new user object was set on the entry
-                         */
-
-        // for debugging
-//        for(StubuCalendar calendar : domain_stubuCalendarList.getCalendars())
-//        {
-//            for(StubuCalendarEntry e : calendar.getEntryList())
-//            {
-//                System.out.println(e.getTitle());
-//                System.out.println(e.getId());
-//            }
-//        }
-
         calendarService.saveCalendarToFile(stubuCalendar);
     }
-
-
-
-
 
     private void changeCalendar(CalendarEvent event)
     {
         // Note: CalendarFX handles deletion of entries by nullifying its Calendar property!
         System.out.println("Calendar: Changing calendar...");
 
-        // Calendar is null means that an entry was deleted!
+        // if getCalendar() is null means that an entry was deleted!
         // CalendarFX developer manual states that assigning null to the
         // Calendar property of the Entry object can count as a deletion.
         // Refer: https://dlsc-software-consulting-gmbh.github.io/CalendarFX/#_calendar
         if(event.getEntry().getCalendar() == null)
         {
+            // TODO Case: Entry is removed in the entire calendar view
             System.err.println("Unimplemented case");
 //            StubuCalendarMapper.toStubuCalendarObject(event.getOldCalendar());
         }
 
-        // Case: If the entry is a new entry
         if(event.getOldCalendar() == null)
         {
-            // Get current calendar where the entry resides
-            Calendar eventCalendar = event.getCalendar();
-            StubuCalendar stubuCalendar = null;
-
-            for(StubuCalendar calendar : domain_stubuCalendarList.getCalendars())
-            {
-                if(Objects.equals(calendar.getName(), eventCalendar.getName()))
-                {
-                    stubuCalendar = calendar;
-                    break;
-                }
-            }
-            // If we did not find calendar in domain_stubuCalendarList
-            if(stubuCalendar == null)
-            {
-                System.err.println("Unimplemented case");
-                stubuCalendar = StubuCalendarMapper.toStubuCalendarObject(eventCalendar);
-                domain_stubuCalendarList.addCalendar(stubuCalendar);
-            }
-
-            // Get entry
-            Entry<?> entry = event.getEntry();
-            StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
-
-            stubuCalendar.addEntry(stubuEntry);
+            // Case: If the entry is a new entry
+            createNewEntryInCalendar(event);
         }
         else
         {
             // Case: If we transfer the entry from one calendar to another
-            System.out.printf("Changing calendar: from %s to %s %n", event.getOldCalendar().getName(), event.getCalendar().getName());
-
-            // region add entry to calendar (domain-level)
-
-            // Get current calendar where the entry resides
-            Calendar eventCalendar = event.getCalendar();
-            StubuCalendar stubuCalendar = null;
-
-            for(StubuCalendar calendar : domain_stubuCalendarList.getCalendars())
-            {
-                if(Objects.equals(calendar.getName(), eventCalendar.getName()))
-                {
-                    stubuCalendar = calendar;
-                    break;
-                }
-            }
-            if(stubuCalendar == null) throw new RuntimeException("Unimplemented case"); // TODO unhandled exception
-
-            Entry<?> entry = event.getEntry();
-            StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
-
-            stubuCalendar.addEntry(stubuEntry);
-
-            // endregion
-
-            // region remove entry from old calendar (domain-level)
-
-
-
-            // endregion
+            changeEntryFromOldCalendarToNewCalendar(event);
         }
+    }
+
+    private void changeEntryFromOldCalendarToNewCalendar(CalendarEvent event)
+    {
+        System.out.printf("Changing calendar: from %s to %s %n", event.getOldCalendar().getName(), event.getCalendar().getName());
+
+        Entry<?> entry = event.getEntry();
+        StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
+
+        createNewEntryInCalendar(event);
+
+        StubuCalendar oldStubuCalendar = removeEntryInOldCalendar(event, stubuEntry);
+        calendarService.saveCalendarToFile(oldStubuCalendar);
+    }
+
+    private void createNewEntryInCalendar(CalendarEvent event)
+    {
+        Calendar eventCalendar = event.getCalendar();
+        StubuCalendar stubuCalendar = findCalendarInListOfCalendarsInDomain(eventCalendar);
+
+        // If we did not find calendar in domain_stubuCalendarList,
+        // create a new calendar (that will be the current calendar)
+        if(stubuCalendar == null)
+        {
+            System.err.println("Creating new calendar...");
+            stubuCalendar = StubuCalendarMapper.toStubuCalendarObject(eventCalendar);
+            domain_stubuCalendarList.addCalendar(stubuCalendar);
+        }
+
+        // Get entry and add it to the current calendar
+        Entry<?> entry = event.getEntry();
+        StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
+        stubuCalendar.addEntry(stubuEntry);
+    }
+
+    /**
+     * Removes the entry in the domain StubuCalendarList by obtaining the old calendar of the entry through
+     * {@code CalendarEvent.getOldCalendar()} and removing the entry in the old calendar by the ID of the entry.
+     * @param event
+     * @param stubuEntry
+     * @return old StubuCalendar object reference.
+     */
+    private StubuCalendar removeEntryInOldCalendar(CalendarEvent event, StubuCalendarEntry stubuEntry)
+    {
+        Calendar oldEventCalendar = event.getOldCalendar();
+        StubuCalendar oldStubuCalendar = findCalendarInListOfCalendarsInDomain(oldEventCalendar);
+        // TODO Unhandled exception
+        //  Logically, this should not happen! Programmer error.
+        if(oldStubuCalendar == null) throw new RuntimeException("Unimplemented case");
+
+        String id = stubuEntry.getId();
+        oldStubuCalendar.removeEntryById(id);
+        return oldStubuCalendar;
+    }
+
+    /**
+     * Finds the mirror of CalendarFX Calendar in the domain through its name.
+     * @param calendar
+     * @return the mirrored copy of CalendarFX in StubuCalendarList; {@code null} if not found.
+     */
+    private StubuCalendar findCalendarInListOfCalendarsInDomain(Calendar calendar)
+    {
+        StubuCalendar item = null;
+        for(StubuCalendar stubuCalendar : domain_stubuCalendarList.getCalendars())
+        {
+            if (Objects.equals(stubuCalendar.getName(), calendar.getName()))
+            {
+                item = stubuCalendar;
+                break;
+            }
+        }
+        return item;
     }
 
     private void populateCalendar()
@@ -301,6 +286,13 @@ public class CalendarMenuController implements Initializable, IMenu
 
     // region DONE
 
+    /**
+     * Creates a new CalendarFX Calendar.
+     * @param name
+     * @param shortName
+     * @param style
+     * @return a new CalendarFX Calendar object.
+     */
     private Calendar createCalendar(String name, String shortName, Style style)
     {
         Calendar calendar = new Calendar(name);
@@ -308,6 +300,7 @@ public class CalendarMenuController implements Initializable, IMenu
         calendar.setStyle(style);
         return calendar;
     }
+
     private static Thread getThread()
     {
         Thread updateTimeThread = new Thread("Calendar: Update Time Thread") {
