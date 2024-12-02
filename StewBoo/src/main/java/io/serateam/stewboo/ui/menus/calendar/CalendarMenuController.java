@@ -310,15 +310,6 @@ public class CalendarMenuController implements Initializable, IMenu
         return item;
     }
 
-    private void populateCalendar()
-    {
-        // get list of calendar event list
-        // for every event list, get event
-        System.err.println("Calendar: Not supported yet.");
-    }
-
-    // region DONE
-
     /**
      * Creates a new CalendarFX Calendar.
      * @param name
@@ -363,6 +354,4 @@ public class CalendarMenuController implements Initializable, IMenu
         updateTimeThread.setDaemon(true);
         return updateTimeThread;
     }
-
-    // endregion
 }
