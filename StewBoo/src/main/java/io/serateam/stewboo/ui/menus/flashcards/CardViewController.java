@@ -169,10 +169,39 @@ public class CardViewController
     }
 
     @FXML
-    private void showAnswer()
+    private void flipCard()
     {
-        AnswerLabel.setText(answer);
-        AnswerLabel.setVisible(true);
+        if (flashCards == null || flashCards.isEmpty())
+        {
+            return;
+        }
+
+        if(isEditing && !showed_question)
+        {
+            return;
+        }
+
+        RotateTransition rotateOut = new RotateTransition(Duration.seconds(0.1), card);
+        rotateOut.setAxis(Rotate.X_AXIS);
+        rotateOut.setFromAngle(0);
+        rotateOut.setToAngle(-90);
+        rotateOut.setInterpolator(Interpolator.EASE_IN);
+
+        rotateOut.setOnFinished(event ->
+        {
+            Card currentCard = flashCards.get(currentIndex);
+            label.setText(showed_question ? currentCard.getAnswer() : currentCard.getQuestion());
+            showed_question = !showed_question;
+
+            RotateTransition rotateIn = new RotateTransition(Duration.seconds(0.1), card);
+            rotateIn.setAxis(Rotate.X_AXIS);
+            rotateIn.setFromAngle(90);
+            rotateIn.setToAngle(0);
+            rotateIn.setInterpolator(Interpolator.EASE_OUT);
+            rotateIn.play();
+        });
+
+        rotateOut.play();
     }
 
     @FXML
