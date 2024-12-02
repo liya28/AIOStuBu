@@ -94,8 +94,10 @@ public class CalendarMenuController implements Initializable, IMenu
         }
         else
         {
-            System.err.println("Unimplemented case");
+            System.err.println("Calendar: Unimplemented case");
             // TODO implement this!
+            //  in CalendarService on initialize(), populate the domain_stubuCalendarList
+            //  This else clause shall handle populating the ui_calendarList
             for(StubuCalendar stubuCalendar : listOfStubuCalendars)
             {
             }
