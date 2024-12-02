@@ -94,17 +94,8 @@ public class CalendarMenuController implements Initializable, IMenu
         }
         else
         {
-            System.err.println("Calendar: Unimplemented case");
-            // TODO implement this!
-            //  in CalendarService on initialize(), populate the domain_stubuCalendarList
-            //  This else clause shall handle populating the ui_calendarList
-            for(StubuCalendar stubuCalendar : listOfStubuCalendars)
-            {
-            }
+            populateCalendar(listOfStubuCalendars);
         }
-
-        // TODO Populate calendar
-//        populateCalendar();
 
         // Handle events (e.g. when user creates a new entry).
         EventHandler<CalendarEvent> calendarEventHandler = event -> eventHandler(event);
@@ -120,6 +111,32 @@ public class CalendarMenuController implements Initializable, IMenu
 
         Thread updateTimeThread = getThread();
         updateTimeThread.start();
+    }
+
+    private void populateCalendar(List<StubuCalendar> listOfStubuCalendars)
+    {
+        System.out.println("Calendar: Populating Calendar...");
+        for(StubuCalendar stubuCalendar : listOfStubuCalendars)
+        {
+            for(Calendar calender : ui_calendarList)
+            {
+                if(Objects.equals(stubuCalendar.getName(), calender.getName()))
+                {
+                    for(StubuCalendarEntry entry : stubuCalendar.getEntryList())
+                    {
+                        Entry<?> newEntry = new Entry<>();
+                        newEntry.setTitle(entry.getTitle());
+                        newEntry.setId(entry.getId());
+                        newEntry.setInterval(entry.getStartDate(), entry.getEndDate());
+                        newEntry.setLocation(entry.getLocation());
+                        newEntry.setFullDay(entry.isFullDay());
+                        newEntry.setRecurrenceRule(entry.getRecurrenceRule());
+
+                        calender.addEntry(newEntry);
+                    }
+                }
+            }
+        }
     }
 
     private void eventHandler(CalendarEvent event)
