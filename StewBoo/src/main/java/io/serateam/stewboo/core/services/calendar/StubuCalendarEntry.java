@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class StubuCalendarEntry
 {
     /*
-    * The fields of the Stubu Calendar Entry class comply with RFC 2445 Section 4.8
+    * The fields of the StubuCalendarEntry class comply with RFC 2445 Section 4.8
     * to ensure adherence to industry standards.
     * Refer: https://www.rfc-editor.org/rfc/rfc2445
     *
