@@ -46,27 +46,9 @@ public class CalendarService implements IService
         }
         else
         {
-            // Because the folder exists in the project, we can assume that there can be calendar files here
-            StubuCalendarList calendarList = StubuCalendarList.getInstance();
-
-            /*
-            NotesList notesList = new NotesList();
-        File folder = new File(SharedVariables.Path.notesDirectory);
-        File[] files = folder.listFiles(((dir, name) -> name.endsWith(".json")));
-        if (files != null)
-        {
-            for (File file : files)
-            {
-                Note note = JSONService.deserialize(file.getPath(), Note.class);
-                if (note != null)
-                {
-                    notesList.add(note);
-                }
-            }
-        }
-        return notesList;
-            *
-            * */
+            // Because the folder exists in the project files,
+            // we can assume that there can be calendar files here.
+            loadCalendarListFromDirectory();
         }
     }
 
