@@ -1,5 +1,7 @@
 package io.serateam.stewboo.ui;
 
+import io.serateam.stewboo.ui.menus.flashcards.FlashCardMenuController;
+
 import java.net.URL;
 
 public class SharedVariables {
@@ -34,4 +36,6 @@ public class SharedVariables {
 
     public static final String path_loadingLogo = path_directoryImages + "loading_logo.png";
     public static final String path_appIcon = path_directoryImages + "logo.png";
+
+    public static FlashCardMenuController flashCardMenuController;
 }
