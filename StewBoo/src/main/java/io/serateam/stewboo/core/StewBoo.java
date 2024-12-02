@@ -1,6 +1,8 @@
 package io.serateam.stewboo.core;
 
 import io.serateam.stewboo.core.services.IService;
+import io.serateam.stewboo.core.services.notes.NotesService;
+import io.serateam.stewboo.core.services.todolist.TodoListService;
 import io.serateam.stewboo.core.services.calendar.CalendarService;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroService;
 import io.serateam.stewboo.core.utility.JSONService;
@@ -41,7 +43,9 @@ public class StewBoo
         // For simplicity, we will be opting to grouping our services into a list
         List<IService> services = new ArrayList<>();
         // TODO: Add more services if need be.
+        services.add(NotesService.getInstance());
         services.add(PomodoroService.getInstance());
+        services.add(TodoListService.getInstance());
         services.add(CalendarService.getInstance());
 
         for(IService service : services)
@@ -49,6 +53,5 @@ public class StewBoo
             System.out.println("Initializing service: " + service.getClass().getSimpleName());
             service.initializeService();
         }
-
     }
 }

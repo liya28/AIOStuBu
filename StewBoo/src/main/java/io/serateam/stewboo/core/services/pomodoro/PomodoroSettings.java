@@ -7,7 +7,7 @@ import io.serateam.stewboo.core.utility.SharedVariables;
 /**
  * Entity for user-defined Pomodoro settings
  */
-class PomodoroSettings implements ISerializable
+public class PomodoroSettings implements ISerializable
 {
     private int workMinutes;
     private int quickBreakMinutes;
@@ -20,7 +20,7 @@ class PomodoroSettings implements ISerializable
         this.longBreakMinutes = longBreakMinutes;
     }
 
-    int getWorkMinutes()
+    public int getWorkMinutes()
     {
         return workMinutes;
     }
@@ -33,6 +33,11 @@ class PomodoroSettings implements ISerializable
     public int getLongBreakMinutes()
     {
         return longBreakMinutes;
+    }
+
+    public PomodoroSettings getSettings()
+    {
+        return this;
     }
 
     void saveToFile()
