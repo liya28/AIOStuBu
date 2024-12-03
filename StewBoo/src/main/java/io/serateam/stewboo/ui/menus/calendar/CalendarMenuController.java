@@ -41,7 +41,7 @@ public class CalendarMenuController implements Initializable, IMenu
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        System.out.println("Calendar Now Initializing...");
+        System.out.println("Calendar: Study Buddy Calendar is now initializing.");
         calendarService = CalendarService.getInstance();
 
         calendarView = new CalendarView();
@@ -108,7 +108,7 @@ public class CalendarMenuController implements Initializable, IMenu
 
     private void populateCalendar(List<StubuCalendar> listOfStubuCalendars)
     {
-        System.out.println("Calendar: Populating Calendar...");
+        System.out.println("Calendar: Populating CalendarView with calendar entries.");
         for(StubuCalendar stubuCalendar : listOfStubuCalendars)
         {
             for(Calendar calender : ui_calendarList)
@@ -136,7 +136,7 @@ public class CalendarMenuController implements Initializable, IMenu
 
     private void eventHandler(CalendarEvent event)
     {
-        System.out.println("Event: " + event.getEventType());
+        System.out.println("Calendar: Event Thrown [" + event.getEventType() + "]");
         if(event.getEventType() == CalendarEvent.CALENDAR_CHANGED)
         {
             saveCalenderAndCalendarEntries(event);
@@ -217,15 +217,14 @@ public class CalendarMenuController implements Initializable, IMenu
      *     <li>An entry is deleted
      *     (An entry's calendar designation is made {@code null}).</li>
      * </ul>
-     * @param event
      */
     private void changeCalendar(CalendarEvent event)
     {
-        // Note: CalendarFX handles deletion of entries by nullifying its Calendar property!
         System.out.println("Calendar: Changing calendar...");
 
-        // If getCalendar() is null, it means that an entry was deleted!
-        // CalendarFX developer manual states that assigning null to the
+        // Note: CalendarFX handles deletion of entries by nullifying its Calendar property!
+        // If getCalendar() is null, it means that an entry was deleted in the UI.
+        // The CalendarFX developer manual states that assigning null to the
         // Calendar property of the Entry object can count as a deletion.
         // Refer: https://dlsc-software-consulting-gmbh.github.io/CalendarFX/#_calendar
         if(event.getEntry().getCalendar() == null)
@@ -238,18 +237,21 @@ public class CalendarMenuController implements Initializable, IMenu
         if(event.getOldCalendar() == null)
         {
             // Case: If the entry is a new entry
+            System.out.println("Calendar: Creating calendar...");
             createNewEntryInCalendar(event);
         }
         else
         {
-            // Case: If we transfer the entry from one calendar to another
+            // Case: If the user transfers the entry from one calendar to another
+            System.out.println("Calendar: Changing entry's calendar designation...");
             changeEntryFromOldCalendarToNewCalendar(event);
         }
     }
 
     private void changeEntryFromOldCalendarToNewCalendar(CalendarEvent event)
     {
-        System.out.printf("Changing calendar: from %s to %s %n", event.getOldCalendar().getName(), event.getCalendar().getName());
+        System.out.printf("Calendar: Changing calendar from %s to %s %n",
+                event.getOldCalendar().getName(), event.getCalendar().getName());
 
         Entry<?> entry = event.getEntry();
         StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
