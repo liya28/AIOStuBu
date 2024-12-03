@@ -177,49 +177,38 @@ public class CalendarMenuController implements Initializable, IMenu
         Calendar eventCalendar = (isDeleteOperation) ? event.getOldCalendar() : event.getCalendar();
         StubuCalendar stubuCalendar = null;
 
-        for(StubuCalendar calendar : domain_stubuCalendarList.getCalendars())
+        try
         {
-            if(Objects.equals(calendar.getName(), eventCalendar.getName()))
+            for(StubuCalendar calendar : domain_stubuCalendarList.getCalendars())
             {
-                stubuCalendar = calendar;
-
-                for(StubuCalendarEntry entry : stubuCalendar.getEntryList())
+                if(Objects.equals(calendar.getName(), eventCalendar.getName()))
                 {
-                    // Reassign CalendarFX Entry properties to our domain Entry object with the same ID
-                    if(Objects.equals(entry.getId(), event.getEntry().getId()))
-                    {
-                        Entry<?> inputEntry = event.getEntry();
-                        entry.setTitle(inputEntry.getTitle());
-                        entry.setLocation(inputEntry.getLocation());
-                        entry.setStartDate(inputEntry.getStartAsLocalDateTime());
-                        entry.setEndDate(inputEntry.getEndAsLocalDateTime());
-                        entry.setFullDay(inputEntry.isFullDay());
-                        entry.setHidden(inputEntry.isHidden());
-                        entry.setMinimumDuration(inputEntry.getMinimumDuration());
-                        entry.setRecurrent(inputEntry.isRecurrence());
-                        if(inputEntry.isRecurrence())
-                        {
-                            entry.setRecurrenceRule(inputEntry.getRecurrenceRule());
-                            entry.setRecurrenceId(inputEntry.getRecurrenceId());
-                            entry.setRecurrenceSourceId(inputEntry.getRecurrenceSourceEntry().getId());
-                        }
-                        else
-                        {
-                            entry.setRecurrenceRule("");
-                            entry.setRecurrenceId("");
-                            entry.setRecurrenceSourceId("");
-                        }
-                        break;
-                    }
+                    stubuCalendar = calendar;
+                    break;
                 }
-                break;
             }
+            if(stubuCalendar == null)
+                throw new NullPointerException("Calendar: Could not find calendar with name "
+                        + eventCalendar.getName() + " in domain_stubuCalendarList.");
         }
-        if(stubuCalendar == null)
+        catch(NullPointerException e)
         {
-            System.err.println("Unimplemented case");
+            System.err.println(e.getMessage());
+            System.out.println("Creating calendar in domain_stubuCalendarList with name " + eventCalendar.getName());
             stubuCalendar = new StubuCalendar(eventCalendar.getName());
             domain_stubuCalendarList.addCalendar(stubuCalendar);
+            createNewEntryInCalendar(event.getEntry(), eventCalendar);
+        }
+
+        for(StubuCalendarEntry entry : stubuCalendar.getEntryList())
+        {
+            // Reassign CalendarFX Entry properties to our domain Entry object with the same ID
+            if(Objects.equals(entry.getId(), event.getEntry().getId()))
+            {
+                Entry<?> inputEntry = event.getEntry();
+                updateStubuCalendarEntry(inputEntry, entry);
+                break;
+            }
         }
         calendarService.saveCalendarToFile(stubuCalendar);
     }
