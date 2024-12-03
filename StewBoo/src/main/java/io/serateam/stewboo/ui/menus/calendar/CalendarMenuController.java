@@ -295,8 +295,6 @@ public class CalendarMenuController implements Initializable, IMenu
     /**
      * Removes the entry in the domain StubuCalendarList by obtaining the old calendar of the entry through
      * {@code CalendarEvent.getOldCalendar()} and removing the entry in the old calendar by the ID of the entry.
-     * @param event
-     * @param stubuEntry
      * @return old StubuCalendar object reference.
      */
     private StubuCalendar removeEntryInOldCalendar(CalendarEvent event, StubuCalendarEntry stubuEntry)
@@ -333,9 +331,6 @@ public class CalendarMenuController implements Initializable, IMenu
 
     /**
      * Creates a new CalendarFX Calendar.
-     * @param name
-     * @param shortName
-     * @param style
      * @return a new CalendarFX Calendar object.
      */
     private Calendar createCalendar(String name, String shortName, Style style)
