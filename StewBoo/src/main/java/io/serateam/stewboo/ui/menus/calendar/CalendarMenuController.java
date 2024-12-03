@@ -139,7 +139,7 @@ public class CalendarMenuController implements Initializable, IMenu
         System.out.println("Calendar: Event Thrown [" + event.getEventType() + "]");
         if(event.getEventType() == CalendarEvent.CALENDAR_CHANGED)
         {
-            saveCalenderAndCalendarEntries(event);
+            saveCalenderAndCalendarEntries(event, false);
         }
         if(event.getEventType() == CalendarEvent.ENTRY_CALENDAR_CHANGED)
         {
@@ -151,15 +151,18 @@ public class CalendarMenuController implements Initializable, IMenu
         // Save the calendar after everything is sorted
         if(event.getEventType().getSuperType() == CalendarEvent.ENTRY_CHANGED)
         {
-            saveCalenderAndCalendarEntries(event);
+
+            boolean eventWasDeleted = event.getCalendar() == null;
+            saveCalenderAndCalendarEntries(event, eventWasDeleted);
         }
     }
 
-    private void saveCalenderAndCalendarEntries(CalendarEvent event)
+    private void saveCalenderAndCalendarEntries(CalendarEvent event, boolean isDeleteOperation)
     {
-        System.out.println("Calendar: Saving calendar...");
-        Calendar eventCalendar = event.getCalendar();
+        System.out.println("Calendar: Saving calendar.");
+        Calendar eventCalendar = (isDeleteOperation) ? event.getOldCalendar() : event.getCalendar();
         StubuCalendar stubuCalendar = null;
+
         for(StubuCalendar calendar : domain_stubuCalendarList.getCalendars())
         {
             if(Objects.equals(calendar.getName(), eventCalendar.getName()))
@@ -227,14 +230,13 @@ public class CalendarMenuController implements Initializable, IMenu
         // The CalendarFX developer manual states that assigning null to the
         // Calendar property of the Entry object can count as a deletion.
         // Refer: https://dlsc-software-consulting-gmbh.github.io/CalendarFX/#_calendar
-        if(event.getEntry().getCalendar() == null)
+        if(event.getCalendar() == null)
         {
-            // TODO Case: Entry is removed in the entire calendar view
-            System.err.println("Unimplemented case");
-//            StubuCalendarMapper.toStubuCalendarObject(event.getOldCalendar());
+            // Case: If entry is removed in the entire calendar view
+            System.out.println("Calendar: Removing calendar...");
+            removeEntryInOldCalendarAndSave(event);
         }
-
-        if(event.getOldCalendar() == null)
+        else if(event.getOldCalendar() == null)
         {
             // Case: If the entry is a new entry
             System.out.println("Calendar: Creating calendar...");
@@ -246,6 +248,14 @@ public class CalendarMenuController implements Initializable, IMenu
             System.out.println("Calendar: Changing entry's calendar designation...");
             changeEntryFromOldCalendarToNewCalendar(event);
         }
+    }
+
+    private void removeEntryInOldCalendarAndSave(CalendarEvent event)
+    {
+        Entry<?> entry = event.getEntry();
+        StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
+        StubuCalendar oldStubuCalendar = removeEntryInOldCalendar(event, stubuEntry);
+        calendarService.saveCalendarToFile(oldStubuCalendar);
     }
 
     private void changeEntryFromOldCalendarToNewCalendar(CalendarEvent event)
