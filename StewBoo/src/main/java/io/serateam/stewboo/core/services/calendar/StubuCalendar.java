@@ -34,6 +34,19 @@ public class StubuCalendar implements ISerializable
         calendarEntryList.add(calendarEntry);
     }
 
+    public StubuCalendarEntry findEntryById(String entryId)
+    {
+        for (StubuCalendarEntry calendarEntry : calendarEntryList)
+        {
+            if (entryId.equals(calendarEntry.getId()))
+            {
+                System.out.println("Calendar: Calendar entry found! " + calendarEntry.getId());
+                return calendarEntry;
+            }
+        }
+        return null;
+    }
+
     public void removeEntryById(String entryId)
     {
         if (entryId == null)
