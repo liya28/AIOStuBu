@@ -333,7 +333,8 @@ public class CalendarMenuController implements Initializable, IMenu
         // create a new calendar (that will be the current calendar)
         if(stubuCalendar == null)
         {
-            System.err.println("Creating new calendar...");
+            System.err.println("Calendar: Could not find calendar in the domain-level list of calendars. "
+                    + "Resolving by creating new calendar.");
             stubuCalendar = StubuCalendarMapper.toStubuCalendarObject(newCalendar);
             domain_stubuCalendarList.addCalendar(stubuCalendar);
         }
