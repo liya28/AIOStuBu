@@ -257,10 +257,9 @@ public class CalendarMenuController implements Initializable, IMenu
 
     private static Entry<?> recurringEntryHandler(CalendarEvent event)
     {
-        Entry<?> inputEntry = event.getEntry().isRecurrence()
+        return event.getEntry().isRecurrence()
                 ? event.getEntry().getRecurrenceSourceEntry()
                 : event.getEntry();
-        return inputEntry;
     }
 
     private static void updateStubuCalendarEntry(Entry<?> inputEntry, StubuCalendarEntry entry)
