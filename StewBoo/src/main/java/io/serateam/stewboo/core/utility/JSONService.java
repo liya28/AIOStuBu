@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class JSONService
@@ -13,7 +14,9 @@ public class JSONService
     private static final GsonBuilder builder = new GsonBuilder()
                                             .setPrettyPrinting()
                                             .registerTypeAdapter(LocalDateTime.class,
-                                                    new LocalDateTimeTypeAdapter());
+                                                    new LocalDateTimeTypeAdapter())
+                                            .registerTypeAdapter(Duration.class,
+                                                    new DurationTypeAdapter());
     private static final Gson gson = builder.create();
 
     // NOTE: We use generics here to limit what goes into this function,
