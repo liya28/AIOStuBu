@@ -226,7 +226,7 @@ public class CalendarMenuController implements Initializable, IMenu
      */
     private void changeCalendar(CalendarEvent event)
     {
-        System.out.println("Calendar: Changing calendar...");
+        System.out.println("Calendar: Changing calendar.");
 
         // Note: CalendarFX handles deletion of entries by nullifying its Calendar property!
         // If getCalendar() is null, it means that an entry was deleted in the UI.
@@ -236,20 +236,29 @@ public class CalendarMenuController implements Initializable, IMenu
         if(event.getCalendar() == null)
         {
             // Case: If entry is removed in the entire calendar view
-            System.out.println("Calendar: Removing calendar...");
-            removeEntryInOldCalendarAndSave(event);
+            System.out.println("Calendar: Removing calendar.");
+            Entry<?> entry = event.getEntry();
+            Calendar oldCalendar = event.getOldCalendar();
+            removeEntryInOldCalendarAndSave(entry, oldCalendar);
         }
         else if(event.getOldCalendar() == null)
         {
             // Case: If the entry is a new entry
-            System.out.println("Calendar: Creating calendar...");
-            createNewEntryInCalendar(event);
+            System.out.println("Calendar: Creating calendar.");
+            Entry<?> entry = event.getEntry();
+            Calendar newCalendar = entry.getCalendar();
+            createNewEntryInCalendar(entry, newCalendar);
         }
         else
         {
             // Case: If the user transfers the entry from one calendar to another
-            System.out.println("Calendar: Changing entry's calendar designation...");
-            changeEntryFromOldCalendarToNewCalendar(event);
+            System.out.println("Calendar: Changing entry's calendar designation.");
+            System.out.printf("Calendar: Changing calendar from %s to %s %n",
+                    event.getOldCalendar().getName(), event.getCalendar().getName());
+
+            Entry<?> entry = event.getEntry();
+            Calendar oldCalendar = event.getOldCalendar();
+            changeEntryFromOldCalendarToNewCalendar(entry, oldCalendar);
         }
     }
 
@@ -272,42 +281,37 @@ public class CalendarMenuController implements Initializable, IMenu
 
     private void removeEntryInOldCalendarAndSave(Entry<?> entry, Calendar oldCalendar)
     {
-        Entry<?> entry = event.getEntry();
         StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
-        StubuCalendar oldStubuCalendar = removeEntryInOldCalendar(event, stubuEntry);
+        StubuCalendar oldStubuCalendar = removeEntryInOldCalendar(oldCalendar, stubuEntry);
         calendarService.saveCalendarToFile(oldStubuCalendar);
     }
 
-    private void changeEntryFromOldCalendarToNewCalendar(CalendarEvent event)
+    private void changeEntryFromOldCalendarToNewCalendar(Entry<?> entry, Calendar oldCalendar)
     {
-        System.out.printf("Calendar: Changing calendar from %s to %s %n",
-                event.getOldCalendar().getName(), event.getCalendar().getName());
+        entry = (entry.isRecurrence()) ? entry.getRecurrenceSourceEntry() : entry;
 
-        Entry<?> entry = event.getEntry();
         StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
 
-        createNewEntryInCalendar(event);
+        createNewEntryInCalendar(entry, entry.getCalendar());
 
-        StubuCalendar oldStubuCalendar = removeEntryInOldCalendar(event, stubuEntry);
+        StubuCalendar oldStubuCalendar = removeEntryInOldCalendar(oldCalendar, stubuEntry);
         calendarService.saveCalendarToFile(oldStubuCalendar);
     }
 
-    private void createNewEntryInCalendar(CalendarEvent event)
+    private void createNewEntryInCalendar(Entry<?> entry, Calendar newCalendar)
     {
-        Calendar eventCalendar = event.getCalendar();
-        StubuCalendar stubuCalendar = findCalendarInListOfCalendarsInDomain(eventCalendar);
+        StubuCalendar stubuCalendar = findCalendarInListOfCalendarsInDomain(newCalendar);
 
         // If we did not find calendar in domain_stubuCalendarList,
         // create a new calendar (that will be the current calendar)
         if(stubuCalendar == null)
         {
             System.err.println("Creating new calendar...");
-            stubuCalendar = StubuCalendarMapper.toStubuCalendarObject(eventCalendar);
+            stubuCalendar = StubuCalendarMapper.toStubuCalendarObject(newCalendar);
             domain_stubuCalendarList.addCalendar(stubuCalendar);
         }
 
         // Get entry and add it to the current calendar
-        Entry<?> entry = event.getEntry();
         StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
         stubuCalendar.addEntry(stubuEntry);
     }
@@ -317,9 +321,8 @@ public class CalendarMenuController implements Initializable, IMenu
      * {@code CalendarEvent.getOldCalendar()} and removing the entry in the old calendar by the ID of the entry.
      * @return old StubuCalendar object reference.
      */
-    private StubuCalendar removeEntryInOldCalendar(CalendarEvent event, StubuCalendarEntry stubuEntry)
+    private StubuCalendar removeEntryInOldCalendar(Calendar oldEventCalendar, StubuCalendarEntry stubuEntry)
     {
-        Calendar oldEventCalendar = event.getOldCalendar();
         StubuCalendar oldStubuCalendar = findCalendarInListOfCalendarsInDomain(oldEventCalendar);
         // TODO Unhandled exception
         //  Logically, this should not happen! Programmer error.
