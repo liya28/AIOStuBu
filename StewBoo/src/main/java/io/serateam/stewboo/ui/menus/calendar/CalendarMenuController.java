@@ -28,23 +28,6 @@ import com.calendarfx.model.Calendar.Style;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
-// TODO priorities:
-//      saveCalendar()
-//      implement changeCalendars()
-
-
-        /*
-         TODO figure out how to send data here to backend.
-            ideas:
-                - Create a mapper that translates CalendarEvent and Entry into our own
-                calendar event and entry classes. Use properties only useful for us to serialize!
-                  (raf 11/30; 1:27 AM)
-                - Refer to CalendarFX and LogiservStudio projects
-                Classes:
-                    - StubuCalendarEntry
-                    - StubuCalendarEvent
-        */
-
 public class CalendarMenuController implements Initializable, IMenu
 {
     @FXML AnchorPane root;
