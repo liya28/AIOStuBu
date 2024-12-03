@@ -139,6 +139,17 @@ public class CalendarMenuController implements Initializable, IMenu
     private void eventHandler(CalendarEvent event)
     {
         System.out.println("Calendar: Event Thrown [" + event.getEventType() + "]");
+
+        // TODO Recurrence cases:
+        //  NOTE: CHECK FIRST IF ENTRY IS RECURRENT, IN WHICH CASE, WE REFER TO THE RECURRENCE SOURCE (CHECK IF ENTRY IS RECURRENCE SOURCE)
+        //  .
+        //  Case 1: Upon changing content info of a recurrent entry, we refer to the recurrence source
+        //  Case 2: Upon changing of a recurrent entry to another calendar, we should refer to the recurrence source
+        //  Case 3: deletion of entry is taken care of.                                                                 DONE
+        //
+        //  Do not delete the current entry but delete all other entries: CalendarEvent.ENTRY_RECURRENCE_RULE_CHANGED
+
+
         if(event.getEventType() == CalendarEvent.CALENDAR_CHANGED)
         {
             saveCalenderAndCalendarEntries(event, false);
@@ -253,8 +264,24 @@ public class CalendarMenuController implements Initializable, IMenu
         }
     }
 
-    private void removeEntryInOldCalendarAndSave(CalendarEvent event)
     // endregion
+
+    private static void updateStubuCalendarEntry(Entry<?> inputEntry, StubuCalendarEntry entry)
+    {
+        entry.setTitle(inputEntry.getTitle());
+        entry.setLocation(inputEntry.getLocation());
+        entry.setStartDate(inputEntry.getStartAsLocalDateTime());
+        entry.setEndDate(inputEntry.getEndAsLocalDateTime());
+        entry.setFullDay(inputEntry.isFullDay());
+        entry.setHidden(inputEntry.isHidden());
+        entry.setMinimumDuration(inputEntry.getMinimumDuration());
+        entry.setRecurrent(inputEntry.isRecurrence());
+        entry.setRecurrenceRule(inputEntry.getRecurrenceRule());
+        entry.setRecurrenceId(inputEntry.isRecurrence() ? inputEntry.getRecurrenceId() : "");
+        entry.setRecurrenceSourceId(inputEntry.isRecurrence() ? inputEntry.getRecurrenceSourceEntry().getId() : "");
+    }
+
+    private void removeEntryInOldCalendarAndSave(Entry<?> entry, Calendar oldCalendar)
     {
         Entry<?> entry = event.getEntry();
         StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
