@@ -147,6 +147,7 @@ public class CalendarMenuController implements Initializable, IMenu
             // when an entry is deleted.
             changeCalendar(event);
         }
+        // TODO Recurrence case. Do not delete the current entry but delete all other entries
 
         // Save the calendar after everything is sorted
         if(event.getEventType().getSuperType() == CalendarEvent.ENTRY_CHANGED)
