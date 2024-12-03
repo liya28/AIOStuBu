@@ -42,30 +42,22 @@ public class StubuCalendar implements ISerializable
             return;
         }
 
-        StubuCalendarEntry entryToRemove = null;
+        // ConcurrentModificationException may be thrown when we manually iterate
+        // over a collection and removing them at the same time.
+        // Thus, we will opt to the collect-then-remove strategy.
+        List<StubuCalendarEntry> entriesToRemove = new ArrayList<>();
 
-        // Find the matching entry
         for (StubuCalendarEntry calendarEntry : calendarEntryList)
         {
             if (entryId.equals(calendarEntry.getId()))
             {
                 System.out.println("Calendar: Calendar entry found! " + calendarEntry.getId());
-                entryToRemove = calendarEntry;
-                break;
+                entriesToRemove.add(calendarEntry);
             }
         }
 
-        // Remove the entry if found
-        if (entryToRemove != null)
-        {
-            if(calendarEntryList.remove(entryToRemove))
-            {
-                System.out.println("Calendar: Entry removed successfully!");
-            }
-        }
-        else
-        {
-            System.err.println("Calendar: Cannot remove entry. Entry not found.");
-        }
+        // Remove collected entries
+        calendarEntryList.removeAll(entriesToRemove);
+        System.out.println("Calendar: All matching entries removed successfully!");
     }
 }
