@@ -51,9 +51,19 @@ public class CalendarMenuController implements Initializable, IMenu
         calendarView.setShowAddCalendarButton(false);
         calendarView.setShowPrintButton(false);
 
+        /*
+            CalendarFX CSS source for Calendar.Style:
+                -style1-color: rgba(119.0, 192.0, 75.0, 0.9);
+                -style2-color: rgba(65.0, 143.0, 203.0, 0.9);
+                -style3-color: rgba(247.0, 209.0, 91.0, 0.9);
+                -style4-color: rgba(157.0, 91.0, 159.0, 0.9);
+                -style5-color: rgba(208.0, 82.0, 95.0, 0.9);
+                -style6-color: rgba(249.0, 132.0, 75.0, 0.9);
+                -style7-color: rgba(174.0, 102.0, 62.0, 0.9);
+        */
         Calendar meetings = createCalendar("Meetings", "M", Style.STYLE3);
-        Calendar deadlines = createCalendar("Deadlines", "D", Style.STYLE4);
-        Calendar holidays = createCalendar("Holidays", "H", Style.STYLE7);
+        Calendar deadlines = createCalendar("Deadlines", "D", Style.STYLE5);
+        Calendar holidays = createCalendar("Holidays", "H", Style.STYLE4);
 
         CalendarSource stubuCalendarSource = new CalendarSource("MyStubuUser");
         stubuCalendarSource.getCalendars().addAll(meetings, deadlines, holidays);
