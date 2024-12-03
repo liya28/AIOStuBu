@@ -1,12 +1,12 @@
 package io.serateam.stewboo.core.utility;
 
-
 import com.google.gson.*;
 
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+// Source: Obtained from https://howtodoinjava.com/gson/gson-typeadapter-for-inaccessibleobjectexception/
 public class LocalDateTimeTypeAdapter implements JsonSerializer<LocalDateTime>, JsonDeserializer<LocalDateTime> {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d::MMM::uuuu HH::mm::ss");
