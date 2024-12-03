@@ -143,12 +143,11 @@ public class CalendarMenuController implements Initializable, IMenu
         // TODO Recurrence cases:
         //  NOTE: CHECK FIRST IF ENTRY IS RECURRENT, IN WHICH CASE, WE REFER TO THE RECURRENCE SOURCE (CHECK IF ENTRY IS RECURRENCE SOURCE)
         //  .
-        //  Case 1: Upon changing content info of a recurrent entry, we refer to the recurrence source
+        //  Case 1: Upon changing content info of a recurrent entry, we refer to the recurrence source                  DONE
         //  Case 2: Upon changing of a recurrent entry to another calendar, we should refer to the recurrence source
         //  Case 3: deletion of entry is taken care of.                                                                 DONE
         //
         //  Do not delete the current entry but delete all other entries: CalendarEvent.ENTRY_RECURRENCE_RULE_CHANGED
-
 
         if(event.getEventType() == CalendarEvent.CALENDAR_CHANGED)
         {
@@ -164,8 +163,8 @@ public class CalendarMenuController implements Initializable, IMenu
         // Save the calendar after everything is sorted
         if(event.getEventType().getSuperType() == CalendarEvent.ENTRY_CHANGED)
         {
-            boolean eventWasDeleted = event.getCalendar() == null;
-            saveCalenderAndCalendarEntries(event, eventWasDeleted);
+            boolean wasEventDeleted = event.getCalendar() == null;
+            saveCalenderAndCalendarEntries(event, wasEventDeleted);
         }
     }
 
@@ -177,6 +176,7 @@ public class CalendarMenuController implements Initializable, IMenu
         Calendar eventCalendar = (isDeleteOperation) ? event.getOldCalendar() : event.getCalendar();
         StubuCalendar stubuCalendar = null;
 
+        // Iterate over the calendars
         try
         {
             for(StubuCalendar calendar : domain_stubuCalendarList.getCalendars())
@@ -200,6 +200,7 @@ public class CalendarMenuController implements Initializable, IMenu
             createNewEntryInCalendar(event.getEntry(), eventCalendar);
         }
 
+        // Iterate over the entries
         for(StubuCalendarEntry entry : stubuCalendar.getEntryList())
         {
             // Reassign CalendarFX Entry properties to our domain Entry object with the same ID
@@ -324,9 +325,6 @@ public class CalendarMenuController implements Initializable, IMenu
     private StubuCalendar removeEntryInOldCalendar(Calendar oldEventCalendar, StubuCalendarEntry stubuEntry)
     {
         StubuCalendar oldStubuCalendar = findCalendarInListOfCalendarsInDomain(oldEventCalendar);
-        // TODO Unhandled exception
-        //  Logically, this should not happen! Programmer error.
-        if(oldStubuCalendar == null) throw new RuntimeException("Unimplemented case");
 
         String id = stubuEntry.getId();
         oldStubuCalendar.removeEntryById(id);
