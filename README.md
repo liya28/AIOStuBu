@@ -5,7 +5,7 @@ Written in Java with JavaFX.
 
 ## Features
 - Notes
-- Calendar
+- Calendar (compliant with RFC 2445)
 - Todo List
 - Pomodoro Timer
 - Progress Tracker
