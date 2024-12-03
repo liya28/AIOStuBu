@@ -9,8 +9,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-// TODO The calendar hierarchy is as follows: StubuCalendarList -> StubuCalendar -> StubuCalendarEntry
-
 public class CalendarService implements IService
 {
     private static CalendarService instance;
@@ -29,9 +27,6 @@ public class CalendarService implements IService
     @Override
     public void initializeService()
     {
-        /*
-            TODO Load the list from file on first boot.
-        */
         if(!new File(SharedVariables.Path.stubuCalendarDirectory).exists())
         {
             try
