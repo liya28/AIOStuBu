@@ -63,7 +63,7 @@ public class CalendarMenuController implements Initializable, IMenu
         */
         Calendar meetings = createCalendar("Meetings", "M", Style.STYLE3);
         Calendar deadlines = createCalendar("Deadlines", "D", Style.STYLE5);
-        Calendar holidays = createCalendar("Holidays", "H", Style.STYLE4);
+        Calendar holidays = createCalendar("Holidays", "H", Style.STYLE2);
 
         CalendarSource stubuCalendarSource = new CalendarSource("MyStubuUser");
         stubuCalendarSource.getCalendars().addAll(meetings, deadlines, holidays);
