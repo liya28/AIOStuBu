@@ -23,7 +23,7 @@ public class StubuCalendarEntry
     private Duration minimumDuration;
     private String recurrenceRule;      // RFC 2445 4.8.5.4 RECURRENCE RULE
 
-    // CONSTRUCTORS
+    // CONSTRUCTOR
     public StubuCalendarEntry
     (
             String id,

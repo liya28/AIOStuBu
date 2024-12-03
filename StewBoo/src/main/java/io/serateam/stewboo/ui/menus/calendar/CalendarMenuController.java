@@ -139,15 +139,6 @@ public class CalendarMenuController implements Initializable, IMenu
     {
         System.out.println("Calendar: Event Thrown [" + event.getEventType() + "]");
 
-        // TODO Recurrence cases:
-        //  NOTE: CHECK FIRST IF ENTRY IS RECURRENT, IN WHICH CASE, WE REFER TO THE RECURRENCE SOURCE (CHECK IF ENTRY IS RECURRENCE SOURCE)
-        //  .
-        //  Case 1: Upon changing content info of a recurrent entry, we refer to the recurrence source                  DONE
-        //  Case 2: Upon changing of a recurrent entry to another calendar, we should refer to the recurrence source
-        //  Case 3: deletion of entry is taken care of.                                                                 DONE
-        //
-        //  Do not delete the current entry but delete all other entries: CalendarEvent.ENTRY_RECURRENCE_RULE_CHANGED
-
         if(event.getEventType() == CalendarEvent.CALENDAR_CHANGED)
         {
             saveCalenderAndCalendarEntries(event, false);
