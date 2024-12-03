@@ -308,7 +308,16 @@ public class CalendarMenuController implements Initializable, IMenu
 
         // Get entry and add it to the current calendar
         StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
-        stubuCalendar.addEntry(stubuEntry);
+
+        if(stubuCalendar.findEntryById(stubuEntry.getId()) == null)
+        {
+            stubuCalendar.addEntry(stubuEntry);
+        }
+        else
+        {
+            System.out.println("Calendar: Entry not added. Entry duplicate found.");
+        }
+
     }
 
     /**
