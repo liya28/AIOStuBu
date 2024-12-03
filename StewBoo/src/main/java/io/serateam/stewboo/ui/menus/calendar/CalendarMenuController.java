@@ -162,9 +162,7 @@ public class CalendarMenuController implements Initializable, IMenu
     {
         System.out.println("Calendar: Saving calendar.");
 
-        Entry<?> inputEntry = event.getEntry().isRecurrence()
-                ? event.getEntry().getRecurrenceSourceEntry()
-                : event.getEntry();
+        Entry<?> inputEntry = recurringEntryHandler(event);
 
         Calendar eventCalendar = (isDeleteOperation) ? event.getOldCalendar() : event.getCalendar();
         StubuCalendar stubuCalendar = null;
@@ -249,13 +247,21 @@ public class CalendarMenuController implements Initializable, IMenu
             System.out.printf("Calendar: Changing calendar from %s to %s %n",
                     event.getOldCalendar().getName(), event.getCalendar().getName());
 
-            Entry<?> entry = event.getEntry();
+            Entry<?> entry = recurringEntryHandler(event);
             Calendar oldCalendar = event.getOldCalendar();
             changeEntryFromOldCalendarToNewCalendar(entry, oldCalendar);
         }
     }
 
     // endregion
+
+    private static Entry<?> recurringEntryHandler(CalendarEvent event)
+    {
+        Entry<?> inputEntry = event.getEntry().isRecurrence()
+                ? event.getEntry().getRecurrenceSourceEntry()
+                : event.getEntry();
+        return inputEntry;
+    }
 
     private static void updateStubuCalendarEntry(Entry<?> inputEntry, StubuCalendarEntry entry)
     {
