@@ -13,37 +13,19 @@ public class StubuCalendarMapper
     }
     public static StubuCalendarEntry toStubuCalendarEntryObject(Entry<?> entry)
     {
-        if(entry.isRecurrence())
-        {
-            return new StubuCalendarEntry(
-                    entry.getId(),
-                    entry.getTitle(),
-                    entry.getStartAsLocalDateTime(),
-                    entry.getEndAsLocalDateTime(),
-                    entry.getLocation(),
-                    entry.isFullDay(),
-                    entry.isHidden(),
-                    entry.getMinimumDuration(),
-                    entry.isRecurrence(),
-                    entry.getRecurrenceRule(),
-                    entry.getRecurrenceId(),
-                    entry.getRecurrenceSourceEntry().getId()
-            );
-        }
-        else
-        {
-            return new StubuCalendarEntry(
-                    entry.getId(),
-                    entry.getTitle(),
-                    entry.getStartAsLocalDateTime(),
-                    entry.getEndAsLocalDateTime(),
-                    entry.getLocation(),
-                    entry.isFullDay(),
-                    entry.isHidden(),
-                    entry.getMinimumDuration(),
-                    entry.isRecurrence(),
-                    entry.getRecurrenceRule()
-            );
-        }
+        // Entry tips (when doing recurrence entries):
+        // isRecurring() includes the recurrence source and its copies
+        // isRecurrence() only includes copy of recurrences.
+
+        return new StubuCalendarEntry(
+                entry.getId(),
+                entry.getTitle(),
+                entry.getStartAsLocalDateTime(),
+                entry.getEndAsLocalDateTime(),
+                entry.getLocation(),
+                entry.isFullDay(),
+                entry.getMinimumDuration(),
+                entry.getRecurrenceRule()
+        );
     }
 }
