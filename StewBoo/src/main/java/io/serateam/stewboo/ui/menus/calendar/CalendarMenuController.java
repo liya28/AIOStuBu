@@ -131,6 +131,8 @@ public class CalendarMenuController implements Initializable, IMenu
                         newEntry.setLocation(entry.getLocation());
                         newEntry.setFullDay(entry.isFullDay());
                         newEntry.setRecurrenceRule(entry.getRecurrenceRule());
+                        newEntry.setHidden(entry.isHidden());
+                        newEntry.setMinimumDuration(entry.getMinimumDuration());
 
                         calender.addEntry(newEntry);
                     }
@@ -182,7 +184,21 @@ public class CalendarMenuController implements Initializable, IMenu
                         entry.setStartDate(inputEntry.getStartAsLocalDateTime());
                         entry.setEndDate(inputEntry.getEndAsLocalDateTime());
                         entry.setFullDay(inputEntry.isFullDay());
-                        entry.setRecurrenceRule(inputEntry.getRecurrenceRule());
+                        entry.setHidden(inputEntry.isHidden());
+                        entry.setMinimumDuration(inputEntry.getMinimumDuration());
+                        entry.setRecurrent(inputEntry.isRecurrence());
+                        if(inputEntry.isRecurrence())
+                        {
+                            entry.setRecurrenceRule(inputEntry.getRecurrenceRule());
+                            entry.setRecurrenceId(inputEntry.getRecurrenceId());
+                            entry.setRecurrenceSourceId(inputEntry.getRecurrenceSourceEntry().getId());
+                        }
+                        else
+                        {
+                            entry.setRecurrenceRule("");
+                            entry.setRecurrenceId("");
+                            entry.setRecurrenceSourceId("");
+                        }
                         break;
                     }
                 }

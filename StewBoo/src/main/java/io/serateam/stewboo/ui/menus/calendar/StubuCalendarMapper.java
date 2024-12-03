@@ -20,7 +20,12 @@ public class StubuCalendarMapper
                 entry.getEndAsLocalDateTime(),
                 entry.getLocation(),
                 entry.isFullDay(),
-                entry.getRecurrenceRule()
+                entry.isHidden(),
+                entry.getMinimumDuration(),
+                entry.isRecurrence(),
+                entry.getRecurrenceRule(),
+                entry.getRecurrenceId(),
+                entry.getRecurrenceSourceEntry().getId()
         );
     }
 }
