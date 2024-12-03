@@ -158,6 +158,15 @@ public class CalendarMenuController implements Initializable, IMenu
         }
     }
 
+    /**
+     * <p>This method handles saving the state of a calendar and its entries based on the provided event.
+     * If the specified calendar does not exist in the domain list, it creates a new one and assigns
+     * the entry to it. For existing entries, it updates the properties of the entry to match the
+     * provided {@code CalendarEvent}.</p>
+     *
+     * @param event the {@code CalendarEvent} containing the calendar and entry details to be saved or updated.
+     * @param isDeleteOperation {@code true} if a delete operation was performed. Otherwise, {@code false}.
+     */
     private void saveCalenderAndCalendarEntries(CalendarEvent event, boolean isDeleteOperation)
     {
         System.out.println("Calendar: Saving calendar.");
@@ -207,12 +216,12 @@ public class CalendarMenuController implements Initializable, IMenu
     /**
      * Handles the following cases where an entry's calendar designation is changed:</p>
      * <ul>
-     *     <li>A new entry is created by the user
-     *     (A new entry is assigned a calendar).</li>
-     *     <li>The user changed the entry's calendar designation to another calendar
-     *     (An entry's calendar designation is changed).</li>
-     *     <li>An entry is deleted
+     *     <li>Case 1: An entry is deleted
      *     (An entry's calendar designation is made {@code null}).</li>
+     *     <li>Case 2: A new entry is created by the user
+     *     (A new entry is assigned a calendar).</li>
+     *     <li>Case 3: The user changed the entry's calendar designation to another calendar
+     *     (An entry's calendar designation is changed).</li>
      * </ul>
      */
     private void changeCalendar(CalendarEvent event)
@@ -280,6 +289,17 @@ public class CalendarMenuController implements Initializable, IMenu
         calendarService.saveCalendarToFile(oldStubuCalendar);
     }
 
+    /**
+     * The CalendarFX {@code Entry}, via its domain-level equivalent ({@code StubuCalendarEntry}), is added to the
+     * list of domain-level calendar ({@code StubuCalendar}). Afterward, it will remove this entry from its
+     * old calendar designation through a similar fashion.
+     * </br></br>
+     * This method will refresh the {@code CalendarView} and its data to prevent errors in loading the UI
+     * when recurrences are involved in this operation.
+     * </br></br>
+     * Note: CalendarFX {@code Entry} will be evaluated whether it is a recurrence entry or not. If it is,
+     * the recurrence source entry will be used instead.
+     */
     private void changeEntryFromOldCalendarToNewCalendar(Entry<?> entry, Calendar oldCalendar)
     {
         entry = (entry.isRecurrence()) ? entry.getRecurrenceSourceEntry() : entry;
@@ -297,6 +317,14 @@ public class CalendarMenuController implements Initializable, IMenu
         calendarView.refreshData();
     }
 
+    /**
+     * Adds the CalendarFX {@code Entry} to the domain-level list of entries in its domain-level
+     * list of calendars equivalent by converting the {@code Entry} to {@code StubuCalendarEntry}
+     * and the CalendarFX {@code Calendar} to {@code StubuCalendar} and adds the entry accordingly.
+     * </br></br>
+     *
+     * Note: An entry may not be added if a duplicate entry {@code id} is found.
+     */
     private void createNewEntryInCalendar(Entry<?> entry, Calendar newCalendar)
     {
         StubuCalendar stubuCalendar = findCalendarInListOfCalendarsInDomain(newCalendar);
@@ -325,9 +353,9 @@ public class CalendarMenuController implements Initializable, IMenu
     }
 
     /**
-     * Removes the entry in the domain StubuCalendarList by obtaining the old calendar of the entry through
+     * Removes the entry in the domain {@code StubuCalendarList} by obtaining the old calendar of the entry through
      * {@code CalendarEvent.getOldCalendar()} and removing the entry in the old calendar by the ID of the entry.
-     * @return old StubuCalendar object reference.
+     * @return old {@code StubuCalendar} object reference.
      */
     private StubuCalendar removeEntryInOldCalendar(Calendar oldEventCalendar, StubuCalendarEntry stubuEntry)
     {
@@ -339,9 +367,8 @@ public class CalendarMenuController implements Initializable, IMenu
     }
 
     /**
-     * Finds the mirror of CalendarFX Calendar in the domain through its name.
-     * @param calendar
-     * @return the mirrored copy of CalendarFX in StubuCalendarList; {@code null} if not found.
+     * Finds the mirror of CalendarFX {@code Calendar} in the domain through its name.
+     * @return the mirrored copy of CalendarFX in {@code StubuCalendarList}; {@code null} if not found.
      */
     private StubuCalendar findCalendarInListOfCalendarsInDomain(Calendar calendar)
     {
@@ -358,8 +385,8 @@ public class CalendarMenuController implements Initializable, IMenu
     }
 
     /**
-     * Creates a new CalendarFX Calendar.
-     * @return a new CalendarFX Calendar object.
+     * Creates a new CalendarFX {@code Calendar}.
+     * @return a new CalendarFX {@code Calendar} object.
      */
     private Calendar createCalendar(String name, String shortName, Style style)
     {
