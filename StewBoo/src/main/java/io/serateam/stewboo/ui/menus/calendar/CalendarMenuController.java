@@ -291,6 +291,11 @@ public class CalendarMenuController implements Initializable, IMenu
 
         StubuCalendar oldStubuCalendar = removeEntryInOldCalendar(oldCalendar, stubuEntry);
         calendarService.saveCalendarToFile(oldStubuCalendar);
+
+        // Because CalendarFX CalendarView does not automatically reload when the calendar designation
+        // of recurrences are changed, we have to explicitly refresh the CalendarView.
+        System.out.println("Calendar: Refreshing CalendarView.");
+        calendarView.refreshData();
     }
 
     private void createNewEntryInCalendar(Entry<?> entry, Calendar newCalendar)
