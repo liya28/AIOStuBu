@@ -134,6 +134,8 @@ public class CalendarMenuController implements Initializable, IMenu
         }
     }
 
+    // region Calendar Event Methods
+
     private void eventHandler(CalendarEvent event)
     {
         System.out.println("Calendar: Event Thrown [" + event.getEventType() + "]");
@@ -252,6 +254,7 @@ public class CalendarMenuController implements Initializable, IMenu
     }
 
     private void removeEntryInOldCalendarAndSave(CalendarEvent event)
+    // endregion
     {
         Entry<?> entry = event.getEntry();
         StubuCalendarEntry stubuEntry = StubuCalendarMapper.toStubuCalendarEntryObject(entry);
