@@ -168,11 +168,14 @@ public class CalendarMenuController implements Initializable, IMenu
         }
     }
 
-
-
     private void saveCalenderAndCalendarEntries(CalendarEvent event, boolean isDeleteOperation)
     {
         System.out.println("Calendar: Saving calendar.");
+
+        Entry<?> inputEntry = event.getEntry().isRecurrence()
+                ? event.getEntry().getRecurrenceSourceEntry()
+                : event.getEntry();
+
         Calendar eventCalendar = (isDeleteOperation) ? event.getOldCalendar() : event.getCalendar();
         StubuCalendar stubuCalendar = null;
 
@@ -206,7 +209,6 @@ public class CalendarMenuController implements Initializable, IMenu
             // Reassign CalendarFX Entry properties to our domain Entry object with the same ID
             if(Objects.equals(entry.getId(), event.getEntry().getId()))
             {
-                Entry<?> inputEntry = event.getEntry();
                 updateStubuCalendarEntry(inputEntry, entry);
                 break;
             }
