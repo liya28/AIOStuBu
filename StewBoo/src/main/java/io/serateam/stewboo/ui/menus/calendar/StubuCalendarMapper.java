@@ -41,7 +41,8 @@ public class StubuCalendarMapper
                     entry.isFullDay(),
                     entry.isHidden(),
                     entry.getMinimumDuration(),
-                    entry.isRecurrence()
+                    entry.isRecurrence(),
+                    entry.getRecurrenceRule()
             );
         }
     }

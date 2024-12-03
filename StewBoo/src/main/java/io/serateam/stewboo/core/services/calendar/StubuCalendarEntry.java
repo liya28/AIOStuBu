@@ -45,10 +45,9 @@ public class StubuCalendarEntry
     )
     {
         this(id, title, startAsLocalDateTime, endAsLocalDateTime,
-            location, fullDay, hidden, minimumDuration, recurrent);
+            location, fullDay, hidden, minimumDuration, recurrent, recurrenceRule);
         if(recurrent)
         {
-            this.recurrenceRule = recurrenceRule;
             this.recurrenceId = recurrenceId;
             this.recurrenceSourceId = recurrenceSourceId;
         }
@@ -64,7 +63,8 @@ public class StubuCalendarEntry
             boolean fullDay,
             boolean hidden,
             Duration minimumDuration,
-            boolean recurrent
+            boolean recurrent,
+            String recurrenceRule
     )
     {
         this.id = id;
@@ -76,6 +76,7 @@ public class StubuCalendarEntry
         this.hidden = hidden;
         this.minimumDuration = minimumDuration;
         this.isRecurrent = recurrent;
+        this.recurrenceRule = recurrenceRule;
     }
 
     // METHODS
