@@ -241,6 +241,10 @@ public class CardViewController
     @FXML
     private void shuffleDeck()
     {
+        if(flashCards.isEmpty())
+        {
+            return;
+        }
         Collections.shuffle(flashCards);
         currentIndex = 0;
         loadFlashcard(currentIndex);
