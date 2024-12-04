@@ -125,6 +125,16 @@ public class CardViewController
         }
     }
 
+    boolean isNumeric(String str)
+    {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+
     @FXML
     private void deleteCard()
     {
