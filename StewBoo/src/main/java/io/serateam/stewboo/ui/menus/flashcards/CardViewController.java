@@ -71,6 +71,7 @@ public class CardViewController
             return;
         }
         isEditing = true;
+        System.out.println("Flashcard: Editing card content");
         try{
             FXMLLoader loader = new FXMLLoader(SharedVariables.url_path_flashcardsEditFxml);
             Parent root = loader.load();
@@ -192,6 +193,7 @@ public class CardViewController
         {
             return;
         }
+        System.out.println("Flashcard: Card flipped");
 
         RotateTransition rotateOut = new RotateTransition(Duration.seconds(0.1), card);
         rotateOut.setAxis(Rotate.X_AXIS);
