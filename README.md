@@ -8,7 +8,6 @@ Written in Java with JavaFX.
 - Calendar (compliant with RFC 2445)
 - Todo List
 - Pomodoro Timer
-- Progress Tracker
 - Custom Flashcards
 
 ## Contribution
