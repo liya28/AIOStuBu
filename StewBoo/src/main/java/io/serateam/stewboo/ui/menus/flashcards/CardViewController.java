@@ -105,9 +105,10 @@ public class CardViewController
             return;
         }
         String dex = indexTextField.getText();
-        if(dex != "") {
-            int index = Integer.parseInt(indexTextField.getText()) - 1; // Zero-based index
-            if (index >= 0 && index < flashCards.size()) {
+
+        if(isNumeric(dex)) {
+            int index = Integer.parseInt(indexTextField.getText()) - 1;
+            if (index < flashCards.size() && index >= 0) {
                 currentIndex = index;
                 loadFlashcard(currentIndex);
             }
