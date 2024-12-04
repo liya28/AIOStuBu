@@ -171,6 +171,7 @@ public class MainMenuController implements Initializable {
             try {
                 preloadedImages[i] = new Image(getClass().getResource(imagePaths[i]).toString());
             } catch (Exception e) {
+                // TODO please handle this error properly. What to do if the images were not preloaded?
                 System.err.println("Error preloading image: " + imagePaths[i]);
             }
         }
