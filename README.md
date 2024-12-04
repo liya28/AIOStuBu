@@ -27,7 +27,9 @@ TBD
 TBD (screenshots and path to file included)
 
 ## User Data/File Handling
-TBD
+Throughout the user's interaction with the application, snapshots of their work and settings are periodically saved in JSON text files. This allows users to close the application at any time and easily resume their tasks later without losing any data. Upon reopening the application, AIOStubu automatically loads these saved snapshots. JSON files are saved via a custom JSON Service class that utilizes the GSon library. The link to the implementation is found [here](https://github.com/liya28/AIOStuBu/blob/main/StewBoo/src/main/java/io/serateam/stewboo/core/utility/JSONService.java).
+
+Saved JSON files may be found in the directory `aiostubu/` in the project directory.
 
 ## Calendar Compliance with RFC 2445
 TBD. Why not RFC 5545?
