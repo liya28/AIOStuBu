@@ -74,25 +74,23 @@ public class MainMenuController implements Initializable {
 
     private void loadView(String fxml)
     {
-        try {
+        try
+        {
             if (!loadedViewCache.containsKey(fxml))
             {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
                 AnchorPane view = loader.load();
+
                 // Store the loaded view in the cache
                 loadedViewCache.put(fxml, view);
             }
-
             // Use the cached view
             AnchorPane newPage = loadedViewCache.get(fxml);
             hBox_subPageArea.getChildren().setAll(newPage);
-
-            AnchorPane.setTopAnchor(newPage, 0.0);
-            AnchorPane.setBottomAnchor(newPage, 0.0);
-            AnchorPane.setRightAnchor(newPage, 0.0);
-            AnchorPane.setLeftAnchor(newPage, 0.0);
-        } catch (IOException e) {
-            e.printStackTrace();
+        }
+        catch (IOException e)
+        {
+            System.err.println(e.getMessage());
         }
     }
 
