@@ -80,6 +80,9 @@
          <image>
             <Image url="@../../images/shuffle.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <Label layoutX="77.0" layoutY="419.0" />
       <TextField fx:id="indexTextField" layoutX="109.0" layoutY="433.0" prefHeight="25.0" prefWidth="50.0" promptText="Card #">
