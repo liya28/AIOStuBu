@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MainMenuController implements Initializable {
@@ -158,7 +159,7 @@ public class MainMenuController implements Initializable {
         {
             try
             {
-                preloadedImages[i] = new Image(getClass().getResource(imagePaths[i]).toString());
+                preloadedImages[i] = new Image(Objects.requireNonNull(getClass().getResource(imagePaths[i])).toString());
             }
             catch (Exception e)
             {
