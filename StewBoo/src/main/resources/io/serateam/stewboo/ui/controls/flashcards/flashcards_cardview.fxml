@@ -12,8 +12,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.flashcards.CardViewController">
     <children>
-      <Button fx:id="btn_shuffle" layoutX="618.0" layoutY="430.0" mnemonicParsing="false" onAction="#shuffleDeck" prefHeight="30.0" prefWidth="50.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;" />
-      <Button fx:id="btn_previous" layoutX="262.0" layoutY="422.0" mnemonicParsing="false" onAction="#nextCard" onMouseClicked="#previousCard" prefHeight="46.0" prefWidth="65.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;" />
+      <Button fx:id="btn_shuffle" layoutX="618.0" layoutY="430.0" mnemonicParsing="false" onAction="#shuffleDeck" prefHeight="30.0" prefWidth="50.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btn_previous" layoutX="262.0" layoutY="422.0" mnemonicParsing="false" onAction="#nextCard" onMouseClicked="#previousCard" prefHeight="46.0" prefWidth="65.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <AnchorPane fx:id="card" layoutX="43.0" layoutY="33.0" prefHeight="368.0" prefWidth="711.0" style="-fx-border-color: PURPLE; -fx-border-width: 3; -fx-border-radius: 20;">
          <children>
             <ImageView fx:id="img_edit" fitHeight="20.0" fitWidth="30.0" layoutX="648.0" layoutY="14.0" onMouseClicked="#editFlashcard" pickOnBounds="true" preserveRatio="true">
