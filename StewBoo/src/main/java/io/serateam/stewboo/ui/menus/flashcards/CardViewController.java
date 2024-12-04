@@ -111,9 +111,17 @@ public class CardViewController
             if (index < flashCards.size() && index >= 0) {
                 currentIndex = index;
                 loadFlashcard(currentIndex);
+                indexTextField.setText("");
+            } else {
+                index++;
+                ControllerAlerter.showError("Index Out of Bounds", "Cannot jump to " + index, "Please put a valid number within 0 and " + flashCards.size());
+                indexTextField.setText("");
             }
-        } else {
-            return;
+        }
+        else if(!isNumeric(dex))
+        {
+            ControllerAlerter.showError("Input is not a number", "Cannot jump to non valid number", "Please put a valid number within 0 and " + flashCards.size());
+            indexTextField.setText("");
         }
     }
 
