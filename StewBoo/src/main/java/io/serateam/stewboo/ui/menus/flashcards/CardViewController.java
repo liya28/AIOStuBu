@@ -67,6 +67,9 @@ public class CardViewController
     @FXML
     private void editFlashcard()
     {
+        if(flashCards.isEmpty()){
+            return;
+        }
         isEditing = true;
         try{
             FXMLLoader loader = new FXMLLoader(SharedVariables.url_path_flashcardsEditFxml);
