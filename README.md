@@ -3,12 +3,27 @@ The All-In-One (AIO) Studdy Buddy (Stubu) is an offline-first productivity appli
 
 Written in Java with JavaFX.
 
+## README Table of Contents
+
+
 ## Features
 - Notes
 - Calendar (compliant with RFC 2445)
 - Todo List
 - Pomodoro Timer
 - Custom Flashcards
+
+## Class Diagram
+TBD
+
+## Design Patterns
+TBD (screenshots and path to file included)
+
+## User Data/File Handling
+TBD
+
+## Calendar Compliance with RFC 2445
+TBD. Why not RFC 5545?
 
 ## Contribution
 If you are a group member, please read the following texts.
@@ -94,4 +109,15 @@ public void singLetItGoByIdinaMenzel()
     ...
 }
 ````
+
+## Members (w/ Github Profile Links)
+1. [Aliyah Khaet Regacho](https://github.com/liya28) 
+2. [Harley S. Reyes](https://github.com/muhadma)
+3. [John Earl C. Echavez](https://github.com/EarlJohnHub)
+4. [Rafael A. Mendoza](https://github.com/GReturn) 
+
+## Final Message
+In compliance with CSIT227 - Object-oriented Programming 1. All Rights Reserved.
+
+
 end.
