@@ -3,6 +3,7 @@ package io.serateam.stewboo.ui.menus.flashcards;
 import io.serateam.stewboo.core.services.flashcard.Card;
 import io.serateam.stewboo.core.services.flashcard.FlashCardService;
 import io.serateam.stewboo.ui.SharedVariables;
+import io.serateam.stewboo.ui.utility.ControllerAlerter;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
