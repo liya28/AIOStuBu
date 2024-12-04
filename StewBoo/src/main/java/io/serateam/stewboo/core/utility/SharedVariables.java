@@ -11,5 +11,6 @@ public class SharedVariables
         public static final String pomodoroUserConfig = mainUserDirectory + "pomodoro_config.json";
         public static final String notesDirectory = mainUserDirectory + "notes/";
         public static final String path_todoList = mainUserDirectory + "stubulist.json";
+        public static final String stubuCalendarDirectory = mainUserDirectory + "calendars/";
     }
 }
