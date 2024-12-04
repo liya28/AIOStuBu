@@ -107,7 +107,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="30.0" prefWidth="100.0" spacing="5.0">
                            <children>
-                              <TextField fx:id="indexTextField" prefHeight="22.0" prefWidth="57.0" promptText="Card #">
+                              <TextField fx:id="indexTextField" focusTraversable="false" prefHeight="22.0" prefWidth="57.0" promptText="Card #">
                                  <font>
                                     <Font name="Century Gothic" size="11.0" />
                                  </font>
