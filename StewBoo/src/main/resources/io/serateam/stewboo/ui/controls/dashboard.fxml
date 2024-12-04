@@ -231,194 +231,198 @@
                   </AnchorPane>
                   <AnchorPane fx:id="pane_mainArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="dashbar" stylesheets="@../css/dashBoard.css" VBox.vgrow="ALWAYS">
                      <children>
-                        <HBox fx:id="hBox_subPageArea" alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane fx:id="home_view" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: rgba(234, 238, 244, 1);" styleClass="home-pane" stylesheets="@../css/dashBoard.css">
+                              <HBox fx:id="hBox_subPageArea" alignment="CENTER" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <HBox alignment="CENTER" layoutY="-2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AnchorPane fx:id="home_view" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: rgba(234, 238, 244, 1);" styleClass="home-pane" stylesheets="@../css/dashBoard.css" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                          <HBox alignment="CENTER" layoutY="-2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <children>
-                                                <AnchorPane fx:id="slideShow_Holder" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="576.0" styleClass="slide-show-pane" stylesheets="@../css/dashBoard.css" VBox.vgrow="ALWAYS" />
-                                                <AnchorPane VBox.vgrow="ALWAYS">
+                                                <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <AnchorPane fx:id="slideShow_Holder" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="576.0" styleClass="slide-show-pane" stylesheets="@../css/dashBoard.css" VBox.vgrow="ALWAYS" />
+                                                      <AnchorPane VBox.vgrow="ALWAYS">
                                                          <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SERVICES" VBox.vgrow="ALWAYS">
-                                                               <font>
-                                                                  <Font name="Century Gothic" size="24.0" />
-                                                               </font>
-                                                            </Text>
-                                                            <HBox alignment="CENTER" spacing="20.0">
+                                                            <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                <children>
-                                                                  <Group>
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SERVICES" VBox.vgrow="ALWAYS">
+                                                                     <font>
+                                                                        <Font name="Century Gothic" size="24.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <HBox alignment="CENTER" spacing="20.0">
                                                                      <children>
-                                                                        <Pane prefHeight="90.0" prefWidth="90.0" styleClass="service-pane" stylesheets="@../css/dashBoard.css">
+                                                                        <Group>
                                                                            <children>
-                                                                              <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true" styleClass="round-image">
-                                                                                 <image>
-                                                                                    <Image url="@../images/cale.png" />
-                                                                                 </image>
-                                                                              </ImageView>
+                                                                              <Pane prefHeight="90.0" prefWidth="90.0" styleClass="service-pane" stylesheets="@../css/dashBoard.css">
+                                                                                 <children>
+                                                                                    <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true" styleClass="round-image">
+                                                                                       <image>
+                                                                                          <Image url="@../images/cale.png" />
+                                                                                       </image>
+                                                                                    </ImageView>
+                                                                                 </children>
+                                                                              </Pane>
+                                                                              <Label layoutX="16.0" layoutY="99.0" prefHeight="17.0" prefWidth="59.0" text="CALENDAR" textAlignment="CENTER" />
                                                                            </children>
-                                                                        </Pane>
-                                                                        <Label layoutX="16.0" layoutY="99.0" prefHeight="17.0" prefWidth="59.0" text="CALENDAR" textAlignment="CENTER" />
-                                                                     </children>
-                                                                  </Group>
-                                                                  <Group>
-                                                                     <children>
-                                                                        <Pane prefHeight="90.0" prefWidth="90.0" styleClass="service-pane" stylesheets="@../css/dashBoard.css">
+                                                                        </Group>
+                                                                        <Group>
                                                                            <children>
-                                                                              <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true" styleClass="round-image">
-                                                                                 <image>
-                                                                                    <Image url="@../images/flash.png" />
-                                                                                 </image>
-                                                                              </ImageView>
+                                                                              <Pane prefHeight="90.0" prefWidth="90.0" styleClass="service-pane" stylesheets="@../css/dashBoard.css">
+                                                                                 <children>
+                                                                                    <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true" styleClass="round-image">
+                                                                                       <image>
+                                                                                          <Image url="@../images/flash.png" />
+                                                                                       </image>
+                                                                                    </ImageView>
+                                                                                 </children>
+                                                                              </Pane>
+                                                                              <Label layoutX="10.0" layoutY="99.0" prefHeight="17.0" prefWidth="70.0" text="FLASHCARD" textAlignment="CENTER" />
                                                                            </children>
-                                                                        </Pane>
-                                                                        <Label layoutX="10.0" layoutY="99.0" prefHeight="17.0" prefWidth="70.0" text="FLASHCARD" textAlignment="CENTER" />
-                                                                     </children>
-                                                                  </Group>
-                                                                  <Group>
-                                                                     <children>
-                                                                        <Pane prefHeight="90.0" prefWidth="90.0" styleClass="service-pane" stylesheets="@../css/dashBoard.css">
+                                                                        </Group>
+                                                                        <Group>
                                                                            <children>
-                                                                              <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true" styleClass="round-image">
-                                                                                 <image>
-                                                                                    <Image url="@../images/notes.png" />
-                                                                                 </image>
-                                                                              </ImageView>
+                                                                              <Pane prefHeight="90.0" prefWidth="90.0" styleClass="service-pane" stylesheets="@../css/dashBoard.css">
+                                                                                 <children>
+                                                                                    <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true" styleClass="round-image">
+                                                                                       <image>
+                                                                                          <Image url="@../images/notes.png" />
+                                                                                       </image>
+                                                                                    </ImageView>
+                                                                                 </children>
+                                                                              </Pane>
+                                                                              <Label layoutX="25.0" layoutY="99.0" prefHeight="17.0" prefWidth="40.0" text="NOTES" textAlignment="RIGHT" />
                                                                            </children>
-                                                                        </Pane>
-                                                                        <Label layoutX="25.0" layoutY="99.0" prefHeight="17.0" prefWidth="40.0" text="NOTES" textAlignment="RIGHT" />
-                                                                     </children>
-                                                                  </Group>
-                                                                  <Group>
-                                                                     <children>
-                                                                        <Pane prefHeight="90.0" prefWidth="90.0" styleClass="service-pane" stylesheets="@../css/dashBoard.css">
+                                                                        </Group>
+                                                                        <Group>
                                                                            <children>
-                                                                              <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="14.0" layoutY="10.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true" styleClass="round-image">
-                                                                                 <image>
-                                                                                    <Image url="@../images/todo.png" />
-                                                                                 </image>
-                                                                              </ImageView>
+                                                                              <Pane prefHeight="90.0" prefWidth="90.0" styleClass="service-pane" stylesheets="@../css/dashBoard.css">
+                                                                                 <children>
+                                                                                    <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="14.0" layoutY="10.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true" styleClass="round-image">
+                                                                                       <image>
+                                                                                          <Image url="@../images/todo.png" />
+                                                                                       </image>
+                                                                                    </ImageView>
+                                                                                 </children>
+                                                                              </Pane>
+                                                                              <Label layoutX="16.0" layoutY="99.0" prefHeight="17.0" prefWidth="59.0" text="TODO LIST" textAlignment="RIGHT" />
                                                                            </children>
-                                                                        </Pane>
-                                                                        <Label layoutX="16.0" layoutY="99.0" prefHeight="17.0" prefWidth="59.0" text="TODO LIST" textAlignment="RIGHT" />
-                                                                     </children>
-                                                                  </Group>
-                                                                  <Group>
-                                                                     <children>
-                                                                        <Pane prefHeight="90.0" prefWidth="90.0" styleClass="service-pane" stylesheets="@../css/dashBoard.css">
+                                                                        </Group>
+                                                                        <Group>
                                                                            <children>
-                                                                              <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true" styleClass="round-image">
-                                                                                 <image>
-                                                                                    <Image url="@../images/pomo.png" />
-                                                                                 </image>
-                                                                              </ImageView>
+                                                                              <Pane prefHeight="90.0" prefWidth="90.0" styleClass="service-pane" stylesheets="@../css/dashBoard.css">
+                                                                                 <children>
+                                                                                    <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleExitClick" pickOnBounds="true" preserveRatio="true" styleClass="round-image">
+                                                                                       <image>
+                                                                                          <Image url="@../images/pomo.png" />
+                                                                                       </image>
+                                                                                    </ImageView>
+                                                                                 </children>
+                                                                              </Pane>
+                                                                              <Label layoutX="10.0" layoutY="99.0" prefHeight="17.0" prefWidth="70.0" text="POMODORO" textAlignment="RIGHT" />
                                                                            </children>
-                                                                        </Pane>
-                                                                        <Label layoutX="10.0" layoutY="99.0" prefHeight="17.0" prefWidth="70.0" text="POMODORO" textAlignment="RIGHT" />
+                                                                        </Group>
                                                                      </children>
-                                                                  </Group>
+                                                                  </HBox>
                                                                </children>
-                                                            </HBox>
+                                                            </VBox>
                                                          </children>
-                                                      </VBox>
+                                                      </AnchorPane>
                                                    </children>
-                                                </AnchorPane>
+                                                   <HBox.margin>
+                                                      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" spacing="30.0" HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Pane fx:id="vision_Pane" style="-fx-background-color: rgba(53, 58, 86, 1);" stylesheets="@../css/dashBoard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <styleClass>
+                                                                  <String fx:value="pane-box" />
+                                                                  <String fx:value="pane-box-one" />
+                                                               </styleClass>
+                                                               <children>
+                                                                  <Text fill="WHITE" layoutX="39.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AIO STUBU" textAlignment="CENTER" wrappingWidth="184.80023193359375">
+                                                                     <font>
+                                                                        <Font size="24.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <ImageView fitHeight="144.0" fitWidth="159.0" layoutX="61.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../images/logo.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </Pane>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets />
+                                                         </VBox.margin>
+                                                      </AnchorPane>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Pane fx:id="title_Pane" layoutX="-1.0" stylesheets="@../css/dashBoard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <styleClass>
+                                                                  <String fx:value="pane-box" />
+                                                                  <String fx:value="pane-box-one" />
+                                                               </styleClass>
+                                                               <children>
+                                                                  <Text layoutX="67.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEMBERS" textAlignment="CENTER" wrappingWidth="127.981689453125">
+                                                                     <font>
+                                                                        <Font name="Century Gothic" size="24.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text layoutX="61.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENDOZA, RAFAEL" textAlignment="CENTER" />
+                                                                  <Text layoutX="61.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGACHO, ALIYAH KHAET" />
+                                                                  <Text layoutX="61.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REYES, HARLEY" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Century Gothic" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text layoutX="61.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ECHAVEZ, JOHN EARL" textAlignment="CENTER" />
+                                                               </children>
+                                                            </Pane>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets />
+                                                         </VBox.margin>
+                                                      </AnchorPane>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Pane fx:id="member_Pane" stylesheets="@../css/dashBoard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <Text layoutX="92.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VISION">
+                                                                     <font>
+                                                                        <Font name="Century Gothic" size="24.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text layoutX="44.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOW HOW DE CARABAO DE &#10;BATO TENSAYANG PULA ISANG &#10;PERA SAYANG PUTI ISANG &#10;SALAPI BUGBOG ASWANG&#10;PIANG&#10;" textAlignment="CENTER" />
+                                                               </children>
+                                                               <styleClass>
+                                                                  <String fx:value="pane-box" />
+                                                                  <String fx:value="pane-box-one" />
+                                                               </styleClass>
+                                                            </Pane>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets />
+                                                         </VBox.margin>
+                                                      </AnchorPane>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                   </HBox.margin>
+                                                </VBox>
                                              </children>
-                                             <HBox.margin>
-                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                             </HBox.margin>
-                                          </VBox>
-                                          <VBox alignment="TOP_CENTER" spacing="30.0" HBox.hgrow="ALWAYS">
-                                             <children>
-                                                <AnchorPane>
-                                                   <children>
-                                                      <Pane fx:id="vision_Pane" style="-fx-background-color: rgba(53, 58, 86, 1);" stylesheets="@../css/dashBoard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                         <styleClass>
-                                                            <String fx:value="pane-box" />
-                                                            <String fx:value="pane-box-one" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Text fill="WHITE" layoutX="39.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AIO STUBU" textAlignment="CENTER" wrappingWidth="184.80023193359375">
-                                                               <font>
-                                                                  <Font size="24.0" />
-                                                               </font>
-                                                            </Text>
-                                                            <ImageView fitHeight="144.0" fitWidth="159.0" layoutX="61.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../images/logo.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                      </Pane>
-                                                   </children>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </AnchorPane>
-                                                <AnchorPane>
-                                                   <children>
-                                                      <Pane fx:id="title_Pane" layoutX="-1.0" stylesheets="@../css/dashBoard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                         <styleClass>
-                                                            <String fx:value="pane-box" />
-                                                            <String fx:value="pane-box-one" />
-                                                         </styleClass>
-                                                         <children>
-                                                            <Text layoutX="67.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEMBERS" textAlignment="CENTER" wrappingWidth="127.981689453125">
-                                                               <font>
-                                                                  <Font name="Century Gothic" size="24.0" />
-                                                               </font>
-                                                            </Text>
-                                                            <Text layoutX="61.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENDOZA, RAFAEL" textAlignment="CENTER" />
-                                                            <Text layoutX="61.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGACHO, ALIYAH KHAET" />
-                                                            <Text layoutX="61.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REYES, HARLEY" textAlignment="CENTER">
-                                                               <font>
-                                                                  <Font name="Century Gothic" size="12.0" />
-                                                               </font>
-                                                            </Text>
-                                                            <Text layoutX="61.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ECHAVEZ, JOHN EARL" textAlignment="CENTER" />
-                                                         </children>
-                                                      </Pane>
-                                                   </children>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </AnchorPane>
-                                                <AnchorPane>
-                                                   <children>
-                                                      <Pane fx:id="member_Pane" stylesheets="@../css/dashBoard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                         <children>
-                                                            <Text layoutX="92.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VISION">
-                                                               <font>
-                                                                  <Font name="Century Gothic" size="24.0" />
-                                                               </font>
-                                                            </Text>
-                                                            <Text layoutX="44.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOW HOW DE CARABAO DE &#10;BATO TENSAYANG PULA ISANG &#10;PERA SAYANG PUTI ISANG &#10;SALAPI BUGBOG ASWANG&#10;PIANG&#10;" textAlignment="CENTER" />
-                                                         </children>
-                                                         <styleClass>
-                                                            <String fx:value="pane-box" />
-                                                            <String fx:value="pane-box-one" />
-                                                         </styleClass>
-                                                      </Pane>
-                                                   </children>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </AnchorPane>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                             </HBox.margin>
-                                          </VBox>
+                                          </HBox>
                                        </children>
-                                    </HBox>
+                                    </AnchorPane>
                                  </children>
-                              </AnchorPane>
+                              </HBox>
                            </children>
-                        </HBox>
+                        </VBox>
                      </children>
                   </AnchorPane>
                </children>
