@@ -38,9 +38,9 @@
 .home-pane {
     -fx-background-color: #FFFFFF;
 }
-.dashbar {
-    -fx-background-color: #e8eafa;
-}
+/*.dashbar {*/
+/*    -fx-background-color: #e8eafa;*/
+/*}*/
 .slide-show-pane {
     -fx-border-color: #4335A7;
     -fx-border-radius: 5px;
