@@ -39,6 +39,7 @@ public class CardViewController
     @FXML
     void initialize()
     {
+        current_index.setText("0 / 0");
         card.setOnMouseClicked(event ->
         {
             if(event.getClickCount() == 1) {
