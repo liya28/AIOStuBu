@@ -97,10 +97,19 @@ public class CardViewController
     @FXML
     private void jumpToCard()
     {
-        int index = Integer.parseInt(indexTextField.getText()) - 1; // Zero-based index
-        if (index >= 0 && index < flashCards.size()) {
-            currentIndex = index;
-            loadFlashcard(currentIndex);
+        if(flashCards.isEmpty())
+        {
+            return;
+        }
+        String dex = indexTextField.getText();
+        if(dex != "") {
+            int index = Integer.parseInt(indexTextField.getText()) - 1; // Zero-based index
+            if (index >= 0 && index < flashCards.size()) {
+                currentIndex = index;
+                loadFlashcard(currentIndex);
+            }
+        } else {
+            return;
         }
     }
 
