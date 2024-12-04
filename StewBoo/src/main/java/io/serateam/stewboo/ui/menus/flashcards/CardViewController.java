@@ -230,6 +230,10 @@ public class CardViewController
     @FXML
     private void previousCard()
     {
+        if(flashCards.isEmpty())
+        {
+            return;
+        }
         currentIndex = (currentIndex - 1 + flashCards.size()) % flashCards.size();
         loadFlashcard(currentIndex);
     }
