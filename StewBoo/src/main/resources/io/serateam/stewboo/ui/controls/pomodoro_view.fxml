@@ -1,102 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.pomodoro.PomodoroMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.pomodoro.PomodoroMenuController">
    <children>
-      <VBox prefHeight="450.0" prefWidth="642.0">
+      <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane prefHeight="69.0" prefWidth="642.0">
                <children>
-                  <Text fx:id="text" layoutX="14.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THE POMODORO TIMER" wrappingWidth="555.1162109375" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0">
-                     <font>
-                        <Font name="Century Gothic Bold" size="36.0" />
-                     </font></Text>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="317.0" prefWidth="642.0">
-               <children>
-                  <ImageView fitHeight="226.0" fitWidth="227.0" layoutX="207.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="207.0" AnchorPane.topAnchor="85.0">
-                     <image>
-                        <Image url="@../images/pomodoroTomatoImage.png" />
-                     </image>
-                  </ImageView>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="56.0" layoutX="231.0" layoutY="190.0" stroke="BLACK" strokeType="INSIDE" width="186.0" AnchorPane.leftAnchor="231.0" AnchorPane.topAnchor="190.0" />
-                  <Text fx:id="txt_timer" layoutX="259.0" layoutY="231.193359375" strokeType="OUTSIDE" strokeWidth="10.0" text="00:00:00" textAlignment="CENTER" AnchorPane.leftAnchor="259.0" AnchorPane.topAnchor="198.0">
-                     <font>
-                        <Font name="Century Gothic Bold" size="33.0" />
-                     </font>
-                  </Text>
-                  <VBox prefHeight="174.0" prefWidth="641.0">
+                  <VBox alignment="CENTER_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="23.0" prefWidth="642.0" spacing="40.0">
+                        <HBox alignment="CENTER">
                            <children>
-                              <Text fx:id="txt_currentSession" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Session: Pomodoro">
+                              <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="THE POMODORO TIMER" textAlignment="CENTER" wrappingWidth="711.1162109375" HBox.hgrow="ALWAYS">
                                  <font>
-                                    <Font name="Century Gothic Bold" size="12.0" />
-                                 </font>
-                              </Text>
-                              <Text fx:id="txt_pomodoroCollected" strokeType="OUTSIDE" strokeWidth="0.0" text="Pomodoro Collected: 0">
-                                 <font>
-                                    <Font name="Century Gothic Bold" size="12.0" />
+                                    <Font name="Century Gothic Bold" size="64.0" />
                                  </font>
                               </Text>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="641.0" spacing="49.0">
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="174.0" prefWidth="641.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox alignment="CENTER" spacing="20.0">
                            <children>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                              <HBox alignment="CENTER" prefHeight="23.0" prefWidth="642.0" spacing="40.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pomodoro Minutes">
+                                    <Text fx:id="txt_currentSession" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Session: Pomodoro">
                                        <font>
-                                          <Font name="Century Gothic" size="12.0" />
+                                          <Font name="Century Gothic Bold" size="18.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="textField_pomodoroMinutes" alignment="CENTER" prefHeight="25.0" prefWidth="42.0" promptText="25">
+                                    <Text fx:id="txt_pomodoroCollected" strokeType="OUTSIDE" strokeWidth="0.0" text="Pomodoro Collected: 0">
                                        <font>
-                                          <Font name="Century Gothic" size="12.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Short Break Minutes">
-                                       <font>
-                                          <Font name="Century Gothic" size="12.0" />
+                                          <Font name="Century Gothic Bold" size="18.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="textField_shortBreakMinutes" alignment="CENTER" prefHeight="25.0" prefWidth="42.0" promptText="5">
-                                       <font>
-                                          <Font name="Century Gothic" size="12.0" />
-                                       </font>
-                                    </TextField>
                                  </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="60.0" prefWidth="641.0" spacing="50.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Long Break Minutes">
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pomodoro Minutes">
+                                             <font>
+                                                <Font name="Century Gothic" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="textField_pomodoroMinutes" alignment="CENTER" prefHeight="25.0" prefWidth="42.0" promptText="25">
+                                             <font>
+                                                <Font name="Century Gothic" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Short Break Minutes">
+                                             <font>
+                                                <Font name="Century Gothic" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="textField_shortBreakMinutes" alignment="CENTER" prefHeight="25.0" prefWidth="42.0" promptText="5">
+                                             <font>
+                                                <Font name="Century Gothic" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Long Break Minutes">
+                                             <font>
+                                                <Font name="Century Gothic" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <TextField fx:id="textField_longBreakMinutes" alignment="CENTER" prefHeight="25.0" prefWidth="42.0" promptText="15">
+                                             <font>
+                                                <Font name="Century Gothic" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                           <children>
+                              <StackPane prefHeight="350.0" prefWidth="325.0">
+                                 <children>
+                                    <ImageView fitHeight="323.0" fitWidth="356.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="@../images/pomodoroTomatoImage.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="93.0" stroke="BLACK" strokeType="INSIDE" translateY="30.0" width="229.0" />
+                                    <Text fx:id="txt_timer" strokeType="OUTSIDE" strokeWidth="10.0" text="00:00:00" textAlignment="CENTER" translateY="30.0">
                                        <font>
-                                          <Font name="Century Gothic" size="12.0" />
+                                          <Font name="Century Gothic Bold" size="55.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="textField_longBreakMinutes" alignment="CENTER" prefHeight="25.0" prefWidth="42.0" promptText="15">
-                                       <font>
-                                          <Font name="Century Gothic" size="12.0" />
-                                       </font>
-                                    </TextField>
                                  </children>
-                              </VBox>
+                              </StackPane>
                            </children>
                         </HBox>
                      </children>
@@ -105,30 +131,51 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <HBox alignment="CENTER" prefHeight="38.0" prefWidth="643.0" spacing="25.0">
+                  <HBox alignment="TOP_CENTER" prefHeight="38.0" prefWidth="643.0" spacing="75.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <JFXButton fx:id="btn_startTimer" buttonType="RAISED" ripplerFill="#a82a2a" style="-fx-background-color: green;" text="START" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic Bold" size="14.0" />
-                           </font>
-                        </JFXButton>
-                        <Text fx:id="txt_errorIncorrectInput" fill="RED" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input must be an integer greater than 0 and less than 1441" textAlignment="CENTER" wrappingWidth="160.0">
-                           <font>
-                              <Font name="Century Gothic Bold" size="10.0" />
-                           </font>
-                        </Text>
-                        <JFXButton fx:id="btn_stopTimer" buttonType="RAISED" style="-fx-background-color: red;" text="STOP" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic Bold" size="14.0" />
-                           </font>
-                        </JFXButton>
+                        <AnchorPane>
+                           <children>
+                              <JFXButton fx:id="btn_startTimer" buttonType="RAISED" layoutX="15.0" layoutY="11.0" ripplerFill="#a82a2a" style="-fx-background-color: green;" text="START" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="24.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane>
+                           <children>
+                              <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane>
+                           <children>
+                              <JFXButton fx:id="btn_stopTimer" buttonType="RAISED" layoutY="54.0" style="-fx-background-color: red;" text="STOP" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="24.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </HBox>
                </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
             </AnchorPane>
             <AnchorPane prefHeight="30.0" prefWidth="642.0">
                <children>
-                  <ProgressBar fx:id="progressBar_timeUntilFinish" layoutX="1.0" layoutY="6.0" prefHeight="18.0" prefWidth="643.0" progress="0.0" style="-fx-accent: rgba(53, 58, 86, 1);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" />
+                  <HBox alignment="BOTTOM_CENTER" layoutY="12.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <ProgressBar fx:id="progressBar_timeUntilFinish" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="887.0" progress="0.0" style="-fx-accent: rgba(53, 58, 86, 1);" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding></ProgressBar>
+                     </children>
+                  </HBox>
                </children>
             </AnchorPane>
          </children>
