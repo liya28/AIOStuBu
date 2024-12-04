@@ -37,7 +37,7 @@ public class StewBooApplication extends Application {
                 primaryStage.setY(event.getScreenY() - windowY);
             });
 
-            Scene scene = new Scene(root, 1080, 720);
+            Scene scene = new Scene(root);
 
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("css/style.css")).toExternalForm());
 
