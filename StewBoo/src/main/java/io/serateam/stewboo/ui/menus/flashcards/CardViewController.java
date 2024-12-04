@@ -247,6 +247,7 @@ public class CardViewController
         }
         Collections.shuffle(flashCards);
         currentIndex = 0;
+        System.out.println(flashCards.get(currentIndex).getQuestion());
         loadFlashcard(currentIndex);
     }
 }
