@@ -128,11 +128,11 @@ public class CardCreationController
         {
             ControllerAlerter.showError("Error", "Question and Answer cannot exceed 30 characters", "Please enter a question and answer within 30 characters");
         }
-        else if(!question.isEmpty() && !answer.isEmpty() && !CharacterLengthChecker(question) && CharacterLengthChecker(answer))
+        else if(!question.isEmpty() && !answer.isEmpty() && CharacterLengthChecker(question) && !CharacterLengthChecker(answer))
         {
             ControllerAlerter.showError("Error", "Answer cannot exceed 30 characters", "Please enter an answer within 30 characters.");
         }
-        else if(!question.isEmpty() && !answer.isEmpty() && CharacterLengthChecker(question) && !CharacterLengthChecker(answer))
+        else if(!question.isEmpty() && !answer.isEmpty() && !CharacterLengthChecker(question) && CharacterLengthChecker(answer))
         {
             ControllerAlerter.showError("Error", "Question cannot exceed 30 characters", "Please enter a question within 30 characters");
         }
