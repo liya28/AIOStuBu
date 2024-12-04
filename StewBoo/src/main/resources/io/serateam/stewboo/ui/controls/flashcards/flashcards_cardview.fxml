@@ -59,6 +59,9 @@
          <image>
             <Image url="@../../images/back.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <Button layoutX="472.0" layoutY="422.0" mnemonicParsing="false" onAction="#nextCard" prefHeight="46.0" prefWidth="65.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;" />
       <ImageView fitHeight="48.0" fitWidth="37.0" layoutX="484.0" layoutY="426.0" onMouseClicked="#nextCard" pickOnBounds="true" preserveRatio="true" rotate="180.0">
