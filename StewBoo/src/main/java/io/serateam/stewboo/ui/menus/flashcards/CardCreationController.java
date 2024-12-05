@@ -45,16 +45,15 @@ public class CardCreationController
         }
     }
 
-    public void setDeck(Deck deck, FlashCardMenuController menuController)
+    public void setDeck(Deck deck)
     {
         this.deck = deck;
-        this.menuController = menuController;
 
-        if (deckNameField != null)
-        {
-            deckNameField.setText(deck.getName());
-            deckNameField.setEditable(false);
-        }
+//        if (deckNameField != null)
+//        {
+//            deckNameField.setText(deck.getName());
+//            deckNameField.setEditable(false);
+//        }
     }
 
     void setFlashcard(Card card)
