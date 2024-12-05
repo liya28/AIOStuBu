@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="207.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.flashcards.CardCreationController">
+<AnchorPane fx:id="deckName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="127.0" prefWidth="298.0" style="-fx-border-color: PURPLE; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.flashcards.DeckCreationController">
     <children>
         <Label layoutX="29.0" layoutY="20.0" text="Enter Deck Name">
          <font>
