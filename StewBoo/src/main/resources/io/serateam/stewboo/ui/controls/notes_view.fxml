@@ -1,50 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.HTMLEditor?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="924.0" style="-fx-background-color: #ffdaf6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.notes.NotesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="924.0" style="-fx-background-color: \\;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.notes.NotesController">
    <children>
-      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="181.0" layoutY="89.0" prefHeight="626.0" prefWidth="703.0" style="-fx-border-color: GRAY;" />
-      <Button fx:id="btn_createContent" layoutX="15.0" layoutY="650.0" mnemonicParsing="false" onAction="#createContent" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: PURPLE; -fx-text-fill: WHITE;" text="Create">
+      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="181.0" layoutY="161.0" prefHeight="555.0" prefWidth="736.0" style="-fx-border-color: GRAY;" />
+      <Button fx:id="btn_createContent" layoutX="844.0" layoutY="117.0" mnemonicParsing="false" onAction="#createContent" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);; -fx-text-fill: WHITE;" text="Create">
          <font>
             <Font name="Century Gothic Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="btn_saveContent" layoutX="93.0" layoutY="650.0" mnemonicParsing="false" onAction="#saveContent" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: GREEN; -fx-text-fill: WHITE;" text="Save">
+      <Button fx:id="btn_saveContent" layoutX="181.0" layoutY="117.0" mnemonicParsing="false" onAction="#saveContent" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: linear-gradient(to right, rgb(20, 150, 250), rgb(20, 240, 450)); -fx-text-fill: WHITE;" text="Save">
          <font>
             <Font name="Century Gothic Bold" size="15.0" />
          </font></Button>
-      <ListView fx:id="listView_topics" layoutX="5.0" layoutY="120.0" prefHeight="522.0" prefWidth="169.0" style="-fx-border-color: GRAY;" />
-      <Label layoutX="48.0" layoutY="87.0" text="TITLE LIST">
+      <ListView fx:id="listView_topics" layoutX="5.0" layoutY="161.0" prefHeight="514.0" prefWidth="170.0" style="-fx-border-color: GRAY;" />
+      <Label layoutX="42.0" layoutY="119.0" style="-fx-text-fill: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);" text="NOTES LIST">
          <font>
             <Font name="Century Gothic Bold" size="20.0" />
          </font></Label>
-      <Button fx:id="btn_openContent" layoutX="15.0" layoutY="683.0" mnemonicParsing="false" onAction="#openContent" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: DEEPPINK; -fx-text-fill: WHITE;" text="Open">
+      <Button fx:id="btn_openContent" layoutX="14.0" layoutY="683.0" mnemonicParsing="false" onAction="#openContent" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: linear-gradient(to top, #ff9a9e 90%, #fecfef 100%, #fecfef 100%); -fx-text-fill: WHITE;" text="Open">
          <font>
             <Font name="Century Gothic Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="btn_deleteContent" layoutX="93.0" layoutY="683.0" mnemonicParsing="false" onAction="#deleteNote" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: RED; -fx-text-fill: WHITE;" text="Delete">
+      <Button fx:id="btn_deleteContent" layoutX="93.0" layoutY="683.0" mnemonicParsing="false" onAction="#deleteNote" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: linear-gradient(to right, rgb(255, 65, 108), rgb(255, 75, 43));; -fx-text-fill: WHITE;" text="Delete">
          <font>
             <Font name="Century Gothic Bold" size="15.0" />
          </font></Button>
-      <Label layoutX="330.0" layoutY="43.0" text="CONTENT TITLE:">
+      <TextField fx:id="textField_title" layoutX="263.0" layoutY="112.0" prefHeight="38.0" prefWidth="198.0" promptText="Enter your content title" style="-fx-border-color: GRAY;">
          <font>
-            <Font name="Century Gothic Bold" size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="textField_title" layoutX="482.0" layoutY="39.0" prefHeight="38.0" prefWidth="233.0" promptText="Enter your content title..." style="-fx-border-color: GRAY;">
-         <font>
-            <Font name="Century Gothic" size="18.0" />
+            <Font name="Century Gothic Italic" size="16.0" />
          </font></TextField>
-      <Label layoutX="18.0" layoutY="21.0" text="NOTES">
+      <Label layoutX="345.0" layoutY="7.0" style="-fx-text-fill: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);" text="STUBUNOTES">
          <font>
-            <Font name="Century Gothic Bold" size="50.0" />
+            <Font name="Century Gothic Bold" size="48.0" />
          </font>
       </Label>
+      <HBox alignment="CENTER" layoutX="4.0" layoutY="76.0" prefHeight="23.0" prefWidth="913.0" style="-fx-background-color: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);">
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="250.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" style="-fx-text-fill: WHITE;" text="&quot;Go, go, go!&quot; - Ruffa" textAlignment="CENTER">
+                     <font>
+                        <Font name="Century Gothic Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </AnchorPane>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
