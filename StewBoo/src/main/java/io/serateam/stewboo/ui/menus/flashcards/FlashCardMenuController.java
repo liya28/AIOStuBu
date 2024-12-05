@@ -74,7 +74,7 @@ public class FlashCardMenuController implements IMenu
             FXMLLoader loader = new FXMLLoader(SharedVariables.url_path_flashcardsDeckFxml);
             Parent root = loader.load();
 
-            CardCreationController controller = loader.getController();
+            DeckCreationController controller = loader.getController();
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
