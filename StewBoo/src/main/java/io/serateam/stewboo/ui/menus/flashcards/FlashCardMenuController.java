@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
