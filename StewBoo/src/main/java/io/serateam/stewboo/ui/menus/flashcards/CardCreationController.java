@@ -3,6 +3,7 @@ package io.serateam.stewboo.ui.menus.flashcards;
 import io.serateam.stewboo.core.services.flashcard.Card;
 import io.serateam.stewboo.core.services.flashcard.Deck;
 import io.serateam.stewboo.core.services.flashcard.FlashCardService;
+import io.serateam.stewboo.ui.SharedVariables;
 import io.serateam.stewboo.ui.utility.ControllerAlerter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,6 +29,7 @@ public class CardCreationController
     @FXML
     public void initialize()
     {
+        menuController = SharedVariables.flashCardMenuController;
         if (questionTextField != null)
         {
             questionTextField.setOnAction(event -> addCard());
