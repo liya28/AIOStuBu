@@ -49,7 +49,7 @@ public class CalendarMenuController implements Initializable, IMenu
         // Hello! For simplicity, we'll disable these features in our CalendarView.
         calendarView.setEnableTimeZoneSupport(false);
         calendarView.setShowAddCalendarButton(false);
-        calendarView.setShowPrintButton(true);
+        calendarView.setShowPrintButton(false);
 
         /*
             CalendarFX CSS source for Calendar.Style:
