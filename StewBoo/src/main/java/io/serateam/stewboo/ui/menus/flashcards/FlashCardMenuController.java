@@ -121,7 +121,7 @@ public class FlashCardMenuController implements IMenu
             Parent root = loader.load();
 
             CardCreationController controller = loader.getController();
-            controller.setDeck(deck, this);
+            controller.setDeck(deck);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
