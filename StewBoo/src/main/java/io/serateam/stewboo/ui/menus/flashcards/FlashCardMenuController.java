@@ -83,21 +83,14 @@ public class FlashCardMenuController implements IMenu
             stage.showAndWait();
 
             String deckName = controller.getDeckName();
-            if (deckName != null && !deckName.trim().isEmpty() && DeckNameChecker(deckName))
-            {
-                Deck newDeck = new Deck(deckName);
-                service.addDeck(newDeck);
-                observableDeckList.add(newDeck);
-                openCardCreationView(newDeck);
+            if (deckName == null || deckName.isEmpty()) {
+                return;
             }
-            else if(deckName != null && !deckName.trim().isEmpty() && !DeckNameChecker(deckName))
-            {
-                ControllerAlerter.showError("Error", "Deck name cannot exceed 20 characters", "Please enter a deck name within 20 characters");
-            }
-            else
-            {
-                ControllerAlerter.showError("Error", "Deck name cannot be empty.", "Please input a deckname");
-            }
+
+            Deck newDeck = new Deck(deckName);
+            service.addDeck(newDeck);
+            observableDeckList.add(newDeck);
+            openCardCreationView(newDeck);
         } catch (IOException e) {
             e.printStackTrace();
         }
