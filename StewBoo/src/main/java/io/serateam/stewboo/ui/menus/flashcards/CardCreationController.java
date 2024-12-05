@@ -85,11 +85,6 @@ public class CardCreationController
         stage.close();
     }
 
-    public String getDeckName()
-    {
-        return deckNameField.getText();
-    }
-
     private boolean CharacterLengthChecker(String string)
     {
         int count = 0;
