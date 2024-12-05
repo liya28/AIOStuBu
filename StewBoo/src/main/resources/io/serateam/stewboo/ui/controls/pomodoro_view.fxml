@@ -196,7 +196,7 @@
                <children>
                   <HBox alignment="BOTTOM_CENTER" layoutY="12.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <ProgressBar fx:id="progressBar_timeUntilFinish" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="887.0" progress="0.0" style="-fx-accent: rgba(53, 58, 86, 1);" HBox.hgrow="ALWAYS">
+                        <ProgressBar fx:id="progressBar_timeUntilFinish" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="887.0" progress="0.0" style="-fx-accent: rgba(161, 54, 54, 1);" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
