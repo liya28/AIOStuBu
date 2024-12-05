@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.HTMLEditor?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="924.0" style="-fx-background-color: \\;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.notes.NotesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.notes.NotesController">
    <children>
       <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="181.0" layoutY="161.0" prefHeight="555.0" prefWidth="736.0" style="-fx-border-color: GRAY;" />
       <Button fx:id="btn_createContent" layoutX="806.0" layoutY="117.0" mnemonicParsing="false" onAction="#createContent" prefHeight="29.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);; -fx-text-fill: WHITE;" text="Create New">
