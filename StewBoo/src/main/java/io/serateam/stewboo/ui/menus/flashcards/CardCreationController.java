@@ -22,7 +22,6 @@ public class CardCreationController
     @FXML private Button btn_doneDeck;
     @FXML private TextField questionTextField;
     @FXML private TextField answerTextField;
-    @FXML private TextField deckNameField;
     @FXML private TextField edit_questionTextField;
     @FXML private TextField edit_answerTextField;
 
