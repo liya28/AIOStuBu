@@ -19,7 +19,8 @@ public class FlashCardService implements IService, ISerializable
 
     public static FlashCardService getInstance()
     {
-        if (instance == null) {
+        if (instance == null)
+        {
             instance = new FlashCardService();
         }
         return instance;

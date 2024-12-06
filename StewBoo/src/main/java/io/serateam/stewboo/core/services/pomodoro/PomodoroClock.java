@@ -9,15 +9,14 @@ import java.util.TimerTask;
 
 class PomodoroClock
 {
-
     private PomodoroSessionState currentSessionState = PomodoroSessionState.WORK_SESSION;
     private long remainingSeconds = PomodoroService.DEFAULT_POMODORO_MINUTES;
     private int pomodoroCounter = 0;
     private boolean isBreak = false;
     private boolean isRunning = false;
     private Timer timer;
-    private final List<IPomodoroListener> pomodoroListeners = new ArrayList<>();
 
+    private final List<IPomodoroListener> pomodoroListeners = new ArrayList<>();
     private PomodoroSettings userConfig;
 
     // region Clock Methods
