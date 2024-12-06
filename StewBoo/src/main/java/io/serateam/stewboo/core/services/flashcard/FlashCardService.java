@@ -40,7 +40,7 @@ public class FlashCardService implements IService, ISerializable
         }
     }
 
-    public void addflashCard(Deck deck, Card card)
+    public void addFlashCard(Deck deck, Card card)
     {
         deck.addflashCard(card);
         saveDecksToFile();

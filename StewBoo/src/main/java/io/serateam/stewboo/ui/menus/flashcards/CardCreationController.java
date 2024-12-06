@@ -139,7 +139,7 @@ public class CardCreationController
             Card card = new Card(question, answer);
             if (deck != null)
             {
-                service.addflashCard(deck, card);
+                service.addFlashCard(deck, card);
                 menuController.updateflashcardCount(); // Notify FlashCardMenuController
             }
 
