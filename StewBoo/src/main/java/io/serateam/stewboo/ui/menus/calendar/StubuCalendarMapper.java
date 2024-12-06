@@ -5,13 +5,13 @@ import com.calendarfx.model.Entry;
 import io.serateam.stewboo.core.services.calendar.StubuCalendarEntry;
 import io.serateam.stewboo.core.services.calendar.StubuCalendar;
 
-public class StubuCalendarMapper
+class StubuCalendarMapper
 {
-    public static StubuCalendar toStubuCalendarObject(Calendar calendar)
+    static StubuCalendar toStubuCalendarObject(Calendar calendar)
     {
         return new StubuCalendar(calendar.getName());
     }
-    public static StubuCalendarEntry toStubuCalendarEntryObject(Entry<?> entry)
+    static StubuCalendarEntry toStubuCalendarEntryObject(Entry<?> entry)
     {
         // Entry tips (when doing recurrence entries):
         // isRecurring() includes the recurrence source and its copies
