@@ -58,12 +58,6 @@ public class DeckCreationController {
     }
 
     private boolean DeckNameChecker(String deckName) {
-        int count = 0;
-        for (int i = 0; i < deckName.length(); i++) {
-            if (deckName.charAt(i) != ' ') {
-                count++;
-            }
-        }
-        return count <= 20;  // Ensure name is less than or equal to 20 characters
+        return deckName.length() < 20;  // Ensure name is less than or equal to 20 characters
     }
 }
