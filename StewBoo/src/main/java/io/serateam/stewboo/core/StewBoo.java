@@ -6,8 +6,6 @@ import io.serateam.stewboo.core.services.notes.NotesService;
 import io.serateam.stewboo.core.services.todolist.TodoListService;
 import io.serateam.stewboo.core.services.calendar.CalendarService;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroService;
-import io.serateam.stewboo.core.utility.JSONService;
-import io.serateam.stewboo.core.utility.Sample;
 import io.serateam.stewboo.core.utility.SharedVariables;
 
 import java.io.File;
@@ -35,21 +33,16 @@ public class StewBoo
             }
         }
 
-        // Test only!
-        Sample s = new Sample();
-        JSONService.serializeAndWriteToFile(SharedVariables.Path.test, s);
-        Sample newS = JSONService.deserialize(SharedVariables.Path.test, Sample.class);
-        System.out.println(newS);
-
         // For simplicity, we will be opting to grouping our services into a list
         List<IService> services = new ArrayList<>();
+
         // TODO: Add more services if need be.
         services.add(NotesService.getInstance());
         services.add(PomodoroService.getInstance());
         services.add(TodoListService.getInstance());
         services.add(CalendarService.getInstance());
-
         services.add(FlashCardService.getInstance());
+
         for(IService service : services)
         {
             System.out.println("Initializing service: " + service.getClass().getSimpleName());
