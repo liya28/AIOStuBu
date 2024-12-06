@@ -1,0 +1,59 @@
+/* General style for all pane boxes */
+.pane-box {
+    /*-fx-background-color: #f4f4f4; !* Light gray background *!*/
+    /*-fx-border-color: #b0bec5;    !* Border with a subtle blue-gray *!*/
+    -fx-border-width: 2px;        /* Border thickness */
+    -fx-border-radius: 10px;      /* Rounded corners */
+    -fx-background-radius: 10px; /* Matching rounded background */
+    -fx-padding: 15px;           /* Inner padding for content */
+    -fx-effect: dropshadow(gaussian, #E195AB, 5, 0.5, 0, 3);
+}
+
+
+/* Text style inside the pane boxes */
+.pane-box .text-content {
+    -fx-font-family: "Arial";    /* Font family */
+    -fx-font-size: 16px;         /* Font size */
+    -fx-text-fill: #37474f;      /* Text color (dark gray-blue) */
+}
+
+/* First pane-specific styling */
+.pane-box-one {
+    -fx-background-color: #FFCCE1; /* Light red for a soft accent */
+    /*-fx-border-color: #E195AB;     !* Matching border color *!*/
+}
+.pane-box-one:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.service-pane {
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-background-color: #64b5f6;
+}
+.round-image {
+    -fx-shape: "M 100 0 A 100 100 0 1 1 100 -0.1 Z";
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-border-color: #3498db;
+    -fx-border-width: 5;
+    -fx-background-size: cover;
+}
+.home-pane {
+    -fx-background-color: #FFFFFF;
+}
+
+.slide-show-pane {
+    -fx-border-color: #4335A7;
+    -fx-border-radius: 5px;
+}
+.dash-text {
+    -fx-background-color: transparent; /* Makes the background transparent */
+    -fx-background-insets: 0; /* Removes padding around the background */
+    -fx-background-radius: 0; /* Removes background rounding */
+    -fx-border-color: transparent; /* Removes border (optional) */
+    -fx-border-width: 0; /* Removes border width (optional) */
+    -fx-text-fill: black; /* Text color remains visible */
+    -fx-font-size: 14px; /* Optional: Adjust font size */
+}

@@ -35,7 +35,6 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
     @FXML private TextField textField_pomodoroMinutes;
     @FXML private TextField textField_shortBreakMinutes;
     @FXML private TextField textField_longBreakMinutes;
-    @FXML private Text txt_errorIncorrectInput;
     @FXML private ProgressBar progressBar_timeUntilFinish;
 
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");

@@ -1,7 +1,7 @@
 package io.serateam.stewboo.core.services.notes;
 
+
 import io.serateam.stewboo.core.services.IService;
-import io.serateam.stewboo.core.services.pomodoro.PomodoroService;
 import io.serateam.stewboo.core.utility.SharedVariables;
 
 import java.io.File;
