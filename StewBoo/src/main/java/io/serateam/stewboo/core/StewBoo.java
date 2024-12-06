@@ -45,7 +45,7 @@ public class StewBoo
 
         for(IService service : services)
         {
-            System.out.println("Initializing service: " + service.getClass().getSimpleName());
+            System.out.println("[AIO STUBU] Initializing service: " + service.getClass().getSimpleName());
             service.initializeService();
         }
     }
