@@ -25,7 +25,7 @@ public class DeckCreationController {
 
         try {
             String deckName = deckNameField.getText();
-            if (deckName != null && !deckName.trim().isEmpty()) {
+            if (deckName != null && !deckName.isEmpty()) {
                 if (!DeckNameChecker(deckName)) {
                     throw new InputMismatchException();
                 } else {
