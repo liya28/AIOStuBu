@@ -3,10 +3,13 @@ package io.serateam.stewboo.ui.menus.todolist;
 import io.serateam.stewboo.core.services.todolist.TaskModel;
 import io.serateam.stewboo.core.services.todolist.TodoListService;
 
+import io.serateam.stewboo.ui.SharedVariables;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -42,8 +45,8 @@ public class ToDoItemInstance extends HBox
 
     private void createItemInList()
     {
-        setPadding(new Insets(5));
-        setStyle("-fx-background-color: lightblue; -fx-border-color: gray;");
+        getStyleClass().add("styled-vbox");
+        getStylesheets().add(getClass().getResource(SharedVariables.path_directoryCSS_TodoList).toExternalForm());
 
         // Task text field
         taskField = createTaskField(taskModel);
@@ -71,8 +74,14 @@ public class ToDoItemInstance extends HBox
     private TextField createTaskField(TaskModel taskModel)
     {
         taskField = new TextField(taskModel.getTaskContent());
-        taskField.setPrefWidth(300);
+        taskField.getStyleClass().add("task-field");
+
+        taskField.getStylesheets().add(getClass().getResource(SharedVariables.path_directoryCSS_TodoList).toExternalForm());
+
+        taskField.setPrefWidth(740);
         taskField.setDisable(taskModel.isCompleted());
+
+
 
         taskField.textProperty().addListener((observable, oldValue, newValue) -> {
             todoListService.setTaskContent(newValue, this.taskModel); // Update TaskModel
@@ -83,7 +92,17 @@ public class ToDoItemInstance extends HBox
 
     private Button createDeleteButton(TaskModel taskModel)
     {
-        deleteButton = new Button("Delete");
+        deleteButton = new Button();
+        deleteButton.getStyleClass().add("delete-button");
+
+        Image deleteIcon = new Image(getClass().getResourceAsStream("/io/serateam/stewboo/ui/images/exit.png"));
+        ImageView iconView = new ImageView(deleteIcon);
+        iconView.setFitHeight(20);
+        iconView.setFitWidth(20);
+
+        deleteButton.setGraphic(iconView);
+        deleteButton.getStylesheets().add(getClass().getResource(SharedVariables.path_directoryCSS_TodoList).toExternalForm());
+
         deleteButton.setOnAction(e-> {
             ((VBox)getParent()).getChildren().remove(this);
             todoListService.deleteTaskItem(taskModel.getTaskContent(), taskModel.isCompleted());
@@ -95,6 +114,10 @@ public class ToDoItemInstance extends HBox
     private CheckBox createCheckBox(TaskModel taskModel)
     {
         taskCheckBox = new CheckBox();
+        taskCheckBox.getStyleClass().add("check-box");
+
+        taskCheckBox.getStylesheets().add(getClass().getResource(SharedVariables.path_directoryCSS_TodoList).toExternalForm());
+
         taskCheckBox.setSelected(taskModel.isCompleted());
         taskCheckBox.setOnAction(e -> {
             taskField.setDisable(taskCheckBox.isSelected());
@@ -102,5 +125,8 @@ public class ToDoItemInstance extends HBox
             todoListService.saveList(); // Persist changes
         });
         return taskCheckBox;
+    }
+    private void deleteAnimation() {
+
     }
 }

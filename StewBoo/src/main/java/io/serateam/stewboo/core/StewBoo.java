@@ -1,8 +1,10 @@
 package io.serateam.stewboo.core;
 
 import io.serateam.stewboo.core.services.IService;
+import io.serateam.stewboo.core.services.flashcard.FlashCardService;
 import io.serateam.stewboo.core.services.notes.NotesService;
 import io.serateam.stewboo.core.services.todolist.TodoListService;
+import io.serateam.stewboo.core.services.calendar.CalendarService;
 import io.serateam.stewboo.core.services.pomodoro.PomodoroService;
 import io.serateam.stewboo.core.utility.JSONService;
 import io.serateam.stewboo.core.utility.Sample;
@@ -45,7 +47,9 @@ public class StewBoo
         services.add(NotesService.getInstance());
         services.add(PomodoroService.getInstance());
         services.add(TodoListService.getInstance());
+        services.add(CalendarService.getInstance());
 
+        services.add(FlashCardService.getInstance());
         for(IService service : services)
         {
             System.out.println("Initializing service: " + service.getClass().getSimpleName());

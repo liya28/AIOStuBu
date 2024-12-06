@@ -3,13 +3,36 @@ The All-In-One (AIO) Studdy Buddy (Stubu) is an offline-first productivity appli
 
 Written in Java with JavaFX.
 
+## Table of Contents
+- [Features](#features)
+- [Class Diagram](#class-diagram)
+- [Design Patterns](#design-patterns)
+- [User Data/File Handling](#user-datafile-handling)
+- [Calendar Compliance w/ RFC 2445](calendar-compliance-w-rfc-2445)
+- [Contribution (for members)](#contribution)
+- [Members w/ Github Profile Links](#members-w-github-profile-links)
+- [Final Words](#final-words)
+
 ## Features
 - Notes
 - Calendar (compliant with RFC 2445)
 - Todo List
 - Pomodoro Timer
-- Progress Tracker
 - Custom Flashcards
+
+## Class Diagram
+TBD
+
+## Design Patterns
+TBD (screenshots and path to file included)
+
+## User Data/File Handling
+Throughout the user's interaction with the application, snapshots of their work and settings are periodically saved in JSON text files. This allows users to close the application at any time and easily resume their tasks later without losing any data. Upon reopening the application, AIOStubu automatically loads these saved snapshots. JSON files are saved via a custom JSON Service class that utilizes the GSon library. The link to the implementation is found [here](https://github.com/liya28/AIOStuBu/blob/main/StewBoo/src/main/java/io/serateam/stewboo/core/utility/JSONService.java).
+
+Saved JSON files may be found in the directory `aiostubu/` in the project directory.
+
+## Calendar Compliance with RFC 2445
+TBD. Why not RFC 5545?
 
 ## Contribution
 If you are a group member, please read the following texts.
@@ -95,4 +118,15 @@ public void singLetItGoByIdinaMenzel()
     ...
 }
 ````
+
+## Members (w/ Github Profile Links)
+1. [Aliyah Khaet Regacho](https://github.com/liya28) 
+2. [Harley S. Reyes](https://github.com/muhadma)
+3. [John Earl C. Echavez](https://github.com/EarlJohnHub)
+4. [Rafael A. Mendoza](https://github.com/GReturn) 
+
+## Final Words
+In compliance with CSIT227 - Object-oriented Programming 1. All Rights Reserved.
+
+
 end.

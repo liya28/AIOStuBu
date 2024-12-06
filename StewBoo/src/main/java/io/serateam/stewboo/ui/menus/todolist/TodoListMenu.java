@@ -8,6 +8,7 @@ import io.serateam.stewboo.ui.menus.IMenu;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
@@ -24,10 +25,7 @@ public class TodoListMenu implements Initializable, IMenu
     private final TaskList taskList = service.getTaskList();
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
-    {
-        loadTask();
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) { loadTask(); }
 
     @FXML
     protected void onAddTask(ActionEvent event)
@@ -38,7 +36,6 @@ public class TodoListMenu implements Initializable, IMenu
     private void addTaskToView()
     {
         ToDoItemInstance taskComponent = new ToDoItemInstance();
-
         taskComponent.getDeleteButton().setOnAction(e -> {
             vBox_taskContainer.getChildren().remove(taskComponent);
             System.out.println("TodoList: Task item was removed");
