@@ -19,10 +19,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 
 public class PomodoroMenuController implements Initializable, IMenu, IPomodoroListener
@@ -139,7 +139,7 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
             boolean isLongBreakOk = validateNumericalTextField(textField_longBreakMinutes);
             if(!(isPomodoroOk && isQuickBreakOk && isLongBreakOk))
             {
-                throw new IOException();
+                throw new InputMismatchException("Input must be an integer greater than 0 and less than 1441 minutes (24 hours).");
             }
 
             int pomMinutes;
@@ -169,9 +169,9 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
             btn_stopTimer.setDisable(false);
             service.startPomodoroSession();
         }
-        catch(IOException e)
+        catch(InputMismatchException e)
         {
-            ControllerAlerter.showError("Error", "Invalid input!", "Input must be an integer greater than 0 and less than 1441 minutes (24 hours).");
+            ControllerAlerter.showError("Error", "Invalid input!", e.getMessage());
             System.err.println("POMODORO: Invalid text fields");
         }
 
