@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -10,6 +11,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -20,17 +24,42 @@
          <children>
             <AnchorPane prefHeight="69.0" prefWidth="642.0">
                <children>
-                  <VBox alignment="CENTER_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <HBox alignment="CENTER">
+                        <AnchorPane>
                            <children>
-                              <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="THE POMODORO TIMER" textAlignment="CENTER" wrappingWidth="711.1162109375" HBox.hgrow="ALWAYS">
+                              <Label fx:id="text" alignment="CENTER" text="STUBUPOMO" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
-                                    <Font name="Century Gothic Bold" size="64.0" />
+                                    <Font name="Century Gothic Bold" size="48.0" />
                                  </font>
-                              </Text>
+                                 <textFill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.6315789222717285" green="0.21052631735801697" blue="0.21052631735801697" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" green="0.6814814805984497" blue="0.4027777910232544" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Label>
                            </children>
-                        </HBox>
+                        </AnchorPane>
+                        <AnchorPane>
+                           <children>
+                              <Label alignment="CENTER" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #a13636 0.0%, #ffae67 100.0%);" text="Your Buddy Pomodoro To The Rescue" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </VBox>
                </children>
@@ -167,7 +196,7 @@
                <children>
                   <HBox alignment="BOTTOM_CENTER" layoutY="12.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <ProgressBar fx:id="progressBar_timeUntilFinish" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="887.0" progress="0.0" style="-fx-accent: rgba(53, 58, 86, 1);" HBox.hgrow="ALWAYS">
+                        <ProgressBar fx:id="progressBar_timeUntilFinish" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="887.0" progress="0.0" style="-fx-accent: rgba(161, 54, 54, 1);" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>

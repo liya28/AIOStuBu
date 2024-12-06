@@ -1,6 +1,7 @@
 package io.serateam.stewboo.ui.menus.notes;
 
 import io.serateam.stewboo.core.services.notes.NotesService;
+import io.serateam.stewboo.ui.menus.IMenu;
 import io.serateam.stewboo.ui.utility.ControllerAlerter;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,7 +13,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class NotesController implements Initializable
+public class NotesController implements Initializable, IMenu
 {
     @FXML private HTMLEditor htmlEditor;
     @FXML private ListView<String> listView_topics;
