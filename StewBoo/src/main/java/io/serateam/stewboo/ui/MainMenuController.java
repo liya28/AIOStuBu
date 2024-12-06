@@ -173,7 +173,7 @@ public class MainMenuController implements Initializable {
             catch (Exception e)
             {
                 // TODO please handle this error properly. What to do if the images were not preloaded?
-                System.err.println("Error preloading image: " + imagePaths[i]);
+                preloadedImages[i] = new Image(Objects.requireNonNull(getClass().getResource("/io/serateam/stewboo/ui/images/placeholder.jpg")).toString());
             }
         }
     }
