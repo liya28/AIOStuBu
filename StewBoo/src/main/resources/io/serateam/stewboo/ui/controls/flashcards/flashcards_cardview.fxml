@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.flashcards.CardViewController">
+    <children>
+      <VBox alignment="TOP_CENTER" layoutX="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <StackPane VBox.vgrow="ALWAYS">
+               <children>
+                  <AnchorPane fx:id="card" prefHeight="368.0" prefWidth="711.0" style="-fx-border-color: PURPLE; -fx-border-width: 3; -fx-border-radius: 20;">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="5.0" layoutY="79.0" prefHeight="200.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" text="Label" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="Century Gothic" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </AnchorPane>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="47.0" prefWidth="89.0" StackPane.alignment="TOP_RIGHT">
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                     <children>
+                        <HBox alignment="TOP_RIGHT" layoutX="-1.0" prefHeight="66.0" prefWidth="107.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane fx:id="anchorPane_edit" onMouseClicked="#editFlashcard" translateZ="99.0">
+                                 <children>
+                                    <ImageView fx:id="img_edit" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <image>
+                                          <Image url="@../../images/edit.png" />
+                                       </image>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </ImageView>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                              <AnchorPane fx:id="anchorPane_delete" onMouseClicked="#deleteCard" translateZ="99.0">
+                                 <children>
+                                    <ImageView fx:id="img_delete" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <image>
+                                          <Image url="@../../images/delete.png" />
+                                       </image>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </ImageView>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </StackPane>
+            <HBox alignment="CENTER" spacing="50.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <GridPane hgap="50.0" translateX="-25.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="100.0" spacing="5.0">
+                           <children>
+                              <TextField fx:id="indexTextField" focusTraversable="false" prefHeight="22.0" prefWidth="57.0" promptText="Card #">
+                                 <font>
+                                    <Font name="Century Gothic" size="11.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="btn_jump" mnemonicParsing="false" onAction="#jumpToCard" prefHeight="23.0" prefWidth="41.0" style="-fx-background-color: PURPLE;" text="GO" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Century Gothic" size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <StackPane GridPane.columnIndex="1">
+                           <children>
+                              <Button fx:id="btn_previous" mnemonicParsing="false" onAction="#nextCard" onMouseClicked="#previousCard" prefHeight="46.0" prefWidth="65.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <ImageView fitHeight="48.0" fitWidth="37.0" onMouseClicked="#previousCard" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/back.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Label fx:id="current_index" text="Label" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="Century Gothic" size="24.0" />
+                           </font>
+                        </Label>
+                        <StackPane GridPane.columnIndex="3">
+                           <children>
+                              <Button fx:id="btn_next" mnemonicParsing="false" onAction="#nextCard" prefHeight="46.0" prefWidth="65.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <ImageView fitHeight="48.0" fitWidth="37.0" onMouseClicked="#nextCard" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                                 <image>
+                                    <Image url="@../../images/back.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" GridPane.columnIndex="4">
+                           <children>
+                              <Button fx:id="btn_shuffle" mnemonicParsing="false" onAction="#shuffleDeck" prefHeight="30.0" prefWidth="50.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <ImageView fx:id="img_shuffle" fitHeight="25.0" fitWidth="37.0" onMouseClicked="#shuffleDeck" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/shuffle.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </GridPane>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="801.0" progress="0.0" style="-fx-accent: PURPLE;" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>
