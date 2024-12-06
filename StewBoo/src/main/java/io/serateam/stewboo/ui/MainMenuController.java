@@ -44,7 +44,15 @@ public class MainMenuController implements Initializable {
     private final String[] imagePaths = {
             "/io/serateam/stewboo/ui/images/slide1_quote.png",
             "/io/serateam/stewboo/ui/images/slide2_quote.jpg",
-            "/io/serateam/stewboo/ui/images/slide3_quote.jpg"
+            "/io/serateam/stewboo/ui/images/slide3_quote.jpg",
+            "/io/serateam/stewboo/ui/images/slide4_quote.jpg",
+            "/io/serateam/stewboo/ui/images/slide5_quote.jpg",
+            "/io/serateam/stewboo/ui/images/slide6_quote.jpg",
+            "/io/serateam/stewboo/ui/images/slide7_quote.jpg",
+            "/io/serateam/stewboo/ui/images/slide8_quote.png",
+            "/io/serateam/stewboo/ui/images/slide9_quote.png",
+            "/io/serateam/stewboo/ui/images/slide10_quote.jpg",
+            "/io/serateam/stewboo/ui/images/slide11_quote.jpg"
     };
     private int currentImageIndex = 0;
     private final Image[] preloadedImages = new Image[imagePaths.length];
@@ -127,14 +135,15 @@ public class MainMenuController implements Initializable {
     {
         if (imagePaths.length == 0) return; // No images to show
 
-        ImageView img_Holder = new ImageView();
+
+        ImageView img_Holder = new ImageView(preloadedImages[currentImageIndex]);
         img_Holder.setPreserveRatio(false);
         img_Holder.fitWidthProperty().bind(slideShow_Holder.widthProperty());
         img_Holder.fitHeightProperty().bind(slideShow_Holder.heightProperty());
 
         slideShow_Holder.getChildren().add(img_Holder);
 
-        Timeline slideshow = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
+        Timeline slideshow = new Timeline(new KeyFrame(Duration.seconds(4), event -> {
             currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
             FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), img_Holder);
             fadeOut.setFromValue(1.0);

@@ -9,6 +9,7 @@
     -fx-effect: dropshadow(gaussian, #E195AB, 5, 0.5, 0, 3);
 }
 
+
 /* Text style inside the pane boxes */
 .pane-box .text-content {
     -fx-font-family: "Arial";    /* Font family */
@@ -20,6 +21,10 @@
 .pane-box-one {
     -fx-background-color: #FFCCE1; /* Light red for a soft accent */
     /*-fx-border-color: #E195AB;     !* Matching border color *!*/
+}
+.pane-box-one:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
 }
 
 .service-pane {
@@ -38,9 +43,7 @@
 .home-pane {
     -fx-background-color: #FFFFFF;
 }
-/*.dashbar {*/
-/*    -fx-background-color: #e8eafa;*/
-/*}*/
+
 .slide-show-pane {
     -fx-border-color: #4335A7;
     -fx-border-radius: 5px;

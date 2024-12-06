@@ -78,7 +78,7 @@ public class ToDoItemInstance extends HBox
 
         taskField.getStylesheets().add(getClass().getResource(SharedVariables.path_directoryCSS_TodoList).toExternalForm());
 
-        taskField.setPrefWidth(450);
+        taskField.setPrefWidth(740);
         taskField.setDisable(taskModel.isCompleted());
 
 

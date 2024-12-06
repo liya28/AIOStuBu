@@ -3,112 +3,165 @@
     -fx-border-color: transparent; /* Remove border */
     -fx-cursor: hand; /* Show pointer cursor on hover */
     -fx-padding: 5; /* Adjust padding */
-
-    /*-fx-background-color: linear-gradient(to bottom, #ff4d4d, #e63939);*/
-    /*-fx-background-radius: 15; !* Rounded corners *!*/
-    /*-fx-text-fill: white; !* Text color *!*/
-    /*-fx-font-size: 12px; !* Font size *!*/
-    /*-fx-font-family: "Arial"; !* Font family *!*/
-    /*-fx-padding: 5 10 5 10; !* Padding inside button *!*/
-    /*-fx-border-radius: 15; !* Match background radius *!*/
-    /*-fx-border-color: #cc3333; !* Border color *!*/
-    /*-fx-border-width: 2px;*/
-    /*-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0, 2, 2); !* Shadow effect *!*/
-    /*-fx-cursor: hand; !* Change cursor to pointer on hover *!*/
-    /*-fx-focus-color: transparent; !* Remove focus border *!*/
-    /*-fx-faint-focus-color: transparent; !* Remove faint focus border *!*/
 }
 
 .delete-button:hover {
     -fx-background-color: rgba(0, 0, 0, 0.1); /* Add hover effect */
-    /*-fx-background-color: linear-gradient(to bottom, #e63939, #ff4d4d); !* Swap gradient on hover *!*/
-    /*-fx-border-color: #b32424;*/
-}
+    }
 
-/*.delete-button:pressed {*/
-/*    -fx-background-color: linear-gradient(to bottom, #cc3333, #e63939); !* Darker gradient *!*/
-/*    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 3, 0, 1, 1); !* Smaller shadow *!*/
-/*}*/
-
-/* Checkbox container style */
 .check-box {
-    -fx-padding: 3; /* Padding around the checkbox */
+    -fx-display: inline-block;
+    -fx-padding: 3;
 }
 
-/* Checkbox background and border */
-.check-box .box {
-    -fx-background-color: white; /* Default background */
-    -fx-border-color: #d9d9d9; /* Border color */
-    -fx-border-width: 2px; /* Border width */
-    -fx-border-radius: 4; /* Rounded corners for checkbox */
-    -fx-pref-width: 16px; /* Size of the checkbox */
-    -fx-pref-height: 16px; /* Size of the checkbox */
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0, 1, 1); /* Subtle shadow */
+.check-box .check {
+    -fx-cursor: hand;
+    -fx-position: relative;
+    -fx-margin: auto;
+    -fx-pref-width: 18px;
+    -fx-pref-height: 18px;
+    -fx-background-color: transparent;
 }
 
-/* Checkbox mark when selected */
-.check-box:selected .box {
-    -fx-background-color: #4caf50; /* Green background when selected */
-    -fx-border-color: #4caf50; /* Border color matches the selected background */
+.check-box .check:hover {
+    -fx-background-color: rgba(34, 50, 84, 0.03);
+    -fx-background-radius: 50%;
 }
 
-/* Hover effect for checkbox */
-.check-box:hover .box {
-    -fx-background-color: #f1f1f1; /* Light gray background on hover */
-    -fx-border-color: #a0a0a0; /* Slightly darker border on hover */
+.check-box .check:hover .check-shape {
+    -fx-stroke: #4285f4;
 }
 
-/* Checkbox tick mark */
-.check-box:selected .mark {
-    -fx-background-color: white; /* White tick mark */
-    -fx-shape: "M 4 8 L 7 11 L 12 5"; /* SVG-like path for the tick shape */
-    -fx-scale-x: 0.8; /* Scale down tick for a compact look */
-    -fx-scale-y: 0.8; /* Scale down tick for a compact look */
+.check-box .check .check-shape {
+    -fx-stroke: #c8ccd4;
+    -fx-stroke-width: 1.5;
+    -fx-stroke-line-cap: round;
+    -fx-stroke-line-join: round;
+    -fx-transition: all 0.2s ease;
 }
 
-/* Focused checkbox (keyboard navigation) */
-.check-box:focused .box {
-    -fx-border-color: #2196f3; /* Blue border when focused */
-    -fx-border-width: 3px; /* Thicker border for focus */
+.check-box .check.checked .check-shape {
+    -fx-stroke: #4285f4;
+    -fx-transition: all 0.3s linear;
 }
+
+
+/*.check-box {*/
+/*        -fx-padding: 3; !* Padding around the checkbox *!*/
+/*}*/
+/*.check-box .box {*/
+/*        -fx-background-color: white; !* Default background *!*/
+/*        -fx-border-color: #d9d9d9; !* Border color *!*/
+/*        -fx-border-width: 2px; !* Border width *!*/
+/*        -fx-border-radius: 4; !* Rounded corners for checkbox *!*/
+/*        -fx-pref-width: 16px; !* Size of the checkbox *!*/
+/*        -fx-pref-height: 16px; !* Size of the checkbox *!*/
+/*        -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0, 1, 1); !* Subtle shadow *!*/
+/*    }*/
+/*.check-box:selected .box {*/
+/*        -fx-background-color: #4caf50; !* Green background when selected *!*/
+/*        -fx-border-color: #4caf50; !* Border color matches the selected background *!*/
+/*    }*/
+/*.check-box:hover .box {*/
+/*        -fx-background-color: #f1f1f1; !* Light gray background on hover *!*/
+/*        -fx-border-color: #a0a0a0; !* Slightly darker border on hover *!*/
+/*    }*/
+/*.check-box:selected .mark {*/
+/*        -fx-background-color: white; !* White tick mark *!*/
+/*        -fx-shape: "M 4 8 L 7 11 L 12 5"; !* SVG-like path for the tick shape *!*/
+/*        -fx-scale-x: 0.8; !* Scale down tick for a compact look *!*/
+/*        -fx-scale-y: 0.8; !* Scale down tick for a compact look *!*/
+/*    }*/
+/*.check-box:focused .box {*/
+/*        -fx-border-color: #2196f3; !* Blue border when focused *!*/
+/*        -fx-border-width: 3px; !* Thicker border for focus *!*/
+/*    }*/
 
 .text-field {
-    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Subtle gradient */
-    -fx-background-radius: 8; /* Rounded corners */
-    -fx-border-color: #d3d3d3; /* Border color */
-    -fx-border-radius: 8; /* Match border radius to background */
-    -fx-border-width: 2px; /* Border thickness */
-    -fx-padding: 5 10; /* Padding inside the field */
-    -fx-font-size: 14px; /* Font size */
-    -fx-font-family: "Arial"; /* Font family */
-    -fx-text-fill: #333; /* Text color */
-    -fx-prompt-text-fill: #aaa; /* Color for placeholder text */
-    -fx-cursor: text; /* Cursor for text input */
+        -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Subtle gradient */
+        -fx-background-radius: 8; /* Rounded corners */
+        -fx-border-color: #408df5;
+        -fx-border-radius: 8; /* Match border radius to background */
+        -fx-border-width: 2px; /* Border thickness */
+        -fx-padding: 5 10; /* Padding inside the field */
+        -fx-font-size: 14px; /* Font size */
+        -fx-font-family: "Arial"; /* Font family */
+        -fx-text-fill: #333; /* Text color */
+        -fx-prompt-text-fill: #aaa; /* Color for placeholder text */
+        -fx-cursor: text; /* Cursor for text input */
+    }
+.text-field:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(80, 63, 205, 0.5), 30, 0.0, 1, 1);
 }
 
-.text-field:focused {
-    -fx-background-color: #ffffff; /* Slightly brighter on focus */
-    -fx-border-color: #4caf50; /* Highlight border color when focused */
-    -fx-border-width: 3px; /* Slightly thicker border on focus */
-}
+    .text-field:focused {
+        -fx-background-color: #ffffff; /* Slightly brighter on focus */
+        -fx-border-color: #4caf50; /* Highlight border color when focused */
+        -fx-border-width: 3px; /* Slightly thicker border on focus */
+    }
 
-.text-field:disabled {
-    -fx-background-color: #f7f7f7; /* Light gray for disabled state */
-    -fx-border-color: #e0e0e0; /* Gray border */
-    -fx-text-fill: #999; /* Lighter text color */
-    -fx-cursor: not-allowed; /* Disable cursor interaction */
-}
+    .text-field:disabled {
+        -fx-background-color: #f7f7f7; /* Light gray for disabled state */
+        -fx-border-color: #e0e0e0; /* Gray border */
+        -fx-text-fill: #999; /* Lighter text color */
+        -fx-cursor: not-allowed; /* Disable cursor interaction */
+    }
 
-.styled-vbox {
-    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Gradient background */
-    -fx-padding: 15px; /* Padding inside the VBox */
-    -fx-spacing: 10px; /* Space between child elements */
-    -fx-border-color: #cccccc; /* Border color */
-    -fx-border-width: 2px; /* Border thickness */
-    -fx-border-radius: 10px; /* Rounded border corners */
-    -fx-background-radius: 10px; /* Match the background radius to the border */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 2, 2); /* Add a shadow effect */
+    .styled-vbox {
+        /*-fx-background-color: linear-gradient(to bottom, #ffffff, #ffffff); !* Gradient background *!*/
+        -fx-padding: 15px; /* Padding inside the VBox */
+        -fx-spacing: 20px; /* Space between child elements */
+        -fx-border-color: linear-gradient(to right, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%); /* Border color */
+        -fx-border-width: 2px; /* Border thickness */
+        -fx-border-radius: 10px; /* Rounded border corners */
+        -fx-background-radius: 10px; /* Match the background radius to the border */
+        -fx-border-insets: 20px;
 
-}
+
+    }
+
+    .add-task-button {
+        -fx-background-color: linear-gradient(to right, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+        -fx-border-radius: 8px;
+        -fx-background-radius: 8px;
+        -fx-text-fill: #FFFFFF;
+        -fx-cursor: hand; /* JavaFX equivalent for pointer */
+        /*-fx-font-family: "Inter UI", "SF Pro Display", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;*/
+        -fx-font-size: 16px;
+        -fx-font-weight: 500;
+        -fx-pref-height: 4px;
+        -fx-padding: 0 1.6rem;
+        -fx-alignment: center;
+        -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.25), 8, 0.0, 0, 3);
+        -fx-transition: all 0.5s;
+
+        /*-fx-background-color: #f4f4f4; !* Light gray background *!*/
+        /*-fx-border-color: #d1d1d1; !* Subtle border *!*/
+        /*-fx-border-radius: 5; !* Rounded corners *!*/
+        /*-fx-background-radius: 5; !* Rounded corners *!*/
+        /*-fx-padding: 8 16; !* Padding inside the button *!*/
+        /*-fx-text-fill: #333333; !* Dark text color for contrast *!*/
+        /*-fx-font-size: 14px; !* Font size *!*/
+        /*-fx-font-weight: bold; !* Bold text *!*/
+        /*-fx-effect: dropshadow(gaussian,  rgba(53, 58, 86, 1), 4, 0, 0, 2); !* Soft shadow *!*/
+    }
+
+    .add-task-button:hover {
+        -fx-effect: dropshadow(three-pass-box, rgba(80, 63, 205, 0.5), 30, 0.0, 0, 1);
+        -fx-transition-duration: 0.1s;
+    }
+
+    .add-task-button:pressed {
+        -fx-effect: innershadow(three-pass-box, #3c4fe0, 7, 0.0, 0, 3);
+        -fx-translate-y: 2px; /* Simulates the button being pushed down */
+    }
+
+    .scroll-pane {
+        -fx-opacity: 20;
+
+
+    }
+
+
 
 
