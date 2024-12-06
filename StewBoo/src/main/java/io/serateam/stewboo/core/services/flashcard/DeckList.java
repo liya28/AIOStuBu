@@ -34,7 +34,7 @@ class DeckList implements ISerializable
         decks.remove(deck);
     }
 
-    List<Deck> getDecks()
+    public List<Deck> getDecks()
     {
         return decks;
     }
