@@ -107,11 +107,9 @@ public class CardViewController
         String dex = indexTextField.getText();
 
         if(isNumeric(dex)) {
-            int index = Integer.parseInt(indexTextField.getText()) - 1;
-            if (index < flashCards.size() && index >= 0) {
-                currentIndex = index;
             int index = Integer.parseInt(indexTextField.getText());
             if (index <= flashCards.size() && index > 0) {
+                currentIndex = index-1;
                 loadFlashcard(currentIndex);
                 indexTextField.setText("");
             } else {
