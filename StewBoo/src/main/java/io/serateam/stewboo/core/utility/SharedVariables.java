@@ -12,5 +12,6 @@ public class SharedVariables
         public static final String flashcardJSON = mainUserDirectory + "flashcards.json";
         public static final String notesDirectory = mainUserDirectory + "notes/";
         public static final String path_todoList = mainUserDirectory + "stubulist.json";
+        public static final String stubuCalendarDirectory = mainUserDirectory + "calendars/";
     }
 }

@@ -8,35 +8,43 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.HTMLEditor?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.notes.NotesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="924.0" style="-fx-background-color: #ffdaf6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.notes.NotesController">
    <children>
-      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="217.0" layoutY="46.0" prefHeight="349.0" prefWidth="419.0" />
-      <Button fx:id="btn_createContent" layoutX="34.0" layoutY="341.0" mnemonicParsing="false" onAction="#createContent" prefHeight="23.0" prefWidth="67.0" text="Create">
+      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="181.0" layoutY="89.0" prefHeight="626.0" prefWidth="703.0" style="-fx-border-color: GRAY;" />
+      <Button fx:id="btn_createContent" layoutX="15.0" layoutY="650.0" mnemonicParsing="false" onAction="#createContent" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: PURPLE; -fx-text-fill: WHITE;" text="Create">
          <font>
-            <Font name="Century Gothic Bold" size="12.0" />
+            <Font name="Century Gothic Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="btn_saveContent" layoutX="107.0" layoutY="341.0" mnemonicParsing="false" onAction="#saveContent" prefHeight="23.0" prefWidth="66.0" text="Save">
+      <Button fx:id="btn_saveContent" layoutX="93.0" layoutY="650.0" mnemonicParsing="false" onAction="#saveContent" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: GREEN; -fx-text-fill: WHITE;" text="Save">
          <font>
-            <Font name="Century Gothic Bold" size="12.0" />
+            <Font name="Century Gothic Bold" size="15.0" />
          </font></Button>
-      <ListView fx:id="listView_topics" layoutX="5.0" layoutY="46.0" prefHeight="288.0" prefWidth="206.0" />
-      <Label layoutX="63.0" layoutY="16.0" text="Content Title List">
+      <ListView fx:id="listView_topics" layoutX="5.0" layoutY="120.0" prefHeight="522.0" prefWidth="169.0" style="-fx-border-color: GRAY;" />
+      <Label layoutX="48.0" layoutY="87.0" text="TITLE LIST">
          <font>
-            <Font name="Century Gothic Bold" size="12.0" />
+            <Font name="Century Gothic Bold" size="20.0" />
          </font></Label>
-      <Button fx:id="btn_openContent" layoutX="33.0" layoutY="371.0" mnemonicParsing="false" onAction="#openContent" prefHeight="23.0" prefWidth="67.0" text="Open">
+      <Button fx:id="btn_openContent" layoutX="15.0" layoutY="683.0" mnemonicParsing="false" onAction="#openContent" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: DEEPPINK; -fx-text-fill: WHITE;" text="Open">
          <font>
-            <Font name="Century Gothic Bold" size="12.0" />
+            <Font name="Century Gothic Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="btn_deleteContent" layoutX="106.0" layoutY="371.0" mnemonicParsing="false" onAction="#deleteNote" prefHeight="23.0" prefWidth="68.0" text="Delete">
+      <Button fx:id="btn_deleteContent" layoutX="93.0" layoutY="683.0" mnemonicParsing="false" onAction="#deleteNote" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: RED; -fx-text-fill: WHITE;" text="Delete">
          <font>
-            <Font name="Century Gothic Bold" size="12.0" />
+            <Font name="Century Gothic Bold" size="15.0" />
          </font></Button>
-      <Label layoutX="295.0" layoutY="16.0" text="Content Title:">
+      <Label layoutX="330.0" layoutY="43.0" text="CONTENT TITLE:">
          <font>
-            <Font name="Century Gothic Bold" size="12.0" />
+            <Font name="Century Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="textField_title" layoutX="395.0" layoutY="11.0" />
+      <TextField fx:id="textField_title" layoutX="482.0" layoutY="39.0" prefHeight="38.0" prefWidth="233.0" promptText="Enter your content title..." style="-fx-border-color: GRAY;">
+         <font>
+            <Font name="Century Gothic" size="18.0" />
+         </font></TextField>
+      <Label layoutX="18.0" layoutY="21.0" text="NOTES">
+         <font>
+            <Font name="Century Gothic Bold" size="50.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
