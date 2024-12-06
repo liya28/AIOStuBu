@@ -47,6 +47,7 @@ public class JSONService
         {
             System.err.println(e.getMessage());
         }
+        System.out.println("JSONService: serialized to file " + pathToJSonFile);
     }
 
     /**
@@ -63,8 +64,7 @@ public class JSONService
         }
         catch (IOException e)
         {
-            System.err.printf("File %s is unavailable for deserializing. This method shall be returning null.%n", pathToJsonFile);
-            System.err.println(e.getMessage());
+            System.err.printf("JSONService: File %s is unavailable for deserializing due to [%s]%n", pathToJsonFile, e.getMessage());
             return null;
         }
     }
