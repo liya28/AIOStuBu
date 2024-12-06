@@ -188,7 +188,7 @@ public class PomodoroMenuController implements Initializable, IMenu, IPomodoroLi
 
     private void setNewUserPomodoroTime(int pomodoroMinutes, int shortMinutes, int longMinutes)
     {
-        service.saveNewConfigTime(pomodoroMinutes, shortMinutes, longMinutes);
+        service.saveConfig(pomodoroMinutes, shortMinutes, longMinutes);
     }
 
     private boolean validateNumericalTextField(TextField tf)
