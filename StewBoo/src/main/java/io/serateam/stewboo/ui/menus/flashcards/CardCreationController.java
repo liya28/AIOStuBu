@@ -67,9 +67,36 @@ public class CardCreationController
     @FXML
     private void save_edit()
     {
-        card.setAnswer(edit_answerTextField.getText());
-        card.setQuestion(edit_questionTextField.getText());
-        closeWindow();
+        String edit_question = edit_questionTextField.getText();
+        String edit_answer = edit_answerTextField.getText();
+        if(!edit_question.isEmpty() && !edit_answer.isEmpty() && !CharacterLengthChecker(edit_question) && !CharacterLengthChecker(edit_answer))
+        {
+            ControllerAlerter.showError("Error", "Question and Answer cannot exceed 30 characters", "Please enter a question and answer within 30 characters");
+        }
+        else if(!edit_question.isEmpty() && !edit_answer.isEmpty() && CharacterLengthChecker(edit_question) && !CharacterLengthChecker(edit_answer))
+        {
+            ControllerAlerter.showError("Error", "Answer cannot exceed 30 characters", "Please enter an answer within 30 characters.");
+        }
+        else if(!edit_question.isEmpty() && !edit_answer.isEmpty() && !CharacterLengthChecker(edit_question) && CharacterLengthChecker(edit_answer))
+        {
+            ControllerAlerter.showError("Error", "Question cannot exceed 30 characters", "Please enter a question within 30 characters");
+        }
+        else if(edit_question.isEmpty() && edit_answer.isEmpty())
+        {
+            ControllerAlerter.showError("Error", "Question and Answer cannot be empty", "Please enter a question and an answer.");
+        }
+        else if(edit_question.isEmpty())
+        {
+            ControllerAlerter.showError("Error", "Question cannot be empty", "Please enter a question.");
+        }
+        else if(edit_answer.isEmpty())
+        {
+            ControllerAlerter.showError("Error", "Answer cannot be empty", "Please enter an answer to your question.");
+        } else {
+            card.setAnswer(edit_answerTextField.getText());
+            card.setQuestion(edit_questionTextField.getText());
+            closeWindow();
+        }
     }
 
     @FXML
