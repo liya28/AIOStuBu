@@ -57,7 +57,8 @@ public class NotesService implements IService
         return note != null ? note.getContent() : null;
     }
 
-    public void saveNote(String title, String content) {
+    public void saveNote(String title, String content)
+    {
         Note note = new Note(title, content);
         note.save();
     }
