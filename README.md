@@ -2,36 +2,68 @@
 The All-In-One (AIO) Studdy Buddy (Stubu) is an offline-first productivity application designed to equip students with all the essential tools they need to excel in their studies. 
 
 Written in Java with JavaFX.
+![](readme%20resources/aiostubu_screenshot.png)
+
 
 ## Table of Contents
 - [Features](#features)
+- [Software Architecture](#architecture)
 - [Class Diagram](#class-diagram)
 - [Design Patterns](#design-patterns)
 - [User Data/File Handling](#user-datafile-handling)
-- [Calendar Compliance w/ RFC 2445](calendar-compliance-w-rfc-2445)
+- [Calendar Compliance with RFC 2445](calendar-compliance-w-rfc-2445)
 - [Contribution (for members)](#contribution)
 - [Members w/ Github Profile Links](#members-w-github-profile-links)
 - [Final Words](#final-words)
 
 ## Features
-- Notes
-- Calendar (compliant with RFC 2445)
-- Todo List
-- Pomodoro Timer
-- Custom Flashcards
+- Notes - Create HTML-formatted documents!
+- Calendar - Schedule your events!
+- Todo List - List down things you need to do!
+- Pomodoro Timer - Study in a time-controlled manner!
+- Flashcards - Evaluate your knowledge with flashcards!
 
 ## Architecture
+In order to simulate common industry-level software codebases, the group initially planned 
+for an [Onion Architecture](https://medium.com/expedia-group-tech/onion-architecture-deed8a554423) for AIOStubu, 
+but due to time constraints and inexperience with managing medium-sized projects, we later settled for a
+[Model View Controller]() software architecture, as with the case with most JavaFX applications.
+
+### Domain Layer (Stewboo.Core)
+
+### Controller Layer (Stewboo.UI)
+
+### Presentation Layer
 
 ## Class Diagram
-TBD
+
+### IService
+### Pomodoro
+### Calendar
+### Notes
+### Flashcards
+### TodoList
 
 ## Design Patterns
-TBD (screenshots and path to file included)
+This project utilizes one or more design patterns to provide a seamless and robust software architecture.
+### Model-View-Controller Pattern
+JavaFX enforces the MVC Pattern
+### Singleton Pattern 
+Classes that implements IService use the Singleton pattern.
+### Observer Pattern 
+Pomodoro in Core uses observer/listener pattern
+
 
 ## User Data/File Handling
-Throughout the user's interaction with the application, snapshots of their work and settings are periodically saved in JSON text files. This allows users to close the application at any time and easily resume their tasks later without losing any data. Upon reopening the application, AIOStubu automatically loads these saved snapshots. JSON files are saved via a custom JSON Service class that utilizes the GSon library. The link to the implementation is found [here](https://github.com/liya28/AIOStuBu/blob/main/StewBoo/src/main/java/io/serateam/stewboo/core/utility/JSONService.java).
+Throughout the user's interaction with the application, snapshots of their work and settings are 
+periodically saved in JSON text files. This allows users to close the application at any time and 
+easily resume their tasks later without losing any data. 
 
-Saved JSON files may be found in the directory `aiostubu/` in the project directory.
+Upon reopening the application, AIOStubu automatically loads these saved snapshots. 
+JSON files are saved via a custom JSON Service class that utilizes the GSon library. 
+A link to the implementation can be found [here](https://github.com/liya28/AIOStuBu/blob/main/StewBoo/src/main/java/io/serateam/stewboo/core/utility/JSONService.java).
+
+Saved JSON files are located in the `aiostubu/` directory within the project upon the application's first boot.
 
 ## Calendar Compliance with RFC 2445
 TBD. Why not RFC 5545?
@@ -59,7 +91,8 @@ If you are a group member, please read the following texts.
 ### Code Syntax Bible
 To ensure uniformity in our code, please refer to the following code blocks. **PLEASE BE CONSISTENT**.
 
-_Note: all the coding syntax practices we learned in class shall be applicable except for the selected few that are defined here (save for some that are only here just for emphasis)._
+_Note: all the coding syntax practices we learned in class shall be applicable except for the selected few that are 
+defined here (save for some that are only here just for emphasis)._
 ````java
 // I. Variables
 public static final int UNIVERSAL_VARIABLE = 10;    // constant/final variables
@@ -129,6 +162,8 @@ public void singLetItGoByIdinaMenzel()
 
 ## Final Words
 In compliance with CSIT227 - Object-oriented Programming 1. All Rights Reserved.
+
+_guys naa moy pang final words mahatag ni Sir Vince dri?_ -raf
 
 
 end.
