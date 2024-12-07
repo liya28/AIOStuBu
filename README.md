@@ -203,9 +203,21 @@ public void singLetItGoByIdinaMenzel()
 4. [Rafael A. Mendoza | BSCS-2](https://github.com/GReturn) 
 
 ## Final Message
-In compliance with CSIT227 - Object-oriented Programming 1. All Rights Reserved.
+In compliance with CSIT227 - Object-oriented Programming 1 A.Y. 2024-2025. All Rights Reserved.
 
-_guys naa moy pang final words mahatag ni Sir Vince dri?_ -raf
+First and foremost, we would like to thank the Almighty God for giving us the wisdom and strength to 
+complete this capstone project. With His blessings, we are able to comprehend, formulate, and overcome the various 
+obstacles in this capstone project.
+
+We would also like to thank our parents for giving us great understanding of the importance of this 
+project by providing us adequate time and their full support for the completion of this project.
+
+Lastly, we thank **Mr. Jay Vince D. Serato** 🧡, for setting up the foundation of our understanding on the various concepts 
+required for the completion of this project. Keep staying _cool and normal_, Sir Vince!
 
 
-end.
+
+_Made with love ❤️, by SeraTeam A.Y. 2024-2025_
+
+
+END.
