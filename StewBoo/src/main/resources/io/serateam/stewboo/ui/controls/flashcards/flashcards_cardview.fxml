@@ -23,7 +23,7 @@
          <children>
             <StackPane VBox.vgrow="ALWAYS">
                <children>
-                  <AnchorPane fx:id="card" prefHeight="368.0" prefWidth="711.0" style="-fx-border-color: PURPLE; -fx-border-width: 3; -fx-border-radius: 20;">
+                  <AnchorPane fx:id="card" prefHeight="368.0" prefWidth="711.0" style="-fx-border-color: #520c61; -fx-border-width: 3; -fx-border-radius: 20;">
                      <children>
                         <VBox alignment="CENTER" layoutX="5.0" layoutY="79.0" prefHeight="200.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
@@ -112,7 +112,7 @@
                                     <Font name="Century Gothic" size="11.0" />
                                  </font>
                               </TextField>
-                              <Button fx:id="btn_jump" mnemonicParsing="false" onAction="#jumpToCard" prefHeight="23.0" prefWidth="41.0" style="-fx-background-color: PURPLE;" text="GO" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
+                              <Button fx:id="btn_jump" mnemonicParsing="false" onAction="#jumpToCard" prefHeight="23.0" prefWidth="41.0" style="-fx-background-color: #520c61;" text="GO" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Century Gothic" size="12.0" />
                                  </font>
@@ -124,7 +124,7 @@
                         </HBox>
                         <StackPane GridPane.columnIndex="1">
                            <children>
-                              <Button fx:id="btn_previous" mnemonicParsing="false" onAction="#nextCard" onMouseClicked="#previousCard" prefHeight="46.0" prefWidth="65.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;">
+                              <Button fx:id="btn_previous" mnemonicParsing="false" onAction="#nextCard" onMouseClicked="#previousCard" prefHeight="46.0" prefWidth="65.0" style="-fx-border-color: #520c61; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -146,7 +146,7 @@
                         </Label>
                         <StackPane GridPane.columnIndex="3">
                            <children>
-                              <Button fx:id="btn_next" mnemonicParsing="false" onAction="#nextCard" prefHeight="46.0" prefWidth="65.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;">
+                              <Button fx:id="btn_next" mnemonicParsing="false" onAction="#nextCard" prefHeight="46.0" prefWidth="65.0" style="-fx-border-color: #520c61; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -163,7 +163,7 @@
                         </StackPane>
                         <StackPane maxHeight="-Infinity" maxWidth="-Infinity" GridPane.columnIndex="4">
                            <children>
-                              <Button fx:id="btn_shuffle" mnemonicParsing="false" onAction="#shuffleDeck" prefHeight="30.0" prefWidth="50.0" style="-fx-border-color: PURPLE; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;">
+                              <Button fx:id="btn_shuffle" mnemonicParsing="false" onAction="#shuffleDeck" prefHeight="30.0" prefWidth="50.0" style="-fx-border-color: #520c61; -fx-border-width: 2; -fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: WHITE;">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -185,7 +185,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </HBox>
-            <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="801.0" progress="0.0" style="-fx-accent: PURPLE;" VBox.vgrow="ALWAYS" />
+            <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="801.0" progress="0.0" style="-fx-accent: #520c61;" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
     </children>
