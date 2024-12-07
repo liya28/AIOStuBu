@@ -74,8 +74,11 @@ it enforces such patterns, it is imperative to point out that the app, indeed, f
 ### Singleton Pattern 
 Classes that implements IService use the Singleton pattern.
 ### Observer Pattern 
-Pomodoro in Core uses observer/listener pattern for .
-
+The pomodoro feature in `Stewboo.Core` uses the [Observer Pattern](https://refactoring.guru/design-patterns/observer) 
+in order to notify the Pomodoro UI for changes in the Pomodoro countdown timer done in the domain.
+Listeners implementing 
+[`IPomodoroListener`](StewBoo/src/main/java/io/serateam/stewboo/core/services/pomodoro/IPomodoroListener.java)
+must implement all the functions defined in `IPomodoroListener` to be notified of any changes in the Pomodoro.
 
 ## User Data/File Handling
 Throughout the user's interaction with the application, snapshots of their work and settings are 
