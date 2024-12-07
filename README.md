@@ -72,7 +72,20 @@ This project utilizes one or more design patterns to provide a seamless and robu
 Because the project utilizes the Layered Architecture and because JavaFX projects are structured such that 
 it enforces such patterns, it is imperative to point out that the app, indeed, follows the MVC pattern.
 ### Singleton Pattern 
-Classes that implements IService use the Singleton pattern.
+Multiple Classes in the `Stewboo.Core` use the Singleton Pattern. All the classes implementing 
+[IService](StewBoo/src/main/java/io/serateam/stewboo/core/services/IService.java) 
+use the Singleton pattern.
+- [PomodoroService](StewBoo/src/main/java/io/serateam/stewboo/core/services/pomodoro/PomodoroService.java)
+- [NotesService](StewBoo/src/main/java/io/serateam/stewboo/core/services/notes/NotesService.java)
+- [TodoListService](StewBoo/src/main/java/io/serateam/stewboo/core/services/todolist/TodoListService.java)
+- [FlashCardService](StewBoo/src/main/java/io/serateam/stewboo/core/services/flashcard/FlashCardService.java)
+- [CalendarService](StewBoo/src/main/java/io/serateam/stewboo/core/services/calendar/CalendarService.java)
+
+Other than IService classes, these classes also implement a Singleton Pattern:
+- [StubuCalendarList](StewBoo/src/main/java/io/serateam/stewboo/core/services/calendar/StubuCalendarList.java)
+- [DeckList](StewBoo/src/main/java/io/serateam/stewboo/core/services/flashcard/DeckList.java)
+
+
 ### Observer Pattern 
 The pomodoro feature in `Stewboo.Core` uses the [Observer Pattern](https://refactoring.guru/design-patterns/observer) 
 in order to notify the Pomodoro UI for changes in the Pomodoro countdown timer done in the domain.
