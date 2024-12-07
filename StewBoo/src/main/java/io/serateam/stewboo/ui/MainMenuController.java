@@ -103,27 +103,22 @@ public class MainMenuController implements Initializable {
         }
     }
 
-    private void setupMenuAnimation()
+    private void ShowSplashScreen()
     {
-        imageView_menuOpen.setOnMouseClicked(event -> {
-            TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2), anchorPane_nav);
-            slide.setToX(0);
-            slide.play();
-            slide.setOnFinished(e -> {
-                imageView_menuOpen.setVisible(false);
-                imageView_menuClose.setVisible(true);
-            });
+        PauseTransition pause = new PauseTransition(Duration.seconds(3.0));
+
+        FadeTransition fade = new FadeTransition(Duration.seconds(3.0), img_Splashscreen);
+        fade.setFromValue(1.0);
+        fade.setToValue(0.0);
+        fade.setOnFinished(event ->
+        {
+            img_Splashscreen.setVisible(false);
         });
 
-        imageView_menuClose.setOnMouseClicked(event -> {
-            TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2), anchorPane_nav);
-            slide.setToX(-119); // Slide out of view
-            slide.play();
-            slide.setOnFinished(e -> {
-                imageView_menuOpen.setVisible(true);
-                imageView_menuClose.setVisible(false);
-            });
+        pause.setOnFinished(event -> {
+            fade.play();
         });
+        pause.play();
     }
 
     public void handleExitClick(MouseEvent mouseEvent)
