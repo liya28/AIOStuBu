@@ -12,7 +12,7 @@ Written in Java with JavaFX.
 - [User Data/File Handling](#user-datafile-handling)
 - [Calendar Compliance with RFC 2445](calendar-compliance-w-rfc-2445)
 - [Contribution (for members)](#contribution)
-- [Members w/ Github Profile Links](#members-w-github-profile-links)
+- [Members (with Github Profile Links)](#members-w-github-profile-links)
 - [Final Message](#final-message)
 
 ## Features
@@ -197,7 +197,7 @@ public void singLetItGoByIdinaMenzel()
 }
 ````
 
-## Members (w/ Github Profile Links)
+## Members (with Github Profile Links)
 1. [Aliyah Khaet Regacho | BSCS-2](https://github.com/liya28) 
 2. [Harley S. Reyes | BSCS-2](https://github.com/muhadma)
 3. [John Earl C. Echavez | BSCS-2](https://github.com/EarlJohnHub)
