@@ -89,7 +89,24 @@ A link to the implementation can be found [here](https://github.com/liya28/AIOSt
 Saved JSON files are located in the `aiostubu/` directory within the project upon the application's first boot.
 
 ## Calendar Compliance with RFC 2445
-TBD. Why not RFC 5545?
+AIOStubu utilizes the CalendarFX library to implement its calendar feature. 
+Currently, the model of the AIOStubu Calendar Entry class is compliant with the iCalendar guidelines stipulated in 
+[**RFC 2445: Internet Calendaring and Scheduling Core Object Specification**](https://www.rfc-editor.org/rfc/rfc2445). 
+This specification outlines the structure and format for calendar data, enabling interoperability between 
+different calendar systems and applications. CalendarFX is also compliant with this specification, 
+especially for its 
+[CalendarFX Entry class recurrence pattern rules](https://dlsc-software-consulting-gmbh.github.io/CalendarFX/#_entry).
+
+### Why Not RFC 5545?
+While RFC 2445 serves as the foundation for AIOStubu's calendar entry model class, 
+it is important and fair to note that it has been superseded by [RFC 5545](https://www.rfc-editor.org/rfc/rfc5545), 
+which refines and expands upon its predecessor's specifications.
+
+The decision to initially implement RFC 2445 was influenced by its compatibility with CalendarFX. 
+Transitioning to RFC 5545 would necessitate significant code changes, particularly concerning the recurrence rules. 
+Considering the objectives of this capstone project, we believe that the effort required to develop a 
+compatibility function for both specifications outweighs the potential benefits. 
+Therefore, the team opted to continue with RFC 2445.
 
 ## Contribution
 If you are a group member, please read the following texts.
