@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -72,6 +73,9 @@
                                              <font>
                                                 <Font name="Century Gothic Bold" size="15.0" />
                                              </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </Button>
                                        </children>
                                     </AnchorPane>
@@ -81,6 +85,9 @@
                                              <font>
                                                 <Font name="Century Gothic Bold" size="15.0" />
                                              </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </Button>
                                        </children>
                                     </AnchorPane>
@@ -115,6 +122,9 @@
                                              <padding>
                                                 <Insets bottom="3.0" top="3.0" />
                                              </padding>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </AnchorPane>
                                           <AnchorPane prefHeight="27.0">
                                              <children>
@@ -141,6 +151,9 @@
                                              </padding>
                                           </Button>
                                        </children>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </AnchorPane>
                                  </children>
                                  <HBox.margin>

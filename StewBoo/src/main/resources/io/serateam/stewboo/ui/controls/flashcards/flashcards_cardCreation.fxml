@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -20,8 +21,11 @@
       </TextField>
         <Button fx:id="addButton" layoutX="419.0" layoutY="352.0" mnemonicParsing="false" onAction="#addCard" prefHeight="28.0" prefWidth="58.0" style="-fx-background-color: #520c61;" text="Add" textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font name="Century Gothic" size="13.0" />
+                <Font name="Century Gothic Bold" size="13.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
       <Label layoutX="42.0" layoutY="32.0" text="Question">
          <font>
@@ -33,10 +37,13 @@
             <Font name="Century Gothic" size="20.0" />
          </font>
       </Label>
-      <JFXButton fx:id="closeButton" onAction="#closeWindow" layoutX="494.0" layoutY="352.0" style="-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 2;" text="Close" textFill="RED">
+      <JFXButton fx:id="closeButton" layoutX="494.0" layoutY="352.0" onAction="#closeWindow" style="-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 2; -fx-background-color: red;" text="Close" textFill="WHITE">
          <font>
             <Font name="Century Gothic" size="13.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
     </children>
 </AnchorPane>

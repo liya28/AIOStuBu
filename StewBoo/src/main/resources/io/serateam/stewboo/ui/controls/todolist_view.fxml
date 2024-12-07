@@ -76,7 +76,7 @@
                            <children>
                               <Button fx:id="btn_addTask" defaultButton="true" layoutX="8.0" layoutY="5.0" mnemonicParsing="false" onAction="#onAddTask" styleClass="add-task-button" stylesheets="@../css/ToDoList.css" text="Add Task" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
-                                    <Font name="Century Gothic Bold" size="24.0" />
+                                    <Font name="Century Gothic Bold" size="16.0" />
                                  </font>
                                  <textFill>
                                     <LinearGradient endX="1.0" endY="1.0">
