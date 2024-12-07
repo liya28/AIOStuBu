@@ -83,7 +83,6 @@ public class CardViewController
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Edit Flashcard");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
 
