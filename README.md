@@ -197,10 +197,10 @@ public void singLetItGoByIdinaMenzel()
 ````
 
 ## Members (w/ Github Profile Links)
-1. [Aliyah Khaet Regacho](https://github.com/liya28) 
-2. [Harley S. Reyes](https://github.com/muhadma)
-3. [John Earl C. Echavez](https://github.com/EarlJohnHub)
-4. [Rafael A. Mendoza](https://github.com/GReturn) 
+1. [Aliyah Khaet Regacho | BSCS-2](https://github.com/liya28) 
+2. [Harley S. Reyes | BSCS-2](https://github.com/muhadma)
+3. [John Earl C. Echavez | BSCS-2](https://github.com/EarlJohnHub)
+4. [Rafael A. Mendoza | BSCS-2](https://github.com/GReturn) 
 
 ## Final Message
 In compliance with CSIT227 - Object-oriented Programming 1. All Rights Reserved.
