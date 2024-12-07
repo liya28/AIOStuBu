@@ -1,13 +1,12 @@
 ![AIOStubu](readme%20resources/aiostubu_screenshot.png)
 ---
 # AIOStuBu
-The All-In-One (AIO) Studdy Buddy (Stubu) is an offline-first productivity application designed to equip students with all the essential tools they need to excel in their studies. 
+The All-In-One (AIO) Studdy Buddy (Stubu) is an offline-first productivity Windows desktop application designed to equip students with all the essential tools they need to excel in their studies. 
 
 Written in Java with JavaFX.
 
-
 ## Table of Contents
-- [Features](#features)
+- [App Features](#features)
 - [Software Architecture](#architecture)
 - [Class Diagram](#class-diagram)
 - [Design Patterns](#design-patterns)
@@ -18,24 +17,36 @@ Written in Java with JavaFX.
 - [Final Words](#final-words)
 
 ## Features
-- Notes - Create HTML-formatted documents!
-- Calendar - Schedule your events!
-- Todo List - List down things you need to do!
-- Pomodoro Timer - Study in a time-controlled manner!
-- Flashcards - Evaluate your knowledge with flashcards!
+- **Pomodoro Timer** - Study in a time-controlled manner!
+- **Flashcards** - Evaluate your knowledge with flashcards!
+- **Calendar** - Schedule your events and plot your deadlines!
+- **Todo List** - List down things you need to do!
+- **Notes** - Create HTML-formatted documents!
 
 ## Architecture
-In order to simulate common industry-level software codebases, the group initially planned 
-for an [Onion Architecture](https://medium.com/expedia-group-tech/onion-architecture-deed8a554423) for AIOStubu, 
-but due to time constraints and inexperience with managing medium-sized projects, we later settled for a
-[Model View Controller]() software architecture, as with the case with most JavaFX applications.
+In order to simulate an industry-level software codebase and to enforce 
+[Separation of Concerns](https://www.geeksforgeeks.org/separation-of-concerns-soc/) 
+during software development, the group initially planned for an 
+[Onion Architecture](https://medium.com/expedia-group-tech/onion-architecture-deed8a554423) 
+for AIOStubu, but due to time constraints and inexperience with managing medium-sized projects, 
+we later settled for a
+[Layered Software Architecture](https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html).
 
-### Domain Layer (Stewboo.Core)
-
+The dependency of the project arrow goes inwards as follows: 
+`Presentation Layer` --> `Controller Layer` --> `Domain & Data Persistence Layer`   
+### Domain & Data Persistence Layer (Stewboo.Core)
+The focus on creating an offline-first application led to the merging of the **domain layer** with the 
+**data persistence layer** for simplicity. This integration allows for efficient data handling and business 
+logic execution without the overhead of managing separate layers.
 ### Controller Layer (Stewboo.UI)
-
-### Presentation Layer
-
+The controller layer in the `Stewboo.UI` package module acts as an intermediary between the user interface (FXML Pages)
+and the business logic. It handles incoming requests from the presentation layer, processes them, 
+and interacts with the domain layer to retrieve or manipulate data. This separation allows for clear pathways of 
+communication within the application, making it easier to manage user interactions and maintain the app's state.
+### Presentation Layer (FXML Pages)
+The presentation layer, found in the [`resources`](StewBoo/src/main/resources) directory of the project, 
+is responsible for rendering the user interface components of the application. 
+It utilizes FXML pages that define the structure and layout of the user interface.
 ## Class Diagram
 
 ### IService
@@ -47,12 +58,13 @@ but due to time constraints and inexperience with managing medium-sized projects
 
 ## Design Patterns
 This project utilizes one or more design patterns to provide a seamless and robust software architecture.
-### Model-View-Controller Pattern
-JavaFX enforces the MVC Pattern
+### Model-View-Controller (MVC) Pattern
+Because the project utilizes the Layered Architecture and because JavaFX projects are structured such that 
+it enforces such patterns, it is imperative to point out that the app, indeed, follows the MVC pattern.
 ### Singleton Pattern 
 Classes that implements IService use the Singleton pattern.
 ### Observer Pattern 
-Pomodoro in Core uses observer/listener pattern
+Pomodoro in Core uses observer/listener pattern.
 
 
 ## User Data/File Handling
