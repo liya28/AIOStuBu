@@ -20,6 +20,8 @@ Written in Java with JavaFX.
 - Pomodoro Timer
 - Custom Flashcards
 
+## Architecture
+
 ## Class Diagram
 TBD
 
