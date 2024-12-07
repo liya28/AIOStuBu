@@ -44,7 +44,9 @@ and the business logic. It handles incoming requests from the presentation layer
 and interacts with the domain layer to retrieve or manipulate data. This separation allows for clear pathways of 
 communication within the application, making it easier to manage user interactions and maintain the app's state.
 ### Presentation Layer (FXML Pages)
-The presentation layer, found in the [`resources`](StewBoo/src/main/resources) directory of the project, 
+The presentation layer, found in the 
+[`resources`](StewBoo/src/main/resources/io/serateam/stewboo/ui/controls) 
+directory of the project, 
 is responsible for rendering the user interface components of the application. 
 It utilizes FXML pages that define the structure and layout of the user interface.
 ## Class Diagram
