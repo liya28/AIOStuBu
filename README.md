@@ -73,7 +73,7 @@ that serves as the pillars of the software architecture being used in this app.
 Because the project utilizes the Layered Architecture and because JavaFX projects are structured such that 
 it enforces such patterns, it is imperative to point out that the app, indeed, follows the MVC pattern.
 ### Singleton Pattern 
-Multiple Classes in the `Stewboo.Core` use the Singleton Pattern. All the classes implementing 
+Multiple classes in the `Stewboo.Core` use the Singleton Pattern. All the classes implementing 
 [IService](StewBoo/src/main/java/io/serateam/stewboo/core/services/IService.java) 
 use the Singleton pattern.
 - [PomodoroService](StewBoo/src/main/java/io/serateam/stewboo/core/services/pomodoro/PomodoroService.java)
@@ -82,17 +82,17 @@ use the Singleton pattern.
 - [FlashCardService](StewBoo/src/main/java/io/serateam/stewboo/core/services/flashcard/FlashCardService.java)
 - [CalendarService](StewBoo/src/main/java/io/serateam/stewboo/core/services/calendar/CalendarService.java)
 
-Other than IService classes, these classes also implement a Singleton Pattern:
+Other than IService classes, the following classes also implement a Singleton Pattern:
 - [StubuCalendarList](StewBoo/src/main/java/io/serateam/stewboo/core/services/calendar/StubuCalendarList.java)
 - [DeckList](StewBoo/src/main/java/io/serateam/stewboo/core/services/flashcard/DeckList.java)
 
 
 ### Observer Pattern 
 The pomodoro feature in `Stewboo.Core` uses the [Observer Pattern](https://refactoring.guru/design-patterns/observer) 
-in order to notify the Pomodoro UI for changes in the Pomodoro countdown timer done in the domain.
+in order to notify the Pomodoro UI for changes in the Pomodoro countdown timer that were executed in the domain layer.
 Listeners implementing 
 [`IPomodoroListener`](StewBoo/src/main/java/io/serateam/stewboo/core/services/pomodoro/IPomodoroListener.java)
-must implement all the functions defined in `IPomodoroListener` to be notified of any changes in the Pomodoro.
+must implement all the functions defined in `IPomodoroListener` to be notified of any changes in Pomodoro.
 
 ## User Data/File Handling
 Throughout the user's interaction with the application, snapshots of their work and settings are 
