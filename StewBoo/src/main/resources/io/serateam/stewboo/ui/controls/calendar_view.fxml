@@ -18,7 +18,7 @@
                <children>
                   <AnchorPane>
                      <children>
-                        <Label alignment="CENTER" style="-fx-background-color: white';" text="STUBUCALENDAR" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label alignment="CENTER" style="-fx-background-color: white;" text="STUBUCALENDAR" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font name="Century Gothic Bold" size="48.0" />
                            </font>
