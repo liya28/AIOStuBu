@@ -74,7 +74,7 @@ it enforces such patterns, it is imperative to point out that the app, indeed, f
 ### Singleton Pattern 
 Classes that implements IService use the Singleton pattern.
 ### Observer Pattern 
-Pomodoro in Core uses observer/listener pattern.
+Pomodoro in Core uses observer/listener pattern for .
 
 
 ## User Data/File Handling
