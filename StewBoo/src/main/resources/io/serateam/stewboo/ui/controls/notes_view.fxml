@@ -1,42 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.HTMLEditor?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.notes.NotesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.notes.NotesController">
    <children>
-      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="217.0" layoutY="46.0" prefHeight="349.0" prefWidth="419.0" />
-      <Button fx:id="btn_createContent" layoutX="34.0" layoutY="341.0" mnemonicParsing="false" onAction="#createContent" prefHeight="23.0" prefWidth="67.0" text="Create">
-         <font>
-            <Font name="Century Gothic Bold" size="12.0" />
-         </font></Button>
-      <Button fx:id="btn_saveContent" layoutX="107.0" layoutY="341.0" mnemonicParsing="false" onAction="#saveContent" prefHeight="23.0" prefWidth="66.0" text="Save">
-         <font>
-            <Font name="Century Gothic Bold" size="12.0" />
-         </font></Button>
-      <ListView fx:id="listView_topics" layoutX="5.0" layoutY="46.0" prefHeight="288.0" prefWidth="206.0" />
-      <Label layoutX="63.0" layoutY="16.0" text="Content Title List">
-         <font>
-            <Font name="Century Gothic Bold" size="12.0" />
-         </font></Label>
-      <Button fx:id="btn_openContent" layoutX="33.0" layoutY="371.0" mnemonicParsing="false" onAction="#openContent" prefHeight="23.0" prefWidth="67.0" text="Open">
-         <font>
-            <Font name="Century Gothic Bold" size="12.0" />
-         </font></Button>
-      <Button fx:id="btn_deleteContent" layoutX="106.0" layoutY="371.0" mnemonicParsing="false" onAction="#deleteNote" prefHeight="23.0" prefWidth="68.0" text="Delete">
-         <font>
-            <Font name="Century Gothic Bold" size="12.0" />
-         </font></Button>
-      <Label layoutX="295.0" layoutY="16.0" text="Content Title:">
-         <font>
-            <Font name="Century Gothic Bold" size="12.0" />
-         </font>
-      </Label>
-      <TextField fx:id="textField_title" layoutX="395.0" layoutY="11.0" />
+      <VBox alignment="TOP_CENTER" layoutX="4.0" layoutY="11.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+               <children>
+                  <AnchorPane>
+                     <children>
+                        <Label alignment="CENTER" style="-fx-text-fill: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);" text="STUBUNOTES" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Century Gothic Bold" size="48.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <HBox alignment="CENTER" style="-fx-background-color: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);">
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" prefHeight="23.0" prefWidth="440.0" style="-fx-text-fill: WHITE;" text="Organize Your Thoughts One Note At A Time." textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox alignment="BOTTOM_CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <Label alignment="CENTER" style="-fx-text-fill: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);" text="NOTES LIST" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <ListView fx:id="listView_topics" style="-fx-border-color: GRAY;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane>
+                           <children>
+                              <HBox alignment="BOTTOM_CENTER" spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane>
+                                       <children>
+                                          <Button fx:id="btn_openContent" mnemonicParsing="false" onAction="#openContent" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: DEEPPINK; -fx-text-fill: WHITE;" text="Open" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Century Gothic Bold" size="15.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane>
+                                       <children>
+                                          <Button fx:id="btn_deleteContent" mnemonicParsing="false" onAction="#deleteNote" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: RED; -fx-text-fill: WHITE;" text="Delete" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Century Gothic Bold" size="15.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <padding>
+                                    <Insets left="4.0" right="4.0" top="4.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox VBox.vgrow="ALWAYS">
+                           <children>
+                              <AnchorPane HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <AnchorPane>
+                                             <children>
+                                                <Button fx:id="btn_saveContent" mnemonicParsing="false" onAction="#saveContent" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: GREEN; -fx-text-fill: WHITE;" text="Save" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font name="Century Gothic Bold" size="15.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                                   </padding>
+                                                </Button>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="3.0" top="3.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="27.0">
+                                             <children>
+                                                <TextField fx:id="textField_title" prefHeight="27.0" promptText="Enter your content title" style="-fx-border-color: GRAY;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font name="Century Gothic Italic" size="15.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </padding>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                    <AnchorPane layoutX="271.0" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Button fx:id="btn_createContent" mnemonicParsing="false" onAction="#createContent" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);; -fx-text-fill: WHITE;" text="Create New" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Century Gothic Bold" size="15.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                             </padding>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </HBox.margin>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                        <AnchorPane>
+                           <children>
+                              <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" style="-fx-border-color: GRAY;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

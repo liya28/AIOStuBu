@@ -1,7 +1,7 @@
 package io.serateam.stewboo.core.services.notes;
 
+
 import io.serateam.stewboo.core.services.IService;
-import io.serateam.stewboo.core.services.pomodoro.PomodoroService;
 import io.serateam.stewboo.core.utility.SharedVariables;
 
 import java.io.File;
@@ -57,7 +57,8 @@ public class NotesService implements IService
         return note != null ? note.getContent() : null;
     }
 
-    public void saveNote(String title, String content) {
+    public void saveNote(String title, String content)
+    {
         Note note = new Note(title, content);
         note.save();
     }

@@ -9,27 +9,26 @@ import java.util.TimerTask;
 
 class PomodoroClock
 {
-
     private PomodoroSessionState currentSessionState = PomodoroSessionState.WORK_SESSION;
     private long remainingSeconds = PomodoroService.DEFAULT_POMODORO_MINUTES;
     private int pomodoroCounter = 0;
     private boolean isBreak = false;
     private boolean isRunning = false;
     private Timer timer;
-    private final List<IPomodoroListener> pomodoroListeners = new ArrayList<>();
 
+    private final List<IPomodoroListener> pomodoroListeners = new ArrayList<>();
     private PomodoroSettings userConfig;
 
     // region Clock Methods
 
-    void resetClock()
+    public void resetClock()
     {
         isRunning = false;
         isBreak = false;
         pomodoroCounter = 0;
     }
 
-    void setDefaultTime()
+    public void setDefaultTime()
     {
         userConfig = new PomodoroSettings(
                 PomodoroService.DEFAULT_POMODORO_MINUTES,
@@ -39,7 +38,7 @@ class PomodoroClock
         notifyListenersOnNewTimeConfig(userConfig);
     }
 
-    void setTime(int workMinutes, int quickBreakMinutes, int longBreakMinutes)
+    public void setTime(int workMinutes, int quickBreakMinutes, int longBreakMinutes)
     {
         userConfig = new PomodoroSettings(workMinutes, quickBreakMinutes, longBreakMinutes);
         userConfig.saveToFile();
@@ -49,7 +48,7 @@ class PomodoroClock
     /**
      * @return {@code true} if clock is running, {@code false} otherwise.
      */
-    boolean getRunningState()
+    public boolean getRunningState()
     {
         return isRunning;
     }
@@ -57,7 +56,7 @@ class PomodoroClock
     /**
      * @return {@code true} if it is break time, {@code false} otherwise.
      */
-    boolean getBreakTimeState()
+    public boolean getBreakTimeState()
     {
         return isBreak;
     }
@@ -67,7 +66,7 @@ class PomodoroClock
      * pomodoro counter is divisible by 4,
      * {@code false} otherwise.
      */
-    boolean checkForLongBreak()
+    public boolean checkForLongBreak()
     {
         return getBreakTimeState() && (pomodoroCounter % 4 == 0);
     }
@@ -169,12 +168,12 @@ class PomodoroClock
 
     // region Update Listeners Methods
 
-    void addListener(IPomodoroListener newListener)
+    public void addListener(IPomodoroListener newListener)
     {
         pomodoroListeners.add(newListener);
     }
 
-    void removeListener(IPomodoroListener listener)
+    public void removeListener(IPomodoroListener listener)
     {
         pomodoroListeners.remove(listener);
     }

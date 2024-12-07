@@ -1,11 +1,11 @@
 .root {
-    -fx-background-color:#EAEEF4;
+    /*-fx-background-color:#EAEEF4;*/
 }
 
 .side_ankerpane {
     -fx-background-color:#353A56;
-    -fx-border-width: 2px 2px 2px 2px;
-    -fx-border-style: solid;
+    /*-fx-border-width: 2px 2px 2px 2px;*/
+    /*-fx-border-style: solid;*/
 }
 
 .inner_pane {

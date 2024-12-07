@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.image.Image;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -26,6 +27,10 @@ public class StewBooApplication extends Application {
 
             primaryStage.initStyle(StageStyle.UNDECORATED);
 
+            Image icon  = new Image(String.valueOf(getClass().getResource("images/logo.png")));
+
+            primaryStage.getIcons().add(icon);
+
             // Enable window dragging
             root.setOnMousePressed(event -> {
                 windowX = event.getSceneX();
@@ -37,12 +42,13 @@ public class StewBooApplication extends Application {
                 primaryStage.setY(event.getScreenY() - windowY);
             });
 
-            Scene scene = new Scene(root, 800, 500);
+            Scene scene = new Scene(root);
 
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("css/style.css")).toExternalForm());
 
             primaryStage.setScene(scene);
             primaryStage.show();
+
 
         } catch (IOException e) {
             e.printStackTrace();

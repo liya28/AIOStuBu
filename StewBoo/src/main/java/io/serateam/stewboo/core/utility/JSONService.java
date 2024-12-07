@@ -6,10 +6,17 @@ import com.google.gson.GsonBuilder;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 public class JSONService
 {
-    private static final GsonBuilder builder = new GsonBuilder().setPrettyPrinting();
+    private static final GsonBuilder builder = new GsonBuilder()
+                                            .setPrettyPrinting()
+                                            .registerTypeAdapter(LocalDateTime.class,
+                                                    new LocalDateTimeTypeAdapter())
+                                            .registerTypeAdapter(Duration.class,
+                                                    new DurationTypeAdapter());
     private static final Gson gson = builder.create();
 
     // NOTE: We use generics here to limit what goes into this function,
@@ -40,6 +47,7 @@ public class JSONService
         {
             System.err.println(e.getMessage());
         }
+        System.out.println("JSONService: serialized to file " + pathToJSonFile);
     }
 
     /**
@@ -56,8 +64,7 @@ public class JSONService
         }
         catch (IOException e)
         {
-            System.err.printf("File %s is unavailable for deserializing. This method shall be returning null.%n", pathToJsonFile);
-            System.err.println(e.getMessage());
+            System.err.printf("JSONService: File %s is unavailable for deserializing due to [%s]%n", pathToJsonFile, e.getMessage());
             return null;
         }
     }

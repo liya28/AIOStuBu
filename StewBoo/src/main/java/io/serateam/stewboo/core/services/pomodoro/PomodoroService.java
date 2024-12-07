@@ -36,23 +36,42 @@ public class PomodoroService implements IService
     public void initializeService()
     {
         PomodoroSettings userConfig = PomodoroSettings.loadEntityFromFile();
-        if(userConfig == null) {
+        if(userConfig == null)
+        {
             System.out.println("Pomodoro: No config file found");
-            saveDefaultConfigTime();
+            saveConfig();
         }
-        else saveNewConfigTime(userConfig.getWorkMinutes(), userConfig.getQuickBreakMinutes(), userConfig.getLongBreakMinutes());
+        else saveConfig(userConfig.getWorkMinutes(), userConfig.getQuickBreakMinutes(), userConfig.getLongBreakMinutes());
     }
 
     // endregion
 
     // region User Configuration Methods
 
-    public void saveDefaultConfigTime()
+    /**
+     * Defaults the following Pomodoro values:
+     *      <ul>
+     *           <li><b>Pomodoro Minutes:</b> 25 minutes</li>
+     *           <li><b>Short Break Minutes:</b> 5 minutes</li>
+     *           <li><b>Long Break Minutes:</b> 15 minutes</li>
+     *       </ul>
+     */
+    public void saveConfig()
     {
         clock.setDefaultTime();
     }
 
-    public void saveNewConfigTime(int workMinutes, int quickBreakMinutes, int longBreakMinutes)
+    /**
+     * Saves configuration files according to user. If no argument is provided,
+     * the operation will default to {@link PomodoroService#saveConfig()}
+     * which will default the following values:
+     * <ul>
+     *     <li><b>Pomodoro Minutes:</b> 25 minutes</li>
+     *     <li><b>Short Break Minutes:</b> 5 minutes</li>
+     *     <li><b>Long Break Minutes:</b> 15 minutes</li>
+     * </ul>
+     */
+    public void saveConfig(int workMinutes, int quickBreakMinutes, int longBreakMinutes)
     {
         clock.setTime(workMinutes, quickBreakMinutes, longBreakMinutes);
     }

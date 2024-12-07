@@ -1,37 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="450.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.todolist.TodoListMenu">
+<AnchorPane prefHeight="660.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.todolist.TodoListMenu">
    <children>
-      <AnchorPane prefHeight="115.0" prefWidth="642.0" style="-fx-background-color: purple;">
+      <VBox alignment="CENTER" fillWidth="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="197.0" layoutY="11.0" text="ToDoList" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="64.0" />
-               </font>
-            </Label>
+            <VBox alignment="TOP_CENTER">
+               <children>
+                  <AnchorPane prefWidth="889.0">
+                     <children>
+                        <HBox alignment="CENTER" layoutX="197.0" layoutY="11.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <AnchorPane VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label alignment="CENTER" style="-fx-text-fill: linear-gradient(to right, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);" text="STUBULIST" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Century Gothic Bold" size="48.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                   <stops>
+                                                      <Stop>
+                                                         <color>
+                                                            <Color red="0.27300000190734863" green="0.5797791481018066" blue="0.699999988079071" />
+                                                         </color>
+                                                      </Stop>
+                                                      <Stop offset="1.0">
+                                                         <color>
+                                                            <Color red="0.40392157435417175" green="0.24705882370471954" blue="0.843137264251709" />
+                                                         </color>
+                                                      </Stop>
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane>
+                                       <children>
+                                          <Label alignment="TOP_CENTER" style="-fx-text-fill: white; -fx-background-color: linear-gradient(to right, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);" text="One List Closer To Your Dreams" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Century Gothic Bold " size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" spacing="20.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox>
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <Button fx:id="btn_addTask" defaultButton="true" layoutX="8.0" layoutY="5.0" mnemonicParsing="false" onAction="#onAddTask" styleClass="add-task-button" stylesheets="@../css/ToDoList.css" text="Add Task" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="24.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <ScrollPane fitToWidth="true" prefHeight="426.0" prefWidth="665.0">
+                     <content>
+                        <VBox fx:id="vBox_taskContainer" alignment="TOP_CENTER" style="-fx-padding: 20;" />
+                     </content>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.2078431397676468" green="0.22745098173618317" blue="0.21960784494876862" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </ScrollPane>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </VBox>
          </children>
-      </AnchorPane>
-      <Button fx:id="btn_addTask" layoutX="22.0" layoutY="127.0" mnemonicParsing="false" onAction="#onAddTask" text="Add Task" />
-      <ScrollPane fitToWidth="true" layoutX="41.0" layoutY="164.0" prefHeight="256.0" prefWidth="570.0">
-         <content>
-            <VBox fx:id="vBox_taskContainer" prefHeight="253.0" prefWidth="569.0" />
-         </content>
-         <effect>
-            <DropShadow blurType="GAUSSIAN" height="20.0" radius="9.5" width="20.0">
-               <color>
-                  <Color red="0.4526315927505493" green="0.2210526317358017" blue="0.8526315689086914" />
-               </color>
-            </DropShadow>
-         </effect>
-      </ScrollPane>
+      </VBox>
    </children>
 </AnchorPane>
