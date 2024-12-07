@@ -12,7 +12,7 @@ Written in Java with JavaFX.
 - [User Data/File Handling](#user-datafile-handling)
 - [Calendar Compliance with RFC 2445](calendar-compliance-w-rfc-2445)
 - [Contribution (for members)](#contribution)
-- [Members (with Github Profile Links)](#members-w-github-profile-links)
+- [Members (with Github Profile Links)](#members-with-github-profile-links)
 - [Final Message](#final-message)
 
 ## Features
@@ -58,7 +58,7 @@ This project utilizes one or more design patterns to provide a seamless and robu
 that serves as the pillars of the software architecture being used in this app.
 ### Singleton Pattern 
 Multiple classes in the `Stewboo.Core` use the Singleton Pattern. All the classes implementing 
-[IService](StewBoo/src/main/java/io/serateam/stewboo/core/services/IService.java) 
+[`IService`](StewBoo/src/main/java/io/serateam/stewboo/core/services/IService.java) 
 use the Singleton pattern.
 - [PomodoroService](StewBoo/src/main/java/io/serateam/stewboo/core/services/pomodoro/PomodoroService.java)
 - [NotesService](StewBoo/src/main/java/io/serateam/stewboo/core/services/notes/NotesService.java)
