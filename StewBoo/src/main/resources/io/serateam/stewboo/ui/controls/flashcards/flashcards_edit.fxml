@@ -1,34 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.serateam.stewboo.ui.menus.flashcards.CardCreationController">
     <children>
-        <TextField fx:id="edit_questionTextField" alignment="TOP_LEFT" layoutX="42.0" layoutY="57.0" prefHeight="88.0" prefWidth="510.0" promptText="Enter a question....." style="-fx-border-color: PURPLE; -fx-border-width: 2;">
+        <TextField fx:id="edit_questionTextField" alignment="TOP_LEFT" layoutX="42.0" layoutY="57.0" prefHeight="88.0" prefWidth="510.0" promptText="Enter a question....." style="-fx-border-color: #520c61; -fx-border-width: 2;">
             <font>
                 <Font size="15.0" />
             </font></TextField>
-        <TextField fx:id="edit_answerTextField" alignment="TOP_LEFT" layoutX="42.0" layoutY="199.0" prefHeight="88.0" prefWidth="510.0" promptText="Enter an answer..." style="-fx-border-color: PURPLE; -fx-border-width: 2;">
+        <TextField fx:id="edit_answerTextField" alignment="TOP_LEFT" layoutX="42.0" layoutY="199.0" prefHeight="88.0" prefWidth="510.0" promptText="Enter an answer..." style="-fx-border-color: #520c61; -fx-border-width: 2;">
             <font>
                 <Font size="15.0" />
             </font>
         </TextField>
-        <Button fx:id="btn_saveEdit" onAction="#save_edit" layoutX="410.0" layoutY="349.0" mnemonicParsing="false" style="-fx-background-color: PURPLE;" text="Save Edit" textFill="WHITE">
+        <Button fx:id="btn_saveEdit" layoutX="376.0" layoutY="349.0" mnemonicParsing="false" onAction="#save_edit" prefHeight="28.0" prefWidth="87.0" style="-fx-background-color: #520c61;" text="Save Edit" textFill="WHITE">
             <font>
-                <Font size="13.0" />
+                <Font name="Century Gothic" size="13.0" />
             </font>
         </Button>
-        <Button fx:id="btn_cancelEdit" onAction="#cancel_edit" layoutX="496.0" layoutY="350.0" mnemonicParsing="false" text="Cancel">
-            <font>
-                <Font size="13.0" />
-            </font>
-        </Button>
-        <HBox fx:id="answer" alignment="CENTER" layoutX="2.0" layoutY="257.0" prefHeight="67.0" prefWidth="600.0" />
         <Label layoutX="42.0" layoutY="32.0" text="Question">
             <font>
                 <Font name="Century Gothic" size="20.0" />
@@ -39,5 +33,10 @@
                 <Font name="Century Gothic" size="20.0" />
             </font>
         </Label>
+      <JFXButton fx:id="btn_cancelEdit" layoutX="483.0" layoutY="349.0" onAction="#cancel_edit" style="-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 2;" text="Cancel" textFill="RED">
+         <font>
+            <Font name="Century Gothic" size="13.0" />
+         </font>
+      </JFXButton>
     </children>
 </AnchorPane>

@@ -127,8 +127,8 @@
         -fx-text-fill: #FFFFFF;
         -fx-cursor: hand; /* JavaFX equivalent for pointer */
         /*-fx-font-family: "Inter UI", "SF Pro Display", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;*/
-        -fx-font-size: 16px;
-        -fx-font-weight: 500;
+        /*-fx-font-size: 16px;*/
+        /*-fx-font-weight: 500;*/
         -fx-pref-height: 4px;
         -fx-padding: 0 1.6rem;
         -fx-alignment: center;

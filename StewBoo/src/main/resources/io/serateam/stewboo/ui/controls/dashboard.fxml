@@ -213,6 +213,9 @@
                            <image>
                               <Image url="@../images/exit.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </children>
                   </AnchorPane>
@@ -459,5 +462,10 @@
             </VBox>
          </children>
       </HBox>
+      <ImageView fx:id="img_Splashscreen" fitHeight="720.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/splash_screen.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

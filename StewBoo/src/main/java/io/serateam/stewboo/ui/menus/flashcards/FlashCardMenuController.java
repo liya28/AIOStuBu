@@ -127,7 +127,6 @@ public class FlashCardMenuController implements IMenu
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Add Cards");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
