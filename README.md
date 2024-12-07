@@ -67,7 +67,8 @@ This interface
 ### TodoList
 
 ## Design Patterns
-This project utilizes one or more design patterns to provide a seamless and robust software architecture.
+This project utilizes one or more design patterns to provide a seamless and robust programming structure 
+that serves as the pillars of the software architecture being used in this app.
 ### Model-View-Controller (MVC) Pattern
 Because the project utilizes the Layered Architecture and because JavaFX projects are structured such that 
 it enforces such patterns, it is imperative to point out that the app, indeed, follows the MVC pattern.
