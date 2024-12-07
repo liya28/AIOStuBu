@@ -76,7 +76,10 @@ The pomodoro feature in `Stewboo.Core` uses the [Observer Pattern](https://refac
 in order to notify the Pomodoro UI for changes in the Pomodoro countdown timer that were executed in the domain layer.
 Listeners implementing 
 [`IPomodoroListener`](StewBoo/src/main/java/io/serateam/stewboo/core/services/pomodoro/IPomodoroListener.java)
-must implement all the functions defined in `IPomodoroListener` to be notified of any changes in Pomodoro.
+must implement all the functions defined in the interface to be notified of any changes in the Pomodoro 
+component in the domain.
+[`PomodoroMenuController`](StewBoo/src/main/java/io/serateam/stewboo/ui/menus/pomodoro/PomodoroMenuController.java)
+is one such class that implements the interface.
 
 ## User Data/File Handling
 Throughout the user's interaction with the application, snapshots of their work and settings are 
