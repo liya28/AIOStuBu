@@ -14,7 +14,7 @@ Written in Java with JavaFX.
 - [Calendar Compliance with RFC 2445](calendar-compliance-w-rfc-2445)
 - [Contribution (for members)](#contribution)
 - [Members w/ Github Profile Links](#members-w-github-profile-links)
-- [Final Words](#final-words)
+- [Final Message](#final-message)
 
 ## Features
 - **Pomodoro Timer** - Study in a time-controlled manner!
@@ -175,7 +175,7 @@ public void singLetItGoByIdinaMenzel()
 3. [John Earl C. Echavez](https://github.com/EarlJohnHub)
 4. [Rafael A. Mendoza](https://github.com/GReturn) 
 
-## Final Words
+## Final Message
 In compliance with CSIT227 - Object-oriented Programming 1. All Rights Reserved.
 
 _guys naa moy pang final words mahatag ni Sir Vince dri?_ -raf
