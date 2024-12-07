@@ -10,17 +10,17 @@ public class TaskList implements ISerializable, Iterable<TaskModel>
 {
     private final List<TaskModel> tasks = new ArrayList<>();
 
-    void addTask(TaskModel task)
+    public void addTask(TaskModel task)
     {
         tasks.add(task);
     }
 
-    void removeTask(TaskModel task)
+    public void removeTask(TaskModel task)
     {
         tasks.remove(task);
     }
 
-    TaskModel findTask(String str, boolean flag)
+    public TaskModel findTask(String str, boolean flag)
     {
         for(TaskModel task : tasks) {
             if(task.getTaskContent().equalsIgnoreCase(str)) {
@@ -32,7 +32,7 @@ public class TaskList implements ISerializable, Iterable<TaskModel>
         return null;
     }
 
-    TaskList getTaskList()
+    public TaskList getTaskList()
     {
         return this;
     }
