@@ -37,6 +37,7 @@ public class MainMenuController implements Initializable {
     @FXML private Pane title_Pane;
     @FXML private Pane member_Pane;
     @FXML private HBox hBox_subPageArea;
+    @FXML private ImageView img_Splashscreen;
 
     private final String[] imagePaths = {
             "/io/serateam/stewboo/ui/images/slide1_quote.png",
