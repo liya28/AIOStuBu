@@ -28,7 +28,7 @@ In order to simulate an industry-level software codebase and to enforce
 [Separation of Concerns](https://www.geeksforgeeks.org/separation-of-concerns-soc/) 
 during software development, the group initially planned for an 
 [Onion Architecture](https://medium.com/expedia-group-tech/onion-architecture-deed8a554423) 
-for AIOStubu, but due to time constraints and inexperience with managing medium-sized projects, 
+for AIOStuBu, but due to time constraints and inexperience with managing medium-sized projects, 
 we later settled for a
 [Layered Software Architecture](https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html).
 
@@ -82,15 +82,17 @@ Throughout the user's interaction with the application, snapshots of their work 
 periodically saved in JSON text files. This allows users to close the application at any time and 
 easily resume their tasks later without losing any data. 
 
-Upon reopening the application, AIOStubu automatically loads these saved snapshots. 
+Upon reopening the application, AIOStuBu automatically loads these saved snapshots. 
 JSON files are saved via a custom JSON Service class that utilizes the GSon library. 
 A link to the implementation can be found [here](https://github.com/liya28/AIOStuBu/blob/main/StewBoo/src/main/java/io/serateam/stewboo/core/utility/JSONService.java).
 
-Saved JSON files are located in the `aiostubu/` directory within the project upon the application's first boot.
+Saved JSON files are located in the `aiostubu/` directory within the project which is created upon the 
+application's first boot.
+
 
 ## Calendar Compliance with RFC 2445
-AIOStubu utilizes the CalendarFX library to implement its calendar feature. 
-Currently, the model of the AIOStubu Calendar Entry class is compliant with the iCalendar guidelines stipulated in 
+AIOStuBu utilizes the CalendarFX library to implement its calendar feature. 
+Currently, the model of the AIOStuBu Calendar Entry class is compliant with the iCalendar guidelines stipulated in 
 [**RFC 2445: Internet Calendaring and Scheduling Core Object Specification**](https://www.rfc-editor.org/rfc/rfc2445). 
 This specification outlines the structure and format for calendar data, enabling interoperability between 
 different calendar systems and applications. CalendarFX is also compliant with this specification, 
@@ -98,7 +100,7 @@ especially for its
 [CalendarFX Entry class recurrence pattern rules](https://dlsc-software-consulting-gmbh.github.io/CalendarFX/#_entry).
 
 ### Why Not RFC 5545?
-While RFC 2445 serves as the foundation for AIOStubu's calendar entry model class, 
+While RFC 2445 serves as the foundation for AIOStuBu's calendar entry model class, 
 it is important and fair to note that it has been superseded by [RFC 5545](https://www.rfc-editor.org/rfc/rfc5545), 
 which refines and expands upon its predecessor's specifications.
 
