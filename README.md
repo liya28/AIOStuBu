@@ -97,7 +97,7 @@ If you are a group member, please read the following texts.
 ### Preparing Your Machine
 1. You must use Intellij IDEA for this project. [Download IntelliJ for Windows](https://www.jetbrains.com/idea/download/?fromIDE=%2F&section=windows).
 2. For ease when doing styling and UI work, use Scene Builder. [Download Scene Builder](https://gluonhq.com/products/scene-builder/).
-3. Some components utilize JFoenix for styling. Install the JAR file of JFoenix into the libraries that Scene Builder will use. Do this by going to _Library_ > _Library Settings_ > _JAR/FXML Manager_. Scene Builder has a built-in search function that lets you search for repositories online, so you do not need to download anything.
+3. Some components utilize JFoenix for styling. Install the JAR file of JFoenix into the libraries that Scene Builder will use. Do this by going to _Library_ > _Library Settings_ > _JAR/FXML Manager_. Scene Builder has a built-in search function that lets you search for repositories online, so you do not need to download anything externally.
 
 ### Coding Your Feature
 1. Create a branch from origin/main (or a branch that you are planning to base from).
