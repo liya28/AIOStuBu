@@ -69,9 +69,6 @@ This interface
 ## Design Patterns
 This project utilizes one or more design patterns to provide a seamless and robust programming structure 
 that serves as the pillars of the software architecture being used in this app.
-### Model-View-Controller (MVC) Pattern
-Because the project utilizes the Layered Architecture and because JavaFX projects are structured such that 
-it enforces such patterns, it is imperative to point out that the app, indeed, follows the MVC pattern.
 ### Singleton Pattern 
 Multiple classes in the `Stewboo.Core` use the Singleton Pattern. All the classes implementing 
 [IService](StewBoo/src/main/java/io/serateam/stewboo/core/services/IService.java) 
