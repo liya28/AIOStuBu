@@ -162,7 +162,7 @@ class MyClass
 {
     public MyClass()
     {
-        ...
+        // ...
     }
 }
 
@@ -172,27 +172,27 @@ class MyClass
  */
 public void initialize()
 {
-    ...
+    // ...
 }
 
 public void initializeMenu()
 {
-    ...
+    // ...
 }
 
 public void initializeMenuVariables()
 {
-    ...
+    // ...
 }
 
 public void serializeJsonStringIntoData()
 {
-    ...
+    // ...
 }
 
 public void singLetItGoByIdinaMenzel()
 {
-    ...
+    // ...
 }
 ````
 
