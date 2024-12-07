@@ -8,7 +8,6 @@ Written in Java with JavaFX.
 ## Table of Contents
 - [App Features](#features)
 - [Software Architecture](#architecture)
-- [Class Diagram](#class-diagram)
 - [Design Patterns](#design-patterns)
 - [User Data/File Handling](#user-datafile-handling)
 - [Calendar Compliance with RFC 2445](calendar-compliance-w-rfc-2445)
@@ -53,18 +52,6 @@ The presentation layer, found in the
 directory of the project, 
 is responsible for rendering the user interface components of the application. 
 It utilizes FXML pages that define the structure and layout of the user interface.
-
-## Class Diagram
-This section will only provide the class diagrams defined in the Domain Layer.
-
-### IService
-This interface 
-
-### Pomodoro
-### Calendar
-### Notes
-### Flashcards
-### TodoList
 
 ## Design Patterns
 This project utilizes one or more design patterns to provide a seamless and robust programming structure 
