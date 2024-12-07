@@ -32,26 +32,34 @@ for AIOStubu, but due to time constraints and inexperience with managing medium-
 we later settled for a
 [Layered Software Architecture](https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html).
 
-The dependency of the project arrow goes inwards as follows: 
-`Presentation Layer` --> `Controller Layer` --> `Domain & Data Persistence Layer`   
+The dependency arrow of the project goes inwards as follows: 
+
+`Presentation Layer` --> `Controller Layer` --> `Domain & Data Persistence Layer` 
+
 ### Domain & Data Persistence Layer (Stewboo.Core)
 The focus on creating an offline-first application led to the merging of the **domain layer** with the 
 **data persistence layer** for simplicity. This integration allows for efficient data handling and business 
 logic execution without the overhead of managing separate layers.
+
 ### Controller Layer (Stewboo.UI)
 The controller layer in the `Stewboo.UI` package module acts as an intermediary between the user interface (FXML Pages)
 and the business logic. It handles incoming requests from the presentation layer, processes them, 
 and interacts with the domain layer to retrieve or manipulate data. This separation allows for clear pathways of 
 communication within the application, making it easier to manage user interactions and maintain the app's state.
+
 ### Presentation Layer (FXML Pages)
 The presentation layer, found in the 
 [`resources`](StewBoo/src/main/resources/io/serateam/stewboo/ui/controls) 
 directory of the project, 
 is responsible for rendering the user interface components of the application. 
 It utilizes FXML pages that define the structure and layout of the user interface.
+
 ## Class Diagram
+This section will only provide the class diagrams defined in the Domain Layer.
 
 ### IService
+This interface 
+
 ### Pomodoro
 ### Calendar
 ### Notes
