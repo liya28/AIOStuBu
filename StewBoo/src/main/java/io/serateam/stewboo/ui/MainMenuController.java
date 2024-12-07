@@ -71,6 +71,8 @@ public class MainMenuController implements Initializable {
         btn_calendar.setOnMouseClicked(event -> loadView(SharedVariables.path_calendarFxml));
         btn_todo.setOnMouseClicked(event -> loadView(SharedVariables.path_todolistFxml));
         btn_notes.setOnMouseClicked(event -> loadView(SharedVariables.path_notesFxml));
+
+        ShowSplashScreen();
     }
 
     @FXML
