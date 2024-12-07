@@ -55,7 +55,7 @@
                                        <children>
                                           <Label alignment="TOP_CENTER" style="-fx-text-fill: white; -fx-background-color: linear-gradient(to right, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);" text="One List Closer To Your Dreams" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <font>
-                                                <Font name="Century Gothic Bold Italic" size="18.0" />
+                                                <Font name="Century Gothic Bold " size="18.0" />
                                              </font>
                                           </Label>
                                        </children>

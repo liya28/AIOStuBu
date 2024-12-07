@@ -23,12 +23,12 @@ public class TaskModel implements ISerializable
         return isCompleted;
     }
 
-    void setTaskContent(String taskContent)
+    public void setTaskContent(String taskContent)
     {
         this.taskContent = taskContent;
     }
 
-    void setCompleted(boolean completed)
+    public void setCompleted(boolean completed)
     {
         isCompleted = completed;
     }

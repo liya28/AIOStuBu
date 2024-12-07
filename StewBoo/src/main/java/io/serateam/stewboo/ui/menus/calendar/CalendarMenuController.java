@@ -53,25 +53,39 @@ public class CalendarMenuController implements Initializable, IMenu
 
         /*
             CalendarFX CSS source for Calendar.Style:
-                -style1-color: rgba(119.0, 192.0, 75.0, 0.9);
-                -style2-color: rgba(65.0, 143.0, 203.0, 0.9);
-                -style3-color: rgba(247.0, 209.0, 91.0, 0.9);
-                -style4-color: rgba(157.0, 91.0, 159.0, 0.9);
-                -style5-color: rgba(208.0, 82.0, 95.0, 0.9);
-                -style6-color: rgba(249.0, 132.0, 75.0, 0.9);
-                -style7-color: rgba(174.0, 102.0, 62.0, 0.9);
+                -style1-color: rgba(119.0, 192.0, 75.0, 0.9); // green
+                -style2-color: rgba(65.0, 143.0, 203.0, 0.9); // blue
+                -style3-color: rgba(247.0, 209.0, 91.0, 0.9); // yellow
+                -style4-color: rgba(157.0, 91.0, 159.0, 0.9); // violet?
+                -style5-color: rgba(208.0, 82.0, 95.0, 0.9); // red
+                -style6-color: rgba(249.0, 132.0, 75.0, 0.9); // orange
+                -style7-color: rgba(174.0, 102.0, 62.0, 0.9); // pale orange
         */
         Calendar meetings = createCalendar("Meetings", "M", Style.STYLE3);
         Calendar deadlines = createCalendar("Deadlines", "D", Style.STYLE5);
+        Calendar quizzesAndExams = createCalendar("Quizzes and Exams", "Q", Style.STYLE1);
+        Calendar specialEvents = createCalendar("Special Events", "S", Style.STYLE4);
+        Calendar extracurriculars = createCalendar("Extracurricular Activities", "E", Style.STYLE6);
         Calendar holidays = createCalendar("Holidays", "H", Style.STYLE2);
 
-        CalendarSource stubuCalendarSource = new CalendarSource("MyStubuUser");
-        stubuCalendarSource.getCalendars().addAll(meetings, deadlines, holidays);
-
+        CalendarSource stubuCalendarSource = new CalendarSource("My Calendars");
+        stubuCalendarSource
+                .getCalendars()
+                .addAll(
+                    meetings,
+                    deadlines,
+                    quizzesAndExams,
+                    extracurriculars,
+                    specialEvents,
+                    holidays
+                );
         // Let's group these Calendar objects.
         ui_calendarList = new ArrayList<>();
         ui_calendarList.add(meetings);
         ui_calendarList.add(deadlines);
+        ui_calendarList.add(quizzesAndExams);
+        ui_calendarList.add(specialEvents);
+        ui_calendarList.add(extracurriculars);
         ui_calendarList.add(holidays);
 
         domain_stubuCalendarList = StubuCalendarList.getInstance();
